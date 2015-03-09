@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="ta">
+	<resultMap type="User" id="User">
+		<id column="id" property="id"/>
+		<result column="username" property="username"/>
+		<result column="password" property="password"/>
+		<result column="mobile" property="mobile"/>
+		<result column="email" property="email"/>
+		<result column="last_login_time" property="lastLoginTime"/>
+		<result column="last_login_ip" property="lastLoginIp"/>
+		<result column="creation" property="creation"/>
+		<result column="updation" property="updation"/>
+	</resultMap>
+	
+	<!-- 查询第三方接入服务信息 -->
+	<select id="user-list" resultMap="Bid">
+		select * from bid
+	</select>
+	
+	<insert id="user-insert" parameterType="User">
+		<selectKey keyProperty="id" resultType="int">
+			select @@identity as id 
+		</selectKey>
+		insert into user(
+			id
+			,username
+			,password
+			<if test="mobile != null">
+				,mobile
+			</if>
+			<if test="email != null">
+				,email
+			</if>
+			<if test="lastLoginTime != null">
+				,last_login_time
+			</if>
+			<if test="lastLoginIp != null">
+				,last_login_ip
+			</if>
+			,creation
+			<if test="updation != null">
+				,updation
+			</if>
+		) values(
+			#{id}
+			,#{username}
+			,#{password}
+			<if test="mobile != null">
+				,#{mobile}
+			</if>
+			<if test="email != null">
+				,#{email}
+			</if>
+			<if test="lastLoginTime != null">
+				,#{lastLoginTime}
+			</if>
+			<if test="lastLoginIp != null">
+				,#{lastLoginIp}
+			</if>
+			,#{creation}
+			<if test="updation != null">
+				,#{updation}
+			</if>
+		)
+	</insert>
+</mapper>
