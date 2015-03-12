@@ -83,7 +83,8 @@ body {
 	position: absolute;
 	z-index: 1;
 	top: 45px;
-	bottom: 48px;
+	/*bottom: 48px;*/
+	bottom: 0px;
 	left: 0;
 	width: 100%;
 	background: #ccc;
@@ -192,8 +193,8 @@ body {
 		</ul>
 	</div>
 </div>
-
+<!-- 
 <div id="footer"></div>
-
+ -->
 </body>
 </html>

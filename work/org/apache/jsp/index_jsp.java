@@ -134,7 +134,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\tposition: absolute;\r\n");
       out.write("\tz-index: 1;\r\n");
       out.write("\ttop: 45px;\r\n");
-      out.write("\tbottom: 48px;\r\n");
+      out.write("\t/*bottom: 48px;*/\r\n");
+      out.write("\tbottom: 0px;\r\n");
       out.write("\tleft: 0;\r\n");
       out.write("\twidth: 100%;\r\n");
       out.write("\tbackground: #ccc;\r\n");
@@ -243,9 +244,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t</ul>\r\n");
       out.write("\t</div>\r\n");
       out.write("</div>\r\n");
-      out.write("\r\n");
+      out.write("<!-- \r\n");
       out.write("<div id=\"footer\"></div>\r\n");
-      out.write("\r\n");
+      out.write(" -->\r\n");
       out.write("</body>\r\n");
       out.write("</html>");
     } catch (Throwable t) {
