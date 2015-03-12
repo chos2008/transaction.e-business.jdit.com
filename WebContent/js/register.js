@@ -31,13 +31,15 @@
 			var div_reg_username = document.getElementById("div-reg-username");
 			div_reg_mobile.style.display = "none";
 			div_reg_username.style.display = "block";
-			bt_reg_un.innerHTML = "手机号码注册";
+			bt_reg_un.innerHTML = "手机注册";
 			unbind(bt_reg_un, "click", reg_username);
 			bind(bt_reg_un, "click", reg_mobile);
 		}
 		
 		var bt_reg_un = document.getElementById("bt-reg");
-		bind(bt_reg_un, "click", reg_username);
+		bind(bt_reg_un, "click", reg_mobile);
+		
+		var submit = document.getElementById("submit");
 	};
 	
 })();
