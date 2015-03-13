@@ -2,13 +2,13 @@
 <!DOCTYPE mapper
     PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
     "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
-<mapper namespace="bid">
-	<resultMap type="Bid" id="Bid">
+<mapper namespace="req">
+	<resultMap type="Requirement" id="Requirement">
 		<id column="id" property="id"/>
-		<result column="no" property="no"/>
-		<result column="project_name" property="projectName"/>
+		<result column="user_id" property="userId"/>
+		<result column="title" property="title"/>
 		<result column="amount" property="amount"/>
-		<result column="project_bid_content" property="projectBidContent"/>
+		<result column="content" property="content"/>
 		<result column="start_time" property="startTime"/>
 		<result column="end_time" property="endTime"/>
 		<result column="creation" property="creation"/>
@@ -16,7 +16,7 @@
 	</resultMap>
 	
 	<!-- 查询第三方接入服务信息 -->
-	<select id="bid-list" resultMap="Bid">
-		select * from bid
+	<select id="req-list" resultMap="Requirement">
+		select * from requirement limit #{firstResult}, #{maxResultSize}
 	</select>
 </mapper>

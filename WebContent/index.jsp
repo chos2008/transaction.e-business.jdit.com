@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="/WEB-INF/c.tld"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -123,7 +124,7 @@ body {
 
 #scroller li {
 	padding: 0 10px;
-	height: 40px;
+	/*height: 40px;*/
 	line-height: 40px;
 	border-bottom: 1px solid #ccc;
 	border-top: 1px solid #fff;
@@ -140,56 +141,18 @@ body {
 <div id="wrapper">
 	<div id="scroller">
 		<ul>
-			<li>Pretty row 1</li>
-			<li>Pretty row 2</li>
-			<li>Pretty row 3</li>
-			<li>Pretty row 4</li>
-			<li>Pretty row 5</li>
-			<li>Pretty row 6</li>
-			<li>Pretty row 7</li>
-			<li>Pretty row 8</li>
-			<li>Pretty row 9</li>
-			<li>Pretty row 10</li>
-			<li>Pretty row 11</li>
-			<li>Pretty row 12</li>
-			<li>Pretty row 13</li>
-			<li>Pretty row 14</li>
-			<li>Pretty row 15</li>
-			<li>Pretty row 16</li>
-			<li>Pretty row 17</li>
-			<li>Pretty row 18</li>
-			<li>Pretty row 19</li>
-			<li>Pretty row 20</li>
-			<li>Pretty row 21</li>
-			<li>Pretty row 22</li>
-			<li>Pretty row 23</li>
-			<li>Pretty row 24</li>
-			<li>Pretty row 25</li>
-			<li>Pretty row 26</li>
-			<li>Pretty row 27</li>
-			<li>Pretty row 28</li>
-			<li>Pretty row 29</li>
-			<li>Pretty row 30</li>
-			<li>Pretty row 31</li>
-			<li>Pretty row 32</li>
-			<li>Pretty row 33</li>
-			<li>Pretty row 34</li>
-			<li>Pretty row 35</li>
-			<li>Pretty row 36</li>
-			<li>Pretty row 37</li>
-			<li>Pretty row 38</li>
-			<li>Pretty row 39</li>
-			<li>Pretty row 40</li>
-			<li>Pretty row 41</li>
-			<li>Pretty row 42</li>
-			<li>Pretty row 43</li>
-			<li>Pretty row 44</li>
-			<li>Pretty row 45</li>
-			<li>Pretty row 46</li>
-			<li>Pretty row 47</li>
-			<li>Pretty row 48</li>
-			<li>Pretty row 49</li>
-			<li>Pretty row 50</li>
+			<c:forEach items="${requirements}" var="variable">
+			<li>
+				<div style="margin: 2px 3px 5px 3px; border-top: 0px solid silver; border-bottom: 0px solid silver;">
+					<span style="width: 100%; display: inline-block;"><a href="">${variable.title}-标号${variable.id}</a></span>
+					<span style="width: 100%; display: inline-block;">招标项目金额：${variable.amount}元</span>
+					<div style="width: 100%; line-height: 20px; text-align: left; font-size: 10px">
+						${variable.content}
+					</div>
+					<span style="width: 100%; display: inline-block;">招标时间：${variable.startTime}</span>
+				</div>
+			</li>
+			</c:forEach>
 		</ul>
 	</div>
 </div>

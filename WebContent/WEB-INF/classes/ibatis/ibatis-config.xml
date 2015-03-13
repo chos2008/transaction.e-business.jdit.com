@@ -6,12 +6,14 @@
 
 	<typeAliases>
 		<typeAlias type="org.chos.transaction.Bid" alias="Bid"/>
+		<typeAlias type="org.chos.transaction.Requirement" alias="Requirement"/>
 		<typeAlias type="org.chos.transaction.User" alias="User"/>
 	</typeAliases>
 		
 
 	<mappers>
 		<mapper resource="ibatis/User.xml" />
+		<mapper resource="ibatis/Requirement.xml" />
 		<mapper resource="ibatis/Bid.xml" />
 	</mappers>
 	
