@@ -13,25 +13,25 @@
 	<!--  -moz-box-flex:3; -webkit-box-flex:3; box-flex:3; -->
 	<div style="width: 70px; text-align: center;">
 		<div style="height: 70px; border: 1px solid silver;">
-			<label title="paypal" class="icon-paypal" style="width: 100%; display: block;"></label>
+			<label title="paypal" class="icon-paypal" style="height: 50px; width: 100%; line-height: 70px; display: block; background: url('../images/i_96x96.png'); background-size: 62px 62px; background-position: center; background-repeat: no-repeat;"></label>
 			<label style="width: 100%; display: block;"><a href="../bid/list.shtml">我的标书</a></label>
 		</div>
 	</div>
 	<div style="width: 70px; text-align: center;">
 		<div style="height: 70px; border: 1px solid silver;">
-			<label title="google wallet" class="icon-google-wallet" style="width: 100%; display: block;"></label>
+			<label title="google wallet" class="icon-google-wallet" style="height: 50px; width: 100%; line-height: 70px; display: block; background: url('../images/c_108x108.png'); background-size: 48px 48px; background-position: center; background-repeat: no-repeat;"></label>
 			<label style="width: 100%; display: block;"><a href="../bid.jsp">招标</a></label>
 		</div>
 	</div>
 	<div style="width: 70px; text-align: center;">
 		<div style="height: 70px; border: 1px solid silver;">
-			<label title="stripe" class="icon-cc-stripe" style="width: 100%; display: block;"></label>
+			<label title="stripe" class="icon-cc-stripe" style="height: 50px; width: 100%; line-height: 70px; display: block; background: url('../images/aqt.png'); background-size: 52px 52px; background-position: center; background-repeat: no-repeat;"></label>
 			<label style="width: 100%; display: block;"><a href="">竞标</a></label>
 		</div>
 	</div>
 	<div style="width: 70px; text-align: center;">
 		<div style="height: 70px; border: 1px solid silver;">
-			<label title="amex" class="icon-cc-amex" style="width: 100%; display: block;"></label>
+			<label title="amex" class="icon-cc-amex" style="height: 50px; width: 100%; line-height: 70px; display: block; background: url('../images/i.png'); background-size: 36px 36px; background-position: center; background-repeat: no-repeat;"></label>
 			<label style="width: 100%; display: block;"><a href="">我的账号</a></label>
 		</div>
 	</div>
@@ -40,25 +40,25 @@
 <div style="width: 100%; display: -moz-box; display: -webkit-box; display: box; box-pack: center; -moz-box-pack: center; -webkit-box-pack: center; -o-box-pack: center;">
 	<div style="width: 70px; text-align: center;">
 		<div style="height: 70px; border: 1px solid silver;">
-			<label title="paypal" class="icon-paypal" style="width: 100%; display: block;"></label>
-			<label style="width: 100%; display: block;"><a href="">我的需求</a></label>
+			<label title="paypal" class="icon-paypal" style="height: 50px; width: 100%; line-height: 70px; display: block; background: url('../images/b_108x108.png'); background-size: 48px 48px; background-position: center; background-repeat: no-repeat;"></label>
+			<label style="width: 100%; display: block;"><a href="" >我的需求</a></label>
 		</div>
 	</div>
 	<div style="width: 70px; text-align: center;">
 		<div style="height: 70px; border: 1px solid silver;">
-			<label title="google wallet" class="icon-google-wallet" style="width: 100%; display: block;"></label>
+			<label title="google wallet" class="icon-google-wallet" style="height: 50px; width: 100%; line-height: 70px; display: block; background: url('../images/a_108x108.png'); background-size: 48px 48px; background-position: center; background-repeat: no-repeat;"></label>
 			<label style="width: 100%; display: block;"><a href="../investment.jsp">发布需求</a></label>
 		</div>
 	</div>
 	<div style="width: 70px; text-align: center;">
 		<div style="height: 70px; border: 1px solid silver;">
-			<label title="stripe" class="icon-cc-stripe" style="width: 100%; display: block;"></label>
-			<label style="width: 100%; display: block;"><a href="">寻找投资</a></label>
+			<label title="stripe" class="icon-cc-stripe" style="height: 50px; width: 100%; line-height: 70px; display: block; background: url('../images/aa1_60x60.png'); background-size: 48px 48px; background-position: center; background-repeat: no-repeat;"></label>
+			<label style="width: 100%; display: block;"><a href="../investment/splash.jsp">寻找投资</a></label>
 		</div>
 	</div>
 	<div style="width: 70px; text-align: center;">
 		<div style="height: 70px; border: 1px solid silver;">
-			<label title="amex" class="icon-cc-amex" style="width: 100%; display: block;"></label>
+			<label title="amex" class="icon-cc-amex" style="height: 50px; width: 100%; line-height: 70px; display: block; background: url('../images/afe.png'); background-size: 62px 62px; background-position: center; background-repeat: no-repeat;"></label>
 			<label style="width: 100%; display: block;"><a href="">成功案例</a></label>
 		</div>
 	</div>
