@@ -15,7 +15,7 @@
 <body topmargin="0" rightmargin="0" bottommargin="0" leftmargin="0" marginheight="0" marginwidth="0">
 <div style="width: 100%; min-height: 200px; height: 100%;">
 	<div style="width: 100%; height: 35px; line-height: 35px; text-align: center; border: 0px solid silver; border-bottom: 1px solid silver;">
-	    <label>注册</label>
+	    <label>完善商家信息</label>
 	</div>
 
 	<div style="width: 100%;">
@@ -60,7 +60,7 @@
 					</div>
 				</div>
 				<div class="form-item" style=" margin-top: 2px; margin-bottom: 5px;">
-					<a id="submit" href="register-success.jsp" name="submit" style="width: 100%; height: 44px; line-height: 44px; display: block; color: #fff; background-color: #ff3c3c; border-radius: 5px; -webkit-border-radius: 5px;text-align: center; font-size: 1.4rem;">注册</a>
+					<a id="submit" href="user/index.jsp" name="submit" style="width: 100%; height: 44px; line-height: 44px; display: block; color: #fff; background-color: #ff3c3c; border-radius: 5px; -webkit-border-radius: 5px;text-align: center; font-size: 1.4rem;">注册</a>
 				</div>
 			</form>
 		</div>

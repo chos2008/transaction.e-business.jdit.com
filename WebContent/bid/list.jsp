@@ -271,7 +271,8 @@ body {
 </div>
 <div id="wrapper">
 	<div id="scroller">
-		<div id="pullDown">
+		
+		<div id="pullDown" style="position: relative;">
 			<span class="pullDownIcon"></span><span class="pullDownLabel">向下拖动刷新...</span>
 		</div>
 
@@ -295,6 +296,7 @@ body {
 				上海正旅网络科技有限公司版权所有 2008-2014 <a href="#" target="_blank" seed="copyright-link" smartracker="on"></a>
 			</div>
 		</div>
+		
 	</div>
 </div>
 <!-- 

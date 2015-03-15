@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class register2_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class register_002dbusinesses_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -71,7 +71,7 @@ public final class register2_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<body topmargin=\"0\" rightmargin=\"0\" bottommargin=\"0\" leftmargin=\"0\" marginheight=\"0\" marginwidth=\"0\">\r\n");
       out.write("<div style=\"width: 100%; min-height: 200px; height: 100%;\">\r\n");
       out.write("\t<div style=\"width: 100%; height: 35px; line-height: 35px; text-align: center; border: 0px solid silver; border-bottom: 1px solid silver;\">\r\n");
-      out.write("\t    <label>注册</label>\r\n");
+      out.write("\t    <label>完善商家信息</label>\r\n");
       out.write("\t</div>\r\n");
       out.write("\r\n");
       out.write("\t<div style=\"width: 100%;\">\r\n");
@@ -116,7 +116,7 @@ public final class register2_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t</div>\r\n");
       out.write("\t\t\t\t</div>\r\n");
       out.write("\t\t\t\t<div class=\"form-item\" style=\" margin-top: 2px; margin-bottom: 5px;\">\r\n");
-      out.write("\t\t\t\t\t<a id=\"submit\" href=\"register-success.jsp\" name=\"submit\" style=\"width: 100%; height: 44px; line-height: 44px; display: block; color: #fff; background-color: #ff3c3c; border-radius: 5px; -webkit-border-radius: 5px;text-align: center; font-size: 1.4rem;\">注册</a>\r\n");
+      out.write("\t\t\t\t\t<a id=\"submit\" href=\"user/index.jsp\" name=\"submit\" style=\"width: 100%; height: 44px; line-height: 44px; display: block; color: #fff; background-color: #ff3c3c; border-radius: 5px; -webkit-border-radius: 5px;text-align: center; font-size: 1.4rem;\">注册</a>\r\n");
       out.write("\t\t\t\t</div>\r\n");
       out.write("\t\t\t</form>\r\n");
       out.write("\t\t</div>\r\n");

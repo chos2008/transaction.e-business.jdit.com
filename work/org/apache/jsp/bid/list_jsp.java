@@ -331,7 +331,8 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</div>\r\n");
       out.write("<div id=\"wrapper\">\r\n");
       out.write("\t<div id=\"scroller\">\r\n");
-      out.write("\t\t<div id=\"pullDown\">\r\n");
+      out.write("\t\t\r\n");
+      out.write("\t\t<div id=\"pullDown\" style=\"position: relative;\">\r\n");
       out.write("\t\t\t<span class=\"pullDownIcon\"></span><span class=\"pullDownLabel\">向下拖动刷新...</span>\r\n");
       out.write("\t\t</div>\r\n");
       out.write("\r\n");
@@ -347,6 +348,7 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t上海正旅网络科技有限公司版权所有 2008-2014 <a href=\"#\" target=\"_blank\" seed=\"copyright-link\" smartracker=\"on\"></a>\r\n");
       out.write("\t\t\t</div>\r\n");
       out.write("\t\t</div>\r\n");
+      out.write("\t\t\r\n");
       out.write("\t</div>\r\n");
       out.write("</div>\r\n");
       out.write("<!-- \r\n");
@@ -377,9 +379,9 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f0.setParent(null);
-    // /bid/list.jsp(279,3) name = items type = java.lang.Object reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /bid/list.jsp(280,3) name = items type = java.lang.Object reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${bids}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
-    // /bid/list.jsp(279,3) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /bid/list.jsp(280,3) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setVar("variable");
     int[] _jspx_push_body_count_c_005fforEach_005f0 = new int[] { 0 };
     try {
