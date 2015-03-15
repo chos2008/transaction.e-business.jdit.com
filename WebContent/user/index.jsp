@@ -65,25 +65,25 @@
 </div>
 
 
-<div class="copyright" style="text-align: center;">
+<div class="copyright" style="position: absolute; width: 100%; bottom: 0px; text-align: center;">
 	<div style="width: 100%; display: -moz-box; display: -webkit-box; display: box; box-pack: center; -moz-box-pack: center; -webkit-box-pack: center; -o-box-pack: center;">
 		<!--  -moz-box-flex:3; -webkit-box-flex:3; box-flex:3; -->
-		<p style="width: 70px; height: 36px; text-align: center;">
+		<p style="width: 70px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
 			<a href="../login.jsp">登录</a>
 		</p>
-		<p style="width: 70px; height: 36px; text-align: center;">
+		<p style="width: 70px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
 			<a href="../register2.jsp">注册</a>
 		</p>
 	</div>
 	<div style="width: 100%; display: -moz-box; display: -webkit-box; display: box; box-pack: center; -moz-box-pack: center; -webkit-box-pack: center; -o-box-pack: center;">
 		<!--  -moz-box-flex:3; -webkit-box-flex:3; box-flex:3; -->
-		<p style="width: 70px; height: 36px; text-align: center;">
+		<p style="width: 70px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
 			<a href="../login.jsp">触屏版</a>
 		</p>
-		<p style="width: 70px; height: 36px; text-align: center;">
+		<p style="width: 70px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
 			<a href="../register.jsp">极速版</a>
 		</p>
-		<p style="width: 70px; height: 36px; text-align: center;">
+		<p style="width: 70px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
 			<a href="../register.jsp">电脑版</a>
 		</p>
 	</div>
