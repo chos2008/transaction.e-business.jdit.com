@@ -11,15 +11,15 @@
 <body>
 <div style="width: 100%;">
 	<div style="margin: 2px 5px 3px; border: 1px solid silver;">
-		<input type="text" name="pname" placeholder="请填写招标项目名称" style="width: 100%; height: 35px; border: 0px solid red;"/>
+		<input type="text" name="pname" placeholder="请填写招标项目名称" style="width: 100%; height: 35px; border: 0px solid red; margin: 0px 0px; padding: 0px 0px;"/>
 	</div>
 	
 	<div style="margin: 2px 5px 3px; border: 1px solid silver;">
-		<input type="text" name="pname" placeholder="手机/电子邮箱" style="width: 100%; height: 35px; border: 0px solid red;"/>
+		<input type="text" name="pname" placeholder="手机/电子邮箱" style="width: 100%; height: 35px; border: 0px solid red; margin: 0px 0px; padding: 0px 0px;"/>
 	</div>
 	
 	<div style="margin: 2px 5px 3px; border: 1px solid silver;">
-		<input type="text" name="pname" placeholder="请填写招标项目金额" style="width: 100%; height: 35px; border: 0px solid red;"/>
+		<input type="text" name="pname" placeholder="请填写招标项目金额" style="width: 100%; height: 35px; border: 0px solid red; margin: 0px 0px; padding: 0px 0px;"/>
 	</div>
 	
 	<div style="margin: 2px 5px 3px; border: 1px solid silver;">
@@ -27,11 +27,11 @@
 	</div>
 	
 	<div style="margin: 2px 5px 3px; border: 1px solid silver;">
-		<input type="text" name="pname" placeholder="请填写招标项目结束时间" style="width: 100%; height: 35px; border: 0px solid red;"/>
+		<input type="text" name="pname" placeholder="请填写招标项目结束时间" style="width: 100%; height: 35px; border: 0px solid red; margin: 0px 0px; padding: 0px 0px;"/>
 	</div>
 	
 	<div style="margin: 2px 5px 3px; border: 1px solid silver; text-align: center;">
-		<input type="submit" value="发布招标项目" style="width: 100%; height: 35px; border: 1px solid red;"/>
+		<input type="submit" value="发布招标项目" style="width: 100%; height: 35px; border: 1px solid red; margin: 0px 0px; padding: 0px 0px;"/>
 	</div>
 </div>
 </body>

@@ -55,10 +55,11 @@ public final class splash_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<html>\r\n");
       out.write("<head>\r\n");
       out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
+      out.write("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0\" />\r\n");
       out.write("<title>VC 在哪里...</title>\r\n");
       out.write("</head>\r\n");
       out.write("<body style=\"margin: 0px 0px;\">\r\n");
-      out.write("<div style=\"position: absolute;width: 100%; height: 100%; display: inline-block; background: url('../images/vc.jpg'); background-position: center center; background-repeat: no-repeat; background-size: cover;\">\r\n");
+      out.write("<div style=\"position: absolute;width: 100%; height: 100%; display: inline-block; background: url('../images/vc.jpg'); background-position: center center; background-repeat: no-repeat; background-size: 100% 100%;\">\r\n");
       out.write("\r\n");
       out.write("</div>\r\n");
       out.write("</body>\r\n");
