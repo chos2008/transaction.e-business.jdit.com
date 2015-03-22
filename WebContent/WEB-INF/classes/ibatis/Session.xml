@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="session">
+	<resultMap type="Session" id="Session">
+		<id column="id" property="id"/>
+		<result column="ut" property="token"/>
+		<result column="user_id" property="userId"/>
+		<result column="username" property="username"/>
+		<result column="expire_time" property="expireTime"/>
+		<result column="last_refresh_time" property="lastRefreshTime"/>
+		<result column="creation" property="creation"/>
+		<result column="updation" property="updation"/>
+	</resultMap>
+	
+	<select id="getCurrentSession" resultMap="Session" parameterType="string">
+		select * from global_session where ut = #{ut}
+	</select>
+	
+	<insert id="openSession" parameterType="Session">
+		<selectKey keyProperty="id" resultType="int">
+			select @@identity as id 
+		</selectKey>
+		insert into global_session(
+			id
+			,ut
+			,user_id
+			,username
+			<if test="expireTime != null">
+				,expire_time
+			</if>
+			<if test="lastRefreshTime != null">
+				,last_refresh_time
+			</if>
+			,creation
+			<if test="updation != null">
+				,updation
+			</if>
+		) values(
+			#{id}
+			,#{token}
+			,#{userId}
+			,#{username}
+			<if test="expireTime != null">
+				,#{expireTime}
+			</if>
+			<if test="lastRefreshTime != null">
+				,#{lastRefreshTime}
+			</if>
+			,#{creation}
+			<if test="updation != null">
+				,#{updation}
+			</if>
+		)
+	</insert>
+</mapper>

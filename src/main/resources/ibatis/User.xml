@@ -16,8 +16,8 @@
 	</resultMap>
 	
 	<!-- 查询第三方接入服务信息 -->
-	<select id="user-list" resultMap="User">
-		select * from user
+	<select id="user-getByUsername" resultMap="User" parameterType="string">
+		select * from user where username = #{username}
 	</select>
 	
 	<insert id="user-insert" parameterType="User">
