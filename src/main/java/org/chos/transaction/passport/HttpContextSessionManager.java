@@ -13,10 +13,12 @@
  */
 package org.chos.transaction.passport;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.chos.servlet.http.Cookie;
 import org.chos.transaction.User;
+import org.chos.transaction.UserService;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,16 +33,84 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class HttpContextSessionManager {
+	
+	private static final String USER_TOKEN = "ut";
 
 	@Autowired()
 	private SqlSessionTemplate template;
 	
-	public Session openSession(User user, HttpServletResponse response) {
+	@Autowired
+	private UserService userService;
+	
+	@Autowired
+	private SessionManager sessionManager;
+	
+	private javax.servlet.http.Cookie getCookie(HttpServletRequest request, String name) {
+		javax.servlet.http.Cookie[] cookies = request.getCookies();
+		for (javax.servlet.http.Cookie cookie : cookies) {
+			if (cookie.getName().equals(name)) {
+				return cookie;
+			}
+		}
+		return null;
+	}
+	
+	public Session getSession(long userId, String ut, HttpServletResponse response) {
+		Session session = sessionManager.getSession(ut);
+		if (session == null) {
+			session = sessionManager.getSession(userId);
+			if (session == null) {
+				User user = userService.getUser(userId);
+				return openSession(user, response);
+			}
+			return session;
+		}
+		return session;
+	}
+	
+	public Session getSession(long userId, HttpServletRequest request, HttpServletResponse response) {
+		javax.servlet.http.Cookie cookie = getCookie(request, USER_TOKEN);
+		if (cookie == null) {
+			Session session = sessionManager.getSession(userId);
+			if (session == null) {
+				User user = userService.getUser(userId);
+				return openSession(user, response);
+			}
+			return session;
+		}
+		return getSession(userId, cookie.getValue(), response);
+	}
+	
+	public Session getSession(User user, String ut, HttpServletResponse response) {
+		Session session = sessionManager.getSession(ut);
+		if (session == null) {
+			session = sessionManager.getSession(user.getId());
+			if (session == null) {
+				return openSession(user, response);
+			}
+			return session;
+		}
+		return session;
+	}
+	
+	public Session getSession(User user, HttpServletRequest request, HttpServletResponse response) {
+		javax.servlet.http.Cookie cookie = getCookie(request, USER_TOKEN);
+		if (cookie == null) {
+			Session session = sessionManager.getSession(user.getId());
+			if (session == null) {
+				return openSession(user, response);
+			}
+			return session;
+		}
+		return getSession(user, cookie.getValue(), response);
+	}
+	
+	private Session openSession(User user, HttpServletResponse response) {
 		Session session = new Session();
 		session.setUserId(user.getId());
 		session.setUsername(user.getUsername());
 		template.insert("openSession", session);
-		Cookie cookie = new Cookie("ut", session.getToken());
+		Cookie cookie = new Cookie(USER_TOKEN, session.getToken());
 //		cookie.setSecure(true);
 		cookie.setHttpOnly(true);
 		response.addCookie(cookie);

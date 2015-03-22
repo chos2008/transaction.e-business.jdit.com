@@ -8,81 +8,11 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <title>谁是谁的菜</title>
 
-<script type="text/javascript">
-	function unbind(dom, type, listener) {
-		if (dom.removeEventListener) {
-			dom.removeEventListener(type, listener, false);
-		} else {
-			dom.detachEvent("on" + type, listener);
-		}
-	}
-	
-	function bind(dom, type, listener) {
-		if (dom.addEventListener) {
-			dom.addEventListener(type, listener, false);
-		} else {
-			dom.attachEvent("on" + type, listener);
-		}
-	}
-
-	function back() {
-		var i = document.getElementById('investment');
-		var sp = document.getElementById('sp');
-		
-		sp.style.display = 'none';
-		i.style.display = 'none';
-		
-		var menuItem = document.getElementById('menu-item');
-		menuItem.style.display = 'block';
-	}
-	
-	function commit(investment) {
-		var menuItem = document.getElementById('menu-item');
-		menuItem.style.display = 'none';
-		if (investment == 1) {
-			var i = document.getElementById('investment');
-			var sp = document.getElementById('sp');
-			
-			sp.style.display = 'block';
-			i.style.display = 'none';
-			
-			var b = document.getElementById('nav-back');
-			unbind(b, "click", back);
-			bind(b, "click", back);
-		} else if(investment == 2) {
-			var i = document.getElementById('investment');
-			var sp = document.getElementById('sp');
-			
-			sp.style.display = 'none';
-			i.style.display = 'block';
-			
-			var b = document.getElementById('nav-back');
-			unbind(b, "click", back);
-			bind(b, "click", back);
-		} else {
-			
-		}
-	}
-	
-	function onsole() {
-		var project = document.getElementById('project');
-		project.placeholder = "请描述您的需求";
-		
-		var submit = document.getElementById('submit-investment');
-		submit.value = "发布需求";
-	}
-	
-	function oncompany() {
-		var project = document.getElementById('project');
-		project.placeholder = "请描述您要发布的生意";
-		
-		var submit = document.getElementById('submit-investment');
-		submit.value = "发布生意";
-	}
-</script>
+<script type="text/javascript" src="js/zepto/zepto.min.js"></script>
+<script type="text/javascript" src="js/investment.js"></script>
 </head>
 <body style="margin: 0px 0px; padding: 0px 0px;">
-<div id="nav" style="width = 100%;">
+<div id="nav" style="width: 100%;">
 	<div style="width: 100%; display: -moz-box; display: -webkit-box; display: box; box-pack: center; -moz-box-pack: center; -webkit-box-pack: center; -o-box-pack: center;">
 		<!--  -moz-box-flex:3; -webkit-box-flex:3; box-flex:3; -->
 		<p id="nav-back" style="width: 70px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
@@ -184,6 +114,30 @@
 		
 		<div style="margin: 2px 5px 3px; border: 1px solid silver; text-align: center;">
 			<input type="submit" value="发布招标项目" style="width: 100%; height: 35px; border: 1px solid red;"/>
+		</div>
+	</div>
+</div>
+
+<div id="sole" style="display: none;">
+	<div style="width: 100%;">
+		<div style="margin: 2px 5px 3px; border: 1px solid silver;">
+			<input id="sole_requirement" type="text" name="pname" placeholder="请描述您的需求" style="width: 100%; height: 35px; border: 0px solid red;"/>
+		</div>
+		
+		<div style="margin: 2px 5px 3px; border: 1px solid silver;">
+			<input id="sole_contacts" type="text" name="pname" placeholder="手机/电子邮箱" style="width: 100%; height: 35px; border: 0px solid red;"/>
+		</div>
+		
+		<div style="margin: 2px 5px 3px; border: 1px solid silver;">
+			<input id="sole_amount" type="text" name="pname" placeholder="请填写招标项目金额" style="width: 100%; height: 35px; border: 0px solid red;"/>
+		</div>
+		
+		<div style="margin: 2px 5px 3px; border: 1px solid silver;">
+			<textarea id="sole_comment" rows="20" spellcheck="true" contenteditable="true" placeholder="请填写您的具体要求" style="width: 100%; border: 0px solid red; margin: 0px 0px; padding: 0px 0px; resize: none;"></textarea>
+		</div>
+		
+		<div style="margin: 2px 5px 3px; border: 1px solid silver; text-align: center;">
+			<input id="sole_submit" type="submit" value="发布" style="width: 100%; height: 35px; border: 1px solid red;"/>
 		</div>
 	</div>
 </div>

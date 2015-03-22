@@ -26,4 +26,6 @@ import java.util.List;
 public interface RequirementService {
 
 	public List<Requirement> list(long firstResult, int maxResultSize);
+	
+	public void issue(Requirement requirement);
 }

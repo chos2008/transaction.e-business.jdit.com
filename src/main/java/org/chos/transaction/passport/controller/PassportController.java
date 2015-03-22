@@ -116,7 +116,7 @@ public class PassportController {
 			resp.put("code", 1002);
 			return resp;
 		}
-		httpContextSessionManager.openSession(user, new ChosHttpServletResponse(response));
+		httpContextSessionManager.getSession(user, request, new ChosHttpServletResponse(response));
 		resp.put("code", 0);
 		return resp;
 	}

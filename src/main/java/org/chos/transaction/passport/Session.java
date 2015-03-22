@@ -31,7 +31,7 @@ public class Session {
 	
 	private String token;
 	
-	private int userId;
+	private long userId;
 	
 	private String username;
 	
@@ -85,14 +85,14 @@ public class Session {
 	/**
 	 * @return the userId
 	 */
-	public int getUserId() {
+	public long getUserId() {
 		return userId;
 	}
 
 	/**
 	 * @param userId the userId to set
 	 */
-	public void setUserId(int userId) {
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
 

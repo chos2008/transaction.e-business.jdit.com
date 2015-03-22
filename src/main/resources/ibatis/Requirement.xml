@@ -15,8 +15,50 @@
 		<result column="updation" property="updation"/>
 	</resultMap>
 	
-	<!-- 查询第三方接入服务信息 -->
 	<select id="req-list" resultMap="Requirement">
 		select * from requirement limit #{firstResult}, #{maxResultSize}
 	</select>
+	
+	<insert id="issue" parameterType="Requirement">
+		<selectKey keyProperty="id" resultType="int">
+			select @@identity as id 
+		</selectKey>
+		insert into requirement(
+			id
+			,user_id
+			,title
+			,amount
+			<if test="content != null">
+				,content
+			</if>
+			<if test="startTime != null">
+				,start_time
+			</if>
+			<if test="endTime != null">
+				,end_time
+			</if>
+			,creation
+			<if test="updation != null">
+				,updation
+			</if>
+		) values(
+			#{id}
+			,#{userId}
+			,#{title}
+			,#{amount}
+			<if test="content != null">
+				,#{content}
+			</if>
+			<if test="startTime != null">
+				,#{startTime}
+			</if>
+			<if test="endTime != null">
+				,#{endTime}
+			</if>
+			,#{creation}
+			<if test="updation != null">
+				,#{updation}
+			</if>
+		)
+	</insert>
 </mapper>

@@ -25,7 +25,7 @@ import java.util.Date;
  */
 public class User {
 
-	private int id;
+	private long id;
 	
 	private String username;
 	
@@ -46,14 +46,14 @@ public class User {
 	/**
 	 * @return the id
 	 */
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

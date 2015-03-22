@@ -13,6 +13,12 @@
  */
 package org.chos.transaction.passport;
 
+import java.util.List;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 /**
  * 
  * 
@@ -21,6 +27,17 @@ package org.chos.transaction.passport;
  * @version 1.0  2015-3-22 ÏÂÎç03:45:00
  * @since 1.0
  */
+@Service
 public class SessionManagerImpl implements SessionManager {
 
+	@Autowired()
+	private SqlSessionTemplate template;
+	
+	public Session getSession(long userId) {
+		return template.selectOne("getSessionByUserId", userId);
+	}
+	
+	public Session getSession(String ut) {
+		return template.selectOne("getSession", ut);
+	}
 }

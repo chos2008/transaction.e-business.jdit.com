@@ -41,4 +41,8 @@ public class RequirementServiceImpl implements RequirementService {
 		param.put("maxResultSize", maxResultSize);
 		return template.selectList("req-list", param);
 	}
+	
+	public void issue(Requirement requirement) {
+		template.insert("issue", requirement);
+	}
 }

@@ -26,4 +26,6 @@ public interface UserService {
 	public void create(User user);
 	
 	public User getUser(String username);
+	
+	public User getUser(long userId);
 }

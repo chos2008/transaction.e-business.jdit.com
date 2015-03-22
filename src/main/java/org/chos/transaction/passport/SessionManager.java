@@ -28,4 +28,15 @@ public interface SessionManager {
 	 */
 	public static int GLOBAL_SESSION_EXPIRE_TIME = 1;
 	
+	/**
+	 * @param userId
+	 * @return
+	 */
+	public Session getSession(long userId);
+	
+	/**
+	 * @param ut
+	 * @return
+	 */
+	public Session getSession(String ut);
 }

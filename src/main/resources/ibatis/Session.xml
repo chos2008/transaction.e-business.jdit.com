@@ -14,8 +14,12 @@
 		<result column="updation" property="updation"/>
 	</resultMap>
 	
-	<select id="getCurrentSession" resultMap="Session" parameterType="string">
+	<select id="getSession" resultMap="Session" parameterType="string">
 		select * from global_session where ut = #{ut}
+	</select>
+	
+	<select id="getSessionByUserId" resultMap="Session" parameterType="long">
+		select * from global_session where user_id = #{userId}
 	</select>
 	
 	<insert id="openSession" parameterType="Session">

@@ -37,8 +37,11 @@ public class UserServiceImpl implements UserService {
 		template.insert("user-insert", user);
 	}
 	
+	public User getUser(long userId) {
+		return template.selectOne("user-getByUserId", userId);
+	}
+	
 	public User getUser(String username) {
-		List<User> list = template.selectList("user-getByUsername", username);
-		return list.isEmpty() ? null : list.get(0);
+		return template.selectOne("user-getByUsername", username);
 	}
 }
