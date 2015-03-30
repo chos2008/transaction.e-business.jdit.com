@@ -1,5 +1,5 @@
 /*
- * @(#)BusinessPassportController.java	1.0 2015-3-22 œ¬ŒÁ02:16:09
+ * @(#)BusinessPassportController.java	1.0 2015-3-22 ‰∏ãÂçà02:16:09
  *
  * Copyright 2008 WWW.YHD.COM. All rights reserved.
  *      YIHAODIAN PROPRIETARY/CONFIDENTIAL. 
@@ -35,7 +35,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * 
  * 
  * @author ada
- * @version 1.0  2015-3-22 œ¬ŒÁ02:16:09
+ * @version 1.0  2015-3-22 ‰∏ãÂçà02:16:09
  * @since 1.0
  */
 @Controller

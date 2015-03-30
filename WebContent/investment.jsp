@@ -129,10 +129,6 @@
 		</div>
 		
 		<div style="margin: 2px 5px 3px; border: 1px solid silver;">
-			<input id="sole_amount" type="text" name="pname" placeholder="请填写招标项目金额" style="width: 100%; height: 35px; border: 0px solid red;"/>
-		</div>
-		
-		<div style="margin: 2px 5px 3px; border: 1px solid silver;">
 			<textarea id="sole_comment" rows="20" spellcheck="true" contenteditable="true" placeholder="请填写您的具体要求" style="width: 100%; border: 0px solid red; margin: 0px 0px; padding: 0px 0px; resize: none;"></textarea>
 		</div>
 		

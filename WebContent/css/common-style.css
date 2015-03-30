@@ -1,0 +1,68 @@
+@CHARSET "UTF-8";
+
+.full-screen {
+	width: 100%; 
+	position: absolute; 
+	top: 0px; 
+	bottom: 0px; 
+	background-image: url('../images/vc.jpg'); 
+	background-position: center center; 
+	background-repeat: no-repeat; 
+	background-size: 100% 100%;
+}
+
+.menu-bar, .nav-bar {
+	height: 40px; 
+	width: 100%; 
+	position: fixed; 
+	background-color: blue; 
+	z-index: 1000; 
+	opacity: 0.6; 
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr='#80000000', EndColorStr='#80000000');
+}
+
+.menu-bar-2_0, .nav-bar-2_0 {
+	position: absolute; 
+	top: 0px; 
+}s
+
+.nav-bar .nav-bar-box {
+	width: 100%; 
+	display: -moz-box; 
+	display: -webkit-box; 
+	display: box; 
+	box-pack: center; 
+	-moz-box-pack: center; 
+	-webkit-box-pack: center; 
+	-o-box-pack: center;
+}
+
+.nav-bar .nav-bar-box .nav-bar-box-item {
+	width: 100%; 
+	height: 40px; 
+	line-height: 40px; 
+	display: -moz-box; 
+	display: -webkit-box; 
+	display: box; 
+	box-flex: 1; 
+	-moz-box-flex: 1; 
+	-webkit-box-flex: 1; 
+	box-pack: start; 
+	-moz-box-pack: start; 
+	-webkit-box-pack: start; 
+	-o-box-pack: start;
+}
+
+.nav-bar .nav-bar-box .nav-bar-box-center-item {
+	box-pack: center; 
+	-moz-box-pack: center; 
+	-webkit-box-pack: center; 
+	-o-box-pack: center;
+}
+
+.nav-bar .nav-bar-box .nav-bar-box-end-item {
+	box-pack: end; 
+	-moz-box-pack: end; 
+	-webkit-box-pack: end; 
+	-o-box-pack: end;
+}

@@ -1,31 +1,32 @@
+Tips = function(context, title) {
+	// 错误弹窗
+    var _popTimer = true;
+	function _show() {
+		if(_popTimer){
+            _popTimer = false;
+            
+            var html = $("#" + context).html();
+			var t = $(html);
+			$(document.body).append(t);
+			
+			t.html(title);
+            t.css("display", "block");
+            setTimeout(function(){
+                _popTimer = true;
+                t.css("display", "none");
+                t.remove();
+            },2000);
+        }
+	}
+	
+	return {
+		show: _show
+	};
+};
 (function() {
 	window.onload = function() {
 		
-		Tips = function(context, title) {
-			// 错误弹窗
-		    var _popTimer = true;
-			function _show() {
-				if(_popTimer){
-		            _popTimer = false;
-		            
-		            var html = $("#" + context).html();
-					var t = $(html);
-					$(document.body).append(t);
-					
-					t.html(title);
-		            t.css("display", "block");
-		            setTimeout(function(){
-		                _popTimer = true;
-		                t.css("display", "none");
-		                t.remove();
-		            },2000);
-		        }
-			}
-			
-			return {
-				show: _show
-			};
-		};
+		
 		
 		var submit = document.getElementById("submit");
 		$('#submit').on('click', function() {
@@ -131,17 +132,18 @@ function commit(investment) {
 		unbind(b, "click", back);
 		bind(b, "click", back);
 	} else {
-		var i = document.getElementById('investment');
-		var sp = document.getElementById('sp');
-		var sole = document.getElementById("sole");
-		
-		sp.style.display = 'none';
-		i.style.display = 'none';
-		sole.style.display = 'block';
-		
-		var b = document.getElementById('nav-back');
-		unbind(b, "click", back);
-		bind(b, "click", back);
+//		var i = document.getElementById('investment');
+//		var sp = document.getElementById('sp');
+//		var sole = document.getElementById("sole");
+//		
+//		sp.style.display = 'none';
+//		i.style.display = 'none';
+//		sole.style.display = 'block';
+//		
+//		var b = document.getElementById('nav-back');
+//		unbind(b, "click", back);
+//		bind(b, "click", back);
+		location.href = "issue.jsp";
 	}
 }
 

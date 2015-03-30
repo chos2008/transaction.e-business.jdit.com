@@ -15,9 +15,12 @@
 		<result column="updation" property="updation"/>
 	</resultMap>
 	
-	<!-- 查询第三方接入服务信息 -->
 	<select id="user-getByUsername" resultMap="User" parameterType="string">
 		select * from user where username = #{username}
+	</select>
+	
+	<select id="user-getByUserId" resultMap="User" parameterType="long">
+		select * from user where id = #{userId}
 	</select>
 	
 	<insert id="user-insert" parameterType="User">
