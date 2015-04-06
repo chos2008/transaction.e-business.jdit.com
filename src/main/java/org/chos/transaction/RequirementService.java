@@ -32,6 +32,8 @@ public interface RequirementService {
 	 */
 	public List<Requirement> list(long firstResult, int maxResultSize);
 	
+	public List<Requirement> list(long userId, long firstResult, int maxResultSize);
+	
 	/**
 	 * @param id
 	 * @return

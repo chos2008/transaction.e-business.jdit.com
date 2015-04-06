@@ -30,6 +30,8 @@ import org.chos.transaction.Requirement;
 import org.chos.transaction.RequirementService;
 import org.chos.transaction.User;
 import org.chos.transaction.UserService;
+import org.chos.transaction.passport.HttpContextSessionManager;
+import org.chos.transaction.passport.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -55,24 +57,62 @@ public class RequirementController {
 	private RequirementService requirementService;
 	
 	@Autowired
+	private HttpContextSessionManager httpContextSessionManager;
+	
+	@Autowired
 	private UserService userService;
 	
 	@RequestMapping(value = "index")
 	public String list(HttpServletRequest request, HttpServletResponse response, Model model) {
+		Session session = httpContextSessionManager.getSession(request);
 		long firstResult = 0;
 		int maxResultSize = 50;
-		List<Requirement> results = requirementService.list(firstResult, maxResultSize);
+		List<Requirement> results = requirementService.list(session.getUserId(), firstResult, maxResultSize);
 		model.addAttribute("requirements", results);
 		return "index";
 	}
 	
 	@RequestMapping(value = "item")
 	public String list0(HttpServletRequest request, HttpServletResponse response, Model model) {
+		Session session = httpContextSessionManager.getSession(request);
+		
+		String pFirstResult = request.getParameter("firstResult");
 		long firstResult = 0;
-		int maxResultSize = 50;
-		List<Requirement> results = requirementService.list(firstResult, maxResultSize);
+		if (! StringUtils.isBlank(pFirstResult)) {
+			firstResult = Long.parseLong(pFirstResult);
+		}
+		String pMaxResultSize = request.getParameter("maxResultSize");
+		int maxResultSize = 5;
+		if (! StringUtils.isBlank(pMaxResultSize)) {
+			maxResultSize = Integer.parseInt(pMaxResultSize);
+		}
+		List<Requirement> results = requirementService.list(session.getUserId(), firstResult, maxResultSize);
 		model.addAttribute("requirements", results);
 		return "item/list";
+	}
+	
+	@RequestMapping(value = "item_as_json")
+	@ResponseBody
+	public Object listAsJson(HttpServletRequest request, HttpServletResponse response, Model model) {
+		Session session = httpContextSessionManager.getSession(request);
+		Map<String, Object> result = new HashMap<String, Object>();
+		if (session == null) {
+			result.put("code", 2000);
+			return result;
+		}
+		String pFirstResult = request.getParameter("firstResult");
+		long firstResult = 0;
+		if (! StringUtils.isBlank(pFirstResult)) {
+			firstResult = Long.parseLong(pFirstResult);
+		}
+		String pMaxResultSize = request.getParameter("maxResultSize");
+		int maxResultSize = 5;
+		if (! StringUtils.isBlank(pMaxResultSize)) {
+			maxResultSize = Integer.parseInt(pMaxResultSize);
+		}
+		List<Requirement> list = requirementService.list(session.getUserId(), firstResult, maxResultSize);
+		result.put("data", list);
+		return result;
 	}
 	
 	@RequestMapping(value = "item/{id}")

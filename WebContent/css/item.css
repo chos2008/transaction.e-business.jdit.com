@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+.list-item-t-item-img {
+	width: 32px;
+  	height: 32px;
+	background-image: url("../images/ekz.png");
+  	background-repeat: no-repeat;
+  	background-position: center center;
+}
+
+.item {
+	height: 24px;
+	line-height: 24px;
+}
+
+.item a {
+	text-decoration: none;
+  	color: black;
+}

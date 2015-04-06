@@ -92,7 +92,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t<div style=\"width: 70px; text-align: center;\">\r\n");
       out.write("\t\t<div style=\"height: 70px; border: 1px solid silver;\">\r\n");
       out.write("\t\t\t<label title=\"paypal\" class=\"icon-paypal\" style=\"height: 50px; width: 100%; line-height: 70px; display: block; background: url('../images/b_108x108.png'); background-size: 48px 48px; background-position: center; background-repeat: no-repeat;\"></label>\r\n");
-      out.write("\t\t\t<label style=\"width: 100%; display: block;\"><a href=\"../item.shtml\" >我的需求</a></label>\r\n");
+      out.write("\t\t\t<label style=\"width: 100%; display: block;\"><a href=\"../item.shtml?firstResult=0&maxResultSize=50\" >我的需求</a></label>\r\n");
       out.write("\t\t</div>\r\n");
       out.write("\t</div>\r\n");
       out.write("\t<div style=\"width: 70px; text-align: center;\">\r\n");

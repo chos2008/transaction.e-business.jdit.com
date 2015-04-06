@@ -8,10 +8,20 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <title>我的帐户</title>
 <link rel="stylesheet" type="text/css" href="../css/common-style.css"/>
+<link rel="stylesheet" type="text/css" href="../css/item.css"/>
+
+<script type="text/javascript" src="../js/zepto/zepto.min.js"></script>
+<script type="text/javascript" src="../js/zepto/event.js"></script>
+<script type="text/javascript" src="../js/zepto/fx.js"></script>
+<script type="text/javascript" src="../js/account.js"></script>
 </head>
 <body style="margin: 0px 0px;">
 <div class="list-item">
-	<p class="list-item list-item-t">我的订单</p>
+	<ul class="list-item list-item-t" style="position: relative;">
+		<li class="list-item-t-item"><p><a href="../item.shtml">我的订单</a></p></li>
+		<li class="list-item-t-item-right list-item-t-item-img"></li>
+		<li class="list-item-t-item-right">查看所有订单</li>
+	</ul>
 	<div id="nav" class="nav-bar tool_bar">
 		<div class="nav-bar-box">
 			<div class="nav-bar-box-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
@@ -37,21 +47,44 @@
 			</div>
 		</div>
 	</div>
-</div>
-
-<div class="list-item">
-	<p class="list-item-t">我的帐户</p>
-</div>
-
-<div class="list-item">
-	<p class="list-item-t"><a href="../item.shtml">我的需求</a></p>
+	
 	<div style="height: 160px; margin: 2px 5px 3px; padding: 3px 5px; border: 0px solid silver; background-color: white; background-image: url('../images/qapp_center_loading.png'); background-position: center center; background-repeat: no-repeat; opacity: 0.6;">
 		
 	</div>
 </div>
 
 <div class="list-item">
-	<p class="list-item-t"><a href="../bid/list.shtml">我发布的标书</a></p>
+	<ul class="list-item-t">
+		<li class="list-item-t-item"><p>我的帐户</p></li>
+		<li class="list-item-t-item-right list-item-t-item-img"></li>
+	</ul>
+</div>
+
+<div class="list-item">
+	<ul class="list-item-t list-item-item" style="position: relative;">
+		<li class="list-item-t-item"><p><a href="../item.shtml">我的需求</a></p></li>
+		<li class="list-item-t-item-right list-item-t-item-img"></li>
+		<li class="list-item-t-item-right">查看所有发布的需求</li>
+	</ul>
+	<div class="list-item-body" style="width: 100%; position: relative; display: inline-block;">
+		<div class="item-not-issue" style="height: 160px; margin: 2px 5px 3px; padding: 3px 5px; border: 0px solid silver; position: relative; background-color: white; background-image: url('../images/qapp_center_loading.png'); background-position: center center; background-repeat: no-repeat; opacity: 0.6;">
+			<p style="width: 100%; margin: 0px 0px; padding: 0px 0px; position: absolute; bottom: 0px; text-align: center;">
+				<a style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';" href="../issue.jsp">你还没有发布需求, 在这里发布下试试</a>
+			</p>
+		</div>
+		
+		<ul class="item-list" style="list-style: none; margin: 0px 0px; padding: 0px 0px; float: left; width: 100%; font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
+			
+		</ul>			
+	</div>
+</div>
+
+<div class="list-item">
+	<ul class="list-item-t" style="position: relative;">
+		<li class="list-item-t-item"><p><a href="../bid/list.shtml">我发布的标书</a></p></li>
+		<li class="list-item-t-item-right list-item-t-item-img"></li>
+		<li class="list-item-t-item-right">查看所有标书</li>
+	</ul>
 	<div style="height: 160px; margin: 2px 5px 3px; padding: 3px 5px; border: 0px solid silver; background-color: white; background-image: url('../images/qapp_center_loading.png'); background-position: center center; background-repeat: no-repeat; opacity: 0.6;">
 		
 	</div>

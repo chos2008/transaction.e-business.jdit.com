@@ -16,7 +16,11 @@
 	</resultMap>
 	
 	<select id="req-list" resultMap="Requirement">
-		select * from requirement limit #{firstResult}, #{maxResultSize}
+		select * from requirement 
+		<if test="userId != null">
+			where user_id = #{userId}
+		</if>
+		limit #{firstResult}, #{maxResultSize}
 	</select>
 	
 	
