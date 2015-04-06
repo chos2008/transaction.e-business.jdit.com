@@ -9,6 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <title>谁是谁的菜</title>
+<link rel="stylesheet" type="text/css" href="css/common-style.css"/>
 <script type="text/javascript" src="js/iscroll/iscroll-4.2.5.js"></script>
 
 <script type="text/javascript">
@@ -262,7 +263,27 @@ body {
 
 </head>
 <body>
-<div id="header"><a href="investment.jsp">发布需求</a></div>
+<div id="header">
+	<div id="nav" class="nav-bar">
+		<div class="nav-bar-box">
+			<div class="nav-bar-box-item">
+				<p id="nav-back" style="width: 70px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
+					<label title="paypal" class="icon-paypal" style="width: 100%; display: block;"></label>
+					<label style="width: 100%; display: block;"><a href="javascript: void(0);" style=" color: #ffffff;">返回</a></label>
+				</p>
+			</div>
+			<div class="nav-bar-box-item nav-bar-box-center-item">
+				<a href="investment.jsp">发布需求</a>
+			</div>
+			<div class="nav-bar-box-item nav-bar-box-end-item">
+				<p style="width: 70px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
+					<label title="google wallet" class="icon-google-wallet" style="width: 100%; display: block;"></label>
+					<label style="width: 100%; display: block;"><a href="investment.jsp"style=" color: #ffffff;">订购</a></label>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
 <div id="wrapper">
 	<div id="scroller">
 		<div id="pullDown">
@@ -273,7 +294,7 @@ body {
 			<c:forEach items="${requirements}" var="variable">
 			<li>
 				<div style="margin: 2px 3px 5px 3px; border-top: 0px solid silver; border-bottom: 0px solid silver;">
-					<span style="width: 100%; display: inline-block;"><a href="">${variable.title}-标号${variable.id}</a></span>
+					<span style="width: 100%; display: inline-block;"><a href="item/${variable.id}.shtml">${variable.title}-标号${variable.id}</a></span>
 					<span style="width: 100%; display: inline-block;">招标项目金额：${variable.amount}元</span>
 					<div style="width: 100%; line-height: 20px; text-align: left; font-size: 10px">
 						${variable.content}

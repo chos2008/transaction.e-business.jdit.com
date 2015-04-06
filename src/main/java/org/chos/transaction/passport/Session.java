@@ -1,5 +1,5 @@
 /*
- * @(#)Session.java	1.0 2015-3-22 ÏÂÎç03:35:21
+ * @(#)Session.java	1.0 2015-3-22 ï¿½ï¿½ï¿½ï¿½03:35:21
  *
  * Copyright 2008 WWW.YHD.COM. All rights reserved.
  *      YIHAODIAN PROPRIETARY/CONFIDENTIAL. 
@@ -22,7 +22,7 @@ import java.util.UUID;
  * 
  * 
  * @author ada
- * @version 1.0  2015-3-22 ÏÂÎç03:35:21
+ * @version 1.0  2015-3-22 ï¿½ï¿½ï¿½ï¿½03:35:21
  * @since 1.0
  */
 public class Session {
@@ -32,8 +32,6 @@ public class Session {
 	private String token;
 	
 	private long userId;
-	
-	private String username;
 	
 	private Date expireTime;
 	
@@ -52,6 +50,13 @@ public class Session {
 		calendar.add(Calendar.HOUR_OF_DAY, SessionManager.GLOBAL_SESSION_EXPIRE_TIME);
 		expireTime = calendar.getTime();
 		creation = date;
+	}
+	
+	public boolean isExpire() {
+		if (expireTime == null) {
+			return false;
+		}
+		return System.currentTimeMillis() >= expireTime.getTime();
 	}
 	
 	/**
@@ -94,20 +99,6 @@ public class Session {
 	 */
 	public void setUserId(long userId) {
 		this.userId = userId;
-	}
-
-	/**
-	 * @return the username
-	 */
-	public String getUsername() {
-		return username;
-	}
-
-	/**
-	 * @param username the username to set
-	 */
-	public void setUsername(String username) {
-		this.username = username;
 	}
 
 	/**

@@ -62,7 +62,7 @@ public final class register_002dsuccess_jsp extends org.apache.jasper.runtime.Ht
       out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
       out.write("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0\" />\r\n");
       out.write("<meta name=\"apple-mobile-web-app-capable\" content=\"yes\" />\r\n");
-      out.write("<title>支付中心</title>\r\n");
+      out.write("<title>注册</title>\r\n");
       out.write("\r\n");
       out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/style.css\"/>\r\n");
       out.write("</head>\r\n");

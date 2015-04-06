@@ -24,7 +24,19 @@
 .menu-bar-2_0, .nav-bar-2_0 {
 	position: absolute; 
 	top: 0px; 
-}s
+}
+
+.menu-bar-bottom, .nav-bar-bottom {
+	position: absolute; 
+	bottom: 0px;
+}
+
+.tool_bar {
+	position: relative; 
+	background-color: white; 
+	z-index: 1000; 
+	opacity: 1; 
+}
 
 .nav-bar .nav-bar-box {
 	width: 100%; 
@@ -66,3 +78,21 @@
 	-webkit-box-pack: end; 
 	-o-box-pack: end;
 }
+	
+.list-item {
+	width: 100%;
+	border-bottom-style: solid;
+	border-bottom-color: silver;
+	border-bottom-width: 1px;
+}
+
+.list-item-t {
+	height: 32px;
+	line-height: 32px; 
+	margin: 0px 0px;
+	padding: 0px 0px;
+}
+
+HTML > BODY #nav {  
+	POSITION: fixed  
+}  

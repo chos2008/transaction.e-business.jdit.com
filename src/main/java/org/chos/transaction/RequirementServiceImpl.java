@@ -1,5 +1,5 @@
 /*
- * @(#)BidServiceImpl.java	1.0 2015-3-8 обнГ08:56:57
+ * @(#)BidServiceImpl.java	1.0 2015-3-8 О©╫О©╫О©╫О©╫08:56:57
  *
  * Copyright 2008 WWW.YHD.COM. All rights reserved.
  *      YIHAODIAN PROPRIETARY/CONFIDENTIAL. 
@@ -26,7 +26,7 @@ import org.springframework.stereotype.Service;
  * 
  * 
  * @author luoxiaoyong
- * @version 1.0  2015-3-8 обнГ08:56:57
+ * @version 1.0  2015-3-8 О©╫О©╫О©╫О©╫08:56:57
  * @since 1.0
  */
 @Service
@@ -40,6 +40,10 @@ public class RequirementServiceImpl implements RequirementService {
 		param.put("firstResult", firstResult);
 		param.put("maxResultSize", maxResultSize);
 		return template.selectList("req-list", param);
+	}
+	
+	public Requirement getItem(int id) {
+		return template.selectOne("get-item", id);
 	}
 	
 	public void issue(Requirement requirement) {

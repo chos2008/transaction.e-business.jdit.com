@@ -1,5 +1,5 @@
 /*
- * @(#)Cookie.java	1.0 2015-3-22 ÏÂÎç04:30:52
+ * @(#)Cookie.java	1.0 2015-3-22 ï¿½ï¿½ï¿½ï¿½04:30:52
  *
  * Copyright 2008 WWW.YHD.COM. All rights reserved.
  *      YIHAODIAN PROPRIETARY/CONFIDENTIAL. 
@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  * 
  * 
  * @author ada
- * @version 1.0  2015-3-22 ÏÂÎç04:30:52
+ * @version 1.0  2015-3-22 ï¿½ï¿½ï¿½ï¿½04:30:52
  * @since 1.0
  */
 public class Cookie extends javax.servlet.http.Cookie {
@@ -34,6 +34,9 @@ public class Cookie extends javax.servlet.http.Cookie {
 	public void add(HttpServletResponse response) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(getName()).append("=").append(getValue()).append(";");
+		if (getPath() != null) {
+			sb.append("path").append("=").append(getPath()).append(";");
+		}
 		if (getMaxAge() > 0) {
 			sb.append("max-age").append("=").append(getMaxAge()).append(";");
 		}

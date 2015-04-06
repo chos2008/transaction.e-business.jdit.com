@@ -1,5 +1,5 @@
 /*
- * @(#)UserService.java	1.0 2015-3-8 обнГ10:29:51
+ * @(#)UserService.java	1.0 2015-3-8 О©╫О©╫О©╫О©╫10:29:51
  *
  * Copyright 2008 WWW.YHD.COM. All rights reserved.
  *      YIHAODIAN PROPRIETARY/CONFIDENTIAL. 
@@ -13,16 +13,24 @@
  */
 package org.chos.transaction;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * 
  * 
  * 
  * @author luoxiaoyong
- * @version 1.0  2015-3-8 обнГ10:29:51
+ * @version 1.0  2015-3-8 О©╫О©╫О©╫О©╫10:29:51
  * @since 1.0
  */
 public interface UserService {
+	
+	public User create(String username, String password, String mobile, String email, 
+			boolean autoSession, HttpServletRequest request, HttpServletResponse response);
 
+	public User create(String username, String password, String mobile, String email) throws UserAlreadyExistException;
+	
 	public void create(User user);
 	
 	public User getUser(String username);

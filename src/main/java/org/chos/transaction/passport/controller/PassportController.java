@@ -24,8 +24,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang.StringUtils;
 import org.chos.servlet.http.ChosHttpServletResponse;
 import org.chos.transaction.User;
+import org.chos.transaction.UserAlreadyExistException;
 import org.chos.transaction.UserService;
 import org.chos.transaction.passport.HttpContextSessionManager;
+import org.chos.transaction.passport.PassportService;
+import org.chos.transaction.passport.SessionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,6 +51,9 @@ public class PassportController {
 	
 	@Autowired
 	private HttpContextSessionManager httpContextSessionManager;
+	
+	@Autowired
+	private PassportService passportService;
 	
 	@RequestMapping(value = "/register{id}")
 	public String input(@PathVariable String id, HttpServletRequest request, HttpServletResponse response, Model model) {
@@ -75,17 +81,14 @@ public class PassportController {
 		}
 		String email = request.getParameter("email");
 		
-//		userService.
-		User user = new User();
-		user.setUsername(username);
-		user.setPassword(password);
-		user.setMobile(mobile);
-		user.setEmail(email);
-		user.setCreation(new Date());
-		userService.create(user);
+		try {
+			userService.create(username, password, mobile, email);
+		} catch (UserAlreadyExistException e) {
+			resp.put("code", 1003);
+			return resp;
+		}
 		resp.put("code", 0);
 		return resp;
-//		return "index";
 	}
 	
 	@RequestMapping(value = "/login")
@@ -107,16 +110,12 @@ public class PassportController {
 			resp.put("code", 1000);
 			return resp;
 		}
-		User user = userService.getUser(username);
-		if (user == null) {
-			resp.put("code", 1001);
+		try {
+			passportService.createSession(username, password, request, response);
+		} catch (SessionException e) {
+			resp.put("code", e.getCode());
 			return resp;
 		}
-		if (! password.equals(user.getPassword())) {
-			resp.put("code", 1002);
-			return resp;
-		}
-		httpContextSessionManager.getSession(user, request, new ChosHttpServletResponse(response));
 		resp.put("code", 0);
 		return resp;
 	}

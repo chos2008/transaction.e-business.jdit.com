@@ -117,6 +117,12 @@
 				return;
 			}
 			
+			if (password != confirm_password) {
+				var tip = new Tips("tmpl-tips", "密码不一致");
+				tip.show();
+				return;
+			}
+			
 			if (captcha == "") {
 				var tip = new Tips("tmpl-tips", "请输入验证码");
 				tip.show();
@@ -137,12 +143,15 @@
 					tips.show();
 					return;
 				}, 
-				success:function(resnponse){
-					if(resnponse){
-					    if(resnponse.code == 0) {
+				success: function(response) {
+					if(response){
+					    if(response.code == 0) {
 					    	var tips = new Tips('tmpl-tips', "注册成功");
 							tips.show();
 							location.href="register-success.jsp";
+					    } else if (response.code == 1003) {
+					    	var tips = new Tips('tmpl-tips', "该用户名已注册");
+							tips.show();
 					    }
 					}
 				}

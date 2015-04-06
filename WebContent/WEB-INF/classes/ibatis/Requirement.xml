@@ -19,6 +19,12 @@
 		select * from requirement limit #{firstResult}, #{maxResultSize}
 	</select>
 	
+	
+	<select id="get-item" resultMap="Requirement" parameterType="int">
+		select * from requirement where id = #{id}
+	</select>
+	
+	
 	<insert id="issue" parameterType="Requirement">
 		<selectKey keyProperty="id" resultType="int">
 			select @@identity as id 

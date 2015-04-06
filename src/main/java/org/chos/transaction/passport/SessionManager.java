@@ -1,5 +1,5 @@
 /*
- * @(#)SessionManager.java	1.0 2015-3-22 обнГ03:44:48
+ * @(#)SessionManager.java	1.0 2015-3-22 О©╫О©╫О©╫О©╫03:44:48
  *
  * Copyright 2008 WWW.YHD.COM. All rights reserved.
  *      YIHAODIAN PROPRIETARY/CONFIDENTIAL. 
@@ -18,7 +18,7 @@ package org.chos.transaction.passport;
  * 
  * 
  * @author ada
- * @version 1.0  2015-3-22 обнГ03:44:48
+ * @version 1.0  2015-3-22 О©╫О©╫О©╫О©╫03:44:48
  * @since 1.0
  */
 public interface SessionManager {
@@ -32,7 +32,7 @@ public interface SessionManager {
 	 * @param userId
 	 * @return
 	 */
-	public Session getSession(long userId);
+	public Session getSession(long userId, boolean refresh);
 	
 	/**
 	 * @param ut

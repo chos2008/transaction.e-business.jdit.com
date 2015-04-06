@@ -5,4 +5,8 @@
 		$(".nav-bar").css("top", scrolltop);
 	};
 	
+	window.onmousewheel = function(e) {
+		//e.preventDefault();
+		window.onscroll(e);
+	}
 })();

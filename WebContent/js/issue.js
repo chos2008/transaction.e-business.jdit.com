@@ -54,29 +54,37 @@ function getPositionError(error) {
 		}
 		
 		var submit = document.getElementById("submit");
-		$('#submit').on('click', function() {
-			var username = $("#username").val();
-			var password = $("#password").val();
-			if (username == "") {
+		$('#issue').on('click', function() {
+			var title = $("#title").val();
+			var contact = $("#contact").val();
+			var content = $("#content").val();
+			if (title == "") {
 				
 				//t.show();
-				var tip = new Tips("tmpl-tips", "请输入用户名");
+				var tip = new Tips("tmpl-tips", "请描述您的需求");
 				tip.show();
 				return;
 			}
 			
-			if (password == "") {
-				var tip = new Tips("tmpl-tips", "请输入密码");
+			if (contact == "") {
+				var tip = new Tips("tmpl-tips", "请填写你的联系方式");
+				tip.show();
+				return;
+			}
+			
+			if (content == "") {
+				var tip = new Tips("tmpl-tips", "请填写您的具体要求");
 				tip.show();
 				return;
 			}
 			
 			$.ajax({
 				type:"post",
-				url: "user/login.shtml",
+				url: "item/issue.shtml",
 				data: {
-					"username": username, 
-					"password": password
+					"title": title, 
+					"contact": contact, 
+					"content": content
 				}, 
 				error: function() {
 					var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
@@ -84,12 +92,12 @@ function getPositionError(error) {
 					return;
 				}, 
 				success:function(resnponse) {
-					if(resnponse){
+					if(resnponse) {
 					    if(resnponse.code == 0) {
 							location.href="user/index.jsp";
 							return;
 					    }
-					    var tips = new Tips('tmpl-tips', "用户名或密码不正确");
+					    var tips = new Tips('tmpl-tips', "发布失败");
 						tips.show();
 						return;
 					}

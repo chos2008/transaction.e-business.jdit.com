@@ -98,4 +98,43 @@
 	 -->
     <import resource="classpath*:applicationContext-*"/>
     
+    
+	<mvc:interceptors>
+		<!--  -->
+		<mvc:interceptor>
+			<mvc:mapping path="/login.shtml"/>
+			<bean class="org.chos.transaction.passport.LoginInterceptor">
+				<property name="url" value="/login.shtml"></property>
+				<property name="redirectUrl" value="/trans/user/index.jsp"></property>
+				<property name="httpContextSessionManager" ref="httpContextSessionManager"></property>
+			</bean>
+		</mvc:interceptor>
+		<!--  -->
+		<mvc:interceptor>
+			<mvc:mapping path="/*/*"/>
+			<bean class="org.chos.transaction.passport.SessionInterceptor">
+				<property name="allowUrls">
+					<list>
+						<!-- 如果请求中包含以下路径，则不进行拦截 -->
+						<value>/login</value>
+						<value>/register</value>
+						<value>/js</value>
+						<value>/css</value>
+						<value>/image</value>
+						<value>/images</value>
+					</list>
+				</property>
+				<property name="httpContextSessionManager" ref="httpContextSessionManager"></property>
+			</bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+	
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="org.chos.transaction.passport.SessionException">redirect:/login.shtml</prop>
+			</props>
+		</property>
+	</bean>
 </beans>

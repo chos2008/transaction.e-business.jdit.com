@@ -1,5 +1,5 @@
 /*
- * @(#)HttpContextSessionManager.java	1.0 2015-3-22 ÏÂÎç03:36:50
+ * @(#)HttpContextSessionManager.java	1.0 2015-3-22 ï¿½ï¿½ï¿½ï¿½03:36:50
  *
  * Copyright 2008 WWW.YHD.COM. All rights reserved.
  *      YIHAODIAN PROPRIETARY/CONFIDENTIAL. 
@@ -28,7 +28,7 @@ import org.springframework.stereotype.Service;
  * 
  * 
  * @author ada
- * @version 1.0  2015-3-22 ÏÂÎç03:36:50
+ * @version 1.0  2015-3-22 ï¿½ï¿½ï¿½ï¿½03:36:50
  * @since 1.0
  */
 @Service
@@ -47,6 +47,9 @@ public class HttpContextSessionManager {
 	
 	private javax.servlet.http.Cookie getCookie(HttpServletRequest request, String name) {
 		javax.servlet.http.Cookie[] cookies = request.getCookies();
+		if (cookies == null) {
+			return null;
+		}
 		for (javax.servlet.http.Cookie cookie : cookies) {
 			if (cookie.getName().equals(name)) {
 				return cookie;
@@ -58,10 +61,12 @@ public class HttpContextSessionManager {
 	public Session getSession(long userId, String ut, HttpServletResponse response) {
 		Session session = sessionManager.getSession(ut);
 		if (session == null) {
-			session = sessionManager.getSession(userId);
+			session = sessionManager.getSession(userId, true);
 			if (session == null) {
 				User user = userService.getUser(userId);
 				return openSession(user, response);
+			} else {
+				openSession0(session, response);
 			}
 			return session;
 		}
@@ -71,22 +76,34 @@ public class HttpContextSessionManager {
 	public Session getSession(long userId, HttpServletRequest request, HttpServletResponse response) {
 		javax.servlet.http.Cookie cookie = getCookie(request, USER_TOKEN);
 		if (cookie == null) {
-			Session session = sessionManager.getSession(userId);
+			Session session = sessionManager.getSession(userId, true);
 			if (session == null) {
 				User user = userService.getUser(userId);
 				return openSession(user, response);
+			} else {
+				openSession0(session, response);
 			}
 			return session;
 		}
 		return getSession(userId, cookie.getValue(), response);
 	}
 	
+	public Session getSession(HttpServletRequest request) {
+		javax.servlet.http.Cookie cookie = getCookie(request, USER_TOKEN);
+		if (cookie == null) {
+			return null;
+		}
+		return sessionManager.getSession(cookie.getValue());
+	}
+	
 	public Session getSession(User user, String ut, HttpServletResponse response) {
 		Session session = sessionManager.getSession(ut);
 		if (session == null) {
-			session = sessionManager.getSession(user.getId());
+			session = sessionManager.getSession(user.getId(), true);
 			if (session == null) {
 				return openSession(user, response);
+			} else {
+				openSession0(session, response);
 			}
 			return session;
 		}
@@ -96,9 +113,11 @@ public class HttpContextSessionManager {
 	public Session getSession(User user, HttpServletRequest request, HttpServletResponse response) {
 		javax.servlet.http.Cookie cookie = getCookie(request, USER_TOKEN);
 		if (cookie == null) {
-			Session session = sessionManager.getSession(user.getId());
+			Session session = sessionManager.getSession(user.getId(), true);
 			if (session == null) {
 				return openSession(user, response);
+			} else {
+				openSession0(session, response);
 			}
 			return session;
 		}
@@ -108,10 +127,15 @@ public class HttpContextSessionManager {
 	private Session openSession(User user, HttpServletResponse response) {
 		Session session = new Session();
 		session.setUserId(user.getId());
-		session.setUsername(user.getUsername());
 		template.insert("openSession", session);
+		openSession0(session, response);
+		return session;
+	}
+	
+	private Session openSession0(Session session, HttpServletResponse response) {
 		Cookie cookie = new Cookie(USER_TOKEN, session.getToken());
 //		cookie.setSecure(true);
+		cookie.setPath("/trans");
 		cookie.setHttpOnly(true);
 		response.addCookie(cookie);
 		return session;

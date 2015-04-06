@@ -1,5 +1,5 @@
 /*
- * @(#)SessionManagerImpl.java	1.0 2015-3-22 обнГ03:45:00
+ * @(#)SessionManagerImpl.java	1.0 2015-3-22 О©╫О©╫О©╫О©╫03:45:00
  *
  * Copyright 2008 WWW.YHD.COM. All rights reserved.
  *      YIHAODIAN PROPRIETARY/CONFIDENTIAL. 
@@ -13,6 +13,7 @@
  */
 package org.chos.transaction.passport;
 
+import java.util.Date;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -24,7 +25,7 @@ import org.springframework.stereotype.Service;
  * 
  * 
  * @author ada
- * @version 1.0  2015-3-22 обнГ03:45:00
+ * @version 1.0  2015-3-22 О©╫О©╫О©╫О©╫03:45:00
  * @since 1.0
  */
 @Service
@@ -33,8 +34,18 @@ public class SessionManagerImpl implements SessionManager {
 	@Autowired()
 	private SqlSessionTemplate template;
 	
-	public Session getSession(long userId) {
-		return template.selectOne("getSessionByUserId", userId);
+	public Session getSession(long userId, boolean refresh) {
+		Session session = template.selectOne("getSessionByUserId", userId);
+		if (session != null) {
+			if (refresh) {
+				session.setUpdation(new Date());
+				template.update("refreshSession", session);
+				return session;
+			} else {
+				return session.isExpire() ? null : session;
+			}
+		}
+		return null;
 	}
 	
 	public Session getSession(String ut) {

@@ -1,5 +1,5 @@
 /*
- * @(#)BidService.java	1.0 2015-3-8 обнГ09:34:26
+ * @(#)BidService.java	1.0 2015-3-8 О©╫О©╫О©╫О©╫09:34:26
  *
  * Copyright 2008 WWW.YHD.COM. All rights reserved.
  *      YIHAODIAN PROPRIETARY/CONFIDENTIAL. 
@@ -20,12 +20,26 @@ import java.util.List;
  * 
  * 
  * @author luoxiaoyong
- * @version 1.0  2015-3-8 обнГ09:34:26
+ * @version 1.0  2015-3-8 О©╫О©╫О©╫О©╫09:34:26
  * @since 1.0
  */
 public interface RequirementService {
 
+	/**
+	 * @param firstResult
+	 * @param maxResultSize
+	 * @return
+	 */
 	public List<Requirement> list(long firstResult, int maxResultSize);
 	
+	/**
+	 * @param id
+	 * @return
+	 */
+	public Requirement getItem(int id);
+	
+	/**
+	 * @param requirement
+	 */
 	public void issue(Requirement requirement);
 }

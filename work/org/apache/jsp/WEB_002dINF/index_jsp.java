@@ -69,6 +69,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\r\n");
       out.write("<meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black\">\r\n");
       out.write("<title>谁是谁的菜</title>\r\n");
+      out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/common-style.css\"/>\r\n");
       out.write("<script type=\"text/javascript\" src=\"js/iscroll/iscroll-4.2.5.js\"></script>\r\n");
       out.write("\r\n");
       out.write("<script type=\"text/javascript\">\r\n");
@@ -322,7 +323,27 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("</head>\r\n");
       out.write("<body>\r\n");
-      out.write("<div id=\"header\"><a href=\"investment.jsp\">发布需求</a></div>\r\n");
+      out.write("<div id=\"header\">\r\n");
+      out.write("\t<div id=\"nav\" class=\"nav-bar\">\r\n");
+      out.write("\t\t<div class=\"nav-bar-box\">\r\n");
+      out.write("\t\t\t<div class=\"nav-bar-box-item\">\r\n");
+      out.write("\t\t\t\t<p id=\"nav-back\" style=\"width: 70px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;\">\r\n");
+      out.write("\t\t\t\t\t<label title=\"paypal\" class=\"icon-paypal\" style=\"width: 100%; display: block;\"></label>\r\n");
+      out.write("\t\t\t\t\t<label style=\"width: 100%; display: block;\"><a href=\"javascript: void(0);\" style=\" color: #ffffff;\">返回</a></label>\r\n");
+      out.write("\t\t\t\t</p>\r\n");
+      out.write("\t\t\t</div>\r\n");
+      out.write("\t\t\t<div class=\"nav-bar-box-item nav-bar-box-center-item\">\r\n");
+      out.write("\t\t\t\t<a href=\"investment.jsp\">发布需求</a>\r\n");
+      out.write("\t\t\t</div>\r\n");
+      out.write("\t\t\t<div class=\"nav-bar-box-item nav-bar-box-end-item\">\r\n");
+      out.write("\t\t\t\t<p style=\"width: 70px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;\">\r\n");
+      out.write("\t\t\t\t\t<label title=\"google wallet\" class=\"icon-google-wallet\" style=\"width: 100%; display: block;\"></label>\r\n");
+      out.write("\t\t\t\t\t<label style=\"width: 100%; display: block;\"><a href=\"investment.jsp\"style=\" color: #ffffff;\">订购</a></label>\r\n");
+      out.write("\t\t\t\t</p>\r\n");
+      out.write("\t\t\t</div>\r\n");
+      out.write("\t\t</div>\r\n");
+      out.write("\t</div>\r\n");
+      out.write("</div>\r\n");
       out.write("<div id=\"wrapper\">\r\n");
       out.write("\t<div id=\"scroller\">\r\n");
       out.write("\t\t<div id=\"pullDown\">\r\n");
@@ -366,9 +387,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f0.setParent(null);
-    // /WEB-INF/index.jsp(273,3) name = items type = java.lang.Object reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/index.jsp(294,3) name = items type = java.lang.Object reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${requirements}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
-    // /WEB-INF/index.jsp(273,3) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/index.jsp(294,3) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setVar("variable");
     int[] _jspx_push_body_count_c_005fforEach_005f0 = new int[] { 0 };
     try {
@@ -378,7 +399,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("\r\n");
           out.write("\t\t\t<li>\r\n");
           out.write("\t\t\t\t<div style=\"margin: 2px 3px 5px 3px; border-top: 0px solid silver; border-bottom: 0px solid silver;\">\r\n");
-          out.write("\t\t\t\t\t<span style=\"width: 100%; display: inline-block;\"><a href=\"\">");
+          out.write("\t\t\t\t\t<span style=\"width: 100%; display: inline-block;\"><a href=\"item/");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.id}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write(".shtml\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.title}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write('-');
           out.write('标');

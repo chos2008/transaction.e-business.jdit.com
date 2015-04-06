@@ -1,5 +1,5 @@
 /*
- * @(#)Requirement.java	1.0 2015-3-13 ионГ08:46:06
+ * @(#)Requirement.java	1.0 2015-3-13 О©╫О©╫О©╫О©╫08:46:06
  *
  * Copyright 2008 WWW.YHD.COM. All rights reserved.
  *      YIHAODIAN PROPRIETARY/CONFIDENTIAL. 
@@ -20,14 +20,14 @@ import java.util.Date;
  * 
  * 
  * @author luoxiaoyong
- * @version 1.0  2015-3-13 ионГ08:46:06
+ * @version 1.0  2015-3-13 О©╫О©╫О©╫О©╫08:46:06
  * @since 1.0
  */
 public class Requirement {
 
 	private int id;
 	
-	private int userId;
+	private long userId;
 	
 	private String title;
 	
@@ -60,14 +60,14 @@ public class Requirement {
 	/**
 	 * @return the userId
 	 */
-	public int getUserId() {
+	public long getUserId() {
 		return userId;
 	}
 
 	/**
 	 * @param userId the userId to set
 	 */
-	public void setUserId(int userId) {
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
 

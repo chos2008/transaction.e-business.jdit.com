@@ -1,5 +1,5 @@
 /*
- * @(#)UserController.java	1.0 2015-3-8 обнГ10:42:38
+ * @(#)UserController.java	1.0 2015-3-8 О©╫О©╫О©╫О©╫10:42:38
  *
  * Copyright 2008 WWW.YHD.COM. All rights reserved.
  *      YIHAODIAN PROPRIETARY/CONFIDENTIAL. 
@@ -35,11 +35,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * 
  * 
  * @author luoxiaoyong
- * @version 1.0  2015-3-8 обнГ10:42:38
+ * @version 1.0  2015-3-8 О©╫О©╫О©╫О©╫10:42:38
  * @since 1.0
  */
 @Controller
 public class UserController {
 
-	
+	@RequestMapping(value = "/user/{id}")
+	public String account(@PathVariable String id, HttpServletRequest request, HttpServletResponse response) {
+		return "user/account";
+	}
 }

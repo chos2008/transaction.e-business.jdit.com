@@ -1,5 +1,5 @@
 /*
- * @(#)BidController.java	1.0 2015-3-8 ÏÂÎç08:45:11
+ * @(#)BidController.java	1.0 2015-3-8 ï¿½ï¿½ï¿½ï¿½08:45:11
  *
  * Copyright 2008 WWW.YHD.COM. All rights reserved.
  *      YIHAODIAN PROPRIETARY/CONFIDENTIAL. 
@@ -22,16 +22,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
+import org.chos.servlet.http.ChosHttpServletResponse;
 import org.chos.transaction.Bid;
 import org.chos.transaction.BidService;
 import org.chos.transaction.BidServiceImpl;
 import org.chos.transaction.Requirement;
 import org.chos.transaction.RequirementService;
+import org.chos.transaction.User;
+import org.chos.transaction.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -41,7 +45,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * 
  * 
  * @author luoxiaoyong
- * @version 1.0  2015-3-8 ÏÂÎç08:45:11
+ * @version 1.0  2015-3-8 ï¿½ï¿½ï¿½ï¿½08:45:11
  * @since 1.0
  */
 @Controller(value = "RequirementController")
@@ -49,6 +53,9 @@ public class RequirementController {
 
 	@Autowired
 	private RequirementService requirementService;
+	
+	@Autowired
+	private UserService userService;
 	
 	@RequestMapping(value = "index")
 	public String list(HttpServletRequest request, HttpServletResponse response, Model model) {
@@ -59,7 +66,23 @@ public class RequirementController {
 		return "index";
 	}
 	
-	@RequestMapping(value = "issue")
+	@RequestMapping(value = "item")
+	public String list0(HttpServletRequest request, HttpServletResponse response, Model model) {
+		long firstResult = 0;
+		int maxResultSize = 50;
+		List<Requirement> results = requirementService.list(firstResult, maxResultSize);
+		model.addAttribute("requirements", results);
+		return "item/list";
+	}
+	
+	@RequestMapping(value = "item/{id}")
+	public String item(@PathVariable int id, HttpServletRequest request, HttpServletResponse response, Model model) {
+		Requirement item = requirementService.getItem(id);
+		model.addAttribute("item", item);
+		return "item";
+	}
+	
+	@RequestMapping(value = "item/issue")
 	@ResponseBody
 	public Object issue(HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> json = new HashMap<String, Object>();
@@ -70,17 +93,21 @@ public class RequirementController {
 			return json;
 		}
 		String amount = request.getParameter("amount");
-		if (StringUtils.isBlank(amount)) {
-			json.put("code", 1000);
-			return json;
-		}
+//		if (StringUtils.isBlank(amount)) {
+//			json.put("code", 1000);
+//			return json;
+//		}
 		String description = request.getParameter("content");
 		if (StringUtils.isBlank(description)) {
 			json.put("code", 1000);
 			return json;
 		}
+		
+		String contact = request.getParameter("contact");
+		User user = userService.create(null, null, contact, contact, true, request, response);
+		
 		Requirement requirement = new Requirement();
-		requirement.setUserId(1234);
+		requirement.setUserId(user.getId());
 		requirement.setTitle(title);
 		requirement.setAmount(StringUtils.isBlank(amount) ? 0 : Double.parseDouble(amount));
 		requirement.setContent(description);

@@ -7,7 +7,6 @@
 		<id column="id" property="id"/>
 		<result column="ut" property="token"/>
 		<result column="user_id" property="userId"/>
-		<result column="username" property="username"/>
 		<result column="expire_time" property="expireTime"/>
 		<result column="last_refresh_time" property="lastRefreshTime"/>
 		<result column="creation" property="creation"/>
@@ -21,7 +20,12 @@
 	<select id="getSessionByUserId" resultMap="Session" parameterType="long">
 		select * from global_session where user_id = #{userId}
 	</select>
-	
+	<update id="refreshSession" parameterType="Session">
+		update global_session set 
+			expire_time = #{expireTime}, 
+			updation = #{updation}
+		where user_id = #{userId}
+	</update>
 	<insert id="openSession" parameterType="Session">
 		<selectKey keyProperty="id" resultType="int">
 			select @@identity as id 
@@ -30,7 +34,6 @@
 			id
 			,ut
 			,user_id
-			,username
 			<if test="expireTime != null">
 				,expire_time
 			</if>
@@ -45,7 +48,6 @@
 			#{id}
 			,#{token}
 			,#{userId}
-			,#{username}
 			<if test="expireTime != null">
 				,#{expireTime}
 			</if>

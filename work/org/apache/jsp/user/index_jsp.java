@@ -83,7 +83,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t<div style=\"width: 70px; text-align: center;\">\r\n");
       out.write("\t\t<div style=\"height: 70px; border: 1px solid silver;\">\r\n");
       out.write("\t\t\t<label title=\"amex\" class=\"icon-cc-amex\" style=\"height: 50px; width: 100%; line-height: 70px; display: block; background: url('../images/i.png'); background-size: 36px 36px; background-position: center; background-repeat: no-repeat;\"></label>\r\n");
-      out.write("\t\t\t<label style=\"width: 100%; display: block;\"><a href=\"\">我的账号</a></label>\r\n");
+      out.write("\t\t\t<label style=\"width: 100%; display: block;\"><a href=\"../user/1234.shtml\">我的账号</a></label>\r\n");
       out.write("\t\t</div>\r\n");
       out.write("\t</div>\r\n");
       out.write("</div>\r\n");
@@ -92,7 +92,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t<div style=\"width: 70px; text-align: center;\">\r\n");
       out.write("\t\t<div style=\"height: 70px; border: 1px solid silver;\">\r\n");
       out.write("\t\t\t<label title=\"paypal\" class=\"icon-paypal\" style=\"height: 50px; width: 100%; line-height: 70px; display: block; background: url('../images/b_108x108.png'); background-size: 48px 48px; background-position: center; background-repeat: no-repeat;\"></label>\r\n");
-      out.write("\t\t\t<label style=\"width: 100%; display: block;\"><a href=\"\" >我的需求</a></label>\r\n");
+      out.write("\t\t\t<label style=\"width: 100%; display: block;\"><a href=\"../item.shtml\" >我的需求</a></label>\r\n");
       out.write("\t\t</div>\r\n");
       out.write("\t</div>\r\n");
       out.write("\t<div style=\"width: 70px; text-align: center;\">\r\n");
@@ -121,7 +121,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t<div style=\"width: 100%; display: -moz-box; display: -webkit-box; display: box; box-pack: center; -moz-box-pack: center; -webkit-box-pack: center; -o-box-pack: center;\">\r\n");
       out.write("\t\t\t<!--  -moz-box-flex:3; -webkit-box-flex:3; box-flex:3; -->\r\n");
       out.write("\t\t\t<p style=\"width: 70px; margin: 0px 0px; text-align: center;\">\r\n");
-      out.write("\t\t\t\t<a href=\"../login.jsp\" style=\"border-radius: 6px; font-size: 14px; display: block; height: 1.5rem; line-height: 1.5rem; color: #c3c6ca; border: 2px solid #42454d; background-color: #555965; padding: 0 .75rem; text-decoration: none;\">登录</a>\r\n");
+      out.write("\t\t\t\t<a href=\"../login.shtml\" style=\"border-radius: 6px; font-size: 14px; display: block; height: 1.5rem; line-height: 1.5rem; color: #c3c6ca; border: 2px solid #42454d; background-color: #555965; padding: 0 .75rem; text-decoration: none;\">登录</a>\r\n");
       out.write("\t\t\t</p>\r\n");
       out.write("\t\t\t<p style=\"width: 70px; margin: 0px 0px; text-align: center;\">\r\n");
       out.write("\t\t\t\t<a href=\"../register2.shtml\" style=\"border-radius: 6px; font-size: 14px; display: block; height: 1.5rem; line-height: 1.5rem; color: #c3c6ca; border: 2px solid #42454d; background-color: #555965; padding: 0 .75rem; text-decoration: none;\">注册</a>\r\n");
