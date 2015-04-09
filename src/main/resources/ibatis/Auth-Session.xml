@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="authsession">
+	<resultMap type="OAuthSession" id="authsession">
+		<id column="id" property="id"/>
+		<result column="state" property="state"/>
+		<result column="expire_time" property="expireTime"/>
+		<result column="creation" property="creation"/>
+		<result column="updation" property="updation"/>
+	</resultMap>
+	
+	<select id="authsession-getSession" resultMap="authsession" parameterType="string">
+		select * from auth_session where state = #{state}
+	</select>
+	<insert id="createSession" parameterType="OAuthSession">
+		<selectKey keyProperty="id" resultType="int">
+			select @@identity as id 
+		</selectKey>
+		insert into auth_session(
+			id
+			,state
+			<if test="expireTime != null">
+				,expire_time
+			</if>
+			,creation
+			<if test="updation != null">
+				,updation
+			</if>
+		) values(
+			#{id}
+			,#{state}
+			<if test="expireTime != null">
+				,#{expireTime}
+			</if>
+			,#{creation}
+			<if test="updation != null">
+				,#{updation}
+			</if>
+		)
+	</insert>
+</mapper>

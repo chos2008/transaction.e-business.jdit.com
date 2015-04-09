@@ -9,6 +9,7 @@
 		<typeAlias type="org.chos.transaction.Requirement" alias="Requirement"/>
 		<typeAlias type="org.chos.transaction.User" alias="User"/>
 		<typeAlias type="org.chos.transaction.passport.Session" alias="Session"/>
+		<typeAlias type="org.chos.transaction.passport.OAuthSession" alias="OAuthSession"/>
 	</typeAliases>
 		
 
@@ -17,6 +18,7 @@
 		<mapper resource="ibatis/Requirement.xml" />
 		<mapper resource="ibatis/Bid.xml" />
 		<mapper resource="ibatis/Session.xml" />
+		<mapper resource="ibatis/Auth-Session.xml" />
 	</mappers>
 	
 </configuration>

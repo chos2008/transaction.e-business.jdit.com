@@ -135,7 +135,7 @@ public class HttpContextSessionManager {
 	private Session openSession0(Session session, HttpServletResponse response) {
 		Cookie cookie = new Cookie(USER_TOKEN, session.getToken());
 //		cookie.setSecure(true);
-		cookie.setPath("/trans");
+		cookie.setPath("/");
 		cookie.setHttpOnly(true);
 		response.addCookie(cookie);
 		return session;

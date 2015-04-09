@@ -72,6 +72,9 @@
 			<p style="width: 70px; margin: 0px 0px; text-align: center;">
 				<a href="../login.shtml" style="border-radius: 6px; font-size: 14px; display: block; height: 1.5rem; line-height: 1.5rem; color: #c3c6ca; border: 2px solid #42454d; background-color: #555965; padding: 0 .75rem; text-decoration: none;">登录</a>
 			</p>
+			<p style="width: 160px; margin: 0px 0px; text-align: center;">
+				<a href="../weibo.shtml" style="border-radius: 6px; font-size: 14px; display: block; height: 1.5rem; line-height: 1.5rem; color: #c3c6ca; border: 2px solid #42454d; background-color: #555965; padding: 0 .75rem; text-decoration: none;">使用微博帐号登录</a>
+			</p>
 			<p style="width: 70px; margin: 0px 0px; text-align: center;">
 				<a href="../register2.shtml" style="border-radius: 6px; font-size: 14px; display: block; height: 1.5rem; line-height: 1.5rem; color: #c3c6ca; border: 2px solid #42454d; background-color: #555965; padding: 0 .75rem; text-decoration: none;">注册</a>
 			</p>
