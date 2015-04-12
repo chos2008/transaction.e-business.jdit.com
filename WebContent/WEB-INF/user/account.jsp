@@ -31,18 +31,18 @@
 				</p>
 			</div>
 			<div class="nav-bar-box-item nav-bar-box-center-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
-				<a href="investment.jsp">待发货</a>
+				<a href="javascript: void(0);">待发货</a>
 			</div>
 			<div class="nav-bar-box-item nav-bar-box-center-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
-				<a href="investment.jsp">待收货</a>
+				<a href="javascript: void(0);">待收货</a>
 			</div>
 			<div class="nav-bar-box-item nav-bar-box-center-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
-				<a href="investment.jsp">待评价</a>
+				<a href="javascript: void(0);">待评价</a>
 			</div>
 			<div class="nav-bar-box-item nav-bar-box-end-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
 				<p style="width: 70px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
 					<label title="google wallet" class="icon-google-wallet" style="width: 100%; display: block;"></label>
-					<label style="width: 100%; display: block;"><a href="investment.jsp"style="">退款/售后</a></label>
+					<label style="width: 100%; display: block;"><a href="javascript: void(0);"style="">退款/售后</a></label>
 				</p>
 			</div>
 		</div>
@@ -110,13 +110,13 @@
 		<div style="width: 100%; display: -moz-box; display: -webkit-box; display: box; box-pack: center; -moz-box-pack: center; -webkit-box-pack: center; -o-box-pack: center;">
 			<!--  -moz-box-flex:3; -webkit-box-flex:3; box-flex:3; -->
 			<p style="width: 70px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
-				<a href="../login.jsp" style="text-decoration: none;">触屏版</a>
+				<a href="javascript: void(0);" style="text-decoration: none;">触屏版</a>
 			</p>
 			<p style="width: 70px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
-				<a href="../register.jsp" style="text-decoration: none;">极速版</a>
+				<a href="javascript: void(0);" style="text-decoration: none;">极速版</a>
 			</p>
 			<p style="width: 70px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
-				<a href="../register.jsp" style="text-decoration: none;">电脑版</a>
+				<a href="javascript: void(0);" style="text-decoration: none;">电脑版</a>
 			</p>
 		</div>
 		<div style="width: 100%; margin-top: .9rem; height: .9rem; line-height: .9rem; box-sizing: border-box; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAhCAMAAABgOjJdAAAAGXRFW…v7MdDuE3a/JRrCmqwFQ2yV8gmvg/d+aPCMH0GLvB//AgwAo1MTpxsaxVoAAAAASUVORK5CYII=) no-repeat 3.7rem center; background-size: .85rem .85rem; color: #c3c6ca; font-size: 12px;">

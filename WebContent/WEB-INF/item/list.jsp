@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
-<title>谁是谁的菜</title>
+<title>我发布的需求</title>
 <script type="text/javascript" src="js/iscroll/iscroll-4.2.5.js"></script>
 
 <script type="text/javascript">

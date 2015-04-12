@@ -73,7 +73,7 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0\">\r\n");
       out.write("<meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\r\n");
       out.write("<meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black\">\r\n");
-      out.write("<title>谁是谁的菜</title>\r\n");
+      out.write("<title>我发布的需求</title>\r\n");
       out.write("<script type=\"text/javascript\" src=\"js/iscroll/iscroll-4.2.5.js\"></script>\r\n");
       out.write("\r\n");
       out.write("<script type=\"text/javascript\">\r\n");
