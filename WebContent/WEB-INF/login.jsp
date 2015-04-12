@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="stylesheet" type="text/css" href="css/common-style.css"/>
 <title>登录</title>
 
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
@@ -15,8 +16,12 @@
 
 </head>
 <body topmargin="0" rightmargin="0" bottommargin="0" leftmargin="0" marginheight="0" marginwidth="0">
-<div style="width: 100%; height: 35px; line-height: 35px; text-align: center; border: 0px solid silver; border-bottom: 1px solid silver;">
-    <label>登录</label>
+<div style="width: 100%; height: 32px; line-height: 32px; text-align: center; border: 0px solid silver; border-bottom: 1px solid silver;">
+	<ul class="list-item-t list-item-item" style="position: relative;">
+		<li class="list-item-t-item" style="width: 33.3%"></li>
+		<li class="list-item-t-item" style="width: 33.3%"><label>登录</label></li>
+		<li class="list-item-t-item-right" style="width: 33.3%; text-align: right;"><p><a href="javascript: void(0);">使用其他帐号登录</a></p></li>
+	</ul>
 </div>
 <div>
 	<form action="">

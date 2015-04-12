@@ -62,6 +62,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
       out.write("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0\" />\r\n");
       out.write("<meta name=\"apple-mobile-web-app-capable\" content=\"yes\" />\r\n");
+      out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/common-style.css\"/>\r\n");
       out.write("<title>登录</title>\r\n");
       out.write("\r\n");
       out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/style.css\"/>\r\n");
@@ -71,8 +72,12 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("</head>\r\n");
       out.write("<body topmargin=\"0\" rightmargin=\"0\" bottommargin=\"0\" leftmargin=\"0\" marginheight=\"0\" marginwidth=\"0\">\r\n");
-      out.write("<div style=\"width: 100%; height: 35px; line-height: 35px; text-align: center; border: 0px solid silver; border-bottom: 1px solid silver;\">\r\n");
-      out.write("    <label>登录</label>\r\n");
+      out.write("<div style=\"width: 100%; height: 32px; line-height: 32px; text-align: center; border: 0px solid silver; border-bottom: 1px solid silver;\">\r\n");
+      out.write("\t<ul class=\"list-item-t list-item-item\" style=\"position: relative;\">\r\n");
+      out.write("\t\t<li class=\"list-item-t-item\" style=\"width: 33.3%\"></li>\r\n");
+      out.write("\t\t<li class=\"list-item-t-item\" style=\"width: 33.3%\"><label>登录</label></li>\r\n");
+      out.write("\t\t<li class=\"list-item-t-item-right\" style=\"width: 33.3%; text-align: right;\"><p><a href=\"javascript: void(0);\">使用其他帐号登录</a></p></li>\r\n");
+      out.write("\t</ul>\r\n");
       out.write("</div>\r\n");
       out.write("<div>\r\n");
       out.write("\t<form action=\"\">\r\n");

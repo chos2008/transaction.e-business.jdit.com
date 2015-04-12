@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="/WEB-INF/c.tld"%>
+<%@ taglib prefix="fmt" uri="/WEB-INF/fmt.tld"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -285,7 +286,9 @@ body {
 					<div style="width: 100%; height: 20px; line-height: 20px; text-align: center; font-size: 10px">
 						${variable.projectBidContent}
 					</div>
-					<span style="width: 100%; display: inline-block;">招标时间：${variable.creation}</span>
+					<span style="width: 100%; display: inline-block;">招标时间：
+						<fmt:formatDate value="${variable.creation}" pattern="yyyy年MM月dd日  HH时mm分ss秒" />
+					</span>
 				</div>
 			</li>
 			</c:forEach>
