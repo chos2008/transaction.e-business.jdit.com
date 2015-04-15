@@ -6,21 +6,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<link rel="stylesheet" type="text/css" href="css/common-style.css"/>
 <title>登录</title>
-
+<link rel="stylesheet" type="text/css" href="css/common-style.css"/>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
 <script type="text/javascript" src="js/zepto/zepto.min.js"></script>
 <script type="text/javascript" src="js/login.js"></script>
 
 </head>
-<body topmargin="0" rightmargin="0" bottommargin="0" leftmargin="0" marginheight="0" marginwidth="0">
+<body topmargin="0" rightmargin="0" bottommargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="margin: 0px 0px; padding: 0px 0px;">
 <div style="width: 100%; height: 32px; line-height: 32px; text-align: center; border: 0px solid silver; border-bottom: 1px solid silver;">
 	<ul class="list-item-t list-item-item" style="position: relative;">
 		<li class="list-item-t-item" style="width: 33.3%"></li>
 		<li class="list-item-t-item" style="width: 33.3%"><label>登录</label></li>
-		<li class="list-item-t-item-right" style="width: 33.3%; text-align: right;"><p><a href="javascript: void(0);">使用其他帐号登录</a></p></li>
+		<li class="list-item-t-item-right" style="width: 33.3%; text-align: right;"><p><a href="javascript: void(0);"></a></p></li>
 	</ul>
 </div>
 <div>
@@ -45,6 +44,32 @@
 	</form>
 </div>
 
+
+<div id="nav" class="nav-bar" style="height: 64px; position: absolute; bottom: 0px; background-color: transparent; border-top: 1px solid silver;">
+	<div style="width: 100%; text-align: center; font-size: 12px; font-family: Arial, 'Microsoft YaHei';">使用其他帐号登录</div>
+	<div class="nav-bar-box" style="">
+		<div class="nav-bar-box-default-item nav-bar-box-center-item" style="width: 70px; font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
+			<p style="width: 70px; margin: 0px 0px; text-align: center;">
+				<a href="../qq.shtml" style="border-radius: 6px; font-size: 14px; display: block; height: 1.5rem; line-height: 1.5rem; color: #c3c6ca; border: 2px solid #42454d; background-color: #555965; padding: 0 .75rem; text-decoration: none;">QQ</a>
+			</p>
+		</div>
+		<div class="nav-bar-box-default-item nav-bar-box-center-item" style="width: 70px; font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
+			<p style="width: 70px; margin: 0px 0px; text-align: center;">
+				<a href="../qq.shtml" style="border-radius: 6px; font-size: 14px; display: block; height: 1.5rem; line-height: 1.5rem; color: #c3c6ca; border: 2px solid #42454d; background-color: #555965; padding: 0 .75rem; text-decoration: none;">支付宝</a>
+			</p>
+		</div>
+		<div class="nav-bar-box-default-item nav-bar-box-center-item" style="width: 70px; font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
+			<p style="width: 70px; margin: 0px 0px; text-align: center;">
+				<a href="../qq.shtml" style="border-radius: 6px; font-size: 14px; display: block; height: 1.5rem; line-height: 1.5rem; color: #c3c6ca; border: 2px solid #42454d; background-color: #555965; padding: 0 .75rem; text-decoration: none;">微信</a>
+			</p>
+		</div>
+		<div class="nav-bar-box-default-item nav-bar-box-center-item" style="width: 70px; font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
+			<p style="width: 70px; margin: 0px 0px; text-align: center;">
+				<a href="../weibo.shtml" style="border-radius: 6px; font-size: 14px; display: block; height: 1.5rem; line-height: 1.5rem; color: #c3c6ca; border: 2px solid #42454d; background-color: #555965; padding: 0 .75rem; text-decoration: none;">微博</a>
+			</p>
+		</div>
+	</div>
+</div>
 <script type="text/javascript" src="js/chos/template-engine/TEngine.js" ></script>
 </body>
 </html>

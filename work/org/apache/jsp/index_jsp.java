@@ -58,6 +58,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0\" />\r\n");
       out.write("<meta name=\"apple-mobile-web-app-capable\" content=\"yes\" />\r\n");
       out.write("<meta property=\"wb:webmaster\" content=\"36343efaedf263e8\" />\r\n");
+      out.write("<meta property=\"qc:admins\" content=\"2540734107320016513066547\" />\r\n");
       out.write("<title>this is index page</title>\r\n");
       out.write("</head>\r\n");
       out.write("<body style=\"margin: 0px 0px;\">\r\n");

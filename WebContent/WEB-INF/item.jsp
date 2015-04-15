@@ -12,366 +12,363 @@
 <body style="margin: 0px 0px; padding: 0px 0px;">
 <div style="width: 100%; ">
 
-<div style="width: 100%; height: 400px; background-color: silver;">
+	<div style="width: 100%; height: 400px; background-color: silver;">
+		
+	</div>
+	<div style="width: 100%; border-bottom-color: silver; border-bottom-style: solid; border-bottom-width: 1px;">
+		
+	</div>
+
+	<div style="font-size: 14px; font-family: Arial, 'Microsoft YaHei';">
+	<!--  -->
+	${item.userId}<br>
+	${item.title}<br>
 	
-</div>
-<div style="width: 100%; border-bottom-color: silver; border-bottom-style: solid; border-bottom-width: 1px;">
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
 	
-</div>
-<!--  -->
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
-${item.id}<br>
-${item.userId}<br>
-${item.title}<br>
-${item.amount}<br>
-${item.content}<br>
-${item.startTime}<br>
-${item.endTime}<br>
-${item.creation}<br>
-${item.updation}<br>
-
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	
+	
+	${item.userId}<br>
+	${item.title}<br>
+	
+	${item.content}<br>
+	${item.startTime}<br>
+	${item.endTime}<br>
+	${item.creation}<br>
+	${item.updation}<br>
+	</div>
 
 </div>
 
 <div id="nav" class="nav-bar" style="position: absolute; bottom: 0px;">
 	<div class="nav-bar-box">
 		<div class="nav-bar-box-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
-			<p id="nav-back" style="width: 70px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
-				<label title="paypal" class="icon-paypal" style="width: 100%; display: block;"></label>
-				<label style="width: 100%; display: block;"><a href="javascript: void(0);" style=""></a></label>
-			</p>
+			<label style="width: 100%; display: block; color: white;">金额：${item.amount}</label>
 		</div>
 		<div class="nav-bar-box-item nav-bar-box-center-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
 			<a href="investment.jsp"></a>
@@ -385,7 +382,7 @@ ${item.updation}<br>
 		<div class="nav-bar-box-item nav-bar-box-end-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
 			<p style="width: 70px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
 				<label title="google wallet" class="icon-google-wallet" style="width: 100%; display: block;"></label>
-				<label style="width: 100%; display: block;"><a href="investment.jsp"style="color: white;">立即订购</a></label>
+				<label style="width: 100%; display: block;"><a href="../order.shtml?item=${item.id}"style="color: white;">立即订购</a></label>
 			</p>
 		</div>
 	</div>
