@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="authsession">
+	<resultMap type="DocumentPart" id="documentpart">
+		<id column="id" property="id"/>
+		<result column="document_id" property="documentId"/>
+		<result column="document_type" property="documentType"/>
+		<result column="part_content" property="partContent"/>
+		<result column="part_type" property="partType"/>
+		<result column="creation" property="creation"/>
+		<result column="updation" property="updation"/>
+	</resultMap>
+	
+	<select id="documentpart-getByDocumentId" resultMap="documentpart" parameterType="long">
+		select * from document_part where document_id = #{documentId}
+	</select>
+</mapper>

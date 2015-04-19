@@ -17,6 +17,7 @@ import org.chos.transaction.passport.OAuthSession;
 import org.chos.transaction.passport.oauth.SessionService;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 /**
@@ -31,6 +32,7 @@ import org.springframework.stereotype.Service;
 public class SessionServiceImpl implements SessionService {
 
 	@Autowired()
+	@Qualifier(value = "sqlSessionTemplate")
 	private SqlSessionTemplate template;
 	
 	public OAuthSession getSession(String state) {

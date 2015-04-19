@@ -19,6 +19,7 @@ import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 /**
@@ -33,6 +34,7 @@ import org.springframework.stereotype.Service;
 public class RequirementServiceImpl implements RequirementService {
 
 	@Autowired()
+	@Qualifier(value = "sqlSessionTemplate")
 	private SqlSessionTemplate template;
 	
 	public List<Requirement> list(long firstResult, int maxResultSize) {
@@ -47,7 +49,7 @@ public class RequirementServiceImpl implements RequirementService {
 		param.put("userId", userId);
 		param.put("firstResult", firstResult);
 		param.put("maxResultSize", maxResultSize);
-		return template.selectList("req-list", param);
+		return template.selectList("item-list-r", param);
 	}
 	
 	public Requirement getItem(int id) {

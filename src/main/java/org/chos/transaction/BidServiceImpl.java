@@ -1,5 +1,5 @@
 /*
- * @(#)BidServiceImpl.java	1.0 2015-3-8 обнГ08:56:57
+ * @(#)BidServiceImpl.java	1.0 2015-3-8 О©╫О©╫О©╫О©╫08:56:57
  *
  * Copyright 2008 WWW.YHD.COM. All rights reserved.
  *      YIHAODIAN PROPRIETARY/CONFIDENTIAL. 
@@ -17,6 +17,7 @@ import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 /**
@@ -24,16 +25,21 @@ import org.springframework.stereotype.Service;
  * 
  * 
  * @author luoxiaoyong
- * @version 1.0  2015-3-8 обнГ08:56:57
+ * @version 1.0  2015-3-8 О©╫О©╫О©╫О©╫08:56:57
  * @since 1.0
  */
 @Service
 public class BidServiceImpl implements BidService {
 
 	@Autowired()
+	@Qualifier(value = "sqlSessionTemplate")
 	private SqlSessionTemplate template;
 	
 	public List<Bid> list() {
 		return template.selectList("bid-list");
+	}
+	
+	public void issue(Bid bid) {
+		template.insert("bid-issue", bid);
 	}
 }

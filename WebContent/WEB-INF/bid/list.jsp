@@ -281,9 +281,9 @@ body {
 			<c:forEach items="${bids}" var="variable">
 			<li>
 				<div style="margin: 2px 3px 5px 3px; border-top: 0px solid silver; border-bottom: 0px solid silver;">
-					<span style="width: 100%; display: inline-block;"><a href="">${variable.projectName}-标号${variable.no}</a></span>
+					<span style="width: 100%; display: inline-block;"><a href="../bid/${variable.id}.shtml">${variable.projectName}-标号${variable.no}</a></span>
 					<span style="width: 100%; display: inline-block;">招标项目金额：${variable.amount}元</span>
-					<div style="width: 100%; height: 20px; line-height: 20px; text-align: center; font-size: 10px">
+					<div style="width: 100%; line-height: 24px; font-size: 10px">
 						${variable.projectBidContent}
 					</div>
 					<span style="width: 100%; display: inline-block;">招标时间：

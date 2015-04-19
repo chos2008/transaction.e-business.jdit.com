@@ -1,5 +1,5 @@
 /*
- * @(#)Bid.java	1.0 2015-3-8 обнГ08:45:47
+ * @(#)Bid.java	1.0 2015-3-8 О©╫О©╫О©╫О©╫08:45:47
  *
  * Copyright 2008 WWW.YHD.COM. All rights reserved.
  *      YIHAODIAN PROPRIETARY/CONFIDENTIAL. 
@@ -20,14 +20,16 @@ import java.util.Date;
  * 
  * 
  * @author luoxiaoyong
- * @version 1.0  2015-3-8 обнГ08:45:47
+ * @version 1.0  2015-3-8 О©╫О©╫О©╫О©╫08:45:47
  * @since 1.0
  */
 public class Bid {
 
-	private String id;
+	private int id;
 	
 	private String no;
+	
+	private int tenderSide;
 	
 	private String projectName;
 	
@@ -46,14 +48,14 @@ public class Bid {
 	/**
 	 * @return the id
 	 */
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -69,6 +71,20 @@ public class Bid {
 	 */
 	public void setNo(String no) {
 		this.no = no;
+	}
+
+	/**
+	 * @return the tenderSide
+	 */
+	public int getTenderSide() {
+		return tenderSide;
+	}
+
+	/**
+	 * @param tenderSide the tenderSide to set
+	 */
+	public void setTenderSide(int tenderSide) {
+		this.tenderSide = tenderSide;
 	}
 
 	/**

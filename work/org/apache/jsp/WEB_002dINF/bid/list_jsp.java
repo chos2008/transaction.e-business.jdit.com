@@ -396,7 +396,9 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("\r\n");
           out.write("\t\t\t<li>\r\n");
           out.write("\t\t\t\t<div style=\"margin: 2px 3px 5px 3px; border-top: 0px solid silver; border-bottom: 0px solid silver;\">\r\n");
-          out.write("\t\t\t\t\t<span style=\"width: 100%; display: inline-block;\"><a href=\"\">");
+          out.write("\t\t\t\t\t<span style=\"width: 100%; display: inline-block;\"><a href=\"../bid/");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.id}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write(".shtml\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.projectName}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write('-');
           out.write('标');
@@ -406,7 +408,7 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("\t\t\t\t\t<span style=\"width: 100%; display: inline-block;\">招标项目金额：");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.amount}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write("元</span>\r\n");
-          out.write("\t\t\t\t\t<div style=\"width: 100%; height: 20px; line-height: 20px; text-align: center; font-size: 10px\">\r\n");
+          out.write("\t\t\t\t\t<div style=\"width: 100%; line-height: 24px; font-size: 10px\">\r\n");
           out.write("\t\t\t\t\t\t");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.projectBidContent}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write("\r\n");

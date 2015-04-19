@@ -25,6 +25,7 @@ import org.chos.servlet.http.ChosHttpServletResponse;
 import org.chos.transaction.passport.HttpContextSessionManager;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 /**
@@ -39,6 +40,7 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
 
 	@Autowired()
+	@Qualifier(value = "sqlSessionTemplate")
 	private SqlSessionTemplate template;
 	
 	@Autowired

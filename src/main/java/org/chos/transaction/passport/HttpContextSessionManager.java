@@ -21,6 +21,7 @@ import org.chos.transaction.User;
 import org.chos.transaction.UserService;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 /**
@@ -37,6 +38,7 @@ public class HttpContextSessionManager {
 	private static final String USER_TOKEN = "ut";
 
 	@Autowired()
+	@Qualifier(value = "sqlSessionTemplate")
 	private SqlSessionTemplate template;
 	
 	@Autowired

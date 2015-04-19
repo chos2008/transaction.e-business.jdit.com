@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="order">
+	<resultMap type="Order" id="Order">
+		<id column="id" property="id"/>
+		<result column="no" property="no"/>
+		<result column="amount" property="amount"/>
+		<result column="user_id" property="userId"/>
+		<result column="merch_id" property="merchandiseId"/>
+		<result column="merch_type" property="merchandiseType"/>
+		<result column="quantity" property="quantity"/>
+		<result column="state" property="state"/>
+		<result column="description" property="description"/>
+		<result column="creation" property="creation"/>
+		<result column="updation" property="updation"/>
+	</resultMap>
+	
+	<!-- 查询第三方接入服务信息 -->
+	<select id="order-list-by-userid" resultMap="Order" parameterType="long">
+		select * from `order` where user_id = #{userId}
+	</select>
+	
+	<insert id="order-order" parameterType="Order">
+		<selectKey keyProperty="id" resultType="long">
+			select @@identity as id 
+		</selectKey>
+		insert into `order`(
+			id
+			,no
+			,amount
+			,user_id
+			,merch_id
+			,merch_type
+			,quantity
+			,state
+			<if test="description != null">
+				,description
+			</if>
+			,creation
+			<if test="updation != null">
+				,updation
+			</if>
+		) values(
+			#{id}
+			,#{no}
+			,#{amount}
+			,#{userId}
+			,#{merchandiseId}
+			,#{merchandiseType}
+			,#{quantity}
+			,#{state}
+			<if test="endTime != null">
+				,#{description}
+			</if>
+			,#{creation}
+			<if test="updation != null">
+				,#{updation}
+			</if>
+		)
+	</insert>
+</mapper>

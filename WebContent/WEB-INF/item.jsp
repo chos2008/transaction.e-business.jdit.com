@@ -1,9 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="/WEB-INF/c.tld"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="data-spm" content="a222m"/>
+<meta name="aplus-terminal" content="1">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
 <title>${item.title}</title>
 <link rel="stylesheet" type="text/css" href="../css/common-style.css"/>
 <script type="text/javascript" src="../js/zepto/zepto.min.js"></script>
@@ -20,347 +28,20 @@
 	</div>
 
 	<div style="font-size: 14px; font-family: Arial, 'Microsoft YaHei';">
-	<!--  -->
-	${item.userId}<br>
-	${item.title}<br>
 	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
-	
-	
-	${item.userId}<br>
-	${item.title}<br>
-	
-	${item.content}<br>
-	${item.startTime}<br>
-	${item.endTime}<br>
-	${item.creation}<br>
-	${item.updation}<br>
+	<c:forEach items="${details}" var="variable">
+		<p>
+			<c:choose>
+				<c:when test="${variable.partType == 1}">
+					<img src="${variable.partContent}" style="  position: relative; margin: 0px auto; display: block; max-width: 100%;"/>
+				</c:when>
+				<c:otherwise>
+					${variable.partContent}
+				</c:otherwise>
+			</c:choose>
+		</p>
+	</c:forEach>
+		
 	</div>
 
 </div>

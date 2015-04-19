@@ -6,6 +6,7 @@
 	<resultMap type="Bid" id="Bid">
 		<id column="id" property="id"/>
 		<result column="no" property="no"/>
+		<result column="tender_side" property="tenderSide"/>
 		<result column="project_name" property="projectName"/>
 		<result column="amount" property="amount"/>
 		<result column="project_bid_content" property="projectBidContent"/>
@@ -19,4 +20,49 @@
 	<select id="bid-list" resultMap="Bid">
 		select * from bid
 	</select>
+	
+	<insert id="bid-issue" parameterType="Bid">
+		<selectKey keyProperty="id" resultType="int">
+			select @@identity as id 
+		</selectKey>
+		insert into bid(
+			id
+			,no
+			,tender_side
+			,project_name
+			,amount
+			<if test="projectBidContent != null">
+				,project_bid_content
+			</if>
+			<if test="startTime != null">
+				,start_time
+			</if>
+			<if test="endTime != null">
+				,end_time
+			</if>
+			,creation
+			<if test="updation != null">
+				,updation
+			</if>
+		) values(
+			#{id}
+			,#{no}
+			,#{tenderSide}
+			,#{projectName}
+			,#{amount}
+			<if test="projectBidContent != null">
+				,#{projectBidContent}
+			</if>
+			<if test="startTime != null">
+				,#{startTime}
+			</if>
+			<if test="endTime != null">
+				,#{endTime}
+			</if>
+			,#{creation}
+			<if test="updation != null">
+				,#{updation}
+			</if>
+		)
+	</insert>
 </mapper>

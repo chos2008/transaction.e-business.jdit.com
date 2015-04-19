@@ -15,10 +15,10 @@
 		<result column="updation" property="updation"/>
 	</resultMap>
 	
-	<select id="req-list" resultMap="Requirement">
+	<select id="item-list-r" resultMap="Requirement">
 		select * from requirement 
 		<if test="userId != null">
-			where user_id = #{userId}
+			where user_id = #{userId} order by creation desc
 		</if>
 		limit #{firstResult}, #{maxResultSize}
 	</select>

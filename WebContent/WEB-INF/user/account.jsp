@@ -18,9 +18,9 @@
 <body style="margin: 0px 0px;">
 <div class="list-item">
 	<ul class="list-item list-item-t" style="position: relative;">
-		<li class="list-item-t-item"><p><a href="../item.shtml">我的订单</a></p></li>
+		<li class="list-item-t-item"><p><a href="../order.shtml?userId=12345">我的订单</a></p></li>
 		<li class="list-item-t-item-right list-item-t-item-img"></li>
-		<li class="list-item-t-item-right">查看所有订单</li>
+		<li class="list-item-t-item-right"><a href="../order.shtml?userId=12345">查看所有订单</a></li>
 	</ul>
 	<div id="nav" class="nav-bar tool_bar">
 		<div class="nav-bar-box">
@@ -64,9 +64,9 @@
 	<ul class="list-item-t list-item-item" style="position: relative;">
 		<li class="list-item-t-item"><p><a href="../item.shtml">我的需求</a></p></li>
 		<li class="list-item-t-item-right list-item-t-item-img"></li>
-		<li class="list-item-t-item-right">查看所有发布的需求</li>
+		<li class="list-item-t-item-right"><a href="../item.shtml">查看所有发布的需求</a></li>
 	</ul>
-	<div class="list-item-body" style="width: 100%; position: relative; display: inline-block;">
+	<div class="list-item-body" style="width: 100%; position: relative; display: none;">
 		<div class="item-not-issue" style="height: 160px; margin: 2px 5px 3px; padding: 3px 5px; border: 0px solid silver; position: relative; background-color: white; background-image: url('../images/qapp_center_loading.png'); background-position: center center; background-repeat: no-repeat; opacity: 0.6;">
 			<p style="width: 100%; margin: 0px 0px; padding: 0px 0px; position: absolute; bottom: 0px; text-align: center;">
 				<a style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';" href="../issue.jsp">你还没有发布需求, 在这里发布下试试</a>
@@ -83,18 +83,9 @@
 	<ul class="list-item-t" style="position: relative;">
 		<li class="list-item-t-item"><p><a href="../bid/list.shtml">我发布的标书</a></p></li>
 		<li class="list-item-t-item-right list-item-t-item-img"></li>
-		<li class="list-item-t-item-right">查看所有标书</li>
+		<li class="list-item-t-item-right"><a href="../bid/list.shtml">查看所有标书</a></li>
 	</ul>
-	<div style="height: 160px; margin: 2px 5px 3px; padding: 3px 5px; border: 0px solid silver; background-color: white; background-image: url('../images/qapp_center_loading.png'); background-position: center center; background-repeat: no-repeat; opacity: 0.6;">
-		
-	</div>
-	<div style="height: 160px; margin: 2px 5px 3px; padding: 3px 5px; border: 0px solid silver; background-color: white; background-image: url('../images/qapp_center_loading.png'); background-position: center center; background-repeat: no-repeat; opacity: 0.6;">
-		
-	</div>
-	<div style="height: 160px; margin: 2px 5px 3px; padding: 3px 5px; border: 0px solid silver; background-color: white; background-image: url('../images/qapp_center_loading.png'); background-position: center center; background-repeat: no-repeat; opacity: 0.6;">
-		
-	</div>
-	<div style="height: 160px; margin: 2px 5px 3px; padding: 3px 5px; border: 0px solid silver; background-color: white; background-image: url('../images/qapp_center_loading.png'); background-position: center center; background-repeat: no-repeat; opacity: 0.6;">
+	<div style="height: 160px; margin: 2px 5px 3px; padding: 3px 5px; border: 0px solid silver; background-color: white; background-image: url('../images/qapp_center_loading.png'); background-position: center center; background-repeat: no-repeat; opacity: 0.6; display: none;">
 		
 	</div>
 </div>

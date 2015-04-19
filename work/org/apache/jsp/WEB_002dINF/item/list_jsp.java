@@ -329,7 +329,7 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<body>\r\n");
       out.write("<div id=\"header\">\r\n");
       out.write("\r\n");
-      out.write("<a href=\"../bid.jsp\">发布标书</a>\r\n");
+      out.write("<a href=\"investment.jsp\">发布需求</a>\r\n");
       out.write("<div style=\"height: 45px; position: absolute; right: 0px; top: 0px;\">\r\n");
       out.write("<a href=\"../user/index.jsp\" style=\"right: 5px; position: relative; border-radius: 3px; moz-border-radius: 4px; webkit-border-radius: 4px; border: 1px solid #ddd; background-color: #f5f5f5; color: #333;\">我的帐号</a>\r\n");
       out.write("</div>\r\n");
@@ -414,6 +414,7 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("\r\n");
           out.write("\t\t\t\t\t</div>\r\n");
           out.write("\t\t\t\t\t<span style=\"width: 100%; display: inline-block;\">招标时间：\r\n");
+          out.write("\t\t\t\t\t\t\r\n");
           out.write("\t\t\t\t\t\t");
           if (_jspx_meth_fmt_005fformatDate_005f0(_jspx_th_c_005fforEach_005f0, _jspx_page_context, _jspx_push_body_count_c_005fforEach_005f0))
             return true;
@@ -449,9 +450,9 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.FormatDateTag _jspx_th_fmt_005fformatDate_005f0 = (org.apache.taglibs.standard.tag.rt.fmt.FormatDateTag) _005fjspx_005ftagPool_005ffmt_005fformatDate_0026_005fvalue_005fpattern_005fnobody.get(org.apache.taglibs.standard.tag.rt.fmt.FormatDateTag.class);
     _jspx_th_fmt_005fformatDate_005f0.setPageContext(_jspx_page_context);
     _jspx_th_fmt_005fformatDate_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_005fforEach_005f0);
-    // /WEB-INF/item/list.jsp(290,6) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/item/list.jsp(291,6) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_fmt_005fformatDate_005f0.setValue((java.util.Date) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.creation}", java.util.Date.class, (PageContext)_jspx_page_context, null, false));
-    // /WEB-INF/item/list.jsp(290,6) name = pattern type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/item/list.jsp(291,6) name = pattern type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_fmt_005fformatDate_005f0.setPattern("yyyy年MM月dd日  HH时mm分ss秒");
     int _jspx_eval_fmt_005fformatDate_005f0 = _jspx_th_fmt_005fformatDate_005f0.doStartTag();
     if (_jspx_th_fmt_005fformatDate_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {

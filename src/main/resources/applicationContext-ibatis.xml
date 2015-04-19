@@ -12,6 +12,8 @@
 		<property name="locations">
 			<list>
 				<value>classpath:datasource.properties</value>
+				<value>classpath:datasource-order.properties</value>
+				<value>classpath:datasource-alapay.properties</value>
 			</list>
 		</property>
 	</bean>
@@ -34,6 +36,23 @@
 		<property name="acquireIncrement" value="3" />
 		<property name="testConnectionOnCheckin" value="true"></property>
 	</bean>
+	
+	<bean id="dataSource-order" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${order.jdbc.connection.driver_class}" />
+		<property name="jdbcUrl" value="${order.jdbc.connection.url}" />
+		<property name="user" value="${order.jdbc.connection.username}" />
+		<property name="password" value="${order.jdbc.connection.password}" />
+		<property name="minPoolSize" value="${order.jdbc.minPoolSize}" />
+		<property name="maxPoolSize" value="${order.jdbc.maxPoolSize}" />
+		<property name="initialPoolSize" value="${order.jdbc.initialPoolSize}" />
+		<property name="idleConnectionTestPeriod" value="300" />
+		<property name="breakAfterAcquireFailure" value="false" />
+		<property name="checkoutTimeout" value="100000" />
+		<property name="maxIdleTime" value="60" />
+		<property name="acquireRetryAttempts" value="30" />
+		<property name="acquireIncrement" value="3" />
+		<property name="testConnectionOnCheckin" value="true"></property>
+	</bean>
 
 	<!-- 
 	
@@ -43,11 +62,23 @@
 		<property name="dataSource" ref="dataSource"/>
 	</bean>
 	
+	<bean id="sqlSessionFactory-order" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" value="classpath:ibatis/ibatis-order-config.xml"></property>
+		<property name="dataSource" ref="dataSource-order"/>
+	</bean>
+	
 	<!-- 
 	
 	 -->
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory"></constructor-arg>
+		<!-- 
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+		 -->
+	</bean>
+	
+	<bean id="sqlSessionTemplateForOrder" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory-order"></constructor-arg>
 		<!-- 
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
 		 -->

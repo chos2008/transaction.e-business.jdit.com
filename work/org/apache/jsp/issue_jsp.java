@@ -60,7 +60,7 @@ public final class issue_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<meta name=\"apple-mobile-web-app-capable\" content=\"yes\" />\r\n");
       out.write("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0\" />\r\n");
       out.write("<meta name=\"MobileOptimized\" content=\"320\" />\r\n");
-      out.write("<title>谁是谁的菜</title>\r\n");
+      out.write("<title>发布需求</title>\r\n");
       out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/common-style.css\"/>\r\n");
       out.write("\r\n");
       out.write("<script type=\"text/javascript\" src=\"js/zepto/zepto.min.js\"></script>\r\n");

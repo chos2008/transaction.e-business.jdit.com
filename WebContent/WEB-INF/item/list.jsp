@@ -265,7 +265,7 @@ body {
 <body>
 <div id="header">
 
-<a href="../bid.jsp">发布标书</a>
+<a href="investment.jsp">发布需求</a>
 <div style="height: 45px; position: absolute; right: 0px; top: 0px;">
 <a href="../user/index.jsp" style="right: 5px; position: relative; border-radius: 3px; moz-border-radius: 4px; webkit-border-radius: 4px; border: 1px solid #ddd; background-color: #f5f5f5; color: #333;">我的帐号</a>
 </div>
@@ -287,6 +287,7 @@ body {
 						${variable.content}
 					</div>
 					<span style="width: 100%; display: inline-block;">招标时间：
+						
 						<fmt:formatDate value="${variable.creation}" pattern="yyyy年MM月dd日  HH时mm分ss秒" />
 					</span>
 				</div>

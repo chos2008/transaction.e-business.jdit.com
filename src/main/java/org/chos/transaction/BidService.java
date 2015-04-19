@@ -1,5 +1,5 @@
 /*
- * @(#)BidService.java	1.0 2015-3-8 обнГ09:34:26
+ * @(#)BidService.java	1.0 2015-3-8 О©╫О©╫О©╫О©╫09:34:26
  *
  * Copyright 2008 WWW.YHD.COM. All rights reserved.
  *      YIHAODIAN PROPRIETARY/CONFIDENTIAL. 
@@ -20,10 +20,12 @@ import java.util.List;
  * 
  * 
  * @author luoxiaoyong
- * @version 1.0  2015-3-8 обнГ09:34:26
+ * @version 1.0  2015-3-8 О©╫О©╫О©╫О©╫09:34:26
  * @since 1.0
  */
 public interface BidService {
 
 	public List<Bid> list();
+	
+	public void issue(Bid bid);
 }

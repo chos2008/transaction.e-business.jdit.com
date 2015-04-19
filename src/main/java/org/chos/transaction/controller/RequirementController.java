@@ -26,6 +26,8 @@ import org.chos.servlet.http.ChosHttpServletResponse;
 import org.chos.transaction.Bid;
 import org.chos.transaction.BidService;
 import org.chos.transaction.BidServiceImpl;
+import org.chos.transaction.DocumentPart;
+import org.chos.transaction.DocumentService;
 import org.chos.transaction.Requirement;
 import org.chos.transaction.RequirementService;
 import org.chos.transaction.User;
@@ -57,6 +59,9 @@ public class RequirementController {
 	private RequirementService requirementService;
 	
 	@Autowired
+	private DocumentService documentService;
+	
+	@Autowired
 	private HttpContextSessionManager httpContextSessionManager;
 	
 	@Autowired
@@ -64,10 +69,9 @@ public class RequirementController {
 	
 	@RequestMapping(value = "index")
 	public String list(HttpServletRequest request, HttpServletResponse response, Model model) {
-		Session session = httpContextSessionManager.getSession(request);
 		long firstResult = 0;
 		int maxResultSize = 50;
-		List<Requirement> results = requirementService.list(session.getUserId(), firstResult, maxResultSize);
+		List<Requirement> results = requirementService.list(firstResult, maxResultSize);
 		model.addAttribute("requirements", results);
 		return "index";
 	}
@@ -119,6 +123,10 @@ public class RequirementController {
 	public String item(@PathVariable int id, HttpServletRequest request, HttpServletResponse response, Model model) {
 		Requirement item = requirementService.getItem(id);
 		model.addAttribute("item", item);
+		
+		List<DocumentPart> document = documentService.getDocumentById(item.getId());
+		
+		model.addAttribute("details", document);
 		return "item";
 	}
 	
