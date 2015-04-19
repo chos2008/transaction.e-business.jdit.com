@@ -14,7 +14,9 @@
 package org.chos.transaction.passport;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +50,23 @@ public class SessionManagerImpl implements SessionManager {
 			}
 		}
 		return null;
+	}
+	
+	public LocalSession getLocalSession(long userId, int type) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("userId", userId);
+		map.put("type", type);
+		List<LocalSession> list = template.selectList("localsession-getSession", map);
+		LocalSession session = null;
+		if (! list.isEmpty()) {
+			session = list.get(0);
+		} else {
+			session = new LocalSession();
+			session.setUserId(userId);
+			session.setCursorType(type);
+			template.insert("localsession-createSession", session);
+		}
+		return session;
 	}
 	
 	public Session getSession(String ut) {

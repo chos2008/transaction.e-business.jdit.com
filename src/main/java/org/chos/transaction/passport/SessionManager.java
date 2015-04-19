@@ -35,6 +35,13 @@ public interface SessionManager {
 	public Session getSession(long userId, boolean refresh);
 	
 	/**
+	 * @param userId
+	 * @param type
+	 * @return
+	 */
+	public LocalSession getLocalSession(long userId, int type);
+	
+	/**
 	 * @param ut
 	 * @return
 	 */

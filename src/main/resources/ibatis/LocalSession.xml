@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="localsession">
+	<resultMap type="LocalSession" id="localsession">
+		<id column="id" property="id"/>
+		<result column="user_id" property="userId"/>
+		<result column="cursor_type" property="cursorType"/>
+		<result column="current_page" property="currentPage"/>
+		<result column="page_size" property="pageSize"/>
+		<result column="creation" property="creation"/>
+		<result column="updation" property="updation"/>
+	</resultMap>
+	
+	<select id="localsession-getSession" resultMap="localsession" parameterType="map">
+		select * from local_cursor_session where user_id = #{userId} and cursor_type = #{type}
+	</select>
+	<insert id="localsession-createSession" parameterType="OAuthSession">
+		<selectKey keyProperty="id" resultType="long">
+			select @@identity as id 
+		</selectKey>
+		insert into local_cursor_session(
+			id
+			, user_id
+			, cursor_type
+			, current_page
+			, page_size
+			, creation
+			<if test="updation != null">
+				, updation
+			</if>
+		) values(
+			#{id}
+			,#{userId}
+			,#{cursorType}
+			,#{currentPage}
+			,#{pageSize}
+			,#{creation}
+			<if test="updation != null">
+				,#{updation}
+			</if>
+		)
+	</insert>
+</mapper>
