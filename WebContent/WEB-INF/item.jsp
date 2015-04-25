@@ -33,7 +33,7 @@
 		<p>
 			<c:choose>
 				<c:when test="${variable.partType == 1}">
-					<img src="${variable.partContent}" style="  position: relative; margin: 0px auto; display: block; max-width: 100%;"/>
+					<img src="${variable.partContent}" style="position: relative; margin: 0px auto; display: block; max-width: 100%;"/>
 				</c:when>
 				<c:otherwise>
 					${variable.partContent}
@@ -54,16 +54,10 @@
 		<div class="nav-bar-box-item nav-bar-box-center-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
 			<a href="investment.jsp"></a>
 		</div>
-		<div class="nav-bar-box-item nav-bar-box-center-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
-			<a href="investment.jsp"></a>
-		</div>
-		<div class="nav-bar-box-item nav-bar-box-center-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
-			<a href="investment.jsp"></a>
-		</div>
 		<div class="nav-bar-box-item nav-bar-box-end-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
 			<p style="width: 70px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
 				<label title="google wallet" class="icon-google-wallet" style="width: 100%; display: block;"></label>
-				<label style="width: 100%; display: block;"><a href="../order.shtml?item=${item.id}"style="color: white;">立即订购</a></label>
+				<label style="width: 100%; display: block;"><a href="../order.shtml?item=${item.id}"style="color: white;">立即接单</a></label>
 			</p>
 		</div>
 	</div>

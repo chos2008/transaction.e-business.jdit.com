@@ -5,11 +5,13 @@
 <configuration>
 
 	<typeAliases>
+		<typeAlias type="org.chos.transaction.order.OrderSheet" alias="OrderSheet"/>
 		<typeAlias type="org.chos.transaction.order.Order" alias="Order"/>
 	</typeAliases>
 		
 
 	<mappers>
+		<mapper resource="ibatis/OrderSheet.xml" />
 		<mapper resource="ibatis/Order.xml" />
 	</mappers>
 	

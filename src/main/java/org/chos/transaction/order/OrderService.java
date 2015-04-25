@@ -25,6 +25,16 @@ import java.util.List;
  */
 public interface OrderService {
 
+	/**
+	 * @param userId
+	 * @return
+	 */
 	public List<Order> getOrders(long userId);
+	
+	/**
+	 * @param order
+	 * @return
+	 */
+	public Order order(Order order);
 	
 }

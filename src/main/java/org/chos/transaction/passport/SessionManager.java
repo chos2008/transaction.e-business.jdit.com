@@ -39,7 +39,7 @@ public interface SessionManager {
 	 * @param type
 	 * @return
 	 */
-	public LocalSession getLocalSession(long userId, int type);
+	public LocalSession getLocalSession(long userId, int type, int position);
 	
 	/**
 	 * @param ut

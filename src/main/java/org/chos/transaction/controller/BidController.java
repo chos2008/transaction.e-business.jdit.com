@@ -13,6 +13,7 @@
  */
 package org.chos.transaction.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -32,6 +33,10 @@ import org.chos.transaction.Requirement;
 import org.chos.transaction.RequirementService;
 import org.chos.transaction.User;
 import org.chos.transaction.UserService;
+import org.chos.transaction.passport.HttpContextSessionManager;
+import org.chos.transaction.passport.LocalSession;
+import org.chos.transaction.passport.Session;
+import org.chos.transaction.passport.SessionManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -60,6 +65,12 @@ public class BidController {
 	private RequirementService requirementService;
 	
 	@Autowired
+	private HttpContextSessionManager httpContextSessionManager;
+	
+	@Autowired
+	private SessionManager sessionManager;
+	
+	@Autowired
 	private DocumentService documentService;
 	
 	@Autowired
@@ -67,11 +78,38 @@ public class BidController {
 	
 	@RequestMapping(value = "/bid/list")
 	public String list(HttpServletRequest request, HttpServletResponse response, Model model) {
-		long firstResult = 0;
-		int maxResultSize = 50;
-		List<Bid> results = bidService.list();
+		Session session = httpContextSessionManager.getSession(request);
+		
+		String html = request.getParameter("html");
+		String result = null;
+		LocalSession localsession = null;
+		List<Bid> results = null;
+		if (html != null) {
+			String position = request.getParameter("down");
+			localsession = sessionManager.getLocalSession(session.getUserId(), 2, position != null ? -1 : 1);
+			if (localsession.getCurrentPage() > 0) {
+				long firstResult = (localsession.getCurrentPage() - 1) * localsession.getPageSize();
+				int maxResultSize = localsession.getPageSize();
+				results = bidService.list(session.getUserId(), firstResult, maxResultSize);
+			} else {
+				results = new ArrayList<Bid>(0);
+			}
+			
+			result = "bid/tmpl-bid-list-item";
+		} else {
+			localsession = sessionManager.getLocalSession(session.getUserId(), 2, 0);
+			if (localsession.getCurrentPage() > 0) {
+				long firstResult = (localsession.getCurrentPage() - 1) * localsession.getPageSize();
+				int maxResultSize = localsession.getPageSize();
+				results = bidService.list(session.getUserId(), firstResult, maxResultSize);
+			} else {
+				results = new ArrayList<Bid>(0);
+			}
+			
+			result = "bid/list";
+		}
 		model.addAttribute("bids", results);
-		return "bid/list";
+		return result;
 	}
 	
 	@RequestMapping(value = "/bid/{id}")
@@ -107,13 +145,20 @@ public class BidController {
 		}
 		
 		String contact = request.getParameter("contact");
-		User user = userService.create(null, null, contact, contact, true, request, response);
+		Session session = httpContextSessionManager.getSession(request);
+		long userId = 0;
+		if (session == null) {
+			User user = userService.create(null, null, contact, contact, true, request, response);
+			userId = user.getId();
+		} else {
+			userId = session.getUserId();
+		}
 		
 		Bid bid = new Bid();
 		String no = UUID.randomUUID().toString();
 		no = no.replaceAll("-", "");
 		bid.setNo(no);
-		bid.setTenderSide((int) user.getId());
+		bid.setTenderSide(userId);
 		bid.setProjectName(title);
 		bid.setAmount(StringUtils.isBlank(amount) ? 0 : Double.parseDouble(amount));
 		bid.setProjectBidContent(description);

@@ -11,8 +11,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <title>谁是谁的菜</title>
 <link rel="stylesheet" type="text/css" href="css/common-style.css"/>
+<script type="text/javascript" src="js/zepto/zepto.min.js"></script>
 <script type="text/javascript" src="js/iscroll/iscroll-4.2.5.js"></script>
-
+<script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript">
 
 var myScroll,
@@ -25,11 +26,34 @@ function pullDownAction () {
 		var el, li, i;
 		el = document.getElementById('thelist');
 
+		/*
 		for (i=0; i<3; i++) {
 			li = document.createElement('li');
 			li.innerText = 'Generated row ' + (++generatedCount);
 			el.insertBefore(li, el.childNodes[0]);
 		}
+		*/
+		
+		$.ajax({
+			type: "get",
+			url: "/index.shtml?html&down",
+			data: {
+				
+			}, 
+			error: function() {
+				var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
+				tips.show();
+				return;
+			}, 
+			success: function(response) {
+				if(response) {
+					var html = $(response);
+					$("#thelist").prepend(html);
+					
+					//el.insertBefore(li, el.childNodes[0]);
+				}
+			}
+		});
 		
 		myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
 	}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
@@ -39,12 +63,35 @@ function pullUpAction () {
 	setTimeout(function () {	// <-- Simulate network congestion, remove setTimeout from production!
 		var el, li, i;
 		el = document.getElementById('thelist');
-
+		
+		/*
 		for (i=0; i<3; i++) {
 			li = document.createElement('li');
 			li.innerText = 'Generated row ' + (++generatedCount);
 			el.appendChild(li, el.childNodes[0]);
 		}
+		*/
+		
+		$.ajax({
+			type: "get",
+			url: "/index.shtml?html&up",
+			data: {
+				
+			}, 
+			error: function() {
+				var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
+				tips.show();
+				return;
+			}, 
+			success: function(response) {
+				if(response) {
+					var html = $(response);
+					$("#thelist").append(html);
+					
+					//el.insertBefore(li, el.childNodes[0]);
+				}
+			}
+		});
 		
 		myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
 	}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
@@ -270,16 +317,16 @@ body {
 			<div class="nav-bar-box-item">
 				<p id="nav-back" style="width: 70px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
 					<label title="paypal" class="icon-paypal" style="width: 100%; display: block;"></label>
-					<label style="width: 100%; display: block;"><a href="javascript: void(0);" style=" color: #ffffff;">返回</a></label>
+					<label style="width: 100%; display: block;"><a href="/user/index.jsp" style=" color: #ffffff;">返回</a></label>
 				</p>
 			</div>
 			<div class="nav-bar-box-item nav-bar-box-center-item">
 				<a href="investment.jsp">发布需求</a>
 			</div>
 			<div class="nav-bar-box-item nav-bar-box-end-item">
-				<p style="width: 70px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
+				<p style="height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
 					<label title="google wallet" class="icon-google-wallet" style="width: 100%; display: block;"></label>
-					<label style="width: 100%; display: block;"><a href="investment.jsp"style=" color: #ffffff;">订购</a></label>
+					<label style="width: 100%; display: block;"><a id="order-sheet" href="/order-sheet.shtml" style=" color: #ffffff;">(<i id="order-sheet-stats">0</i>)接单</a></label>
 				</p>
 			</div>
 		</div>
@@ -293,9 +340,9 @@ body {
 
 		<ul id="thelist">
 			<c:forEach items="${requirements}" var="variable">
-			<li>
+			<li onclick="cart(${variable.id})">
 				<div style="margin: 2px 3px 5px 3px; border-top: 0px solid silver; border-bottom: 0px solid silver;">
-					<span style="width: 100%; display: inline-block;"><a href="item/${variable.id}.shtml">${variable.title}-标号${variable.id}</a></span>
+					<span style="width: 100%; display: inline-block;"><a href="item/${variable.id}.shtml">${variable.title}</a></span>
 					<span style="width: 100%; display: inline-block;">招标项目金额：${variable.amount}元</span>
 					<div style="width: 100%; line-height: 20px; text-align: left; font-size: 10px">
 						${variable.content}

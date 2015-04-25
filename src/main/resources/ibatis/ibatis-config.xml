@@ -22,6 +22,7 @@
 		<mapper resource="ibatis/Bid.xml" />
 		<mapper resource="ibatis/Session.xml" />
 		<mapper resource="ibatis/Auth-Session.xml" />
+		<mapper resource="ibatis/LocalSession.xml" />
 	</mappers>
 	
 </configuration>

@@ -23,7 +23,7 @@ import java.util.Date;
  * @version 1.0  2015-4-19 下午11:17:37
  * @since 1.0
  */
-public class LocalSession {
+public class LocalSession implements Cloneable {
 
 	private long id;
 	
@@ -38,6 +38,21 @@ public class LocalSession {
 	private Date creation;
 	
 	private Date updation;
+	
+	public LocalSession() {
+		cursorType = 0;
+		currentPage = 1;
+		pageSize = 20;
+		creation = new Date();
+	}
+	
+	public LocalSession clone() {
+		try {
+			return (LocalSession) super.clone();
+		} catch (CloneNotSupportedException e) {
+			return null;
+		}
+	}
 
 	/**
 	 * @return the id

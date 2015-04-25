@@ -91,9 +91,9 @@ function getPositionError(error) {
 					tips.show();
 					return;
 				}, 
-				success:function(resnponse) {
-					if(resnponse) {
-					    if(resnponse.code == 0) {
+				success:function(response) {
+					if(response) {
+					    if(response.code == 0) {
 							location.href="user/index.jsp";
 							return;
 					    }

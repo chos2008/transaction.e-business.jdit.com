@@ -18,7 +18,11 @@
 	
 	<!-- 查询第三方接入服务信息 -->
 	<select id="bid-list" resultMap="Bid">
-		select * from bid
+		select * from bid 
+		<if test="userId != null">
+			where tender_side = #{userId} order by creation desc
+		</if>
+		limit #{firstResult}, #{maxResultSize}
 	</select>
 	
 	<insert id="bid-issue" parameterType="Bid">

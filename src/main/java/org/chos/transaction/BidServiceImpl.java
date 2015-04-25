@@ -13,7 +13,9 @@
  */
 package org.chos.transaction;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +37,12 @@ public class BidServiceImpl implements BidService {
 	@Qualifier(value = "sqlSessionTemplate")
 	private SqlSessionTemplate template;
 	
-	public List<Bid> list() {
-		return template.selectList("bid-list");
+	public List<Bid> list(long userId, long firstResult, int maxResultSize) {
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("userId", userId);
+		param.put("firstResult", firstResult);
+		param.put("maxResultSize", maxResultSize);
+		return template.selectList("bid-list", param);
 	}
 	
 	public void issue(Bid bid) {

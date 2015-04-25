@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <title>注册</title>
-
+<link rel="stylesheet" type="text/css" href="css/common-style.css"/>
 <link rel="stylesheet" type="text/css" href="css/register.css"/>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <script type="text/javascript" src="js/zepto/zepto.min.js"></script>

@@ -38,4 +38,9 @@ public class OrderServiceImpl implements OrderService {
 	public List<Order> getOrders(long userId) {
 		return template.selectList("order-list-by-userid", userId);
 	}
+	
+	public Order order(Order order) {
+		template.insert("order-order", order);
+		return order;
+	}
 }

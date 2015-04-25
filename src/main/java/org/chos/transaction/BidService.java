@@ -25,7 +25,7 @@ import java.util.List;
  */
 public interface BidService {
 
-	public List<Bid> list();
+	public List<Bid> list(long userId, long firstResult, int maxResultSize);
 	
 	public void issue(Bid bid);
 }

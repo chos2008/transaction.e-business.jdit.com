@@ -10,6 +10,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <title>我发布的标书</title>
+<link rel="stylesheet" type="text/css" href="../css/common-style.css"/>
+<script type="text/javascript" src="../js/zepto/zepto.min.js"></script>
 <script type="text/javascript" src="../js/iscroll/iscroll-4.2.5.js"></script>
 
 <script type="text/javascript">
@@ -24,11 +26,34 @@ function pullDownAction () {
 		var el, li, i;
 		el = document.getElementById('thelist');
 
+		/*
 		for (i=0; i<3; i++) {
 			li = document.createElement('li');
 			li.innerText = 'Generated row ' + (++generatedCount);
 			el.insertBefore(li, el.childNodes[0]);
 		}
+		*/
+		
+		$.ajax({
+			type: "get",
+			url: "/bid/list.shtml?html&down",
+			data: {
+				
+			}, 
+			error: function() {
+				var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
+				tips.show();
+				return;
+			}, 
+			success: function(response) {
+				if(response) {
+					var html = $(response);
+					$("#thelist").prepend(html);
+					
+					//el.insertBefore(li, el.childNodes[0]);
+				}
+			}
+		});
 		
 		myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
 	}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
@@ -39,11 +64,34 @@ function pullUpAction () {
 		var el, li, i;
 		el = document.getElementById('thelist');
 
+		/*
 		for (i=0; i<3; i++) {
 			li = document.createElement('li');
 			li.innerText = 'Generated row ' + (++generatedCount);
 			el.appendChild(li, el.childNodes[0]);
 		}
+		*/
+		
+		$.ajax({
+			type: "get",
+			url: "/bid/list.shtml?html&up",
+			data: {
+				
+			}, 
+			error: function() {
+				var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
+				tips.show();
+				return;
+			}, 
+			success: function(response) {
+				if(response) {
+					var html = $(response);
+					$("#thelist").prepend(html);
+					
+					//el.insertBefore(li, el.childNodes[0]);
+				}
+			}
+		});
 		
 		myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
 	}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
@@ -281,7 +329,14 @@ body {
 			<c:forEach items="${bids}" var="variable">
 			<li>
 				<div style="margin: 2px 3px 5px 3px; border-top: 0px solid silver; border-bottom: 0px solid silver;">
-					<span style="width: 100%; display: inline-block;"><a href="../bid/${variable.id}.shtml">${variable.projectName}-标号${variable.no}</a></span>
+					<div style="width: 100%; display: inline-block; margin-top: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px;">
+						<ul class="list-item" style="border-bottom: 0px solid silver;  overflow-wrap: break-word; height: 32px; overflow: hidden;">
+							<li class="list-item-t-item" style="border-bottom: 0px solid #ccc; padding: 0px 0px; font-family: Arial;">
+								<a href="../bid/${variable.id}.shtml">${variable.projectName}</a>
+							</li>
+							<li class="list-item-t-item-right" style="border-bottom: 0px solid #ccc; padding: 0px 0px; font-family: Arial;">标&nbsp;${variable.no}</li>
+						</ul>
+					</div>
 					<span style="width: 100%; display: inline-block;">招标项目金额：${variable.amount}元</span>
 					<div style="width: 100%; line-height: 24px; font-size: 10px">
 						${variable.projectBidContent}

@@ -52,7 +52,7 @@ public class SessionManagerImpl implements SessionManager {
 		return null;
 	}
 	
-	public LocalSession getLocalSession(long userId, int type) {
+	public LocalSession getLocalSession(long userId, int type, int position) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("userId", userId);
 		map.put("type", type);
@@ -65,6 +65,17 @@ public class SessionManagerImpl implements SessionManager {
 			session.setUserId(userId);
 			session.setCursorType(type);
 			template.insert("localsession-createSession", session);
+		}
+		if (position != 0) {
+			session.setCurrentPage(session.getCurrentPage() + position);
+			session.setUpdation(new Date());
+			template.update("localsession-refreshSession", session);
+		} else {
+			if (session.getCurrentPage() < 1) {
+				session.setCurrentPage(1);
+				session.setUpdation(new Date());
+				template.update("localsession-refreshSession", session);
+			}
 		}
 		return session;
 	}

@@ -29,7 +29,7 @@ public class Bid {
 	
 	private String no;
 	
-	private int tenderSide;
+	private long tenderSide;
 	
 	private String projectName;
 	
@@ -76,14 +76,14 @@ public class Bid {
 	/**
 	 * @return the tenderSide
 	 */
-	public int getTenderSide() {
+	public long getTenderSide() {
 		return tenderSide;
 	}
 
 	/**
 	 * @param tenderSide the tenderSide to set
 	 */
-	public void setTenderSide(int tenderSide) {
+	public void setTenderSide(long tenderSide) {
 		this.tenderSide = tenderSide;
 	}
 

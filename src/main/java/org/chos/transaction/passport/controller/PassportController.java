@@ -26,6 +26,7 @@ import org.chos.servlet.http.ChosHttpServletResponse;
 import org.chos.transaction.User;
 import org.chos.transaction.UserAlreadyExistException;
 import org.chos.transaction.UserService;
+import org.chos.transaction.controller.ErrorCode;
 import org.chos.transaction.passport.HttpContextSessionManager;
 import org.chos.transaction.passport.PassportService;
 import org.chos.transaction.passport.SessionException;
@@ -66,17 +67,17 @@ public class PassportController {
 		Map<String, Object> resp = new HashMap<String, Object>();
 		String username = request.getParameter("username");
 		if (StringUtils.isBlank(username)) {
-			resp.put("code", 1000);
+			resp.put("code", ErrorCode.PARAM_ERROR);
 			return resp;
 		}
 		String password = request.getParameter("password");
 		if (StringUtils.isBlank(password)) {
-			resp.put("code", 1000);
+			resp.put("code", ErrorCode.PARAM_ERROR);
 			return resp;
 		}
 		String mobile = request.getParameter("mobile");
 		if (! StringUtils.isBlank(mobile) && ! mobile.matches("1[0-9]{10}")) {
-			resp.put("code", 1100);
+			resp.put("code", ErrorCode.MOBILE_FORMAT_ERROR);
 			return resp;
 		}
 		String email = request.getParameter("email");
@@ -84,7 +85,7 @@ public class PassportController {
 		try {
 			userService.create(username, password, mobile, email);
 		} catch (UserAlreadyExistException e) {
-			resp.put("code", 1003);
+			resp.put("code", ErrorCode.USER_ALREADY_EXISTS);
 			return resp;
 		}
 		resp.put("code", 0);
@@ -102,12 +103,12 @@ public class PassportController {
 		Map<String, Object> resp = new HashMap<String, Object>();
 		String username = request.getParameter("username");
 		if (StringUtils.isBlank(username)) {
-			resp.put("code", 1000);
+			resp.put("code", ErrorCode.PARAM_ERROR);
 			return resp;
 		}
 		String password = request.getParameter("password");
 		if (StringUtils.isBlank(password)) {
-			resp.put("code", 1000);
+			resp.put("code", ErrorCode.PARAM_ERROR);
 			return resp;
 		}
 		try {

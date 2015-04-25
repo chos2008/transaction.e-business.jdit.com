@@ -21,6 +21,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang.StringUtils;
 import org.chos.transaction.order.Order;
 import org.chos.transaction.order.OrderService;
+import org.chos.transaction.order.OrderSheet;
+import org.chos.transaction.order.OrderSheetService;
+import org.chos.transaction.passport.HttpContextSessionManager;
+import org.chos.transaction.passport.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,15 +44,31 @@ public class OrderController {
 	@Autowired
 	private OrderService orderService;
 	
+	@Autowired
+	private OrderSheetService orderSheetService;
+	
+	@Autowired
+	private HttpContextSessionManager httpContextSessionManager;
+	
 	@RequestMapping(value = "order")
 	public String list(HttpServletRequest request, HttpServletResponse response, Model model) {
-		String param = request.getParameter("userId");
-		if (StringUtils.isBlank(param)) {
+		Session session = httpContextSessionManager.getSession(request);
+		if (session == null) {
 			return "order/error";
 		}
-		long userId = Long.parseLong(param);
-		List<Order> orders = orderService.getOrders(userId);
+		List<Order> orders = orderService.getOrders(session.getUserId());
 		model.addAttribute("orders", orders);
 		return "order/list";
+	}
+	
+	@RequestMapping(value = "order-sheet")
+	public String orderSheet(HttpServletRequest request, HttpServletResponse response, Model model) {
+		Session session = httpContextSessionManager.getSession(request);
+		if (session == null) {
+			return "order/error";
+		}
+		List<OrderSheet> orders = orderSheetService.orderSheet(session.getToken());
+		model.addAttribute("orders", orders);
+		return "order/order-sheet";
 	}
 }

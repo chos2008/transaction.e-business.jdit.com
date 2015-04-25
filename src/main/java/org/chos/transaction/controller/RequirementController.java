@@ -1,43 +1,45 @@
 /*
- * @(#)BidController.java	1.0 2015-3-8 ����08:45:11
+ * @(#)RequirementController.java	1.0 2015-3-8 ����08:45:11
  *
- * Copyright 2008 WWW.YHD.COM. All rights reserved.
- *      YIHAODIAN PROPRIETARY/CONFIDENTIAL. 
+ * Copyright 2008 CHOS. All rights reserved.
+ *        CHOS PROPRIETARY/CONFIDENTIAL. 
  *       Use is subject to license terms.
  * 
  * Unless required by applicable law or agreed to in writing, software 
- * distributed under the WWW.YHD.COM License is distributed on an "AS 
- * IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either ex-
- * press or implied. See the License for the specific language govern-
- * ing permissions and limitations under the License.
+ * distributed under the CHOS License is distributed on an "AS IS" BA-
+ * SIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express o
+ * r implied. See the License for the specific language governing per-
+ * missions and limitations under the License.
  */
 package org.chos.transaction.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
-import org.chos.servlet.http.ChosHttpServletResponse;
-import org.chos.transaction.Bid;
-import org.chos.transaction.BidService;
-import org.chos.transaction.BidServiceImpl;
 import org.chos.transaction.DocumentPart;
 import org.chos.transaction.DocumentService;
 import org.chos.transaction.Requirement;
 import org.chos.transaction.RequirementService;
 import org.chos.transaction.User;
 import org.chos.transaction.UserService;
+import org.chos.transaction.order.Order;
+import org.chos.transaction.order.OrderService;
+import org.chos.transaction.order.OrderSheet;
+import org.chos.transaction.order.OrderSheetService;
 import org.chos.transaction.passport.HttpContextSessionManager;
+import org.chos.transaction.passport.LocalSession;
 import org.chos.transaction.passport.Session;
+import org.chos.transaction.passport.SessionManager;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -65,34 +67,107 @@ public class RequirementController {
 	private HttpContextSessionManager httpContextSessionManager;
 	
 	@Autowired
+	private SessionManager sessionManager;
+	
+	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	private OrderSheetService orderSheetService;
+	
+	@Autowired
+	private OrderService orderService;
+	
+	/**
+	 * http://domain.com/index.shtml
+	 * http://domain.com/index.shtml?html
+	 * http://domain.com/index.shtml?html=
+	 * http://domain.com/index.shtml?html=something&down
+	 * http://domain.com/index.shtml?html=something&down=
+	 * http://domain.com/index.shtml?html=something&down=something
+	 * http://domain.com/index.shtml?html=something&up
+	 * http://domain.com/index.shtml?html=something&up=
+	 * http://domain.com/index.shtml?html=something&up=something
+	 * http://domain.com/index.shtml?html&up
+	 * http://domain.com/index.shtml?html&up=
+	 * http://domain.com/index.shtml?html&up=something
+	 * 
+	 * @param request
+	 * @param response
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "index")
 	public String list(HttpServletRequest request, HttpServletResponse response, Model model) {
-		long firstResult = 0;
-		int maxResultSize = 50;
-		List<Requirement> results = requirementService.list(firstResult, maxResultSize);
+		Session session = httpContextSessionManager.getSession(request);
+		String html = request.getParameter("html");
+		String result = null;
+		LocalSession localsession = null;
+		List<Requirement> results = null;
+		if (html != null) {
+			String position = request.getParameter("down");
+			localsession = sessionManager.getLocalSession(session.getUserId(), 1, position != null ? -1 : 1);
+			if (localsession.getCurrentPage() > 0) {
+				long firstResult = (localsession.getCurrentPage() - 1) * localsession.getPageSize();
+				int maxResultSize = localsession.getPageSize();
+				results = requirementService.list(firstResult, maxResultSize);
+			} else {
+				results = new ArrayList<Requirement>(0);
+			}
+
+			
+			result = "tmpl-index-list-item";
+		} else {
+			localsession = sessionManager.getLocalSession(session.getUserId(), 1, 0);
+			if (localsession.getCurrentPage() > 0) {
+				long firstResult = (localsession.getCurrentPage() - 1) * localsession.getPageSize();
+				int maxResultSize = localsession.getPageSize();
+				results = requirementService.list(firstResult, maxResultSize);
+			} else {
+				results = new ArrayList<Requirement>(0);
+			}
+			
+			
+			result = "index";
+		}
+		
 		model.addAttribute("requirements", results);
-		return "index";
+
+		
+		return result;
 	}
 	
+	/**
+	 * http://domain.com/item
+	 * http://domain.com/item?html
+	 * http://domain.com/item?html=
+	 * http://domain.com/item?html=something
+	 * 
+	 * @param request
+	 * @param response
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "item")
 	public String list0(HttpServletRequest request, HttpServletResponse response, Model model) {
 		Session session = httpContextSessionManager.getSession(request);
-		
-		String pFirstResult = request.getParameter("firstResult");
-		long firstResult = 0;
-		if (! StringUtils.isBlank(pFirstResult)) {
-			firstResult = Long.parseLong(pFirstResult);
+		String html = request.getParameter("html");
+		String result = null;
+		LocalSession localsession = null;
+		if (html != null) {
+			String position = request.getParameter("down");
+			localsession = sessionManager.getLocalSession(session.getUserId(), 0, position != null ? -1 : 1);
+			result = "item/tmpl-item-list-item";
+		} else {
+			localsession = sessionManager.getLocalSession(session.getUserId(), 0, 0);
+			result = "item/list";
 		}
-		String pMaxResultSize = request.getParameter("maxResultSize");
-		int maxResultSize = 5;
-		if (! StringUtils.isBlank(pMaxResultSize)) {
-			maxResultSize = Integer.parseInt(pMaxResultSize);
-		}
+		long firstResult = (localsession.getCurrentPage() - 1) * localsession.getPageSize();
+		int maxResultSize = localsession.getPageSize();
 		List<Requirement> results = requirementService.list(session.getUserId(), firstResult, maxResultSize);
 		model.addAttribute("requirements", results);
-		return "item/list";
+		
+		return result;
 	}
 	
 	@RequestMapping(value = "item_as_json")
@@ -101,18 +176,23 @@ public class RequirementController {
 		Session session = httpContextSessionManager.getSession(request);
 		Map<String, Object> result = new HashMap<String, Object>();
 		if (session == null) {
-			result.put("code", 2000);
+			result.put("code", SessionErrorCode.INVALID_SESSION);
 			return result;
 		}
+		LocalSession localsession = sessionManager.getLocalSession(session.getUserId(), 0, 1);
 		String pFirstResult = request.getParameter("firstResult");
 		long firstResult = 0;
 		if (! StringUtils.isBlank(pFirstResult)) {
 			firstResult = Long.parseLong(pFirstResult);
+		} else {
+			firstResult = (localsession.getCurrentPage() - 1) * localsession.getPageSize();
 		}
 		String pMaxResultSize = request.getParameter("maxResultSize");
 		int maxResultSize = 5;
 		if (! StringUtils.isBlank(pMaxResultSize)) {
 			maxResultSize = Integer.parseInt(pMaxResultSize);
+		} else {
+			maxResultSize = localsession.getPageSize();
 		}
 		List<Requirement> list = requirementService.list(session.getUserId(), firstResult, maxResultSize);
 		result.put("data", list);
@@ -121,13 +201,33 @@ public class RequirementController {
 	
 	@RequestMapping(value = "item/{id}")
 	public String item(@PathVariable int id, HttpServletRequest request, HttpServletResponse response, Model model) {
-		Requirement item = requirementService.getItem(id);
-		model.addAttribute("item", item);
 		
-		List<DocumentPart> document = documentService.getDocumentById(item.getId());
-		
-		model.addAttribute("details", document);
-		return "item";
+		String type = request.getParameter("type");
+		if ("1".equals(type)) {
+			Requirement item = new Requirement();
+			model.addAttribute("item", item);
+			
+			List<DocumentPart> document = new ArrayList<DocumentPart>();
+			
+			model.addAttribute("details", document);
+			return "item-product";
+		} else if ("2".equals(type)) {
+			Requirement item = new Requirement();
+			model.addAttribute("item", item);
+			
+			List<DocumentPart> document = new ArrayList<DocumentPart>();
+			
+			model.addAttribute("details", document);
+			return "item-0";
+		} else {
+			Requirement item = requirementService.getItem(id);
+			model.addAttribute("item", item);
+			
+			List<DocumentPart> document = documentService.getDocumentById(item.getId());
+			
+			model.addAttribute("details", document);
+			return "item";
+		}
 	}
 	
 	@RequestMapping(value = "item/issue")
@@ -152,16 +252,93 @@ public class RequirementController {
 		}
 		
 		String contact = request.getParameter("contact");
-		User user = userService.create(null, null, contact, contact, true, request, response);
+		Session session = httpContextSessionManager.getSession(request);
+		long userId = 0;
+		if (session == null) {
+			User user = userService.create(null, null, contact, contact, true, request, response);
+			userId = user.getId();
+		} else {
+			userId = session.getUserId();
+		}
 		
 		Requirement requirement = new Requirement();
-		requirement.setUserId(user.getId());
+		requirement.setUserId(userId);
 		requirement.setTitle(title);
 		requirement.setAmount(StringUtils.isBlank(amount) ? 0 : Double.parseDouble(amount));
 		requirement.setContent(description);
 		requirement.setStartTime(new Date());
 		requirement.setCreation(new Date());
 		requirementService.issue(requirement);
+		json.put("code", 0);
+		return json;
+	}
+	
+	@RequestMapping(value = "item/cart")
+	@ResponseBody
+	public Object cart(HttpServletRequest request, HttpServletResponse response) {
+		Session session = httpContextSessionManager.getSession(request);
+		Map<String, Object> json = new HashMap<String, Object>();
+		if (session == null) {
+			json.put("code", SessionErrorCode.INVALID_SESSION);
+			return json;
+		}
+		String itemId = request.getParameter("itemId");
+		if (StringUtils.isBlank(itemId)) {
+			json.put("code", ErrorCode.PARAM_ERROR);
+			return json;
+		}
+		Requirement item = requirementService.getItem(Integer.parseInt(itemId));
+		if (item == null) {
+			json.put("code", ItemErrorCode.ITEM_NOT_EXISTS);
+			return json;
+		}
+		OrderSheet order = new OrderSheet();
+		String no = UUID.randomUUID().toString();
+		no = no.replaceAll("-", "");
+		order.setAmount(item.getAmount());
+		order.setUt(session.getToken());
+		order.setMerchandiseId(item.getId());
+		order.setMerchandiseType(0);
+		order.setQuantity(1);
+		order.setCreation(new Date());
+		
+		orderSheetService.cart(order);
+		json.put("code", 0);
+		return json;
+	}
+	
+	@RequestMapping(value = "item/order")
+	@ResponseBody
+	public Object order(HttpServletRequest request, HttpServletResponse response) {
+		Session session = httpContextSessionManager.getSession(request);
+		Map<String, Object> json = new HashMap<String, Object>();
+		if (session == null) {
+			json.put("code", SessionErrorCode.INVALID_SESSION);
+			return json;
+		}
+		String itemId = request.getParameter("itemId");
+		if (StringUtils.isBlank(itemId)) {
+			json.put("code", ErrorCode.PARAM_ERROR);
+			return json;
+		}
+		Requirement item = requirementService.getItem(Integer.parseInt(itemId));
+		if (item == null) {
+			json.put("code", ItemErrorCode.ITEM_NOT_EXISTS);
+			return json;
+		}
+		Order order = new Order();
+		String no = UUID.randomUUID().toString();
+		no = no.replaceAll("-", "");
+		order.setNo(no);
+		order.setUserId(session.getUserId());
+		order.setAmount(item.getAmount());
+		order.setMerchandiseId(item.getId());
+		order.setMerchandiseType(0);
+		order.setQuantity(1);
+		order.setState(0);
+		order.setCreation(new Date());
+		
+		orderService.order(order);
 		json.put("code", 0);
 		return json;
 	}

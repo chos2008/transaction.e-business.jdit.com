@@ -10,10 +10,32 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <title>我发布的需求</title>
+<link rel="stylesheet" type="text/css" href="css/common-style.css"/>
+<script type="text/javascript" src="js/zepto/zepto.min.js"></script>
 <script type="text/javascript" src="js/iscroll/iscroll-4.2.5.js"></script>
+<script type="text/javascript" src="js/item.js"></script>
 
 <script type="text/javascript">
-
+function dataformat(ms) {
+	var date = new Date(ms);
+	var y = date.getFullYear();
+	var M = date.getMonth() + 1;
+	M = M > 9 ? M : '0' + M;
+	
+	var d = date.getDate();
+	d = d > 9 ? d : '0' + d;
+	
+	var h = date.getHours();
+	h = h > 9 ? h : '0' + h;
+	
+	var m = date.getMinutes();
+	m = m > 9 ? m : '0' + m;
+	
+	var s = date.getSeconds();
+	s = s > 9 ? s : '0' + s;
+	return y + "-" + M + "-" + d + " " + h + ":" + m + ":" + s;
+	
+}
 var myScroll,
 	pullDownEl, pullDownOffset,
 	pullUpEl, pullUpOffset,
@@ -24,11 +46,56 @@ function pullDownAction () {
 		var el, li, i;
 		el = document.getElementById('thelist');
 
+		/*
 		for (i=0; i<3; i++) {
 			li = document.createElement('li');
 			li.innerText = 'Generated row ' + (++generatedCount);
 			el.insertBefore(li, el.childNodes[0]);
 		}
+		*/
+		$.ajax({
+			type: "get",
+			url: "/item_as_json.shtml",
+			data: {
+				
+			}, 
+			error: function() {
+				var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
+				tips.show();
+				return;
+			}, 
+			success: function(response) {
+				if(response) {
+					if (response.data) {
+						if (response.data.length > 0) {
+							for (var i = 0; i < response.data.length; i++) {
+								var item = response.data[i];
+								
+								var html = $("#tmpl-item-r").html();
+								var reg = new RegExp("\{variable.id\}","g"); //创建正则RegExp对象  
+								html = html.replace(reg, item.id);
+								
+								reg = new RegExp("\{variable.title\}","g"); //创建正则RegExp对象  
+								html = html.replace(reg, item.title);
+								
+								reg = new RegExp("\{variable.amount\}","g"); //创建正则RegExp对象  
+								html = html.replace(reg, item.amount);
+								
+								reg = new RegExp("\{variable.content\}","g"); //创建正则RegExp对象  
+								html = html.replace(reg, item.content);
+								
+								reg = new RegExp("\{variable.creation\}","g"); //创建正则RegExp对象  
+								html = html.replace(reg, dataformat(item.creation));
+								var li = $(html);
+								$("#thelist").prepend(li);
+								
+								//el.insertBefore(li, el.childNodes[0]);
+							}
+						}
+					}
+				}
+			}
+		});
 		
 		myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
 	}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
@@ -281,14 +348,14 @@ body {
 			<c:forEach items="${requirements}" var="variable">
 			<li>
 				<div style="margin: 2px 3px 5px 3px; border-top: 0px solid silver; border-bottom: 0px solid silver;">
-					<span style="width: 100%; display: inline-block;"><a href="item/${variable.id}.shtml">${variable.title}-标号${variable.id}</a></span>
+					<span style="width: 100%; display: inline-block;"><a href="item/${variable.id}.shtml">${variable.title}</a></span>
 					<span style="width: 100%; display: inline-block;">招标项目金额：${variable.amount}元</span>
 					<div style="width: 100%; line-height: 20px; text-align: left; font-size: 10px">
 						${variable.content}
 					</div>
 					<span style="width: 100%; display: inline-block;">招标时间：
 						
-						<fmt:formatDate value="${variable.creation}" pattern="yyyy年MM月dd日  HH时mm分ss秒" />
+						<fmt:formatDate value="${variable.creation}" pattern="yyyy-MM-dd HH:mm:ss" />
 					</span>
 				</div>
 			</li>
@@ -306,7 +373,7 @@ body {
 <!-- 
 <div id="footer"></div>
  -->
-
+<script type="text/javascript" src="js/chos/template-engine/TEngine.js" ></script>
 </body>
 </html>
 

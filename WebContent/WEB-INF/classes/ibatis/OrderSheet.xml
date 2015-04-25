@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="ordersheet">
+	<resultMap type="OrderSheet" id="ordersheet">
+		<id column="id" property="id"/>
+		<result column="amount" property="amount"/>
+		<result column="ut" property="ut"/>
+		<result column="merch_id" property="merchandiseId"/>
+		<result column="merch_type" property="merchandiseType"/>
+		<result column="quantity" property="quantity"/>
+		<result column="creation" property="creation"/>
+		<result column="updation" property="updation"/>
+	</resultMap>
+	
+	<!-- 查询第三方接入服务信息 -->
+	<select id="order-sheet-list-by-ut" resultMap="ordersheet" parameterType="string">
+		select * from order_sheet where ut = #{ut}
+	</select>
+	
+	<insert id="order-sheet-order" parameterType="OrderSheet">
+		<selectKey keyProperty="id" resultType="long">
+			select @@identity as id 
+		</selectKey>
+		insert into order_sheet(
+			id
+			,amount
+			,ut
+			,merch_id
+			,merch_type
+			,quantity
+			,creation
+			<if test="updation != null">
+				,updation
+			</if>
+		) values(
+			#{id}
+			,#{amount}
+			,#{ut}
+			,#{merchandiseId}
+			,#{merchandiseType}
+			,#{quantity}
+			,#{creation}
+			<if test="updation != null">
+				,#{updation}
+			</if>
+		)
+	</insert>
+</mapper>

@@ -74,6 +74,8 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\r\n");
       out.write("<meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black\">\r\n");
       out.write("<title>我发布的标书</title>\r\n");
+      out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/common-style.css\"/>\r\n");
+      out.write("<script type=\"text/javascript\" src=\"../js/zepto/zepto.min.js\"></script>\r\n");
       out.write("<script type=\"text/javascript\" src=\"../js/iscroll/iscroll-4.2.5.js\"></script>\r\n");
       out.write("\r\n");
       out.write("<script type=\"text/javascript\">\r\n");
@@ -88,11 +90,34 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\tvar el, li, i;\r\n");
       out.write("\t\tel = document.getElementById('thelist');\r\n");
       out.write("\r\n");
+      out.write("\t\t/*\r\n");
       out.write("\t\tfor (i=0; i<3; i++) {\r\n");
       out.write("\t\t\tli = document.createElement('li');\r\n");
       out.write("\t\t\tli.innerText = 'Generated row ' + (++generatedCount);\r\n");
       out.write("\t\t\tel.insertBefore(li, el.childNodes[0]);\r\n");
       out.write("\t\t}\r\n");
+      out.write("\t\t*/\r\n");
+      out.write("\t\t\r\n");
+      out.write("\t\t$.ajax({\r\n");
+      out.write("\t\t\ttype: \"get\",\r\n");
+      out.write("\t\t\turl: \"/bid/list.shtml?html&down\",\r\n");
+      out.write("\t\t\tdata: {\r\n");
+      out.write("\t\t\t\t\r\n");
+      out.write("\t\t\t}, \r\n");
+      out.write("\t\t\terror: function() {\r\n");
+      out.write("\t\t\t\tvar tips = new Tips('tmpl-tips', \"与服务器通信失败，请检查网络是否稳定\");\r\n");
+      out.write("\t\t\t\ttips.show();\r\n");
+      out.write("\t\t\t\treturn;\r\n");
+      out.write("\t\t\t}, \r\n");
+      out.write("\t\t\tsuccess: function(response) {\r\n");
+      out.write("\t\t\t\tif(response) {\r\n");
+      out.write("\t\t\t\t\tvar html = $(response);\r\n");
+      out.write("\t\t\t\t\t$(\"#thelist\").prepend(html);\r\n");
+      out.write("\t\t\t\t\t\r\n");
+      out.write("\t\t\t\t\t//el.insertBefore(li, el.childNodes[0]);\r\n");
+      out.write("\t\t\t\t}\r\n");
+      out.write("\t\t\t}\r\n");
+      out.write("\t\t});\r\n");
       out.write("\t\t\r\n");
       out.write("\t\tmyScroll.refresh();\t\t// Remember to refresh when contents are loaded (ie: on ajax completion)\r\n");
       out.write("\t}, 1000);\t// <-- Simulate network congestion, remove setTimeout from production!\r\n");
@@ -103,11 +128,34 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\tvar el, li, i;\r\n");
       out.write("\t\tel = document.getElementById('thelist');\r\n");
       out.write("\r\n");
+      out.write("\t\t/*\r\n");
       out.write("\t\tfor (i=0; i<3; i++) {\r\n");
       out.write("\t\t\tli = document.createElement('li');\r\n");
       out.write("\t\t\tli.innerText = 'Generated row ' + (++generatedCount);\r\n");
       out.write("\t\t\tel.appendChild(li, el.childNodes[0]);\r\n");
       out.write("\t\t}\r\n");
+      out.write("\t\t*/\r\n");
+      out.write("\t\t\r\n");
+      out.write("\t\t$.ajax({\r\n");
+      out.write("\t\t\ttype: \"get\",\r\n");
+      out.write("\t\t\turl: \"/bid/list.shtml?html&up\",\r\n");
+      out.write("\t\t\tdata: {\r\n");
+      out.write("\t\t\t\t\r\n");
+      out.write("\t\t\t}, \r\n");
+      out.write("\t\t\terror: function() {\r\n");
+      out.write("\t\t\t\tvar tips = new Tips('tmpl-tips', \"与服务器通信失败，请检查网络是否稳定\");\r\n");
+      out.write("\t\t\t\ttips.show();\r\n");
+      out.write("\t\t\t\treturn;\r\n");
+      out.write("\t\t\t}, \r\n");
+      out.write("\t\t\tsuccess: function(response) {\r\n");
+      out.write("\t\t\t\tif(response) {\r\n");
+      out.write("\t\t\t\t\tvar html = $(response);\r\n");
+      out.write("\t\t\t\t\t$(\"#thelist\").prepend(html);\r\n");
+      out.write("\t\t\t\t\t\r\n");
+      out.write("\t\t\t\t\t//el.insertBefore(li, el.childNodes[0]);\r\n");
+      out.write("\t\t\t\t}\r\n");
+      out.write("\t\t\t}\r\n");
+      out.write("\t\t});\r\n");
       out.write("\t\t\r\n");
       out.write("\t\tmyScroll.refresh();\t\t// Remember to refresh when contents are loaded (ie: on ajax completion)\r\n");
       out.write("\t}, 1000);\t// <-- Simulate network congestion, remove setTimeout from production!\r\n");
@@ -384,9 +432,9 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f0.setParent(null);
-    // /WEB-INF/bid/list.jsp(281,3) name = items type = java.lang.Object reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/bid/list.jsp(329,3) name = items type = java.lang.Object reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${bids}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
-    // /WEB-INF/bid/list.jsp(281,3) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/bid/list.jsp(329,3) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setVar("variable");
     int[] _jspx_push_body_count_c_005fforEach_005f0 = new int[] { 0 };
     try {
@@ -396,15 +444,20 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("\r\n");
           out.write("\t\t\t<li>\r\n");
           out.write("\t\t\t\t<div style=\"margin: 2px 3px 5px 3px; border-top: 0px solid silver; border-bottom: 0px solid silver;\">\r\n");
-          out.write("\t\t\t\t\t<span style=\"width: 100%; display: inline-block;\"><a href=\"../bid/");
+          out.write("\t\t\t\t\t<div style=\"width: 100%; display: inline-block; margin-top: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px;\">\r\n");
+          out.write("\t\t\t\t\t\t<ul class=\"list-item\" style=\"border-bottom: 0px solid silver;  overflow-wrap: break-word; height: 32px; overflow: hidden;\">\r\n");
+          out.write("\t\t\t\t\t\t\t<li class=\"list-item-t-item\" style=\"border-bottom: 0px solid #ccc; padding: 0px 0px; font-family: Arial;\">\r\n");
+          out.write("\t\t\t\t\t\t\t\t<a href=\"../bid/");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.id}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write(".shtml\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.projectName}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write('-');
-          out.write('标');
-          out.write('号');
+          out.write("</a>\r\n");
+          out.write("\t\t\t\t\t\t\t</li>\r\n");
+          out.write("\t\t\t\t\t\t\t<li class=\"list-item-t-item-right\" style=\"border-bottom: 0px solid #ccc; padding: 0px 0px; font-family: Arial;\">标&nbsp;");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.no}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write("</a></span>\r\n");
+          out.write("</li>\r\n");
+          out.write("\t\t\t\t\t\t</ul>\r\n");
+          out.write("\t\t\t\t\t</div>\r\n");
           out.write("\t\t\t\t\t<span style=\"width: 100%; display: inline-block;\">招标项目金额：");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.amount}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write("元</span>\r\n");
@@ -449,9 +502,9 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.fmt.FormatDateTag _jspx_th_fmt_005fformatDate_005f0 = (org.apache.taglibs.standard.tag.rt.fmt.FormatDateTag) _005fjspx_005ftagPool_005ffmt_005fformatDate_0026_005fvalue_005fpattern_005fnobody.get(org.apache.taglibs.standard.tag.rt.fmt.FormatDateTag.class);
     _jspx_th_fmt_005fformatDate_005f0.setPageContext(_jspx_page_context);
     _jspx_th_fmt_005fformatDate_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_005fforEach_005f0);
-    // /WEB-INF/bid/list.jsp(290,6) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/bid/list.jsp(345,6) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_fmt_005fformatDate_005f0.setValue((java.util.Date) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.creation}", java.util.Date.class, (PageContext)_jspx_page_context, null, false));
-    // /WEB-INF/bid/list.jsp(290,6) name = pattern type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/bid/list.jsp(345,6) name = pattern type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_fmt_005fformatDate_005f0.setPattern("yyyy年MM月dd日  HH时mm分ss秒");
     int _jspx_eval_fmt_005fformatDate_005f0 = _jspx_th_fmt_005fformatDate_005f0.doStartTag();
     if (_jspx_th_fmt_005fformatDate_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {

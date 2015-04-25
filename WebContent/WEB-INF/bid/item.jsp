@@ -29,7 +29,7 @@
 		<p>
 			<c:choose>
 				<c:when test="${variable.partType == 1}">
-					<img src="${variable.partContent}" style="  position: relative; margin: 0px auto; display: block;"/>
+					<img src="${variable.partContent}" style="position: relative; margin: 0px auto; display: block; max-width: 100%;"/>
 				</c:when>
 				<c:otherwise>
 					${variable.partContent}
@@ -46,12 +46,6 @@
 	<div class="nav-bar-box">
 		<div class="nav-bar-box-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
 			<label style="width: 100%; display: block; color: white;">金额：${item.amount}</label>
-		</div>
-		<div class="nav-bar-box-item nav-bar-box-center-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
-			<a href="investment.jsp"></a>
-		</div>
-		<div class="nav-bar-box-item nav-bar-box-center-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
-			<a href="investment.jsp"></a>
 		</div>
 		<div class="nav-bar-box-item nav-bar-box-center-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
 			<a href="investment.jsp"></a>

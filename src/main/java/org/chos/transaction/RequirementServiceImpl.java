@@ -41,7 +41,7 @@ public class RequirementServiceImpl implements RequirementService {
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("firstResult", firstResult);
 		param.put("maxResultSize", maxResultSize);
-		return template.selectList("req-list", param);
+		return template.selectList("item-list-r", param);
 	}
 	
 	public List<Requirement> list(long userId, long firstResult, int maxResultSize) {

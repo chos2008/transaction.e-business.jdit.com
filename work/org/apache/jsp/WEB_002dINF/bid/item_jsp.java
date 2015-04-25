@@ -115,12 +115,6 @@ public final class item_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t<div class=\"nav-bar-box-item nav-bar-box-center-item\" style=\"font-size: 12px; font-family: Arial, 'Microsoft YaHei';\">\r\n");
       out.write("\t\t\t<a href=\"investment.jsp\"></a>\r\n");
       out.write("\t\t</div>\r\n");
-      out.write("\t\t<div class=\"nav-bar-box-item nav-bar-box-center-item\" style=\"font-size: 12px; font-family: Arial, 'Microsoft YaHei';\">\r\n");
-      out.write("\t\t\t<a href=\"investment.jsp\"></a>\r\n");
-      out.write("\t\t</div>\r\n");
-      out.write("\t\t<div class=\"nav-bar-box-item nav-bar-box-center-item\" style=\"font-size: 12px; font-family: Arial, 'Microsoft YaHei';\">\r\n");
-      out.write("\t\t\t<a href=\"investment.jsp\"></a>\r\n");
-      out.write("\t\t</div>\r\n");
       out.write("\t\t<div class=\"nav-bar-box-item nav-bar-box-end-item\" style=\"font-size: 12px; font-family: Arial, 'Microsoft YaHei';\">\r\n");
       out.write("\t\t\t<p style=\"width: 70px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;\">\r\n");
       out.write("\t\t\t\t<label title=\"google wallet\" class=\"icon-google-wallet\" style=\"width: 100%; display: block;\"></label>\r\n");
@@ -240,7 +234,7 @@ public final class item_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("\r\n");
         out.write("\t\t\t\t\t<img src=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.partContent}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-        out.write("\" style=\"  position: relative; margin: 0px auto; display: block;\"/>\r\n");
+        out.write("\" style=\"position: relative; margin: 0px auto; display: block; max-width: 100%;\"/>\r\n");
         out.write("\t\t\t\t");
         int evalDoAfterBody = _jspx_th_c_005fwhen_005f0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
