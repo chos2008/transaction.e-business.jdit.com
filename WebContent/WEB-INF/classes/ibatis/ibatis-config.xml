@@ -7,7 +7,8 @@
 	<typeAliases>
 		<typeAlias type="org.chos.transaction.DocumentPart" alias="DocumentPart"/>
 		<typeAlias type="org.chos.transaction.Bid" alias="Bid"/>
-		<typeAlias type="org.chos.transaction.Requirement" alias="Requirement"/>
+		<typeAlias type="org.chos.transaction.Item" alias="Item"/>
+		<typeAlias type="org.chos.transaction.Merchant" alias="Merchant"/>
 		<typeAlias type="org.chos.transaction.User" alias="User"/>
 		<typeAlias type="org.chos.transaction.passport.Session" alias="Session"/>
 		<typeAlias type="org.chos.transaction.passport.LocalSession" alias="LocalSession"/>
@@ -18,7 +19,8 @@
 	<mappers>
 		<mapper resource="ibatis/document.xml" />
 		<mapper resource="ibatis/User.xml" />
-		<mapper resource="ibatis/Requirement.xml" />
+		<mapper resource="ibatis/merchant.xml" />
+		<mapper resource="ibatis/item.xml" />
 		<mapper resource="ibatis/Bid.xml" />
 		<mapper resource="ibatis/Session.xml" />
 		<mapper resource="ibatis/Auth-Session.xml" />

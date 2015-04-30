@@ -1,5 +1,5 @@
 /*
- * @(#)User.java	1.0 2015-3-8 обнГ10:30:44
+ * @(#)User.java	1.0 2015-3-8 О©╫О©╫О©╫О©╫10:30:44
  *
  * Copyright 2008 WWW.YHD.COM. All rights reserved.
  *      YIHAODIAN PROPRIETARY/CONFIDENTIAL. 
@@ -20,7 +20,7 @@ import java.util.Date;
  * 
  * 
  * @author luoxiaoyong
- * @version 1.0  2015-3-8 обнГ10:30:44
+ * @version 1.0  2015-3-8 О©╫О©╫О©╫О©╫10:30:44
  * @since 1.0
  */
 public class User {
@@ -34,6 +34,10 @@ public class User {
 	private String mobile;
 	
 	private String email;
+	
+	private String alapayAccount;
+	
+	private String head;
 	
 	private Date lastLoginTime;
 	
@@ -111,6 +115,34 @@ public class User {
 	 */
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	/**
+	 * @return the alapayAccount
+	 */
+	public String getAlapayAccount() {
+		return alapayAccount;
+	}
+
+	/**
+	 * @param alapayAccount the alapayAccount to set
+	 */
+	public void setAlapayAccount(String alapayAccount) {
+		this.alapayAccount = alapayAccount;
+	}
+
+	/**
+	 * @return the head
+	 */
+	public String getHead() {
+		return head;
+	}
+
+	/**
+	 * @param head the head to set
+	 */
+	public void setHead(String head) {
+		this.head = head;
 	}
 
 	/**

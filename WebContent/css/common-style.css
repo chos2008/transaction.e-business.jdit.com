@@ -12,8 +12,12 @@ body {
 
 a {
 	text-decoration: none;
+	color: black;
 }
 
+a:HOVER {
+	
+}
 
 
 .full-screen {
@@ -28,7 +32,9 @@ a {
 }
 
 .menu-bar, .nav-bar {
+	/*
 	height: 40px; 
+	*/
 	width: 100%; 
 	position: fixed; 
 	background-color: blue; 
@@ -130,9 +136,20 @@ a {
 	padding: 0px 0px;
 }
 
+.list-item-t-item-normal {
+	margin: 0px 0px;
+	padding: 0px 0px;
+	font-size: 15px; 
+	font-family: Arial, 'Microsoft YaHei';
+	display: inline-block;
+	vertical-align: middle;
+}
+
 .list-item-t-item-default {
+	/*
 	height: 32px;
 	line-height: 32px; 
+	*/
 	margin: 0px 0px;
 	padding: 0px 0px;
 	font-size: 15px; 
@@ -150,6 +167,21 @@ a {
 	font-family: Arial, 'Microsoft YaHei';
 	float: left;
 	display: inline;
+}
+
+.list-item-t-item-normal-right {
+	/*
+	height: 32px;
+	line-height: 32px; 
+	*/
+	margin: 0px 0px;
+	padding: 0px 0px;
+	border-bottom: 0px solid #ccc !important;
+	font-size: 15px; 
+	font-family: Arial, 'Microsoft YaHei';
+	float: right;
+	display: inline-block;
+	vertical-align: middle;
 }
 
 .list-item-t-item-right {

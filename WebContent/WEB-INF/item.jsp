@@ -15,14 +15,34 @@
 <title>${item.title}</title>
 <link rel="stylesheet" type="text/css" href="../css/common-style.css"/>
 <script type="text/javascript" src="../js/zepto/zepto.min.js"></script>
+<script type="text/javascript" src="../js/index.js"></script>
 <script type="text/javascript" src="../js/item.js"></script>
 </head>
 <body style="margin: 0px 0px; padding: 0px 0px;">
 <div style="width: 100%; ">
 
-	<div style="width: 100%; height: 400px; background-color: silver;">
+	<c:choose>
+		<c:when test="${empty item}">
+	<div style="width: 100%; height: 120px; background-color: silver; background: url('../images/logo-caibei-t.png'); background-position: center center; background-repeat: no-repeat; background-size: 100% 100%;">
 		
 	</div>
+		</c:when>
+		<c:otherwise>
+			<c:choose>
+				<c:when test="${empty item.largeImage}">
+	<div style="width: 100%; height: 120px; background-color: silver; background: url('../images/logo-caibei-t.png'); background-position: center center; background-repeat: no-repeat; background-size: 100% 100%;">
+		
+	</div>
+				</c:when>
+				<c:otherwise>
+	<div style="width: 100%; height: 120px; background-color: silver; background: url('../${item.smallImage}'); background-position: center center; background-repeat: no-repeat; background-size: 100% 100%;">
+		
+	</div>
+				</c:otherwise>
+			</c:choose>
+		</c:otherwise>
+	</c:choose>
+	
 	<div style="width: 100%; border-bottom-color: silver; border-bottom-style: solid; border-bottom-width: 1px;">
 		
 	</div>
@@ -33,7 +53,7 @@
 		<p>
 			<c:choose>
 				<c:when test="${variable.partType == 1}">
-					<img src="${variable.partContent}" style="position: relative; margin: 0px auto; display: block; max-width: 100%;"/>
+					<img src="${variable.partContent}" style="position: relative; margin: 0px auto; display: block; width: 100%; max-width: 100%;"/>
 				</c:when>
 				<c:otherwise>
 					${variable.partContent}
@@ -55,9 +75,10 @@
 			<a href="investment.jsp"></a>
 		</div>
 		<div class="nav-bar-box-item nav-bar-box-end-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
-			<p style="width: 70px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
+			<p style="height: 36px; line-height: 36px; margin: 0px 0px; text-align: right;">
 				<label title="google wallet" class="icon-google-wallet" style="width: 100%; display: block;"></label>
-				<label style="width: 100%; display: block;"><a href="../order.shtml?item=${item.id}"style="color: white;">立即接单</a></label>
+				<label style="display: inline-block;"><a href="#" onclick="cart(${item.id})" style="color: white;">(<i id="order-sheet-stats">0</i>)立即接单</a></label>
+				<label style="display: inline-block;"><a href="../cart.shtml?item=${item.id}" style="color: white;">直接交易</a></label>
 			</p>
 		</div>
 	</div>

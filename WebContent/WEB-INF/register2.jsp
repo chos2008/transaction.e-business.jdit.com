@@ -39,32 +39,29 @@
 		
 		<div id="div-reg-username" style="width: 320px; margin: 0px auto;">
 			<form action="">
-				<div class="form-item" style="margin-top: 2px; margin-bottom: 5px;">
-					<label for="" class="form-item-label icon-mobile2 icon-mobile2-win" style=""></label>
-					<div class="form-item-content-box" style="">
-						<input id="username" type="text" name="username" style="width: 100%; height: 43px; border: 0px solid #e5e5e5; padding: 12px 30px 11px 0; outline: none;" placeholder="请输入用户名"/>
+				<div style="width: 300px; margin: 0px auto; padding: 0px 10px;">
+					<div class="form-item" style="margin-top: 2px; margin-bottom: 5px;">
+						<label for="" class="icon-mobile2 icon-mobile2-win form-item-label" style="line-height: 44px;"></label>
+						<div class="form-item-content-box" style="">
+							<input id="username" type="text" name="username" style="height: 43px; border: 0px solid #e5e5e5; padding: 12px 30px 11px 0; outline: none;" placeholder="请输入用户名"/>
+						</div>
 					</div>
-				</div>
-				<div class="form-item" style="margin-top: 2px; margin-bottom: 5px;">
-					<label for="" class="form-item-label icon-unlock-alt icon-mobile2-win" style="font-size: 20px;"></label>
-					<div class="form-item-content-box" style="">
-						<input id="password" type="text" name="password" style="width: 100%; height: 43px; border: 0px solid #e5e5e5; padding: 12px 30px 11px 0; outline: none;" placeholder="请输入密码"/>
+					<div class="form-item" style="margin-top: 2px; margin-bottom: 5px;">
+						<label for="" class="form-item-label icon-unlock-alt icon-mobile2-win" style="font-size: 20px; line-height: 44px;"></label>
+						<div class="form-item-content-box" style="">
+							<input id="password" type="password" name="password" style="height: 43px; border: 0px solid #e5e5e5; padding: 12px 30px 11px 0; outline: none;" placeholder="请输入密码"/>
+						</div>
 					</div>
-				</div>
-				<div class="form-item" style="margin-top: 2px; margin-bottom: 5px;">
-					<label for="" class="form-item-label icon-unlock-alt icon-mobile2-win" style="font-size: 20px;"></label>
-					<div class="form-item-content-box" style="">
-						<input id="confirm_password" type="text" name="confirm_password" style="width: 100%; height: 43px; border: 0px solid #e5e5e5; padding: 12px 30px 11px 0; outline: none;" placeholder="请再次输入密码"/>
+					<div class="form-item" style="margin-top: 2px; margin-bottom: 5px;">
+						<label for="" class="form-item-label icon-envelope-o icon-mobile2-win" style="font-size: 15px; line-height: 44px;"></label>
+						<div class="form-item-content-box" style="">
+							<input id="captcha" type="text" name="captcha" style="width: 120px; height: 43px; border: 0px solid #e5e5e5; padding: 12px 30px 11px 0; outline: none;" placeholder="请输入验证码"/>
+							<img alt="" src="/captcha.shtml"/>
+						</div>
 					</div>
-				</div>
-				<div class="form-item" style="margin-top: 2px; margin-bottom: 5px;">
-					<label for="" class="form-item-label icon-envelope-o icon-mobile2-win" style="font-size: 15px;"></label>
-					<div class="form-item-content-box" style="">
-						<input id="captcha" type="text" name="captcha" style="width: 100%; height: 43px; border: 0px solid #e5e5e5; padding: 12px 30px 11px 0; outline: none;" placeholder="请输入验证码"/>
+					<div class="form-item" style=" margin-top: 2px; margin-bottom: 5px;">
+						<a id="submit" href="javascript: void(0);" name="submit" style="width: 100%; height: 36px; line-height: 36px; display: block; color: #fff; background-color: #ff3c3c; border-radius: 5px; -webkit-border-radius: 5px;text-align: center; font-size: 1.4rem;">注册</a>
 					</div>
-				</div>
-				<div class="form-item" style=" margin-top: 2px; margin-bottom: 5px;">
-					<a id="submit" href="javascript: void(0);" name="submit" style="width: 100%; height: 44px; line-height: 44px; display: block; color: #fff; background-color: #ff3c3c; border-radius: 5px; -webkit-border-radius: 5px;text-align: center; font-size: 1.4rem;">注册</a>
 				</div>
 			</form>
 		</div>

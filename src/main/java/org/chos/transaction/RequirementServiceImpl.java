@@ -37,14 +37,14 @@ public class RequirementServiceImpl implements RequirementService {
 	@Qualifier(value = "sqlSessionTemplate")
 	private SqlSessionTemplate template;
 	
-	public List<Requirement> list(long firstResult, int maxResultSize) {
+	public List<Item> list(long firstResult, int maxResultSize) {
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("firstResult", firstResult);
 		param.put("maxResultSize", maxResultSize);
 		return template.selectList("item-list-r", param);
 	}
 	
-	public List<Requirement> list(long userId, long firstResult, int maxResultSize) {
+	public List<Item> list(long userId, long firstResult, int maxResultSize) {
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("userId", userId);
 		param.put("firstResult", firstResult);
@@ -52,11 +52,11 @@ public class RequirementServiceImpl implements RequirementService {
 		return template.selectList("item-list-r", param);
 	}
 	
-	public Requirement getItem(int id) {
+	public Item getItem(long id) {
 		return template.selectOne("get-item", id);
 	}
 	
-	public void issue(Requirement requirement) {
+	public void issue(Item requirement) {
 		template.insert("issue", requirement);
 	}
 }

@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.chos.servlet.http.ChosHttpServletResponse;
 import org.chos.transaction.User;
 import org.chos.transaction.UserService;
+import org.chos.transaction.controller.UserErrorCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,10 +43,10 @@ public class PassportServiceImpl implements PassportService {
 	public User auth(String username, String password) throws SessionException {
 		User user = userService.getUser(username);
 		if (user == null) {
-			throw new SessionException(1001);
+			throw new SessionException(UserErrorCode.USER_NOT_EXISTS);
 		}
 		if (! password.equals(user.getPassword())) {
-			throw new SessionException(1002);
+			throw new SessionException(UserErrorCode.PASSWORD_NOT_MATCHES);
 		}
 		return user;
 	}

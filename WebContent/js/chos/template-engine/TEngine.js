@@ -8,5 +8,5 @@ if (! ($.load)) {
 }
 })();
 
-$.load('tips.tmpl');
-$.load('item-r.tmpl');
+$.load('/tips.tmpl');
+$.load('/item-r.tmpl');

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="merchant">
+	<resultMap type="Merchant" id="merchant">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="user_id" property="userId"/>
+		<result column="mobile" property="mobile"/>
+		<result column="certificate" property="certificate"/>
+		<result column="business_scope" property="scope"/>
+		<result column="creation" property="creation"/>
+		<result column="updation" property="updation"/>
+	</resultMap>
+	
+	
+	<select id="get-merchant-by-user-id" resultMap="merchant" parameterType="long">
+		select * from businesses where user_id = #{userId}
+	</select>
+	
+	
+	<insert id="merchant-create" parameterType="Merchant">
+		<selectKey keyProperty="id" resultType="long">
+			select @@identity as id 
+		</selectKey>
+		insert into businesses(
+			id
+			,name
+			,user_id
+			<if test="mobile != null">
+				,mobile
+			</if>
+			<if test="certificate != null">
+				,certificate
+			</if>
+			<if test="scope != null">
+				,business_scope
+			</if>
+			,creation
+			<if test="updation != null">
+				,updation
+			</if>
+		) values(
+			#{id}
+			,#{name}
+			,#{userId}
+			<if test="mobile != null">
+			,#{mobile}
+			</if>
+			<if test="certificate != null">
+				,#{certificate}
+			</if>
+			<if test="scope != null">
+				,#{scope}
+			</if>
+			,#{creation}
+			<if test="updation != null">
+				,#{updation}
+			</if>
+		)
+	</insert>
+</mapper>

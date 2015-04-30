@@ -95,7 +95,6 @@
 		$('#submit').on('click', function() {
 			var username = $("#username").val();
 			var password = $("#password").val();
-			var confirm_password = $("#confirm_password").val();
 			var captcha = $("#captcha").val();
 			if (username == "") {
 				
@@ -107,18 +106,6 @@
 			
 			if (password == "") {
 				var tip = new Tips("tmpl-tips", "请输入密码");
-				tip.show();
-				return;
-			}
-			
-			if (confirm_password == "") {
-				var tip = new Tips("tmpl-tips", "请重新输入密码");
-				tip.show();
-				return;
-			}
-			
-			if (password != confirm_password) {
-				var tip = new Tips("tmpl-tips", "密码不一致");
 				tip.show();
 				return;
 			}
@@ -135,7 +122,6 @@
 				data: {
 					"username": username, 
 					"password": password, 
-					"confirm_password": confirm_password, 
 					"captcha": captcha
 				}, 
 				error: function() {
@@ -148,7 +134,7 @@
 					    if(response.code == 0) {
 					    	var tips = new Tips('tmpl-tips', "注册成功");
 							tips.show();
-							location.href="register-success.jsp";
+							location.href="success.shtml";
 					    } else if (response.code == 1003) {
 					    	var tips = new Tips('tmpl-tips', "该用户名已注册");
 							tips.show();

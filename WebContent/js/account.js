@@ -40,9 +40,34 @@ Tips = function(context, title) {
 		show: _show
 	};
 };
-		
+
+String.prototype.trim=function() {  
+    return this.replace(/(^\s*)|(\s*$)/g,'');  
+};  
+
 (function() {
 	window.onload = function() {
+		$('.list-item-transaction').on("click", function() {
+			var _this = $(this);
+			_this.next().toggle();
+			if (_this.next().css("display") == "none") {
+				_this.css("borderBottomWidth", "0px");
+			} else {
+				_this.css("borderBottomWidth", "1px");
+			}
+		});
+		
+		$('.list-item-order').on("click", function() {
+			var _this = $(this);
+			_this.next().toggle();
+			if (_this.next().css("display") == "none") {
+				_this.css("borderBottomWidth", "0px");
+			} else {
+				_this.css("borderBottomWidth", "1px");
+			}
+		});
+		
+		
 		$(".list-item-item").on("click", function() {
 			var e = $(".list-item-body");
 			var display = e.css("display");
@@ -69,9 +94,39 @@ Tips = function(context, title) {
 			}
 		});
 		
+		$('.list-item-bid').on('click', function() {
+			var _this = $(this);
+			_this.next().toggle();
+		});
+		
 		$.ajax({
 			type: "get",
-			url: "../item_as_json.shtml",
+			url: "/bid/list/top.shtml",
+			data: {
+				
+			}, 
+			error: function() {
+				var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
+				tips.show();
+				return;
+			}, 
+			success: function(response) {
+				if(response) {
+					response = response.trim();
+					if (response == "") {
+						$('.bid-not-issue').show();
+						$('.bid-list').hide();
+					} else {
+						var html = $(response);
+						$(".bid-list").prepend(html);
+					}
+				}
+			}
+		});
+		
+		$.ajax({
+			type: "get",
+			url: "../item_as_json.shtml?top",
 			data: {
 				
 			}, 

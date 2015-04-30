@@ -21,8 +21,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
+import org.chos.transaction.Merchant;
 import org.chos.transaction.User;
 import org.chos.transaction.UserService;
+import org.chos.transaction.alapay.AlapayAccount;
+import org.chos.transaction.alapay.AlapayAccountService;
+import org.chos.transaction.passport.HttpContextSessionManager;
+import org.chos.transaction.passport.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,9 +45,83 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class UserController {
+	
+	@Autowired
+	private HttpContextSessionManager httpContextSessionManager;
+	
+	@Autowired
+	private UserService userService;
+	
+	@Autowired
+	private AlapayAccountService alapayAccountService;
 
 	@RequestMapping(value = "/user/{id}")
-	public String account(@PathVariable String id, HttpServletRequest request, HttpServletResponse response) {
+	public String account(@PathVariable String id, HttpServletRequest request, HttpServletResponse response, Model model) {
+		Session session = httpContextSessionManager.getSession(request);
+		User user = userService.getUser(session.getUserId());
+		model.addAttribute("user", user);
+		
+		Merchant merchant = userService.getMerchantByUserId(session.getUserId());
+		model.addAttribute("merchant", merchant);
 		return "user/account";
+	}
+	
+	@RequestMapping(value = "/user/bindAlaPayAccount")
+	public String bindAlaPayAccount(HttpServletRequest request, HttpServletResponse response, Model model) {
+		Session session = httpContextSessionManager.getSession(request);
+		User user = userService.getUser(session.getUserId());
+		model.addAttribute("user", user);
+		
+		Merchant merchant = userService.getMerchantByUserId(session.getUserId());
+		model.addAttribute("merchant", merchant);
+		return "user/bind-alapay";
+	}
+	
+	@RequestMapping(value = "/user/bindAlaPayAccount/action")
+	@ResponseBody
+	public Object bindAlaPayAccount1(HttpServletRequest request, HttpServletResponse response, Model model) {
+		Map<String, Object> resp = new HashMap<String, Object>();
+		String username = request.getParameter("username");
+		if (StringUtils.isBlank(username)) {
+			resp.put("code", ErrorCode.PARAM_ERROR);
+			return resp;
+		}
+		String password = request.getParameter("password");
+		if (StringUtils.isBlank(password)) {
+			resp.put("code", ErrorCode.PARAM_ERROR);
+			return resp;
+		}
+		AlapayAccount account = alapayAccountService.getByUsername(username);
+		if (account == null) {
+			resp.put("code", UserErrorCode.USER_NOT_EXISTS);
+			return resp;
+			
+		}
+		if (! account.getPassword().equals(password)) {
+			resp.put("code", UserErrorCode.PASSWORD_NOT_MATCHES);
+			return resp;
+		}
+		Session session = httpContextSessionManager.getSession(request);
+		User user = userService.getUser(session.getUserId());
+		if (! StringUtils.isBlank(user.getAlapayAccount())) {
+			resp.put("code", UserErrorCode.USER_ALREADY_BIND_ALAPAY);
+			return resp;
+		}
+		user.setAlapayAccount(username);
+		user.setUpdation(new Date());
+		userService.updateUserInfo(user);
+		resp.put("code", 0);
+		return resp;
+	}
+	
+	@RequestMapping(value = "/user/{id}/settings")
+	public String settings(@PathVariable String id, HttpServletRequest request, HttpServletResponse response, Model model) {
+		Session session = httpContextSessionManager.getSession(request);
+		User user = userService.getUser(session.getUserId());
+		model.addAttribute("user", user);
+		
+		Merchant merchant = userService.getMerchantByUserId(session.getUserId());
+		model.addAttribute("merchant", merchant);
+		return "user/settings";
 	}
 }

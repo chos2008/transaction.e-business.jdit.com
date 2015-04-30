@@ -96,4 +96,19 @@ public class UserServiceImpl implements UserService {
 	public User getUser(String username) {
 		return template.selectOne("user-getByUsername", username);
 	}
+	
+	public User updateUserInfo(User user) {
+		template.update("user-update", user);
+		return user;
+	}
+	
+	public Merchant createMerchant(Merchant merchant) {
+		template.insert("merchant-create", merchant);
+		return merchant;
+	}
+	
+	public Merchant getMerchantByUserId(long userId) {
+		List<Merchant> list = template.selectList("get-merchant-by-user-id", userId);
+		return list.isEmpty() ? null : list.get(0);
+	}
 }

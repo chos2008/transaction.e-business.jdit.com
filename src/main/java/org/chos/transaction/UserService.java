@@ -36,4 +36,10 @@ public interface UserService {
 	public User getUser(String username);
 	
 	public User getUser(long userId);
+	
+	public User updateUserInfo(User user);
+	
+	public Merchant createMerchant(Merchant merchant);
+	
+	public Merchant getMerchantByUserId(long userId);
 }

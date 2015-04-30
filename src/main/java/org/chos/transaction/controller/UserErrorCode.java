@@ -23,5 +23,9 @@ package org.chos.transaction.controller;
  */
 public class UserErrorCode {
 
-	public static final String ITEM_NOT_EXISTS = "10000";
+	public static final int USER_NOT_EXISTS = 1001;
+	
+	public static final int PASSWORD_NOT_MATCHES = 1002;
+	
+	public static final int USER_ALREADY_BIND_ALAPAY = 1003;
 }

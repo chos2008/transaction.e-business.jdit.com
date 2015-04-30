@@ -29,7 +29,7 @@ import org.chos.transaction.BidService;
 import org.chos.transaction.BidServiceImpl;
 import org.chos.transaction.DocumentPart;
 import org.chos.transaction.DocumentService;
-import org.chos.transaction.Requirement;
+import org.chos.transaction.Item;
 import org.chos.transaction.RequirementService;
 import org.chos.transaction.User;
 import org.chos.transaction.UserService;
@@ -112,9 +112,18 @@ public class BidController {
 		return result;
 	}
 	
+	@RequestMapping(value = "/bid/list/top")
+	public String top(HttpServletRequest request, HttpServletResponse response, Model model) {
+		Session session = httpContextSessionManager.getSession(request);
+		
+		List<Bid> results = bidService.list(session.getUserId(), 0, 6);
+		model.addAttribute("bids", results);
+		return "bid/tmpl-bid-list-item-top";
+	}
+	
 	@RequestMapping(value = "/bid/{id}")
 	public String item(@PathVariable int id, HttpServletRequest request, HttpServletResponse response, Model model) {
-		Requirement item = requirementService.getItem(id);
+		Item item = requirementService.getItem(id);
 		model.addAttribute("item", item);
 		
 		List<DocumentPart> document = documentService.getDocumentById(item.getId());

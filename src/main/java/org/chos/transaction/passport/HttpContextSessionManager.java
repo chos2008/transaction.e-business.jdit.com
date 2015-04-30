@@ -98,6 +98,13 @@ public class HttpContextSessionManager {
 		return sessionManager.getSession(cookie.getValue());
 	}
 	
+	public void close(HttpServletResponse response) {
+		Cookie newCookie = new Cookie(USER_TOKEN, null);
+		newCookie.setMaxAge(0); //立即删除
+		newCookie.setPath("/");
+		response.addCookie(newCookie);
+	}
+	
 	public Session getSession(User user, String ut, HttpServletResponse response) {
 		Session session = sessionManager.getSession(ut);
 		if (session == null) {

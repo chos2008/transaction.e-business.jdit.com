@@ -13,7 +13,10 @@
  */
 package org.chos.transaction.order;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,11 +39,28 @@ public class OrderSheetServiceImpl implements OrderSheetService {
 	private SqlSessionTemplate template;
 	
 	public OrderSheet cart(OrderSheet orderSheet) {
-		template.insert("order-sheet-order", orderSheet);
+		String ut = orderSheet.getUt();
+		long merchandiseId = orderSheet.getMerchandiseId();
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("ut", ut);
+		param.put("merchandiseId", merchandiseId);
+		List<OrderSheet> list = template.selectList("order-sheet-list-by-ut-merch-id", param);
+		if (list.isEmpty()) {
+			template.insert("order-sheet-order", orderSheet);
+		} else {
+			OrderSheet order = list.get(0);
+			order.setQuantity(order.getQuantity() + orderSheet.getQuantity());
+			order.setUpdation(new Date());
+			template.update("update-order-sheet-by-id", order);
+		}
 		return orderSheet;
 	}
 	
 	public List<OrderSheet> orderSheet(String ut) {
 		return template.selectList("order-sheet-list-by-ut", ut);
+	}
+	
+	public void deleteOrderSheet(long id) {
+		template.delete("deleteOrderSheet", id);
 	}
 }

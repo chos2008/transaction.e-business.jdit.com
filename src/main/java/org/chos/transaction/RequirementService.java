@@ -30,18 +30,18 @@ public interface RequirementService {
 	 * @param maxResultSize
 	 * @return
 	 */
-	public List<Requirement> list(long firstResult, int maxResultSize);
+	public List<Item> list(long firstResult, int maxResultSize);
 	
-	public List<Requirement> list(long userId, long firstResult, int maxResultSize);
+	public List<Item> list(long userId, long firstResult, int maxResultSize);
 	
 	/**
 	 * @param id
 	 * @return
 	 */
-	public Requirement getItem(int id);
+	public Item getItem(long id);
 	
 	/**
 	 * @param requirement
 	 */
-	public void issue(Requirement requirement);
+	public void issue(Item requirement);
 }

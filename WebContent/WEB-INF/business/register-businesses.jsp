@@ -6,11 +6,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<title>支付中心</title>
+<title>完善商家信息</title>
 
-<link rel="stylesheet" type="text/css" href="css/register.css"/>
-<link rel="stylesheet" type="text/css" href="css/style.css"/>
-<script type="text/javascript" src="js/register.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/common-style.css"/>
+<link rel="stylesheet" type="text/css" href="../css/register.css"/>
+<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
+<script type="text/javascript" src="../js/zepto/zepto.min.js"></script>
+<script type="text/javascript" src="../js/register.js"></script>
+<script type="text/javascript" src="../js/register-business.js"></script>
 </head>
 <body topmargin="0" rightmargin="0" bottommargin="0" leftmargin="0" marginheight="0" marginwidth="0">
 <div style="width: 100%; min-height: 200px; height: 100%;">
@@ -19,56 +23,25 @@
 	</div>
 
 	<div style="width: 100%;">
-		<div id="div-reg-mobile" style="width: 320px; margin: 0px auto; display: none;">
+		<div id="div-reg-username" style="width: 300px; margin: 0px auto; padding: 0px 10px;">
 			<form action="">
 				<div class="form-item" style="margin-top: 2px; margin-bottom: 5px;">
-					<label for="" class="form-item-label icon-mobile2 icon-mobile2-win" style=""></label>
+					<label for="" class="form-item-label icon-user2" style="font-size: 18px; line-height: 44px;"></label>
 					<div class="form-item-content-box" style="">
-						<input type="tel" style="width: 100%; height: 43px; border: 0px solid #e5e5e5; padding: 12px 30px 11px 0; outline: none;" placeholder="请输入手机号码"/>
+						<input id="username" type="text" name="username" 
+						style="height: 43px; border: 0px solid #e5e5e5; padding: 12px 30px 11px 0; outline: none;" placeholder="请填写商家名称"/>
+					</div>
+				</div>
+				<div class="form-item" style="margin-top: 2px; margin-bottom: 5px;">
+					<label for="" class="form-item-label icon-mobile2 icon-mobile2-win" style="font-size: 24px; line-height: 44px;"></label>
+					<div class="form-item-content-box" style="">
+						<input id="mobile" type="text" name="mobile" style="height: 43px; border: 0px solid #e5e5e5; padding: 12px 30px 11px 0; outline: none;" placeholder="请填写手机号码"/>
 					</div>
 				</div>
 				<div class="form-item" style=" margin-top: 2px; margin-bottom: 5px;">
-					<a href="javascript: void(0);" style="width: 100%; height: 44px; line-height: 44px; display: block; color: #fff; background-color: #ff3c3c; border-radius: 5px; -webkit-border-radius: 5px;text-align: center; font-size: 1.4rem;">下一步</a>
+					<a class="btn-reg-merchant" href="javascript: void(0);" name="submit" style="width: 100%; height: 36px; line-height: 36px; display: block; color: #fff; background-color: #ff3c3c; border-radius: 5px; -webkit-border-radius: 5px;text-align: center; font-size: 1.4rem;">注册</a>
 				</div>
 			</form>
-		</div>
-		
-		<div id="div-reg-username" style="width: 320px; margin: 0px auto;">
-			<form action="">
-				<div class="form-item" style="margin-top: 2px; margin-bottom: 5px;">
-					<label for="" class="form-item-label icon-mobile2 icon-mobile2-win" style=""></label>
-					<div class="form-item-content-box" style="">
-						<input id="username" type="text" name="username" style="width: 100%; height: 43px; border: 0px solid #e5e5e5; padding: 12px 30px 11px 0; outline: none;" placeholder="请输入用户名"/>
-					</div>
-				</div>
-				<div class="form-item" style="margin-top: 2px; margin-bottom: 5px;">
-					<label for="" class="form-item-label icon-unlock-alt icon-mobile2-win" style="font-size: 20px;"></label>
-					<div class="form-item-content-box" style="">
-						<input id="password" type="text" name="password" style="width: 100%; height: 43px; border: 0px solid #e5e5e5; padding: 12px 30px 11px 0; outline: none;" placeholder="请输入密码"/>
-					</div>
-				</div>
-				<div class="form-item" style="margin-top: 2px; margin-bottom: 5px;">
-					<label for="" class="form-item-label icon-unlock-alt icon-mobile2-win" style="font-size: 20px;"></label>
-					<div class="form-item-content-box" style="">
-						<input id="confirm_password" type="text" name="confirm_password" style="width: 100%; height: 43px; border: 0px solid #e5e5e5; padding: 12px 30px 11px 0; outline: none;" placeholder="请再次输入密码"/>
-					</div>
-				</div>
-				<div class="form-item" style="margin-top: 2px; margin-bottom: 5px;">
-					<label for="" class="form-item-label icon-envelope-o icon-mobile2-win" style="font-size: 15px;"></label>
-					<div class="form-item-content-box" style="">
-						<input id="captcha" type="text" name="captcha" style="width: 100%; height: 43px; border: 0px solid #e5e5e5; padding: 12px 30px 11px 0; outline: none;" placeholder="请输入验证码"/>
-					</div>
-				</div>
-				<div class="form-item" style=" margin-top: 2px; margin-bottom: 5px;">
-					<a id="submit" href="user/index.jsp" name="submit" style="width: 100%; height: 44px; line-height: 44px; display: block; color: #fff; background-color: #ff3c3c; border-radius: 5px; -webkit-border-radius: 5px;text-align: center; font-size: 1.4rem;">注册</a>
-				</div>
-			</form>
-		</div>
-	</div>
-
-	<div style="width: 100%; position: absolute; bottom: 0px;">
-		<div style="width: 320px; margin: 0px auto;">
-			<a id="bt-reg" href="javascript: void(0);">手机注册</a>
 		</div>
 	</div>
 </div>

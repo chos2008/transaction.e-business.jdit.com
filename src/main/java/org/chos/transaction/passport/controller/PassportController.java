@@ -13,6 +13,7 @@
  */
 package org.chos.transaction.passport.controller;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -29,6 +30,7 @@ import org.chos.transaction.UserService;
 import org.chos.transaction.controller.ErrorCode;
 import org.chos.transaction.passport.HttpContextSessionManager;
 import org.chos.transaction.passport.PassportService;
+import org.chos.transaction.passport.Session;
 import org.chos.transaction.passport.SessionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -92,8 +94,16 @@ public class PassportController {
 		return resp;
 	}
 	
+	@RequestMapping(value = "/success")
+	public String success(HttpServletRequest request, HttpServletResponse response, Model model) {
+		model.addAttribute("from", "register");
+		return "register-success";
+	}
+	
 	@RequestMapping(value = "/login")
 	public String logininput(HttpServletRequest request, HttpServletResponse response, Model model) {
+		String returnUrl = request.getParameter("returnUrl");
+		model.addAttribute("returnUrl", returnUrl);
 		return "login";
 	}
 	
@@ -119,5 +129,15 @@ public class PassportController {
 		}
 		resp.put("code", 0);
 		return resp;
+	}
+	
+	@RequestMapping(value = "/user/logout")
+	@ResponseBody
+	public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		Session session = httpContextSessionManager.getSession(request);
+		if (session != null) {
+			httpContextSessionManager.close(response);
+		}
+		response.sendRedirect("../login.shtml");
 	}
 }

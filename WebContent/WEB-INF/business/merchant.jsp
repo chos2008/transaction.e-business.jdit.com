@@ -1,10 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="/WEB-INF/c.tld"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>商户</title>
+<title>
+<c:choose>
+	<c:when test="${empty merchant}">
+	</c:when>
+	
+	<c:otherwise>
+	${merchant.name}
+	</c:otherwise>
+</c:choose>
+</title>
 <link rel="stylesheet" type="text/css" href="../css/common-style.css"/>
 
 <script type="text/javascript" src="../js/zepto/zepto.min.js"></script>
@@ -24,7 +34,14 @@
 			<div style="position: relative;">
 				<i id="icon-location" class="icon-location" style="width: 13px; height: 20px; margin: 2px 3px; display: block; background: url('../images/fah.png'); float: left;"></i>
 				<div style="position: relative; margin: 2px 5px 3px 20px; border: 0px solid silver; font-size: 14px; font-family: Arial, 'Microsoft YaHei';">
-					彩贝网
+					<c:choose>
+					<c:when test="${empty merchant}">
+					</c:when>
+					
+					<c:otherwise>
+					${merchant.name}
+					</c:otherwise>
+				</c:choose>
 				</div>
 			</div>
 		</div>

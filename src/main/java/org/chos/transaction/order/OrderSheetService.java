@@ -29,4 +29,5 @@ public interface OrderSheetService {
 	
 	public List<OrderSheet> orderSheet(String ut);
 	
+	public void deleteOrderSheet(long id);
 }

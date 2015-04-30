@@ -13,6 +13,7 @@
  */
 package org.chos.transaction.passport.controller;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,12 +22,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
+import org.chos.transaction.Merchant;
 import org.chos.transaction.User;
 import org.chos.transaction.UserService;
+import org.chos.transaction.passport.HttpContextSessionManager;
+import org.chos.transaction.passport.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -40,25 +43,41 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class BusinessPassportController {
+	
+	@Autowired
+	private HttpContextSessionManager httpContextSessionManager;
+	
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping(value = "/business/register{id}")
-	public String input(@PathVariable String id, HttpServletRequest request, HttpServletResponse response, Model model) {
-		return "register" + id;
+	@RequestMapping(value = "/continue")
+	public String gogogo(HttpServletRequest request, HttpServletResponse response, Model model) {
+		return "register-success";
+	}
+	
+	@RequestMapping(value = "/business/register")
+	public String input(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
+		Session session = httpContextSessionManager.getSession(request);
+		if (session == null) {
+			response.sendRedirect("../login.shtml?returnUrl=/business/register.shtml");
+		}
+		Merchant merchant = userService.getMerchantByUserId(session.getUserId());
+		if (merchant != null) {
+			response.sendRedirect("/merchant/1234.shtml");
+		}
+		return "business/register-businesses";
 	}
 	
 	@RequestMapping(value = "/user/business/register")
 	@ResponseBody
-	public Object register(HttpServletRequest request, HttpServletResponse response, Model model) {
+	public Object register(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
 		Map<String, Object> resp = new HashMap<String, Object>();
+		Session session = httpContextSessionManager.getSession(request);
+		if (session == null) {
+			response.sendRedirect("../login.shtml?returnUrl=/business/register.shtml");
+		}
 		String username = request.getParameter("username");
 		if (StringUtils.isBlank(username)) {
-			resp.put("code", 1000);
-			return resp;
-		}
-		String password = request.getParameter("password");
-		if (StringUtils.isBlank(password)) {
 			resp.put("code", 1000);
 			return resp;
 		}
@@ -70,16 +89,14 @@ public class BusinessPassportController {
 		String email = request.getParameter("email");
 		
 //		userService.
-		User user = new User();
-		user.setUsername(username);
-		user.setPassword(password);
-		user.setMobile(mobile);
-		user.setEmail(email);
-		user.setCreation(new Date());
-		userService.create(user);
+		Merchant merchant = new Merchant();
+		merchant.setName(username);
+		merchant.setUserId(session.getUserId());
+		merchant.setMobile(mobile);
+		merchant.setCreation(new Date());
+		userService.createMerchant(merchant);
 		resp.put("code", 0);
 		return resp;
-//		return "index";
 	}
 	
 	@RequestMapping(value = "/business/login")

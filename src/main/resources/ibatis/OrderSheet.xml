@@ -14,10 +14,19 @@
 		<result column="updation" property="updation"/>
 	</resultMap>
 	
-	<!-- 查询第三方接入服务信息 -->
 	<select id="order-sheet-list-by-ut" resultMap="ordersheet" parameterType="string">
 		select * from order_sheet where ut = #{ut}
 	</select>
+	<select id="order-sheet-list-by-ut-merch-id" resultMap="ordersheet" parameterType="map">
+		select * from order_sheet where ut = #{ut} and merch_id = #{merchandiseId}
+	</select>
+	
+	<update id="update-order-sheet-by-id" parameterType="OrderSheet">
+		update order_sheet set 
+			quantity = #{quantity}, 
+			updation = #{updation}
+		where id = #{id}
+	</update>
 	
 	<insert id="order-sheet-order" parameterType="OrderSheet">
 		<selectKey keyProperty="id" resultType="long">
@@ -47,4 +56,8 @@
 			</if>
 		)
 	</insert>
+	
+	<delete id="deleteOrderSheet" parameterType="long">
+		delete from order_sheet where id = #{id}
+	</delete>
 </mapper>

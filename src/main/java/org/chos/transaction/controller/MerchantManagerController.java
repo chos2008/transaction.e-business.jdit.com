@@ -13,10 +13,19 @@
  */
 package org.chos.transaction.controller;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.chos.transaction.Merchant;
+import org.chos.transaction.User;
+import org.chos.transaction.UserService;
+import org.chos.transaction.passport.HttpContextSessionManager;
+import org.chos.transaction.passport.Session;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -31,9 +40,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MerchantManagerController {
 
+	@Autowired
+	private HttpContextSessionManager httpContextSessionManager;
+	
+	@Autowired
+	private UserService userService;
+	
 	@RequestMapping(value = "/merchant/{id}")
-	public String merchant(@PathVariable int id, HttpServletRequest request, HttpServletResponse response) {
-		
+	public String merchant(@PathVariable int id, HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
+		Session session = httpContextSessionManager.getSession(request);
+		if (session == null) {
+			response.sendRedirect("login.shtml");
+		}
+		Merchant merchant = userService.getMerchantByUserId(session.getUserId());
+		if (merchant == null) {
+			response.sendRedirect("/continue.shtml");
+		}
+		model.addAttribute("merchant", merchant);
 		return "business/merchant";
 	}
 }

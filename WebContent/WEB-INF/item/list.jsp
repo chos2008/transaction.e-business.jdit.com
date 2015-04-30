@@ -55,7 +55,7 @@ function pullDownAction () {
 		*/
 		$.ajax({
 			type: "get",
-			url: "/item_as_json.shtml",
+			url: "/item.shtml?html&down",
 			data: {
 				
 			}, 
@@ -66,6 +66,9 @@ function pullDownAction () {
 			}, 
 			success: function(response) {
 				if(response) {
+					var html = $(response);
+					$("#thelist").prepend(html);
+					/*
 					if (response.data) {
 						if (response.data.length > 0) {
 							for (var i = 0; i < response.data.length; i++) {
@@ -93,6 +96,7 @@ function pullDownAction () {
 							}
 						}
 					}
+					*/
 				}
 			}
 		});
@@ -106,11 +110,32 @@ function pullUpAction () {
 		var el, li, i;
 		el = document.getElementById('thelist');
 
+		/*
 		for (i=0; i<3; i++) {
 			li = document.createElement('li');
 			li.innerText = 'Generated row ' + (++generatedCount);
 			el.appendChild(li, el.childNodes[0]);
 		}
+		*/
+		
+		$.ajax({
+			type: "get",
+			url: "/item.shtml?html&up",
+			data: {
+				
+			}, 
+			error: function() {
+				var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
+				tips.show();
+				return;
+			}, 
+			success: function(response) {
+				if(response) {
+					var html = $(response);
+					$("#thelist").append(html);
+				}
+			}
+		});
 		
 		myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
 	}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
@@ -346,7 +371,7 @@ body {
 
 		<ul id="thelist">
 			<c:forEach items="${requirements}" var="variable">
-			<li>
+			<li style="position: relative;">
 				<div style="margin: 2px 3px 5px 3px; border-top: 0px solid silver; border-bottom: 0px solid silver;">
 					<span style="width: 100%; display: inline-block;"><a href="item/${variable.id}.shtml">${variable.title}</a></span>
 					<span style="width: 100%; display: inline-block;">招标项目金额：${variable.amount}元</span>
@@ -357,6 +382,19 @@ body {
 						
 						<fmt:formatDate value="${variable.creation}" pattern="yyyy-MM-dd HH:mm:ss" />
 					</span>
+				</div>
+				<div style="width: 120px; margin: 0px 0px; padding: 0px 0px; position: absolute; right: 0px; top: -1px; bottom: 0px; vertical-align: middle; color: blue; background-color: #ccc; display: inline-block;">
+					<div style="position: relative; text-align: center; height: 100%; display: -moz-box; display: -webkit-box; display: box; box-orient: vertical; -moz-box-orient: vertical; -webkit-box-orient: vertical;">
+						<div style="box-flex: 1; -moz-box-flex: 1; -webkit-box-flex: 1; box-pack: center; -moz-box-pack: center; -webkit-box-pack: center; -o-box-pack: center;">
+						
+						</div>
+						<div style="height: 24px; line-height: 24px; box-pack: center; -moz-box-pack: center; -webkit-box-pack: center; -o-box-pack: center;">
+						<a href="#">转标</a>&nbsp;&nbsp;<a href="#">编辑</a>
+						</div>
+						<div style="box-flex: 1; -moz-box-flex: 1; -webkit-box-flex: 1; box-pack: center; -moz-box-pack: center; -webkit-box-pack: center; -o-box-pack: center;">
+						
+						</div>
+					</div>
 				</div>
 			</li>
 			</c:forEach>
