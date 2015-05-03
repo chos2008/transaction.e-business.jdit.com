@@ -3,10 +3,10 @@
 <%@ taglib prefix="c" uri="/WEB-INF/c.tld"%>
 <%@ taglib prefix="fmt" uri="/WEB-INF/fmt.tld"%>
 <c:forEach items="${bids}" var="variable">
-<li>
+<li style="position: relative;" class="list-item-li" bind-data-id=${variable.id}>
 	<div style="margin: 2px 3px 5px 3px; border-top: 0px solid silver; border-bottom: 0px solid silver;">
 		<div style="width: 100%; display: inline-block; margin-top: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px;">
-			<ul class="list-item" style="border-bottom: 0px solid silver;  overflow-wrap: break-word; height: 32px; overflow: hidden;">
+			<ul class="list-item" style="border-bottom: 0px solid silver; overflow-wrap: break-word; height: 32px; overflow: hidden;">
 				<li class="list-item-t-item" style="border-bottom: 0px solid #ccc; padding: 0px 0px; font-family: Arial;">
 					<a href="../bid/${variable.id}.shtml">${variable.projectName}</a>
 				</li>
@@ -21,5 +21,9 @@
 			<fmt:formatDate value="${variable.creation}" pattern="yyyy年MM月dd日  HH时mm分ss秒" />
 		</span>
 	</div>
+	
+	<c:import url="../tmpl-item-toolbox.jsp">
+		<c:param name="category" value="1" />
+	</c:import>
 </li>
 </c:forEach>

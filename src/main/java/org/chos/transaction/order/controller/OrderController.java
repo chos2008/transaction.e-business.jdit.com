@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 import org.chos.transaction.Item;
-import org.chos.transaction.RequirementService;
+import org.chos.transaction.ItemService;
 import org.chos.transaction.User;
 import org.chos.transaction.UserService;
 import org.chos.transaction.controller.ErrorCode;
@@ -36,6 +36,7 @@ import org.chos.transaction.order.Order;
 import org.chos.transaction.order.OrderService;
 import org.chos.transaction.order.OrderSheet;
 import org.chos.transaction.order.OrderSheetService;
+import org.chos.transaction.order.OrderState;
 import org.chos.transaction.passport.HttpContextSessionManager;
 import org.chos.transaction.passport.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,7 +64,7 @@ public class OrderController {
 	private OrderSheetService orderSheetService;
 	
 	@Autowired
-	private RequirementService requirementService;
+	private ItemService requirementService;
 	
 	@Autowired
 	private UserService userService;
@@ -95,6 +96,60 @@ public class OrderController {
 		model.addAttribute("itemMap", itemMap);
 		model.addAttribute("userMap", userMap);
 		return "order/list";
+	}
+	
+	@RequestMapping(value = "order/normal/top")
+	public String getTopNormalOrdersGroupByState(HttpServletRequest request, HttpServletResponse response, Model model) {
+		Session session = httpContextSessionManager.getSession(request);
+		if (session == null) {
+			return "order/error";
+		}
+		OrderState state = OrderState.state(request.getParameter("state"));
+		List<Order> orders = orderService.getTopNormalOrdersGroupByState(session.getUserId(), 6, state);
+		Map<Long, Item> itemMap = new HashMap<Long, Item>();
+		Map<Long, User> userMap = new HashMap<Long, User>();
+		for (Order order : orders) {
+			long merchandiseId = order.getMerchandiseId();
+			Item item = requirementService.getItem(merchandiseId);
+			itemMap.put(merchandiseId, item);
+			if (item != null) {
+				User user = userService.getUser(item.getUserId());
+				userMap.put(merchandiseId, user);
+			} else {
+				userMap.put(merchandiseId, null);
+			}
+		}
+		model.addAttribute("orders", orders);
+		model.addAttribute("itemMap", itemMap);
+		model.addAttribute("userMap", userMap);
+		return "order/tmpl-order-list-item";
+	}
+	
+	@RequestMapping(value = "order/x-normal/top")
+	public String getTopOrdersGroupByState(HttpServletRequest request, HttpServletResponse response, Model model) {
+		Session session = httpContextSessionManager.getSession(request);
+		if (session == null) {
+			return "order/error";
+		}
+		OrderState state = OrderState.state(request.getParameter("state"));
+		List<Order> orders = orderService.getTopOrdersGroupByState(session.getUserId(), 6, state);
+		Map<Long, Item> itemMap = new HashMap<Long, Item>();
+		Map<Long, User> userMap = new HashMap<Long, User>();
+		for (Order order : orders) {
+			long merchandiseId = order.getMerchandiseId();
+			Item item = requirementService.getItem(merchandiseId);
+			itemMap.put(merchandiseId, item);
+			if (item != null) {
+				User user = userService.getUser(item.getUserId());
+				userMap.put(merchandiseId, user);
+			} else {
+				userMap.put(merchandiseId, null);
+			}
+		}
+		model.addAttribute("orders", orders);
+		model.addAttribute("itemMap", itemMap);
+		model.addAttribute("userMap", userMap);
+		return "order/tmpl-order-list-item";
 	}
 	
 	@RequestMapping(value = "cart")
@@ -141,13 +196,15 @@ public class OrderController {
 			itemMap.put(merchandiseId, item);
 			if (item != null) {
 				User user = userService.getUser(item.getUserId());
-				List<OrderSheet> list = orderMap.get(user.getId());
-				if (list == null) {
-					list = new LinkedList<OrderSheet>();
+				if (user != null) {
+					List<OrderSheet> list = orderMap.get(user.getId());
+					if (list == null) {
+						list = new LinkedList<OrderSheet>();
+					}
+					list.add(order);
+					orderMap.put(user.getId(), list);
+					userMap.put(merchandiseId, user);
 				}
-				list.add(order);
-				orderMap.put(user.getId(), list);
-				userMap.put(merchandiseId, user);
 			} else {
 				userMap.put(merchandiseId, null);
 			}
@@ -157,6 +214,21 @@ public class OrderController {
 		model.addAttribute("itemMap", itemMap);
 		model.addAttribute("userMap", userMap);
 		return "order/order-sheet";
+	}
+	
+	@RequestMapping(value = "order-sheet/simple")
+	@ResponseBody
+	public Object simpleOrderSheet(@PathVariable long id, HttpServletRequest request, HttpServletResponse response, Model model) {
+		Session session = httpContextSessionManager.getSession(request);
+		Map<String, Object> resp = new HashMap<String, Object>();
+		if (session == null) {
+			resp.put("code", SessionErrorCode.INVALID_SESSION);
+			return resp;
+		}
+		long count = orderSheetService.getOrderSheetCount(session.getToken());
+		resp.put("count", count);
+		resp.put("code", 0);
+		return resp;
 	}
 	
 	@RequestMapping(value = "order-sheet/{id}/delete")

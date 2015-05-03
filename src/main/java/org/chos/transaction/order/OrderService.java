@@ -37,4 +37,19 @@ public interface OrderService {
 	 */
 	public Order order(Order order);
 	
+	/**
+	 * @param userId
+	 * @param top
+	 * @param state
+	 * @return
+	 */
+	public List<Order> getTopNormalOrdersGroupByState(long userId, int top, OrderState state);
+	
+	/**
+	 * @param userId
+	 * @param top
+	 * @param state
+	 * @return
+	 */
+	public List<Order> getTopOrdersGroupByState(long userId, int top, OrderState state);
 }

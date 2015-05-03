@@ -19,6 +19,7 @@ public final class merchant_jsp extends org.apache.jasper.runtime.HttpJspBase
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fc_005fchoose;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fc_005fwhen_0026_005ftest;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fc_005fotherwise;
+  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fc_005fimport_0026_005furl;
 
   private javax.el.ExpressionFactory _el_expressionfactory;
   private org.apache.AnnotationProcessor _jsp_annotationprocessor;
@@ -31,6 +32,7 @@ public final class merchant_jsp extends org.apache.jasper.runtime.HttpJspBase
     _005fjspx_005ftagPool_005fc_005fchoose = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fc_005fwhen_0026_005ftest = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fc_005fotherwise = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _005fjspx_005ftagPool_005fc_005fimport_0026_005furl = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _el_expressionfactory = _jspxFactory.getJspApplicationContext(getServletConfig().getServletContext()).getExpressionFactory();
     _jsp_annotationprocessor = (org.apache.AnnotationProcessor) getServletConfig().getServletContext().getAttribute(org.apache.AnnotationProcessor.class.getName());
   }
@@ -39,6 +41,7 @@ public final class merchant_jsp extends org.apache.jasper.runtime.HttpJspBase
     _005fjspx_005ftagPool_005fc_005fchoose.release();
     _005fjspx_005ftagPool_005fc_005fwhen_0026_005ftest.release();
     _005fjspx_005ftagPool_005fc_005fotherwise.release();
+    _005fjspx_005ftagPool_005fc_005fimport_0026_005furl.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -71,6 +74,8 @@ public final class merchant_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<html>\r\n");
       out.write("<head>\r\n");
       out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r\n");
+      out.write("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0\" />\r\n");
+      out.write("<meta name=\"apple-mobile-web-app-capable\" content=\"yes\" />\r\n");
       out.write("<title>\r\n");
       if (_jspx_meth_c_005fchoose_005f0(_jspx_page_context))
         return;
@@ -83,7 +88,7 @@ public final class merchant_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</head>\r\n");
       out.write("<body style=\"margin: 0px 0px; padding: 0px 0px;\">\r\n");
       out.write("<div class=\"full-screen\">\r\n");
-      out.write("\t<div class=\"nav-bar nav-bar-2_0\">\r\n");
+      out.write("\t<div class=\"nav-bar nav-bar-2_0\" style=\"height: 40px; \">\r\n");
       out.write("\t\t\r\n");
       out.write("\t</div>\r\n");
       out.write("\t\r\n");
@@ -99,31 +104,16 @@ public final class merchant_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_meth_c_005fchoose_005f1(_jspx_page_context))
         return;
       out.write("\r\n");
+      out.write("\t\t\t\t\t<span class=\"details\" style=\"margin: 0px 0px 0px 20px; padding: 0px 0px 0px 5px; border-left: 3px solid orange; cursor: pointer;\">商家信息</span>\r\n");
       out.write("\t\t\t\t</div>\r\n");
       out.write("\t\t\t</div>\r\n");
       out.write("\t\t</div>\r\n");
       out.write("\t\r\n");
-      out.write("\t\t<div style=\"display: block; margin-bottom: 5px;\">\r\n");
-      out.write("\t\t\t<p>\r\n");
-      out.write("\t\t\t\t彩贝网（www.caibei.com）是多麦电子商务有限公司旗下网站。联合珠宝品牌商、生产商、原材料供应商、销售商，以传统商贸为基础，用互联网技术为彩宝投资商提供全面、真实的彩宝展示信息平台服务；采用B2B2C经营模式，建立彩宝电子商务 “ 诚信、专业、权威 ” 的线上、线下交易群，为商家和用户提供搭建专业的彩宝展示信息平台。\r\n");
-      out.write("\t\t\t</p>\r\n");
-      out.write("\t\t\t<p>\r\n");
-      out.write("\t\t\t\t彩贝网宗旨：\r\n");
-      out.write("坚持用户第一、服务至上，致力为中国珠宝行业提供整套电子商务解决方案，以“诚信、专业、权威”打造珠宝行业电子商务的领军品牌。\r\n");
-      out.write("\t\t\t</p>\r\n");
-      out.write("\t\t\t<p>\r\n");
-      out.write("\t\t\t\t彩贝网目标：\r\n");
-      out.write("通过彩贝网的努力，做出更多对用户有价值、优秀用户体验的一流产品。\r\n");
-      out.write("\t\t\t</p>\r\n");
-      out.write("\t\t\t<p>\r\n");
-      out.write("\t\t\t\t杭州多麦电子商务有限公司成立于2008年4月，旗下另拥有4.cn金名网、CPS广告联盟、米贷网等互联网平台。\r\n");
-      out.write("\t\t\t</p>\r\n");
-      out.write("\t\t\t<p>\r\n");
-      out.write("\t\t\t\t公司以“尊重、主动、专业、团队”为核心价值，争取做一家健康成长的知名企业，持续发展以致百年。五年来，我们一直秉承“以客户需求为核心”的理念，提供专业的服务，赢得了业界人士的一致好评和信赖。\r\n");
-      out.write("\t\t\t</p>\r\n");
-      out.write("\t\t\t<p>\r\n");
-      out.write("\t\t\t\t先后获得 “最受站长欢迎的域名平台” （2008-2009年度、2009-2010年度）、“最受欢迎的站长服务商”（2010－2011年度）、“最佳域名服务提供商”（2011－2012年度）、“最佳电商广告联盟（2011－2012年度）等奖项。\r\n");
-      out.write("\t\t\t</p>\r\n");
+      out.write("\t\t<div class=\"merchant-ab-item\" style=\"display: block; margin-bottom: 5px;\">\r\n");
+      out.write("\t\t\t");
+      if (_jspx_meth_c_005fimport_005f0(_jspx_page_context))
+        return;
+      out.write("\r\n");
       out.write("\t\t</div>\r\n");
       out.write("\t</div>\r\n");
       out.write("</div>\r\n");
@@ -186,7 +176,7 @@ public final class merchant_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_005fwhen_005f0 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _005fjspx_005ftagPool_005fc_005fwhen_0026_005ftest.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
     _jspx_th_c_005fwhen_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fwhen_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_005fchoose_005f0);
-    // /WEB-INF/business/merchant.jsp(10,1) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/business/merchant.jsp(12,1) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fwhen_005f0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${empty merchant}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null, false)).booleanValue());
     int _jspx_eval_c_005fwhen_005f0 = _jspx_th_c_005fwhen_005f0.doStartTag();
     if (_jspx_eval_c_005fwhen_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -250,16 +240,16 @@ public final class merchant_jsp extends org.apache.jasper.runtime.HttpJspBase
     if (_jspx_eval_c_005fchoose_005f1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\r\n");
-        out.write("\t\t\t\t\t");
+        out.write("\t\t\t\t\t\t");
         if (_jspx_meth_c_005fwhen_005f1(_jspx_th_c_005fchoose_005f1, _jspx_page_context))
           return true;
         out.write("\r\n");
-        out.write("\t\t\t\t\t\r\n");
-        out.write("\t\t\t\t\t");
+        out.write("\t\t\t\t\t\t\r\n");
+        out.write("\t\t\t\t\t\t");
         if (_jspx_meth_c_005fotherwise_005f1(_jspx_th_c_005fchoose_005f1, _jspx_page_context))
           return true;
         out.write("\r\n");
-        out.write("\t\t\t\t");
+        out.write("\t\t\t\t\t");
         int evalDoAfterBody = _jspx_th_c_005fchoose_005f1.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -281,13 +271,13 @@ public final class merchant_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_005fwhen_005f1 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _005fjspx_005ftagPool_005fc_005fwhen_0026_005ftest.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
     _jspx_th_c_005fwhen_005f1.setPageContext(_jspx_page_context);
     _jspx_th_c_005fwhen_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_005fchoose_005f1);
-    // /WEB-INF/business/merchant.jsp(38,5) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/business/merchant.jsp(40,6) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fwhen_005f1.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${empty merchant}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null, false)).booleanValue());
     int _jspx_eval_c_005fwhen_005f1 = _jspx_th_c_005fwhen_005f1.doStartTag();
     if (_jspx_eval_c_005fwhen_005f1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\r\n");
-        out.write("\t\t\t\t\t");
+        out.write("\t\t\t\t\t\t");
         int evalDoAfterBody = _jspx_th_c_005fwhen_005f1.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -313,10 +303,10 @@ public final class merchant_jsp extends org.apache.jasper.runtime.HttpJspBase
     if (_jspx_eval_c_005fotherwise_005f1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\r\n");
-        out.write("\t\t\t\t\t");
+        out.write("\t\t\t\t\t\t");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${merchant.name}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-        out.write("\r\n");
-        out.write("\t\t\t\t\t");
+        out.write(" \r\n");
+        out.write("\t\t\t\t\t\t");
         int evalDoAfterBody = _jspx_th_c_005fotherwise_005f1.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -327,6 +317,53 @@ public final class merchant_jsp extends org.apache.jasper.runtime.HttpJspBase
       return true;
     }
     _005fjspx_005ftagPool_005fc_005fotherwise.reuse(_jspx_th_c_005fotherwise_005f1);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_005fimport_005f0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:import
+    org.apache.taglibs.standard.tag.rt.core.ImportTag _jspx_th_c_005fimport_005f0 = (org.apache.taglibs.standard.tag.rt.core.ImportTag) _005fjspx_005ftagPool_005fc_005fimport_0026_005furl.get(org.apache.taglibs.standard.tag.rt.core.ImportTag.class);
+    _jspx_th_c_005fimport_005f0.setPageContext(_jspx_page_context);
+    _jspx_th_c_005fimport_005f0.setParent(null);
+    // /WEB-INF/business/merchant.jsp(53,3) name = url type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005fimport_005f0.setUrl("tmpl-merchant-item.jsp");
+    int[] _jspx_push_body_count_c_005fimport_005f0 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_005fimport_005f0 = _jspx_th_c_005fimport_005f0.doStartTag();
+      if (_jspx_eval_c_005fimport_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        if (_jspx_eval_c_005fimport_005f0 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
+          out = _jspx_page_context.pushBody();
+          _jspx_push_body_count_c_005fimport_005f0[0]++;
+          _jspx_th_c_005fimport_005f0.setBodyContent((javax.servlet.jsp.tagext.BodyContent) out);
+          _jspx_th_c_005fimport_005f0.doInitBody();
+        }
+        do {
+          out.write("\r\n");
+          out.write("\t\t\t\t\r\n");
+          out.write("\t\t\t");
+          int evalDoAfterBody = _jspx_th_c_005fimport_005f0.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+        if (_jspx_eval_c_005fimport_005f0 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
+          out = _jspx_page_context.popBody();
+          _jspx_push_body_count_c_005fimport_005f0[0]--;
+        }
+      }
+      if (_jspx_th_c_005fimport_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_005fimport_005f0[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_005fimport_005f0.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_005fimport_005f0.doFinally();
+      _005fjspx_005ftagPool_005fc_005fimport_0026_005furl.reuse(_jspx_th_c_005fimport_005f0);
+    }
     return false;
   }
 }

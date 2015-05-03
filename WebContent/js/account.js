@@ -99,6 +99,98 @@ String.prototype.trim=function() {
 			_this.next().toggle();
 		});
 		
+		function getTopOrdersGroupByState(state) {
+			$.ajax({
+				type: "get",
+				url: "/order/x-normal/top.shtml", // "/order/x-normal/top.shtml?state=wait_pay"
+				data: {
+					"state": state
+				}, 
+				error: function() {
+					var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
+					tips.show();
+					return;
+				}, 
+				success: function(response) {
+					if(response) {
+						response = response.trim();
+						if (response == "") {
+							$('.order-list').hide();
+						} else {
+							$('.order-list').show();
+							var html = $(response);
+							$('.order-list').html(html);
+						}
+					}
+				}
+			});
+		}
+		
+		function getTopNormalOrdersGroupByState(state) {
+			$.ajax({
+				type: "get",
+				url: "/order/normal/top.shtml", // "/order/x-normal/top.shtml?state=wait_pay"
+				data: {
+					"state": state
+				}, 
+				error: function() {
+					var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
+					tips.show();
+					return;
+				}, 
+				success: function(response) {
+					if(response) {
+						response = response.trim();
+						if (response == "") {
+							$('.normal-order-list').hide();
+						} else {
+							$('.normal-order-list').show();
+							var html = $(response);
+							$('.normal-order-list').html(html);
+						}
+					}
+				}
+			});
+		}
+		$("#order-wait-pay").on("click", function() {
+			getTopNormalOrdersGroupByState("wait_pay");
+		});
+		$("#order-wait-delivery").on("click", function() {
+			getTopNormalOrdersGroupByState("wait_delivery");
+		});
+		$("#order-wait-recv").on("click", function() {
+			getTopNormalOrdersGroupByState("wait_recv");
+		});
+		$("#order-wait-evaluate").on("click", function() {
+			getTopNormalOrdersGroupByState("wait_evaluate");
+		});
+		$("#order-completion").on("click", function() {
+			getTopNormalOrdersGroupByState("completion");
+		});
+		
+		
+		
+		
+		
+		
+		
+		
+		$("#wait_pay").on("click", function() {
+			getTopOrdersGroupByState("wait_pay");
+		});
+		$("#wait_ack").on("click", function() {
+			getTopOrdersGroupByState("wait_ack");
+		});
+		$("#wait_recv").on("click", function() {
+			getTopOrdersGroupByState("wait_recv");
+		});
+		$("#completion").on("click", function() {
+			getTopOrdersGroupByState("completion");
+		});
+		getTopOrdersGroupByState("wait_pay");
+		getTopNormalOrdersGroupByState("wait_pay");
+		
+		
 		$.ajax({
 			type: "get",
 			url: "/bid/list/top.shtml",

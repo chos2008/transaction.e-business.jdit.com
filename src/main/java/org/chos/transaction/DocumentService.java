@@ -26,4 +26,6 @@ import java.util.List;
 public interface DocumentService {
 
 	List<DocumentPart> getDocumentById(long documentId);
+	
+	public List<DocumentPart> getDocument(long documentId, int type);
 }

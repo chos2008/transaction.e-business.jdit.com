@@ -74,4 +74,6 @@
 	};
 	//document.ontouchmove = _ontouchmove;
 	$(document).on("touchmove", _ontouchmove);
+	
+	
 })();

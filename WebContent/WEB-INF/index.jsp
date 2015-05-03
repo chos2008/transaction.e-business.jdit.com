@@ -11,323 +11,59 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <title>谁是谁的菜</title>
 <link rel="stylesheet" type="text/css" href="css/common-style.css"/>
+<link rel="stylesheet" type="text/css" href="css/index.css"/>
+
 <script type="text/javascript" src="js/zepto/zepto.min.js"></script>
 <script type="text/javascript" src="js/iscroll/iscroll-4.2.5.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
-<script type="text/javascript">
-
-var myScroll,
-	pullDownEl, pullDownOffset,
-	pullUpEl, pullUpOffset,
-	generatedCount = 0;
-
-function pullDownAction () {
-	setTimeout(function () {	// <-- Simulate network congestion, remove setTimeout from production!
-		var el, li, i;
-		el = document.getElementById('thelist');
-
-		/*
-		for (i=0; i<3; i++) {
-			li = document.createElement('li');
-			li.innerText = 'Generated row ' + (++generatedCount);
-			el.insertBefore(li, el.childNodes[0]);
-		}
-		*/
-		
-		$.ajax({
-			type: "get",
-			url: "/index.shtml?html&down",
-			data: {
-				
-			}, 
-			error: function() {
-				var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
-				tips.show();
-				return;
-			}, 
-			success: function(response) {
-				if(response) {
-					var html = $(response);
-					$("#thelist").prepend(html);
-					
-					//el.insertBefore(li, el.childNodes[0]);
-				}
-			}
-		});
-		
-		myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
-	}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
-}
-
-function pullUpAction () {
-	setTimeout(function () {	// <-- Simulate network congestion, remove setTimeout from production!
-		var el, li, i;
-		el = document.getElementById('thelist');
-		
-		/*
-		for (i=0; i<3; i++) {
-			li = document.createElement('li');
-			li.innerText = 'Generated row ' + (++generatedCount);
-			el.appendChild(li, el.childNodes[0]);
-		}
-		*/
-		
-		$.ajax({
-			type: "get",
-			url: "/index.shtml?html&up",
-			data: {
-				
-			}, 
-			error: function() {
-				var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
-				tips.show();
-				return;
-			}, 
-			success: function(response) {
-				if(response) {
-					var html = $(response);
-					$("#thelist").append(html);
-					
-					//el.insertBefore(li, el.childNodes[0]);
-				}
-			}
-		});
-		
-		myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
-	}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
-}
-
-function loaded() {
-	pullDownEl = document.getElementById('pullDown');
-	pullDownOffset = pullDownEl.offsetHeight;
-	pullUpEl = document.getElementById('pullUp');	
-	pullUpOffset = pullUpEl.offsetHeight;
-	
-	myScroll = new iScroll('wrapper', {
-		useTransition: true,
-		topOffset: pullDownOffset,
-		onRefresh: function () {
-			if (pullDownEl.className.match('loading')) {
-				pullDownEl.className = '';
-				pullDownEl.querySelector('.pullDownLabel').innerHTML = '向下拖动刷新...';
-			} else if (pullUpEl.className.match('loading')) {
-				pullUpEl.className = '';
-				pullUpEl.querySelector('.pullUpLabel').innerHTML = '向上拉动刷新...';
-			}
-		},
-		onScrollMove: function () {
-			if (this.y > 5 && !pullDownEl.className.match('flip')) {
-				pullDownEl.className = 'flip';
-				pullDownEl.querySelector('.pullDownLabel').innerHTML = '释放刷新...';
-				this.minScrollY = 0;
-			} else if (this.y < 5 && pullDownEl.className.match('flip')) {
-				pullDownEl.className = '';
-				pullDownEl.querySelector('.pullDownLabel').innerHTML = '向下拖动刷新...';
-				this.minScrollY = -pullDownOffset;
-			} else if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
-				pullUpEl.className = 'flip';
-				pullUpEl.querySelector('.pullUpLabel').innerHTML = '释放刷新...';
-				this.maxScrollY = this.maxScrollY;
-			} else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
-				pullUpEl.className = '';
-				pullUpEl.querySelector('.pullUpLabel').innerHTML = '向上拉动刷新...';
-				this.maxScrollY = pullUpOffset;
-			}
-		},
-		onScrollEnd: function () {
-			if (pullDownEl.className.match('flip')) {
-				pullDownEl.className = 'loading';
-				pullDownEl.querySelector('.pullDownLabel').innerHTML = '正在加载...';				
-				pullDownAction();	// Execute custom function (ajax call?)
-			} else if (pullUpEl.className.match('flip')) {
-				pullUpEl.className = 'loading';
-				pullUpEl.querySelector('.pullUpLabel').innerHTML = '正在加载...';				
-				pullUpAction();	// Execute custom function (ajax call?)
-			}
-		}
-	});
-	
-	setTimeout(function () { document.getElementById('wrapper').style.left = '0'; }, 800);
-}
-
-document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-
-document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);
-
-</script>
-
-<style type="text/css">
-body,ul,li {
-	padding:0;
-	margin:0;
-	border:0;
-}
-
-body {
-	font-size:12px;
-	-webkit-user-select:none;
-    -webkit-text-size-adjust:none;
-	font-family:helvetica;
-}
-
-#header {
-	position:absolute; z-index:2;
-	top:0; left:0;
-	width:100%;
-	height:45px;
-	line-height:45px;
-	background: #CD235C;
-	/*
-	background-color:#d51875;
-	background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #fe96c9), color-stop(0.05, #d51875), color-stop(1, #7b0a2e));
-	background-image:-moz-linear-gradient(top, #fe96c9, #d51875 5%, #7b0a2e);
-	background-image:-o-linear-gradient(top, #fe96c9, #d51875 5%, #7b0a2e);
-	*/
-	padding:0;
-	color:#eee;
-	font-size:20px;
-	text-align:center;
-}
-
-#header a {
-	color:#f3f3f3;
-	text-decoration:none;
-	font-weight:bold;
-	text-shadow:0 -1px 0 rgba(0,0,0,0.5);
-}
-
-#footer {
-	position:absolute; z-index:2;
-	bottom:0; left:0;
-	width:100%;
-	height:48px;
-	background-color:#222;
-	background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #999), color-stop(0.02, #666), color-stop(1, #222));
-	background-image:-moz-linear-gradient(top, #999, #666 2%, #222);
-	background-image:-o-linear-gradient(top, #999, #666 2%, #222);
-	padding:0;
-	border-top:1px solid #444;
-}
-
-#wrapper {
-	position:absolute; z-index:1;
-	top:45px; 
-	/*bottom:48px; */
-	bottom: 0px;
-	left:-9999px;
-	width:100%;
-	background:#aaa;
-	overflow:auto;
-}
-
-#scroller {
-	position:absolute; z-index:1;
-/*	-webkit-touch-callout:none;*/
-	-webkit-tap-highlight-color:rgba(0,0,0,0);
-	width:100%;
-	padding:0;
-}
-
-#scroller ul {
-	list-style:none;
-	padding:0;
-	margin:0;
-	width:100%;
-	text-align:left;
-}
-
-#scroller li {
-	padding:0 10px;
-	/*height:40px;*/
-	line-height:40px;
-	border-bottom:1px solid #ccc;
-	border-top:1px solid #fff;
-	background-color:#fafafa;
-	font-size:14px;
-}
-
-#myFrame {
-	position:absolute;
-	top:0; left:0;
-}
-
-
-
-/**
- *
- * Pull down styles
- *
- */
-#pullDown, #pullUp {
-	background:#fff;
-	height:40px;
-	line-height:40px;
-	padding:5px 10px;
-	border-bottom:1px solid #ccc;
-	font-weight:bold;
-	font-size:14px;
-	color:#888;
-}
-#pullDown .pullDownIcon, #pullUp .pullUpIcon  {
-	display:block; float:left;
-	width:40px; height:40px;
-	background:url(images/pull-icon@2x.png) 0 0 no-repeat;
-	-webkit-background-size:40px 80px; background-size:40px 80px;
-	-webkit-transition-property:-webkit-transform;
-	-webkit-transition-duration:250ms;	
-}
-#pullDown .pullDownIcon {
-	-webkit-transform:rotate(0deg) translateZ(0);
-}
-#pullUp .pullUpIcon  {
-	-webkit-transform:rotate(-180deg) translateZ(0);
-}
-
-#pullDown.flip .pullDownIcon {
-	-webkit-transform:rotate(-180deg) translateZ(0);
-}
-
-#pullUp.flip .pullUpIcon {
-	-webkit-transform:rotate(0deg) translateZ(0);
-}
-
-#pullDown.loading .pullDownIcon, #pullUp.loading .pullUpIcon {
-	background-position:0 100%;
-	-webkit-transform:rotate(0deg) translateZ(0);
-	-webkit-transition-duration:0ms;
-
-	-webkit-animation-name:loading;
-	-webkit-animation-duration:2s;
-	-webkit-animation-iteration-count:infinite;
-	-webkit-animation-timing-function:linear;
-}
-
-@-webkit-keyframes loading {
-	from { -webkit-transform:rotate(0deg) translateZ(0); }
-	to { -webkit-transform:rotate(360deg) translateZ(0); }
-}
-
-</style>
-
+<script type="text/javascript" src="js/list-item.js"></script>
 </head>
 <body>
-<div id="header">
+
+<div id="header" style="position: relative;">
 	<div id="nav" class="nav-bar">
 		<div class="nav-bar-box">
-			<div class="nav-bar-box-item">
+			<div class="nav-bar-box-item" style="width: 300px;">
 				<p id="nav-back" style="width: 70px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
 					<label title="paypal" class="icon-paypal" style="width: 100%; display: block;"></label>
 					<label style="width: 100%; display: block;"><a href="/user/index.jsp" style=" color: #ffffff;">返回</a></label>
 				</p>
 			</div>
-			<div class="nav-bar-box-item nav-bar-box-center-item">
-				<a href="investment.jsp">发布需求</a>
+			<div class="nav-bar-box-item nav-bar-box-center-item" style="">
+				<div style="height: 24px; line-height: 24px; position: relative; margin: 7px auto; border: 1px solid silver; border-radius: 5px 5px 5px 5px;">
+					<ul class="list-item-default">
+						<li class="list-item-t-item-normal" style="font-size: 12px; padding: 0px 3px;">
+							<a href="javascript: void(0);">需求</a>
+						</li>
+						<li class="list-item-t-item-normal" style="font-size: 12px; padding: 0px 3px;">
+							<a href="investment.jsp">发布需求</a>
+						</li>
+						<li class="list-item-t-item-normal" style="font-size: 12px; padding: 0px 3px;">
+							<a href="javascript: void(0);">标书</a>
+						</li>
+					</ul>
+				</div>
 			</div>
-			<div class="nav-bar-box-item nav-bar-box-end-item">
+			<div class="nav-bar-box-item nav-bar-box-end-item" style="width: 300px;">
 				<p style="height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
 					<label title="google wallet" class="icon-google-wallet" style="width: 100%; display: block;"></label>
-					<label style="width: 100%; display: block;"><a id="order-sheet" href="/order-sheet.shtml" style=" color: #ffffff;">(<i id="order-sheet-stats">0</i>)接单</a></label>
+					<label style="width: 100%; display: block;"><a id="order-sheet" style="color: #ffffff;">接单</a></label>
 				</p>
+			</div>
+		</div>
+		
+		<div class="nav-bar-box nav-bar-box-cart-and-ordersheet" style="height: 120px; display: none;">
+			<div class="nav-bar-box-item nav-bar-box-center-item" style="">
+				<div style="height: 120px; line-height: 120px; position: relative; margin: 0px auto;">
+					<ul class="list-item-default">
+						<li class="list-item-t-item-normal" style="width: 120px; font-size: 12px; padding: 0px 3px; background: url('images/guide_cart_on.png'); background-position: center center; background-repeat: no-repeat;">
+							<a href="javascript: void(0);">购物车</a>
+						</li>
+						<li class="list-item-t-item-normal" style="width: 120px;font-size: 12px; padding: 0px 3px; background: url('images/guide_discover_on.png'); background-position: center center; background-repeat: no-repeat;">
+							<a href="/order-sheet.shtml">业务<i class="order-sheet-stats">0</i></a>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -339,28 +75,9 @@ body {
 		</div>
 
 		<ul id="thelist">
-			<c:forEach items="${requirements}" var="variable">
-			<li onclick="cart(${variable.id})">
-				<div style="margin: 2px 3px 5px 3px; border-top: 0px solid silver; border-bottom: 0px solid silver;">
-					<span style="width: 100%; display: inline-block;"><a href="item/${variable.id}.shtml">${variable.title}</a></span>
-					<span style="width: 100%; display: inline-block;">招标项目金额：${variable.amount}元</span>
-					<div style="width: 100%; line-height: 20px; text-align: left; font-size: 10px">
-						${variable.content}
-					</div>
-					<span style="width: 100%; display: inline-block;">招标时间：
-						<c:choose>
-							<c:when test="${variable.startTime != null}">
-								<fmt:formatDate value="${variable.startTime}" pattern="yyyy-MM-dd  HH:mm:ss" />
-							</c:when>
-							
-							<c:otherwise>
-								未公布
-							</c:otherwise>
-						</c:choose>
-					</span>
-				</div>
-			</li>
-			</c:forEach>
+		<c:import url="tmpl-index-list-item.jsp">
+				
+		</c:import>
 		</ul>
 		<div id="pullUp">
 			<span class="pullUpIcon"></span><span class="pullUpLabel">向上拉动刷新...</span>
@@ -370,5 +87,37 @@ body {
 <!-- 
 <div id="footer"></div>
  -->
+ 
+ <script type="text/javascript">
+ 	$(document).ready(function(){
+		$('#order-sheet').on("click", function() {
+			var box = $('.nav-bar-box-cart-and-ordersheet');
+			box.toggle();
+		});
+		
+		$.ajax({
+			type: "post",
+			url: "/order-sheet/simple.shtml",
+			data: {
+				"itemId": id
+			}, 
+			error: function() {
+				var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
+				tips.show();
+				return;
+			}, 
+			success: function(response) {
+				if(response) {
+					if(response.code == 0) {
+						var stat = $(".order-sheet-stats").text();
+						stat++;
+						$(".order-sheet-stats").text(stat);
+						return;
+				    }
+				}
+			}
+		});
+	});
+ </script>
 </body>
 </html>

@@ -13,7 +13,9 @@
  */
 package org.chos.transaction;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +38,15 @@ public class DocumentServiceImpl implements DocumentService {
 	private SqlSessionTemplate template;
 	
 	public List<DocumentPart> getDocumentById(long documentId) {
-		return template.selectList("documentpart-getByDocumentId", documentId);
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("documentId", documentId);
+		return template.selectList("documentpart-getByDocumentId", param);
+	}
+	
+	public List<DocumentPart> getDocument(long documentId, int type) {
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("documentId", documentId);
+		param.put("type", type);
+		return template.selectList("documentpart-getByDocumentId", param);
 	}
 }

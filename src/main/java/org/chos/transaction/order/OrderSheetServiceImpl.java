@@ -60,6 +60,10 @@ public class OrderSheetServiceImpl implements OrderSheetService {
 		return template.selectList("order-sheet-list-by-ut", ut);
 	}
 	
+	public long getOrderSheetCount(String ut) {
+		return template.selectOne("order-sheet-count-by-ut", ut);
+	}
+	
 	public void deleteOrderSheet(long id) {
 		template.delete("deleteOrderSheet", id);
 	}

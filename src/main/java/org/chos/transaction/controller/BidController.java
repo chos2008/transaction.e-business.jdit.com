@@ -30,7 +30,7 @@ import org.chos.transaction.BidServiceImpl;
 import org.chos.transaction.DocumentPart;
 import org.chos.transaction.DocumentService;
 import org.chos.transaction.Item;
-import org.chos.transaction.RequirementService;
+import org.chos.transaction.ItemService;
 import org.chos.transaction.User;
 import org.chos.transaction.UserService;
 import org.chos.transaction.passport.HttpContextSessionManager;
@@ -62,7 +62,7 @@ public class BidController {
 	private BidService bidService;
 	
 	@Autowired
-	private RequirementService requirementService;
+	private ItemService requirementService;
 	
 	@Autowired
 	private HttpContextSessionManager httpContextSessionManager;
@@ -75,6 +75,46 @@ public class BidController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@RequestMapping(value = "bid/index")
+	public String list0(HttpServletRequest request, HttpServletResponse response, Model model) {
+		Session session = httpContextSessionManager.getSession(request);
+		String html = request.getParameter("html");
+		String result = null;
+		LocalSession localsession = null;
+		List<Item> results = null;
+		if (html != null) {
+			String position = request.getParameter("down");
+			localsession = sessionManager.getLocalSession(session.getUserId(), 3, position != null ? -1 : 1);
+			if (localsession.getCurrentPage() > 0) {
+				long firstResult = (localsession.getCurrentPage() - 1) * localsession.getPageSize();
+				int maxResultSize = localsession.getPageSize();
+				results = bidService.list(firstResult, maxResultSize);
+			} else {
+				results = new ArrayList<Item>(0);
+			}
+
+			
+			result = "bid/tmpl-bid-list-item";
+		} else {
+			localsession = sessionManager.getLocalSession(session.getUserId(), 3, 0);
+			if (localsession.getCurrentPage() > 0) {
+				long firstResult = (localsession.getCurrentPage() - 1) * localsession.getPageSize();
+				int maxResultSize = localsession.getPageSize();
+				results = bidService.list(firstResult, maxResultSize);
+			} else {
+				results = new ArrayList<Item>(0);
+			}
+			
+			
+			result = "bid/list";
+		}
+		
+		model.addAttribute("requirements", results);
+
+		
+		return result;
+	}
 	
 	@RequestMapping(value = "/bid/list")
 	public String list(HttpServletRequest request, HttpServletResponse response, Model model) {

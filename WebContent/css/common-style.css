@@ -78,9 +78,9 @@ a:HOVER {
 	display: -moz-box; 
 	display: -webkit-box; 
 	display: box; 
-	box-flex: 1; 
-	-moz-box-flex: 1; 
-	-webkit-box-flex: 1; 
+	box-flex: .1; 
+	-moz-box-flex: .1; 
+	-webkit-box-flex: .1; 
 	box-pack: start; 
 	-moz-box-pack: start; 
 	-webkit-box-pack: start; 
@@ -108,6 +108,21 @@ a:HOVER {
 	-moz-box-pack: end; 
 	-webkit-box-pack: end; 
 	-o-box-pack: end;
+}
+
+.list-item-default {
+	width: 100%;
+	margin: 0px 0px;
+	padding: 0px 0px;
+	-webkit-margin-before: 0px; 
+	-webkit-margin-after: 0px; 
+	-webkit-margin-start: 0px; 
+	-webkit-margin-end: 0px; 
+	-webkit-padding-start: 0px;
+	font-size: 15px; 
+	font-family: Arial, 'Microsoft YaHei';
+	list-style: none;
+	display: inline-block;
 }
 	
 .list-item {
@@ -141,8 +156,7 @@ a:HOVER {
 	padding: 0px 0px;
 	font-size: 15px; 
 	font-family: Arial, 'Microsoft YaHei';
-	display: inline-block;
-	vertical-align: middle;
+	float: left;
 }
 
 .list-item-t-item-default {

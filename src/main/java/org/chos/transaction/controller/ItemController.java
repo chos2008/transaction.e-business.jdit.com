@@ -27,7 +27,8 @@ import org.apache.commons.lang.StringUtils;
 import org.chos.transaction.DocumentPart;
 import org.chos.transaction.DocumentService;
 import org.chos.transaction.Item;
-import org.chos.transaction.RequirementService;
+import org.chos.transaction.ItemService;
+import org.chos.transaction.Product;
 import org.chos.transaction.User;
 import org.chos.transaction.UserService;
 import org.chos.transaction.order.Order;
@@ -58,7 +59,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ItemController {
 
 	@Autowired
-	private RequirementService requirementService;
+	private ItemService requirementService;
 	
 	@Autowired
 	private DocumentService documentService;
@@ -300,6 +301,54 @@ public class ItemController {
 		requirement.setStartTime(new Date());
 		requirement.setCreation(new Date());
 		requirementService.issue(requirement);
+		json.put("code", 0);
+		return json;
+	}
+	
+	
+	@RequestMapping(value = "item/add/view")
+	public String addItemView(HttpServletRequest request, HttpServletResponse response) {
+		return "business/item-add";
+	}
+	
+	@RequestMapping(value = "item/add")
+	@ResponseBody
+	public Object add(HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> json = new HashMap<String, Object>();
+		
+		String name = request.getParameter("name");
+		if (StringUtils.isBlank(name)) {
+			json.put("code", 1000);
+			return json;
+		}
+		String price = request.getParameter("price");
+		if (StringUtils.isBlank(price)) {
+			json.put("code", 1000);
+			return json;
+		}
+		String stock = request.getParameter("stock");
+		if (StringUtils.isBlank(stock)) {
+			json.put("code", 1000);
+			return json;
+		}
+		String description = request.getParameter("content");
+		if (StringUtils.isBlank(description)) {
+			json.put("code", 1000);
+			return json;
+		}
+		
+		Session session = httpContextSessionManager.getSession(request);
+		
+		Product product = new Product();
+		product.setName(name);
+		product.setUserId(session.getUserId());
+		product.setPrice(StringUtils.isBlank(price) ? 0 : Float.parseFloat(price));
+		product.setStock(Integer.parseInt(stock));
+		product.setCategory(6);
+		
+		product.setDescription(description);
+		product.setCreation(new Date());
+		requirementService.addProduct(product);
 		json.put("code", 0);
 		return json;
 	}

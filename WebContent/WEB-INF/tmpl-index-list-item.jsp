@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="/WEB-INF/c.tld"%>
 <%@ taglib prefix="fmt" uri="/WEB-INF/fmt.tld"%>
 <c:forEach items="${requirements}" var="variable">
-<li>
+<li style="position: relative;" class="list-item-li" bind-data-id=${variable.id}>
 	<div style="margin: 2px 3px 5px 3px; border-top: 0px solid silver; border-bottom: 0px solid silver;">
 		<span style="width: 100%; display: inline-block;"><a href="item/${variable.id}.shtml">${variable.title}</a></span>
 		<span style="width: 100%; display: inline-block;">招标项目金额：${variable.amount}元</span>
@@ -22,5 +22,9 @@
 			</c:choose>
 		</span>
 	</div>
+	<c:import url="tmpl-item-toolbox.jsp">
+		<c:param name="category" value="2" />
+		<c:param name="itemId" value="${variable.id}" />
+	</c:import>
 </li>
 </c:forEach>

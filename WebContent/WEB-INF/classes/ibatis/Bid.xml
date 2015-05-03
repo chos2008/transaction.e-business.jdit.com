@@ -20,8 +20,9 @@
 	<select id="bid-list" resultMap="Bid">
 		select * from bid 
 		<if test="userId != null">
-			where tender_side = #{userId} order by creation desc
+			where tender_side = #{userId} 
 		</if>
+		order by creation desc
 		limit #{firstResult}, #{maxResultSize}
 	</select>
 	

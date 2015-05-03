@@ -24,29 +24,6 @@
 	</c:when>
 	<c:otherwise>
 	<ul class="list-item" style="background-color: silver;">
-		<li class="list-item-t-item-default">
-			<div style="margin: 5px 0px; background-color: white;">
-				<ul class="list-item">
-					<li class="list-item-t-item" style="font-family: Arial;"><p>商家</p></li>
-					<li class="list-item-t-item-right" style="font-family: Arial;"><p>状态</p></li>
-				</ul>
-				<ul class="list-item">
-					<li class="list-item-t-item-normal order-item" style="line-height: 24px;"><p><a href="../item.shtml">商品</a></p></li>
-					<li class="list-item-t-item-normal order-item" style="line-height: 24px; width: 33%;"><p><a href="../item.shtml">商品名称</a></p></li>
-					<li class="list-item-t-item-normal order-item" style="line-height: 24px;"><p><a href="../item.shtml">单价/数量</a></p></li>
-				</ul>
-				<ul class="list-item">
-					<li class="list-item-t-item-right" style="font-family: Arial;"><p>共x件商品 实付：&yen;7.78</p></li>
-				</ul>
-				<ul class="list-item">
-					<li class="list-item-t-item-right" style="font-family: Arial;">
-						<a href="javascript: void(0);">延长收货</a>
-						<a href="javascript: void(0);">查看物流</a>
-						<a href="javascript: void(0);">确认收货</a>
-					</li>
-				</ul>
-			</div>
-		</li>
 		<c:forEach items="${orders}" var="variable">
 		<li class="list-item-t-item-default">
 			<div style="margin: 5px 0px; background-color: white;">

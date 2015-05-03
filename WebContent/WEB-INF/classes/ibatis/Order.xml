@@ -17,10 +17,38 @@
 		<result column="updation" property="updation"/>
 	</resultMap>
 	
-	<!-- 查询第三方接入服务信息 -->
 	<select id="order-list-by-userid" resultMap="Order" parameterType="long">
 		select * from `order` where user_id = #{userId}
 	</select>
+	
+	<select id="orders-top-groupbystate" resultMap="Order" parameterType="map">
+		<![CDATA[
+		SELECT * FROM `order` a WHERE user_id = #{userId} 
+			AND merch_type < 2 
+		]]>
+		<if test="state != null">
+			AND state = #{state} 
+		</if>
+		<![CDATA[
+			AND (SELECT COUNT(1) FROM `order` WHERE state = a.state AND a.id <= id) <= #{top} 
+		ORDER BY state DESC, creation desc
+		]]>
+	</select>
+	
+	<select id="normal-orders-top-groupbystate" resultMap="Order" parameterType="map">
+		<![CDATA[
+		SELECT * FROM `order` a WHERE user_id = #{userId} 
+			AND merch_type >= 2 
+		]]>
+		<if test="state != null">
+			AND state = #{state} 
+		</if>
+		<![CDATA[
+			AND (SELECT COUNT(1) FROM `order` WHERE state = a.state AND a.id <= id) <= #{top} 
+		ORDER BY state DESC, creation desc
+		]]>
+	</select>
+	
 	
 	<insert id="order-order" parameterType="Order">
 		<selectKey keyProperty="id" resultType="long">

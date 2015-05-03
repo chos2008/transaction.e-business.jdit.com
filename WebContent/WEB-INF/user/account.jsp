@@ -59,28 +59,34 @@
 	<div id="nav" class="nav-bar tool_bar">
 		<div class="nav-bar-box">
 			<div class="nav-bar-box-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
-				<p id="nav-back" style="height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
+				<p id="order-wait-pay" style="height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
 					<label title="paypal" class="icon-paypal" style="width: 100%; display: block;"></label>
 					<label style="width: 100%; display: block;"><a href="javascript: void(0);" style="">待付款</a></label>
 				</p>
 			</div>
 			<div class="nav-bar-box-item nav-bar-box-center-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
+				<p id="order-wait-delivery" style="height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
 				<a href="javascript: void(0);">待发货</a>
+				</p>
 			</div>
 			<div class="nav-bar-box-item nav-bar-box-center-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
+				<p id="order-wait-recv" style="height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
 				<a href="javascript: void(0);">待收货</a>
+				</p>
 			</div>
 			<div class="nav-bar-box-item nav-bar-box-center-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
+				<p id="order-wait-evaluate" style="height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
 				<a href="javascript: void(0);">待评价</a>
+				</p>
 			</div>
 			<div class="nav-bar-box-item nav-bar-box-end-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
-				<p style="height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
+				<p id="order-completion" style="height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
 					<label title="google wallet" class="icon-google-wallet" style="width: 100%; display: block;"></label>
 					<label style="width: 100%; display: block;"><a href="javascript: void(0);"style="">退款/售后</a></label>
 				</p>
 			</div>
 		</div>
-		<div style="height: 160px; margin: 2px 5px 3px; padding: 3px 5px; border: 0px solid silver; background-color: white; background-image: url('../images/qapp_center_loading.png'); background-position: center center; background-repeat: no-repeat; opacity: 0.6;">
+		<div class="normal-order-list" style="min-height: 160px; margin: 2px 5px 3px; padding: 3px 5px; border: 0px solid silver; background-color: white; background-image: url('../images/qapp_center_loading.png'); background-position: center center; background-repeat: no-repeat; opacity: 0.6;">
 			
 		</div>
 	</div>
@@ -95,25 +101,29 @@
 	<div id="nav" class="nav-bar tool_bar">
 		<div class="nav-bar-box">
 			<div class="nav-bar-box-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
-				<p id="nav-back" style="height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
+				<p id="wait_pay" style="height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
 					<label title="paypal" class="icon-paypal" style="width: 100%; display: block;"></label>
 					<label style="width: 100%; display: block;"><a href="javascript: void(0);" style="">待付款</a></label>
 				</p>
 			</div>
 			<div class="nav-bar-box-item nav-bar-box-center-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
-				<a href="javascript: void(0);">对方确认</a>
+				<p id="wait_ack" style="height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
+					<a href="javascript: void(0);">待确认</a>
+				</p>
 			</div>
 			<div class="nav-bar-box-item nav-bar-box-center-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
-				<a href="javascript: void(0);">待收货</a>
+				<p id="wait_recv" style="height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
+					<a href="javascript: void(0);">待收货</a>
+				</p>
 			</div>
 			<div class="nav-bar-box-item nav-bar-box-end-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
-				<p style="height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
+				<p id="completion" style="height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
 					<label title="google wallet" class="icon-google-wallet" style="width: 100%; display: block;"></label>
 					<label style="width: 100%; display: block;"><a href="javascript: void(0);"style="">完成交易</a></label>
 				</p>
 			</div>
 		</div>
-		<div style="height: 160px; margin: 2px 5px 3px; padding: 3px 5px; border: 0px solid silver; background-color: white; background-image: url('../images/qapp_center_loading.png'); background-position: center center; background-repeat: no-repeat; opacity: 0.6;">
+		<div class="order-list" style="min-height: 160px; margin: 2px 5px 3px; padding: 3px 5px; border: 0px solid silver; background-color: white; background-image: url('../images/qapp_center_loading.png'); background-position: center center; background-repeat: no-repeat; opacity: 0.6;">
 			
 		</div>
 	</div>
@@ -172,7 +182,7 @@
 	<c:otherwise>
 <div class="list-item">
 	<ul class="list-item-t">
-		<li class="list-item-t-item"><p>发布</p></li>
+		<li class="list-item-t-item"><p><a href="/item/add/view.shtml">发布</a></p></li>
 		<li class="list-item-t-item-right list-item-t-item-img"></li>
 	</ul>
 </div>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="product">
+	<resultMap type="Product" id="product">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="user_id" property="userId"/>
+		<result column="price" property="price"/>
+		<result column="stock" property="stock"/>
+		<result column="category" property="category"/>
+		<result column="image" property="image"/>
+		<result column="small_image" property="smallImage"/>
+		<result column="large_image" property="largeImage"/>
+		<result column="description" property="description"/>
+		<result column="creation" property="creation"/>
+		<result column="updation" property="updation"/>
+	</resultMap>
+	
+	<insert id="product-add" parameterType="product">
+		<selectKey keyProperty="id" resultType="long">
+			select @@identity as id 
+		</selectKey>
+		insert into product(
+			id
+			,name
+			,user_id
+			,price
+			,stock
+			,category
+			<if test="image != null">
+				,image
+			</if>
+			<if test="smallImage != null">
+				,small_image
+			</if>
+			<if test="largeImage != null">
+				,large_image
+			</if>
+			<if test="description != null">
+				,description
+			</if>
+			,creation
+			<if test="updation != null">
+				,updation
+			</if>
+		) values(
+			#{id}
+			,#{name}
+			,#{userId}
+			,#{price}
+			,#{stock}
+			,#{category}
+			<if test="image != null">
+				,#{image}
+			</if>
+			<if test="smallImage != null">
+				,#{smallImage}
+			</if>
+			<if test="largeImage != null">
+				,#{largeImage}
+			</if>
+			<if test="description != null">
+				,#{description}
+			</if>
+			,#{creation}
+			<if test="updation != null">
+				,#{updation}
+			</if>
+		)
+	</insert>
+</mapper>

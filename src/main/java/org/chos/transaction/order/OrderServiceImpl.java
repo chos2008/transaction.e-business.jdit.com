@@ -13,7 +13,9 @@
  */
 package org.chos.transaction.order;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,8 @@ import org.springframework.stereotype.Service;
  * @version 1.0  2015-4-19 下午03:56:34
  * @since 1.0
  */
+
+
 @Service
 public class OrderServiceImpl implements OrderService {
 
@@ -42,5 +46,25 @@ public class OrderServiceImpl implements OrderService {
 	public Order order(Order order) {
 		template.insert("order-order", order);
 		return order;
+	}
+	
+	public List<Order> getTopNormalOrdersGroupByState(long userId, int top, OrderState state) {
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("userId", userId);
+		param.put("top", top);
+		if (state != null) {
+			param.put("state", state.value());
+		}
+		return template.selectList("normal-orders-top-groupbystate", param);
+	}
+	
+	public List<Order> getTopOrdersGroupByState(long userId, int top, OrderState state) {
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("userId", userId);
+		param.put("top", top);
+		if (state != null) {
+			param.put("state", state.value());
+		}
+		return template.selectList("orders-top-groupbystate", param);
 	}
 }

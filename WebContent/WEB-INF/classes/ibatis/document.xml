@@ -13,7 +13,10 @@
 		<result column="updation" property="updation"/>
 	</resultMap>
 	
-	<select id="documentpart-getByDocumentId" resultMap="documentpart" parameterType="long">
+	<select id="documentpart-getByDocumentId" resultMap="documentpart" parameterType="map">
 		select * from document_part where document_id = #{documentId}
+		<if test="type != null">
+			and document_type = #{type} 
+		</if>
 	</select>
 </mapper>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+    "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="category">
+	<resultMap type="Category" id="category">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="user_id" property="userId"/>
+		<result column="parent_id" property="parentId"/>
+		<result column="open" property="open"/>
+		<result column="creation" property="creation"/>
+		<result column="updation" property="updation"/>
+	</resultMap>
+	
+	<select id="category-getByUserId" resultMap="category" parameterType="long">
+		select * from item_category where user_id = #{userId}
+	</select>
+	<!-- 
+	<insert id="alapay-insert" parameterType="alapay">
+		<selectKey keyProperty="id" resultType="long">
+			select @@identity as id 
+		</selectKey>
+		insert into account(
+			id
+			,balance
+			,user_id
+			,account_type
+			,creation
+			<if test="updation != null">
+				,updation
+			</if>
+		) values(
+			#{id}
+			,#{balance}
+			,#{userId}
+			,#{type}
+			,#{creation}
+			<if test="updation != null">
+				,#{updation}
+			</if>
+		)
+	</insert>
+	 -->
+</mapper>

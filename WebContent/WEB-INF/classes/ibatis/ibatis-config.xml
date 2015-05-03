@@ -6,6 +6,8 @@
 
 	<typeAliases>
 		<typeAlias type="org.chos.transaction.DocumentPart" alias="DocumentPart"/>
+		<typeAlias type="org.chos.transaction.Category" alias="Category"/>
+		<typeAlias type="org.chos.transaction.Product" alias="Product"/>
 		<typeAlias type="org.chos.transaction.Bid" alias="Bid"/>
 		<typeAlias type="org.chos.transaction.Item" alias="Item"/>
 		<typeAlias type="org.chos.transaction.Merchant" alias="Merchant"/>
@@ -20,6 +22,8 @@
 		<mapper resource="ibatis/document.xml" />
 		<mapper resource="ibatis/User.xml" />
 		<mapper resource="ibatis/merchant.xml" />
+		<mapper resource="ibatis/category.xml" />
+		<mapper resource="ibatis/product.xml" />
 		<mapper resource="ibatis/item.xml" />
 		<mapper resource="ibatis/Bid.xml" />
 		<mapper resource="ibatis/Session.xml" />
