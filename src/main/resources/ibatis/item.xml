@@ -32,6 +32,9 @@
 		select * from item where id = #{id}
 	</select>
 	
+	<delete id="delete-item" parameterType="long">
+		delete from item where id = #{id}
+	</delete>
 	
 	<insert id="issue" parameterType="Item">
 		<selectKey keyProperty="id" resultType="long">

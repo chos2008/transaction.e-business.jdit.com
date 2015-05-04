@@ -45,6 +45,13 @@ public interface ItemService {
 	 */
 	public void issue(Item requirement);
 	
+	public Bid toBid(long id);
+	
+	/**
+	 * @param itemId
+	 */
+	public void delete(long itemId);
+	
 	/**
 	 * @param product
 	 * @return

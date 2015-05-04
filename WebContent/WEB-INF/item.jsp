@@ -77,7 +77,7 @@
 		<div class="nav-bar-box-item nav-bar-box-end-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
 			<p style="height: 36px; line-height: 36px; margin: 0px 0px; text-align: right;">
 				<label title="google wallet" class="icon-google-wallet" style="width: 100%; display: block;"></label>
-				<label style="display: inline-block;"><a href="#" onclick="cart(${item.id})" style="color: white;">(<i id="order-sheet-stats">0</i>)立即接单</a></label>
+				<label style="display: inline-block;"><a href="javascript: void(0);" onclick="cart(${item.id})" style="color: white;">(<i id="order-sheet-stats">0</i>)立即接单</a></label>
 				<label style="display: inline-block;"><a href="../cart.shtml?item=${item.id}" style="color: white;">直接交易</a></label>
 			</p>
 		</div>

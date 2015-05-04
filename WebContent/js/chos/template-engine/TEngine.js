@@ -10,3 +10,4 @@ if (! ($.load)) {
 
 $.load('/tips.tmpl');
 $.load('/item-r.tmpl');
+$.load('/loading.tmpl');

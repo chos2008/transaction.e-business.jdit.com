@@ -52,7 +52,8 @@ public class BidServiceImpl implements BidService {
 		return template.selectList("bid-list", param);
 	}
 	
-	public void issue(Bid bid) {
+	public Bid issue(Bid bid) {
 		template.insert("bid-issue", bid);
+		return bid;
 	}
 }

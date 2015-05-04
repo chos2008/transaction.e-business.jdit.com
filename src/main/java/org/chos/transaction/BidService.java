@@ -43,5 +43,5 @@ public interface BidService {
 	/**
 	 * @param bid
 	 */
-	public void issue(Bid bid);
+	public Bid issue(Bid bid);
 }

@@ -125,7 +125,7 @@ public final class item_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t<div class=\"nav-bar-box-item nav-bar-box-end-item\" style=\"font-size: 12px; font-family: Arial, 'Microsoft YaHei';\">\r\n");
       out.write("\t\t\t<p style=\"height: 36px; line-height: 36px; margin: 0px 0px; text-align: right;\">\r\n");
       out.write("\t\t\t\t<label title=\"google wallet\" class=\"icon-google-wallet\" style=\"width: 100%; display: block;\"></label>\r\n");
-      out.write("\t\t\t\t<label style=\"display: inline-block;\"><a href=\"#\" onclick=\"cart(");
+      out.write("\t\t\t\t<label style=\"display: inline-block;\"><a href=\"javascript: void(0);\" onclick=\"cart(");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${item.id}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
       out.write(")\" style=\"color: white;\">(<i id=\"order-sheet-stats\">0</i>)立即接单</a></label>\r\n");
       out.write("\t\t\t\t<label style=\"display: inline-block;\"><a href=\"../cart.shtml?item=");

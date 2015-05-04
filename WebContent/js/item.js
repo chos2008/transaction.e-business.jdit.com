@@ -1,3 +1,42 @@
+function tobid(itemId) {
+	var loading = new Loading("tmpl-loading", "请输入...");
+	loading.show();
+	$.ajax({
+		type:"post",
+		url: "/item/tobid.shtml",
+		data: {
+			"item_id": itemId
+		}, 
+		error: function() {
+			loading.hide();
+			var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
+			tips.show();
+			return;
+		}, 
+		success:function(response) {
+			loading.hide();
+			if(response) {
+			    if(response.code == 0) {
+			    	var list = $('.list-item-li');
+			    	for (var i = 0; i < list.length; i++) {
+			    		var item = $(list[i]);
+			    		var bindItemId = item.attr("bind-data-id");
+			    		if (bindItemId == itemId) {
+			    			item.remove();
+			    			break;
+			    		}
+			    	}
+					var tips = new Tips('tmpl-tips', "转标成功");
+					tips.show();
+					return;
+			    }
+			    var tips = new Tips('tmpl-tips', "转标失败");
+				tips.show();
+				return;
+			}
+		}
+	});
+}
 
 (function() {
 	window.onscroll = function(e) {

@@ -6,7 +6,7 @@
 <li style="position: relative;" class="list-item-li" bind-data-id=${variable.id}>
 	<div style="margin: 2px 3px 5px 3px; border-top: 0px solid silver; border-bottom: 0px solid silver;">
 		<span style="width: 100%; display: inline-block;"><a href="item/${variable.id}.shtml">${variable.title}</a></span>
-		<span style="width: 100%; display: inline-block;">招标项目金额：${variable.amount}元</span>
+		<span style="width: 100%; display: inline-block;">金额：${variable.amount}元</span>
 		<div style="width: 100%; line-height: 20px; text-align: left; font-size: 10px">
 			${variable.content}
 		</div>

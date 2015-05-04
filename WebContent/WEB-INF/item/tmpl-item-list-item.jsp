@@ -17,6 +17,7 @@
 	</div>
 	<c:import url="../tmpl-item-toolbox.jsp">
 		<c:param name="category" value="0" />
+		<c:param name="item_id" value="${variable.id}" />
 	</c:import>
 </li>
 </c:forEach>

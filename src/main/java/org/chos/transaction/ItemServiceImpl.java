@@ -13,10 +13,13 @@
  */
 package org.chos.transaction;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
+import org.apache.commons.lang.StringUtils;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -36,6 +39,9 @@ public class ItemServiceImpl implements ItemService {
 	@Autowired()
 	@Qualifier(value = "sqlSessionTemplate")
 	private SqlSessionTemplate template;
+	
+	@Autowired
+	private BidService bidService;
 	
 	public List<Item> list(long firstResult, int maxResultSize) {
 		Map<String, Object> param = new HashMap<String, Object>();
@@ -58,6 +64,30 @@ public class ItemServiceImpl implements ItemService {
 	
 	public void issue(Item requirement) {
 		template.insert("issue", requirement);
+	}
+	
+	public Bid toBid(long id) {
+		Item item = getItem(id);
+		if (item == null) {
+			return null;
+		}
+		Bid bid = new Bid();
+		String no = UUID.randomUUID().toString();
+		no = no.replaceAll("-", "");
+		bid.setNo(no);
+		bid.setTenderSide(item.getUserId());
+		bid.setProjectName(item.getTitle());
+		bid.setAmount(item.getAmount());
+		bid.setProjectBidContent(item.getContent());
+		bid.setStartTime(new Date());
+		bid.setCreation(new Date());
+		bid = bidService.issue(bid);
+		delete(id);
+		return bid;
+	}
+	
+	public void delete(long id) {
+		template.delete("delete-item", id);
 	}
 	
 	public Product addProduct(Product product) {

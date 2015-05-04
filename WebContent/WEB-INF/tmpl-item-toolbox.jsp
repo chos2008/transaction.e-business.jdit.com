@@ -8,19 +8,16 @@
 		
 		</div>
 		<div style="height: 24px; line-height: 24px; box-pack: center; -moz-box-pack: center; -webkit-box-pack: center; -o-box-pack: center;">
-			<c:if test="${param.category == 0}">
-			
-			</c:if>
 			<c:choose>
 				<c:when test="${param.category == 0}">
-					<a href="#">转标</a>&nbsp;&nbsp;
-					<a href="#">编辑</a>
+					<a href="javascript: void(0);" onclick="javascript: tobid(${param.item_id});">转标</a>&nbsp;&nbsp;
+					<a href="/item/edit/view.shtml?item_id=${param.item_id}">编辑</a>
 				</c:when>
 				<c:when test="${param.category == 1}">
 					<a href="#">编辑</a>
 				</c:when>
 				<c:when test="${param.category == 2}">
-					<a href="javascript: void(0);" onclick="cart(${param.itemId})">接单</a>
+					<a href="javascript: void(0);" onclick="javascript: cart(${param.itemId})">接单</a>
 				</c:when>
 				<c:otherwise>
 					

@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css" href="css/common-style.css"/>
 <script type="text/javascript" src="js/zepto/zepto.min.js"></script>
 <script type="text/javascript" src="js/iscroll/iscroll-4.2.5.js"></script>
+<script type="text/javascript" src="js/tips.js"></script>
 <script type="text/javascript" src="js/item.js"></script>
 <script type="text/javascript" src="js/list-item.js"></script>
 

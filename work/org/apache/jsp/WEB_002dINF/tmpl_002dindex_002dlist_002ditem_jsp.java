@@ -123,7 +123,7 @@ public final class tmpl_002dindex_002dlist_002ditem_jsp extends org.apache.jaspe
           out.write(".shtml\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.title}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write("</a></span>\r\n");
-          out.write("\t\t<span style=\"width: 100%; display: inline-block;\">招标项目金额：");
+          out.write("\t\t<span style=\"width: 100%; display: inline-block;\">金额：");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.amount}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write("元</span>\r\n");
           out.write("\t\t<div style=\"width: 100%; line-height: 20px; text-align: left; font-size: 10px\">\r\n");

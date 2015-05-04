@@ -24,6 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
+import org.chos.transaction.Bid;
 import org.chos.transaction.DocumentPart;
 import org.chos.transaction.DocumentService;
 import org.chos.transaction.Item;
@@ -303,6 +304,31 @@ public class ItemController {
 		requirementService.issue(requirement);
 		json.put("code", 0);
 		return json;
+	}
+	
+	@RequestMapping(value = "item/tobid")
+	@ResponseBody
+	public Object tobid(HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> json = new HashMap<String, Object>();
+		
+		String itemId = request.getParameter("item_id");
+		if (StringUtils.isBlank(itemId)) {
+			json.put("code", 1000);
+			return json;
+		}
+		
+		Bid bid = requirementService.toBid(Long.parseLong(itemId));
+		if (bid == null) {
+			json.put("code", ItemErrorCode.ITEM_NOT_EXISTS);
+			return json;
+		}
+		json.put("code", 0);
+		return json;
+	}
+	
+	@RequestMapping(value = "item/edit/view")
+	public String toEdit(HttpServletRequest request, HttpServletResponse response) {
+		return "item/edit";
 	}
 	
 	
