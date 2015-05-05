@@ -55,7 +55,7 @@
 				</div>
 				
 				<div style="margin: 2px 5px 3px; padding: 3px 5px; border: 1px solid silver; background-color: white; background-image: url('images/qapp_center_loading.png'); background-position: center center; background-repeat: no-repeat; opacity: 0.6;">
-					<textarea id="content" name="content" rows="20" spellcheck="true" contenteditable="true" placeholder="请填写您的具体要求" style="width: 100%; border: 0px solid red; margin: 0px 0px; padding: 0px 0px; font-size: 14px; font-family: Arial, 'Microsoft YaHei'; resize: none; outline: none; opacity: 0.6; -webkit-tap-highlight-color:rgba(0,0,0,0); -webkit-user-modify:read-write-plaintext-only;"></textarea>
+					<textarea id="content" name="content" spellcheck="true" contenteditable="true" placeholder="请填写您的具体要求" style="width: 100%; height: 160px; border: 0px solid red; margin: 0px 0px; padding: 0px 0px; font-size: 14px; font-family: Arial, 'Microsoft YaHei'; resize: none; outline: none; opacity: 0.6; -webkit-tap-highlight-color:rgba(0,0,0,0); -webkit-user-modify:read-write-plaintext-only;"></textarea>
 				</div>
 				<!-- 
 				<div style="margin: 2px 5px 3px; border: 1px solid silver; text-align: center;">
