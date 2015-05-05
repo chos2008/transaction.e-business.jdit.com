@@ -15,8 +15,40 @@
 	
 	<select id="documentpart-getByDocumentId" resultMap="documentpart" parameterType="map">
 		select * from document_part where document_id = #{documentId}
-		<if test="type != null">
+		<choose>
+			<when test="type != null">
 			and document_type = #{type} 
-		</if>
+			</when>
+			<otherwise>
+			and document_type = 0
+			</otherwise>
+		</choose>
 	</select>
+	
+	<insert id="documentpart-insert" parameterType="documentpart">
+		<selectKey keyProperty="id" resultType="long">
+			select @@identity as id 
+		</selectKey>
+		insert into document_part(
+			id
+			,document_id
+			,document_type
+			,part_content
+			,part_type
+			,creation
+			<if test="updation != null">
+				,updation
+			</if>
+		) values(
+			#{id}
+			,#{documentId}
+			,#{documentType}
+			,#{partContent}
+			,#{partType}
+			,#{creation}
+			<if test="updation != null">
+				,#{updation}
+			</if>
+		)
+	</insert>
 </mapper>

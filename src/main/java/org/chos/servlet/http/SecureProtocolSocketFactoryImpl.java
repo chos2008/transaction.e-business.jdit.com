@@ -19,10 +19,10 @@ import org.apache.commons.httpclient.params.HttpConnectionParams;
 import org.apache.commons.httpclient.protocol.SecureProtocolSocketFactory; 
 
 /**
- * @author wuzhikun
- * @create 2012-4-27  
+ * @author chos2008@126.com
+ * @create 2009-2-28  
  */
-public class MySecureProtocolSocketFactory implements SecureProtocolSocketFactory { 
+public class SecureProtocolSocketFactoryImpl implements SecureProtocolSocketFactory { 
     private SSLContext sslcontext = null; 
     private SSLContext createSSLContext() { 
         SSLContext sslcontext=null; 

@@ -1,28 +1,3 @@
-Tips = function(context, title) {
-	// 错误弹窗
-    var _popTimer = true;
-	function _show() {
-		if(_popTimer){
-            _popTimer = false;
-            
-            var html = $("#" + context).html();
-			var t = $(html);
-			$(document.body).append(t);
-			
-			t.html(title);
-            t.css("display", "block");
-            setTimeout(function(){
-                _popTimer = true;
-                t.css("display", "none");
-                t.remove();
-            },2000);
-        }
-	}
-	
-	return {
-		show: _show
-	};
-};
 function showPosition(position) {
 	$(".text-location").html(position.coords.latitude + "," + position.coords.longitude);
 }
@@ -77,7 +52,8 @@ function getPositionError(error) {
 				tip.show();
 				return;
 			}
-			
+			var loading = new Loading("tmpl-loading", "请输入...");
+			loading.show();
 			$.ajax({
 				type:"post",
 				url: "item/issue.shtml",
@@ -87,11 +63,15 @@ function getPositionError(error) {
 					"content": content
 				}, 
 				error: function() {
+					loading.hide();
+					
 					var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
 					tips.show();
 					return;
 				}, 
 				success:function(response) {
+					loading.hide();
+					
 					if(response) {
 					    if(response.code == 0) {
 							location.href="user/index.jsp";

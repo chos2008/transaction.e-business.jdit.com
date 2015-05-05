@@ -49,4 +49,9 @@ public class DocumentServiceImpl implements DocumentService {
 		param.put("type", type);
 		return template.selectList("documentpart-getByDocumentId", param);
 	}
+	
+	public DocumentPart store(DocumentPart part) {
+		template.insert("documentpart-insert", part);
+		return part;
+	}
 }

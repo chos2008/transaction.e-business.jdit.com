@@ -109,7 +109,7 @@ public class HttpAccessor {
 	 * @throws HttpException
 	 */
 	public String post(String url, Map<String, String> param, int connectionTimeout, int soTimeout) throws HttpException {
-		Protocol protocol = new Protocol("https", new MySecureProtocolSocketFactory(), 443);
+		Protocol protocol = new Protocol("https", new SecureProtocolSocketFactoryImpl(), 443);
 		Protocol.registerProtocol("https", protocol); // 忽略证书有效性检查
 
 		HttpClient client = new HttpClient();

@@ -294,14 +294,22 @@ public class ItemController {
 			userId = session.getUserId();
 		}
 		
-		Item requirement = new Item();
-		requirement.setUserId(userId);
-		requirement.setTitle(title);
-		requirement.setAmount(StringUtils.isBlank(amount) ? 0 : Double.parseDouble(amount));
-		requirement.setContent(description);
-		requirement.setStartTime(new Date());
-		requirement.setCreation(new Date());
-		requirementService.issue(requirement);
+		Item item = new Item();
+		item.setUserId(userId);
+		item.setTitle(title);
+		item.setAmount(StringUtils.isBlank(amount) ? 0 : Double.parseDouble(amount));
+		item.setContent(description);
+		item.setStartTime(new Date());
+		item.setCreation(new Date());
+		requirementService.issue(item);
+		
+		DocumentPart part = new DocumentPart();
+		part.setDocumentId(item.getId());
+		part.setDocumentType(0);
+		part.setPartContent(description);
+		part.setPartType(0);
+		part.setCreation(new Date());
+		documentService.store(part);
 		json.put("code", 0);
 		return json;
 	}
@@ -327,7 +335,19 @@ public class ItemController {
 	}
 	
 	@RequestMapping(value = "item/edit/view")
-	public String toEdit(HttpServletRequest request, HttpServletResponse response) {
+	public String toEdit(HttpServletRequest request, HttpServletResponse response, Model model) {
+		String itemId = request.getParameter("item_id");
+		if (StringUtils.isBlank(itemId)) {
+			return "item/error";
+		}
+		Item item = requirementService.getItem(Long.parseLong(itemId));
+		if (item == null) {
+			return "item/error";
+		}
+		Session session = httpContextSessionManager.getSession(request);
+		User user = userService.getUser(session.getUserId());
+		model.addAttribute("item", item);
+		model.addAttribute("user", user);
 		return "item/edit";
 	}
 	

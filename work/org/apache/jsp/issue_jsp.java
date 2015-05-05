@@ -64,6 +64,7 @@ public final class issue_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/common-style.css\"/>\r\n");
       out.write("\r\n");
       out.write("<script type=\"text/javascript\" src=\"js/zepto/zepto.min.js\"></script>\r\n");
+      out.write("<script type=\"text/javascript\" src=\"js/tips.js\"></script>\r\n");
       out.write("<script type=\"text/javascript\" src=\"js/issue.js\"></script>\r\n");
       out.write("</head>\r\n");
       out.write("<body style=\"margin: 0px 0px; padding: 0px 0px;\">\r\n");

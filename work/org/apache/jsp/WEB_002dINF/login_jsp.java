@@ -67,6 +67,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/style.css\"/>\r\n");
       out.write("\r\n");
       out.write("<script type=\"text/javascript\" src=\"js/zepto/zepto.min.js\"></script>\r\n");
+      out.write("<script type=\"text/javascript\" src=\"js/tips.js\"></script>\r\n");
       out.write("<script type=\"text/javascript\" src=\"js/login.js\"></script>\r\n");
       out.write("\r\n");
       out.write("</head>\r\n");

@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css" href="css/common-style.css"/>
 
 <script type="text/javascript" src="js/zepto/zepto.min.js"></script>
+<script type="text/javascript" src="js/tips.js"></script>
 <script type="text/javascript" src="js/issue.js"></script>
 </head>
 <body style="margin: 0px 0px; padding: 0px 0px;">

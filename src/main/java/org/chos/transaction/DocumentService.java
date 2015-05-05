@@ -20,12 +20,27 @@ import java.util.List;
  * 
  * 
  * @author ada
- * @version 1.0  2015-4-18 下午04:01:51
+ * @version 1.0  2011-3-18 下午04:01:51
  * @since 1.0
  */
 public interface DocumentService {
 
+	/**
+	 * @param documentId
+	 * @return
+	 */
 	List<DocumentPart> getDocumentById(long documentId);
 	
+	/**
+	 * @param documentId
+	 * @param type
+	 * @return
+	 */
 	public List<DocumentPart> getDocument(long documentId, int type);
+	
+	/**
+	 * @param part
+	 * @return
+	 */
+	public DocumentPart store(DocumentPart part);
 }

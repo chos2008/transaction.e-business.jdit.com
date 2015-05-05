@@ -19,7 +19,8 @@ public final class tmpl_002dbid_002dlist_002ditem_jsp extends org.apache.jasper.
 
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005ffmt_005fformatDate_0026_005fvalue_005fpattern_005fnobody;
-  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fc_005fimport_0026_005furl_005fnobody;
+  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fc_005fimport_0026_005furl;
+  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fc_005fparam_0026_005fvalue_005fname_005fnobody;
 
   private javax.el.ExpressionFactory _el_expressionfactory;
   private org.apache.AnnotationProcessor _jsp_annotationprocessor;
@@ -31,7 +32,8 @@ public final class tmpl_002dbid_002dlist_002ditem_jsp extends org.apache.jasper.
   public void _jspInit() {
     _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005ffmt_005fformatDate_0026_005fvalue_005fpattern_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _005fjspx_005ftagPool_005fc_005fimport_0026_005furl_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _005fjspx_005ftagPool_005fc_005fimport_0026_005furl = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _005fjspx_005ftagPool_005fc_005fparam_0026_005fvalue_005fname_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _el_expressionfactory = _jspxFactory.getJspApplicationContext(getServletConfig().getServletContext()).getExpressionFactory();
     _jsp_annotationprocessor = (org.apache.AnnotationProcessor) getServletConfig().getServletContext().getAttribute(org.apache.AnnotationProcessor.class.getName());
   }
@@ -39,7 +41,8 @@ public final class tmpl_002dbid_002dlist_002ditem_jsp extends org.apache.jasper.
   public void _jspDestroy() {
     _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.release();
     _005fjspx_005ftagPool_005ffmt_005fformatDate_0026_005fvalue_005fpattern_005fnobody.release();
-    _005fjspx_005ftagPool_005fc_005fimport_0026_005furl_005fnobody.release();
+    _005fjspx_005ftagPool_005fc_005fimport_0026_005furl.release();
+    _005fjspx_005ftagPool_005fc_005fparam_0026_005fvalue_005fname_005fnobody.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -186,7 +189,7 @@ public final class tmpl_002dbid_002dlist_002ditem_jsp extends org.apache.jasper.
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  c:import
-    org.apache.taglibs.standard.tag.rt.core.ImportTag _jspx_th_c_005fimport_005f0 = (org.apache.taglibs.standard.tag.rt.core.ImportTag) _005fjspx_005ftagPool_005fc_005fimport_0026_005furl_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.ImportTag.class);
+    org.apache.taglibs.standard.tag.rt.core.ImportTag _jspx_th_c_005fimport_005f0 = (org.apache.taglibs.standard.tag.rt.core.ImportTag) _005fjspx_005ftagPool_005fc_005fimport_0026_005furl.get(org.apache.taglibs.standard.tag.rt.core.ImportTag.class);
     _jspx_th_c_005fimport_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fimport_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_005fforEach_005f0);
     // /WEB-INF/bid/tmpl-bid-list-item.jsp(25,1) name = url type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
@@ -194,6 +197,30 @@ public final class tmpl_002dbid_002dlist_002ditem_jsp extends org.apache.jasper.
     int[] _jspx_push_body_count_c_005fimport_005f0 = new int[] { 0 };
     try {
       int _jspx_eval_c_005fimport_005f0 = _jspx_th_c_005fimport_005f0.doStartTag();
+      if (_jspx_eval_c_005fimport_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        if (_jspx_eval_c_005fimport_005f0 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
+          out = _jspx_page_context.pushBody();
+          _jspx_push_body_count_c_005fimport_005f0[0]++;
+          _jspx_th_c_005fimport_005f0.setBodyContent((javax.servlet.jsp.tagext.BodyContent) out);
+          _jspx_th_c_005fimport_005f0.doInitBody();
+        }
+        do {
+          out.write("\r\n");
+          out.write("\t\t");
+          if (_jspx_meth_c_005fparam_005f0(_jspx_th_c_005fimport_005f0, _jspx_page_context, _jspx_push_body_count_c_005fimport_005f0))
+            return true;
+          out.write('\r');
+          out.write('\n');
+          out.write('	');
+          int evalDoAfterBody = _jspx_th_c_005fimport_005f0.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+        if (_jspx_eval_c_005fimport_005f0 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
+          out = _jspx_page_context.popBody();
+          _jspx_push_body_count_c_005fimport_005f0[0]--;
+        }
+      }
       if (_jspx_th_c_005fimport_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
         return true;
       }
@@ -203,8 +230,29 @@ public final class tmpl_002dbid_002dlist_002ditem_jsp extends org.apache.jasper.
       _jspx_th_c_005fimport_005f0.doCatch(_jspx_exception);
     } finally {
       _jspx_th_c_005fimport_005f0.doFinally();
-      _005fjspx_005ftagPool_005fc_005fimport_0026_005furl_005fnobody.reuse(_jspx_th_c_005fimport_005f0);
+      _005fjspx_005ftagPool_005fc_005fimport_0026_005furl.reuse(_jspx_th_c_005fimport_005f0);
     }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_005fparam_005f0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_005fimport_005f0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_005fimport_005f0)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:param
+    org.apache.taglibs.standard.tag.rt.core.ParamTag _jspx_th_c_005fparam_005f0 = (org.apache.taglibs.standard.tag.rt.core.ParamTag) _005fjspx_005ftagPool_005fc_005fparam_0026_005fvalue_005fname_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.ParamTag.class);
+    _jspx_th_c_005fparam_005f0.setPageContext(_jspx_page_context);
+    _jspx_th_c_005fparam_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_005fimport_005f0);
+    // /WEB-INF/bid/tmpl-bid-list-item.jsp(26,2) name = name type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005fparam_005f0.setName("category");
+    // /WEB-INF/bid/tmpl-bid-list-item.jsp(26,2) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005fparam_005f0.setValue("1");
+    int _jspx_eval_c_005fparam_005f0 = _jspx_th_c_005fparam_005f0.doStartTag();
+    if (_jspx_th_c_005fparam_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _005fjspx_005ftagPool_005fc_005fparam_0026_005fvalue_005fname_005fnobody.reuse(_jspx_th_c_005fparam_005f0);
+      return true;
+    }
+    _005fjspx_005ftagPool_005fc_005fparam_0026_005fvalue_005fname_005fnobody.reuse(_jspx_th_c_005fparam_005f0);
     return false;
   }
 }
