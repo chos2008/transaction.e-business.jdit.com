@@ -24,12 +24,15 @@ import org.chos.transaction.DocumentPart;
 import org.chos.transaction.DocumentService;
 import org.chos.transaction.ItemService;
 import org.chos.transaction.Merchant;
+import org.chos.transaction.Product;
+import org.chos.transaction.ProductService;
 import org.chos.transaction.User;
 import org.chos.transaction.UserService;
 import org.chos.transaction.passport.HttpContextSessionManager;
 import org.chos.transaction.passport.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,6 +55,9 @@ public class MerchantManagerController {
 	private UserService userService;
 	
 	@Autowired
+	private ProductService productService;
+	
+	@Autowired
 	private DocumentService documentService;
 	
 	@Autowired
@@ -70,9 +76,11 @@ public class MerchantManagerController {
 		
 		List<DocumentPart> document = documentService.getDocument(merchant.getId(), 3);
 		List<Category> categories = itemService.getCategories(session.getUserId());
+		List<Product> products = productService.getByUserId(session.getUserId());
 		model.addAttribute("merchant", merchant);
-		model.addAttribute("categories", categories);
 		model.addAttribute("document", document);
+		model.addAttribute("categories", categories);
+		model.addAttribute("products", products);
 		return "business/merchant";
 	}
 	
@@ -99,7 +107,9 @@ public class MerchantManagerController {
 			response.sendRedirect("login.shtml");
 		}
 		List<Category> categories = itemService.getCategories(session.getUserId());
+		List<Product> products = productService.getByUserId(session.getUserId());
 		model.addAttribute("categories", categories);
+		model.addAttribute("products", products);
 		return "business/tmpl-merchant-item";
 	}
 	

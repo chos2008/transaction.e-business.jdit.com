@@ -146,6 +146,12 @@ a:HOVER {
   	-webkit-margin-after: 0em;
 }
 
+.list-item-t-default {
+	-webkit-padding-start: 0px;
+	-webkit-margin-before: 0em;
+  	-webkit-margin-after: 0em;
+}
+
 .list-item-t p, .list-item p {
 	margin: 0px 0px;
 	padding: 0px 0px;
@@ -168,7 +174,7 @@ a:HOVER {
 	padding: 0px 0px;
 	font-size: 15px; 
 	font-family: Arial, 'Microsoft YaHei';
-	display: inline;
+	display: inline-block;
 }
 
 .list-item-t-item {

@@ -18,6 +18,10 @@
 		<result column="updation" property="updation"/>
 	</resultMap>
 	
+	<select id="get-byuserId" resultMap="product" parameterType="long">
+		select * from product where user_id = #{userId}
+	</select>
+	
 	<insert id="product-add" parameterType="product">
 		<selectKey keyProperty="id" resultType="long">
 			select @@identity as id 

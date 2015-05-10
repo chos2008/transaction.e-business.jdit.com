@@ -13,6 +13,13 @@
  */
 package org.chos.transaction;
 
+import java.util.List;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
 /**
  * 
  * 
@@ -21,6 +28,14 @@ package org.chos.transaction;
  * @version 1.0  2014-03-10 下午09:33:57
  * @since 1.0
  */
+@Service
 public class ProductServiceImpl implements ProductService {
 
+	@Autowired()
+	@Qualifier(value = "sqlSessionTemplate")
+	private SqlSessionTemplate template;
+	
+	public List<Product> getByUserId(long userId) {
+		return template.selectList("get-byuserId", userId);
+	}
 }

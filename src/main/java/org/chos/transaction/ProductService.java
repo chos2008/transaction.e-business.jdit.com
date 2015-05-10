@@ -13,6 +13,8 @@
  */
 package org.chos.transaction;
 
+import java.util.List;
+
 /**
  * 
  * 
@@ -23,4 +25,5 @@ package org.chos.transaction;
  */
 public interface ProductService {
 
+	public List<Product> getByUserId(long userId);
 }
