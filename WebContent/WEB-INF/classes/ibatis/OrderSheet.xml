@@ -14,7 +14,7 @@
 		<result column="updation" property="updation"/>
 	</resultMap>
 	
-	<select id="order-sheet-count-by-ut" resultMap="ordersheet" parameterType="string">
+	<select id="order-sheet-count-by-ut" resultType="long" parameterType="string">
 		select count(1) from order_sheet where ut = #{ut}
 	</select>
 	

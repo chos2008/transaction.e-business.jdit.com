@@ -25,12 +25,14 @@ import java.util.List;
  */
 public interface BidService {
 	
+	public Bid getBid(int id);
+	
 	/**
 	 * @param firstResult
 	 * @param maxResultSize
 	 * @return
 	 */
-	public List<Item> list(long firstResult, int maxResultSize);
+	public List<Bid> list(long firstResult, int maxResultSize);
 
 	/**
 	 * @param userId

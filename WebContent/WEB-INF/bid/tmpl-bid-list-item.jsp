@@ -23,7 +23,7 @@
 	</div>
 	
 	<c:import url="../tmpl-item-toolbox.jsp">
-		<c:param name="category" value="1" />
+		<c:param name="category" value="${category}" />
 	</c:import>
 </li>
 </c:forEach>

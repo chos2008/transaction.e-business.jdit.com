@@ -246,7 +246,7 @@ public final class tmpl_002dbid_002dlist_002ditem_jsp extends org.apache.jasper.
     // /WEB-INF/bid/tmpl-bid-list-item.jsp(26,2) name = name type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fparam_005f0.setName("category");
     // /WEB-INF/bid/tmpl-bid-list-item.jsp(26,2) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005fparam_005f0.setValue("1");
+    _jspx_th_c_005fparam_005f0.setValue((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${category}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
     int _jspx_eval_c_005fparam_005f0 = _jspx_th_c_005fparam_005f0.doStartTag();
     if (_jspx_th_c_005fparam_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _005fjspx_005ftagPool_005fc_005fparam_0026_005fvalue_005fname_005fnobody.reuse(_jspx_th_c_005fparam_005f0);

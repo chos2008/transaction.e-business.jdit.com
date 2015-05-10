@@ -82,7 +82,7 @@ public class BidController {
 		String html = request.getParameter("html");
 		String result = null;
 		LocalSession localsession = null;
-		List<Item> results = null;
+		List<Bid> results = null;
 		if (html != null) {
 			String position = request.getParameter("down");
 			localsession = sessionManager.getLocalSession(session.getUserId(), 3, position != null ? -1 : 1);
@@ -91,7 +91,7 @@ public class BidController {
 				int maxResultSize = localsession.getPageSize();
 				results = bidService.list(firstResult, maxResultSize);
 			} else {
-				results = new ArrayList<Item>(0);
+				results = new ArrayList<Bid>(0);
 			}
 
 			
@@ -103,16 +103,16 @@ public class BidController {
 				int maxResultSize = localsession.getPageSize();
 				results = bidService.list(firstResult, maxResultSize);
 			} else {
-				results = new ArrayList<Item>(0);
+				results = new ArrayList<Bid>(0);
 			}
 			
 			
 			result = "bid/list";
 		}
 		
-		model.addAttribute("requirements", results);
+		model.addAttribute("bids", results);
 
-		
+		model.addAttribute("category", 3);
 		return result;
 	}
 	
@@ -149,6 +149,7 @@ public class BidController {
 			result = "bid/list";
 		}
 		model.addAttribute("bids", results);
+		model.addAttribute("category", 1);
 		return result;
 	}
 	
@@ -163,10 +164,10 @@ public class BidController {
 	
 	@RequestMapping(value = "/bid/{id}")
 	public String item(@PathVariable int id, HttpServletRequest request, HttpServletResponse response, Model model) {
-		Item item = requirementService.getItem(id);
+		Bid item = bidService.getBid(id);
 		model.addAttribute("item", item);
 		
-		List<DocumentPart> document = documentService.getDocumentById(item.getId());
+		List<DocumentPart> document = documentService.getDocument(item.getId(), 1);
 		
 		model.addAttribute("details", document);
 		return "bid/item";

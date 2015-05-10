@@ -218,7 +218,7 @@ public class OrderController {
 	
 	@RequestMapping(value = "order-sheet/simple")
 	@ResponseBody
-	public Object simpleOrderSheet(@PathVariable long id, HttpServletRequest request, HttpServletResponse response, Model model) {
+	public Object simpleOrderSheet(HttpServletRequest request, HttpServletResponse response, Model model) {
 		Session session = httpContextSessionManager.getSession(request);
 		Map<String, Object> resp = new HashMap<String, Object>();
 		if (session == null) {

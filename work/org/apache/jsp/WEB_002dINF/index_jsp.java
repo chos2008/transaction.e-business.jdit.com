@@ -76,6 +76,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("<script type=\"text/javascript\" src=\"js/zepto/zepto.min.js\"></script>\r\n");
       out.write("<script type=\"text/javascript\" src=\"js/iscroll/iscroll-4.2.5.js\"></script>\r\n");
+      out.write("<script type=\"text/javascript\" src=\"js/tips.js\"></script>\r\n");
       out.write("<script type=\"text/javascript\" src=\"js/index.js\"></script>\r\n");
       out.write("<script type=\"text/javascript\" src=\"js/list-item.js\"></script>\r\n");
       out.write("</head>\r\n");
@@ -92,14 +93,14 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t</div>\r\n");
       out.write("\t\t\t<div class=\"nav-bar-box-item nav-bar-box-center-item\" style=\"\">\r\n");
       out.write("\t\t\t\t<div style=\"height: 24px; line-height: 24px; position: relative; margin: 7px auto; border: 1px solid silver; border-radius: 5px 5px 5px 5px;\">\r\n");
-      out.write("\t\t\t\t\t<ul class=\"list-item-default\">\r\n");
-      out.write("\t\t\t\t\t\t<li class=\"list-item-t-item-normal\" style=\"font-size: 12px; padding: 0px 3px;\">\r\n");
+      out.write("\t\t\t\t\t<ul class=\"list-item-default list-item-toolbar-box\">\r\n");
+      out.write("\t\t\t\t\t\t<li class=\"list-item-t-item-normal item-normal item-selected\" style=\"font-size: 12px; padding: 0px 3px;\">\r\n");
       out.write("\t\t\t\t\t\t\t<a href=\"javascript: void(0);\">需求</a>\r\n");
       out.write("\t\t\t\t\t\t</li>\r\n");
       out.write("\t\t\t\t\t\t<li class=\"list-item-t-item-normal\" style=\"font-size: 12px; padding: 0px 3px;\">\r\n");
       out.write("\t\t\t\t\t\t\t<a href=\"investment.jsp\">发布需求</a>\r\n");
       out.write("\t\t\t\t\t\t</li>\r\n");
-      out.write("\t\t\t\t\t\t<li class=\"list-item-t-item-normal\" style=\"font-size: 12px; padding: 0px 3px;\">\r\n");
+      out.write("\t\t\t\t\t\t<li class=\"list-item-t-item-normal item-bid\" style=\"font-size: 12px; padding: 0px 3px;\">\r\n");
       out.write("\t\t\t\t\t\t\t<a href=\"javascript: void(0);\">标书</a>\r\n");
       out.write("\t\t\t\t\t\t</li>\r\n");
       out.write("\t\t\t\t\t</ul>\r\n");
@@ -149,38 +150,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<!-- \r\n");
       out.write("<div id=\"footer\"></div>\r\n");
       out.write(" -->\r\n");
-      out.write(" \r\n");
-      out.write(" <script type=\"text/javascript\">\r\n");
-      out.write(" \t$(document).ready(function(){\r\n");
-      out.write("\t\t$('#order-sheet').on(\"click\", function() {\r\n");
-      out.write("\t\t\tvar box = $('.nav-bar-box-cart-and-ordersheet');\r\n");
-      out.write("\t\t\tbox.toggle();\r\n");
-      out.write("\t\t});\r\n");
-      out.write("\t\t\r\n");
-      out.write("\t\t$.ajax({\r\n");
-      out.write("\t\t\ttype: \"post\",\r\n");
-      out.write("\t\t\turl: \"/order-sheet/simple.shtml\",\r\n");
-      out.write("\t\t\tdata: {\r\n");
-      out.write("\t\t\t\t\"itemId\": id\r\n");
-      out.write("\t\t\t}, \r\n");
-      out.write("\t\t\terror: function() {\r\n");
-      out.write("\t\t\t\tvar tips = new Tips('tmpl-tips', \"与服务器通信失败，请检查网络是否稳定\");\r\n");
-      out.write("\t\t\t\ttips.show();\r\n");
-      out.write("\t\t\t\treturn;\r\n");
-      out.write("\t\t\t}, \r\n");
-      out.write("\t\t\tsuccess: function(response) {\r\n");
-      out.write("\t\t\t\tif(response) {\r\n");
-      out.write("\t\t\t\t\tif(response.code == 0) {\r\n");
-      out.write("\t\t\t\t\t\tvar stat = $(\".order-sheet-stats\").text();\r\n");
-      out.write("\t\t\t\t\t\tstat++;\r\n");
-      out.write("\t\t\t\t\t\t$(\".order-sheet-stats\").text(stat);\r\n");
-      out.write("\t\t\t\t\t\treturn;\r\n");
-      out.write("\t\t\t\t    }\r\n");
-      out.write("\t\t\t\t}\r\n");
-      out.write("\t\t\t}\r\n");
-      out.write("\t\t});\r\n");
-      out.write("\t});\r\n");
-      out.write(" </script>\r\n");
+      out.write("\r\n");
+      out.write("<script type=\"text/javascript\" src=\"js/chos/template-engine/TEngine.js\" ></script>\r\n");
       out.write("</body>\r\n");
       out.write("</html>");
     } catch (Throwable t) {
@@ -204,7 +175,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.ImportTag _jspx_th_c_005fimport_005f0 = (org.apache.taglibs.standard.tag.rt.core.ImportTag) _005fjspx_005ftagPool_005fc_005fimport_0026_005furl.get(org.apache.taglibs.standard.tag.rt.core.ImportTag.class);
     _jspx_th_c_005fimport_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fimport_005f0.setParent(null);
-    // /WEB-INF/index.jsp(78,2) name = url type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/index.jsp(79,2) name = url type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fimport_005f0.setUrl("tmpl-index-list-item.jsp");
     int[] _jspx_push_body_count_c_005fimport_005f0 = new int[] { 0 };
     try {

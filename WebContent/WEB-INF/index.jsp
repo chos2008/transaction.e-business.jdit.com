@@ -15,6 +15,7 @@
 
 <script type="text/javascript" src="js/zepto/zepto.min.js"></script>
 <script type="text/javascript" src="js/iscroll/iscroll-4.2.5.js"></script>
+<script type="text/javascript" src="js/tips.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/list-item.js"></script>
 </head>
@@ -31,14 +32,14 @@
 			</div>
 			<div class="nav-bar-box-item nav-bar-box-center-item" style="">
 				<div style="height: 24px; line-height: 24px; position: relative; margin: 7px auto; border: 1px solid silver; border-radius: 5px 5px 5px 5px;">
-					<ul class="list-item-default">
-						<li class="list-item-t-item-normal" style="font-size: 12px; padding: 0px 3px;">
+					<ul class="list-item-default list-item-toolbar-box">
+						<li class="list-item-t-item-normal item-normal item-selected" style="font-size: 12px; padding: 0px 3px;">
 							<a href="javascript: void(0);">需求</a>
 						</li>
 						<li class="list-item-t-item-normal" style="font-size: 12px; padding: 0px 3px;">
 							<a href="investment.jsp">发布需求</a>
 						</li>
-						<li class="list-item-t-item-normal" style="font-size: 12px; padding: 0px 3px;">
+						<li class="list-item-t-item-normal item-bid" style="font-size: 12px; padding: 0px 3px;">
 							<a href="javascript: void(0);">标书</a>
 						</li>
 					</ul>
@@ -87,37 +88,7 @@
 <!-- 
 <div id="footer"></div>
  -->
- 
- <script type="text/javascript">
- 	$(document).ready(function(){
-		$('#order-sheet').on("click", function() {
-			var box = $('.nav-bar-box-cart-and-ordersheet');
-			box.toggle();
-		});
-		
-		$.ajax({
-			type: "post",
-			url: "/order-sheet/simple.shtml",
-			data: {
-				"itemId": id
-			}, 
-			error: function() {
-				var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
-				tips.show();
-				return;
-			}, 
-			success: function(response) {
-				if(response) {
-					if(response.code == 0) {
-						var stat = $(".order-sheet-stats").text();
-						stat++;
-						$(".order-sheet-stats").text(stat);
-						return;
-				    }
-				}
-			}
-		});
-	});
- </script>
+
+<script type="text/javascript" src="js/chos/template-engine/TEngine.js" ></script>
 </body>
 </html>

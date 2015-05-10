@@ -23,6 +23,40 @@ function cart(id) {
 	});
 }
 
+function items(type, position, fn) {
+	var url = "/index.shtml?" + type + "&" + position;
+	$.ajax({
+		type: "get",
+		url: url,
+		data: {
+			
+		}, 
+		error: function() {
+			var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
+			tips.show();
+			return;
+		}, 
+		success: fn
+	});
+}
+
+function bids(type, position, fn) {
+	var url = "/bid/index.shtml?" + type + "&" + position;
+	$.ajax({
+		type: "get",
+		url: url,
+		data: {
+			
+		}, 
+		error: function() {
+			var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
+			tips.show();
+			return;
+		}, 
+		success: fn
+	});
+}
+
 
 var myScroll,
 	pullDownEl, pullDownOffset,
@@ -41,27 +75,26 @@ function pullDownAction () {
 			el.insertBefore(li, el.childNodes[0]);
 		}
 		*/
-		
-		$.ajax({
-			type: "get",
-			url: "/index.shtml?html&down",
-			data: {
-				
-			}, 
-			error: function() {
-				var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
-				tips.show();
-				return;
-			}, 
-			success: function(response) {
+		var s = $('.item-normal');
+		if (s.hasClass('item-selected')) {
+			items('html', 'down', function(response) {
 				if(response) {
 					var html = $(response);
 					$("#thelist").prepend(html);
 					
 					//el.insertBefore(li, el.childNodes[0]);
 				}
-			}
-		});
+			});
+		} else {
+			bids('html', 'down', function(response) {
+				if(response) {
+					var html = $(response);
+					$("#thelist").prepend(html);
+					
+					//el.insertBefore(li, el.childNodes[0]);
+				}
+			});
+		}
 		
 		myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
 	}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
@@ -80,26 +113,26 @@ function pullUpAction () {
 		}
 		*/
 		
-		$.ajax({
-			type: "get",
-			url: "/index.shtml?html&up",
-			data: {
-				
-			}, 
-			error: function() {
-				var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
-				tips.show();
-				return;
-			}, 
-			success: function(response) {
+		var s = $('.item-normal');
+		if (s.hasClass('item-selected')) {
+			items('html', 'up', function(response) {
 				if(response) {
 					var html = $(response);
 					$("#thelist").append(html);
 					
 					//el.insertBefore(li, el.childNodes[0]);
 				}
-			}
-		});
+			});
+		} else {
+			bids('html', 'up', function(response) {
+				if(response) {
+					var html = $(response);
+					$("#thelist").append(html);
+					
+					//el.insertBefore(li, el.childNodes[0]);
+				}
+			});
+		}
 		
 		myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
 	}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
@@ -161,6 +194,78 @@ function loaded() {
 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 
 document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);
+
+function onBoxItemSelected(selectedItem) {
+	if (selectedItem.hasClass('item-selected')) {
+		return;
+	}
+	var boxitems = $("li", '.list-item-toolbar-box');
+	for (var i = 0; i < boxitems.length; i++) {
+		var boxitem = $(boxitems[i]);
+		boxitem.removeClass('item-selected');
+		boxitem.css('backgroundColor', '');
+	}
+	
+	selectedItem.addClass('item-selected');
+	selectedItem.css('backgroundColor', 'silver');
+}
+
+$(document).ready(function(){
+	$('#order-sheet').on("click", function() {
+		var box = $('.nav-bar-box-cart-and-ordersheet');
+		box.toggle();
+	});
+	
+	$('.item-normal').on('click', function() {
+		var _this = $(this);
+		onBoxItemSelected(_this);
+		items('html', '', function(response) {
+			if(response) {
+				var html = $(response);
+				$("#thelist").html(html);
+				
+				//el.insertBefore(li, el.childNodes[0]);
+			}
+		});
+	});
+	
+	$('.item-bid').on('click', function() {
+		var _this = $(this);
+		onBoxItemSelected(_this);
+		bids('html', '', function(response) {
+			if(response) {
+				var html = $(response);
+				$("#thelist").html(html);
+				
+				//el.insertBefore(li, el.childNodes[0]);
+			}
+		});
+	});
+	
+	$.ajax({
+		type: "post",
+		url: "/order-sheet/simple.shtml",
+		data: {
+			
+		}, 
+		error: function() {
+			var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
+			tips.show();
+			return;
+		}, 
+		success: function(response) {
+			if(response) {
+				if(response.code == 0) {
+					var stat = $(".order-sheet-stats").text();
+					stat = parseInt(stat);
+					stat += response.count;
+					$(".order-sheet-stats").text(stat);
+					return;
+			    }
+			}
+		}
+	});
+});
 
 
 

@@ -19,6 +19,9 @@
 				<c:when test="${param.category == 2}">
 					<a href="javascript: void(0);" onclick="javascript: cart(${param.itemId})">接单</a>
 				</c:when>
+				<c:when test="${param.category == 3}">
+					<a href="javascript: void(0);" onclick="javascript: cart(${param.itemId})">竞标</a>
+				</c:when>
 				<c:otherwise>
 					
 				</c:otherwise>

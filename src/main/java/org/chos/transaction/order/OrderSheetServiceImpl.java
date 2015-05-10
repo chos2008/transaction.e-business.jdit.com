@@ -61,7 +61,8 @@ public class OrderSheetServiceImpl implements OrderSheetService {
 	}
 	
 	public long getOrderSheetCount(String ut) {
-		return template.selectOne("order-sheet-count-by-ut", ut);
+		Long obj = template.selectOne("order-sheet-count-by-ut", ut);
+		return obj;
 	}
 	
 	public void deleteOrderSheet(long id) {

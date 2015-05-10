@@ -37,7 +37,11 @@ public class BidServiceImpl implements BidService {
 	@Qualifier(value = "sqlSessionTemplate")
 	private SqlSessionTemplate template;
 	
-	public List<Item> list(long firstResult, int maxResultSize) {
+	public Bid getBid(int id) {
+		return template.selectOne("get-bid", id);
+	}
+	
+	public List<Bid> list(long firstResult, int maxResultSize) {
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("firstResult", firstResult);
 		param.put("maxResultSize", maxResultSize);
