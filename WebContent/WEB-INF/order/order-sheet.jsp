@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="/WEB-INF/c.tld"%>
+<%@ taglib prefix="fn" uri="/WEB-INF/fn.tld" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -24,9 +25,12 @@
 			</p>
 		</div>
 	</c:when>
+	
 	<c:otherwise>
+	<c:set value="0" var="amount" />
 	<ul class="list-item" style="background-color: silver;">
 		<c:forEach items="${orders}" var="variable">
+		<c:set value="${amount + variable.amount}" var="amount" />
 		<li class="list-item-t-item-default order-sheet-item">
 			<div class="order-sheet-touch" bind-data-id=${variable.merchandiseId} style="margin: 5px 0px; background-color: white;">
 				<ul class="list-item">
@@ -99,6 +103,17 @@
 			</ul>
 		</li>
 		</c:forEach>
+	</ul>
+	
+	
+	<ul class="list-item" style="height: 60px;">
+		<li class="list-item-t-item-normal-right" style="font-family: Arial;">
+			<a class="go-trade" href="javascript: void(0);" style="width: 60px; margin: 0px auto; height: 24px; line-height: 24px; display: block; color: #fff; background-color: #ff3c3c; border: 1px solid #BE4646; border-radius: 3px; -webkit-border-radius: 3px; text-align: center; font-size: 0.5rem;">确认交易</a>
+		</li>
+	
+		<li class="list-item-t-item-normal-right" style="font-family: Arial;">
+			<p style="height: 26px; line-height: 26px;">共${fn:length(orders)}笔交易 总金额：&yen;${amount}</p>
+		</li>
 	</ul>
 	</c:otherwise>
 </c:choose>

@@ -22,7 +22,9 @@
 						<div style="width: 100%;">
 							<img alt="" src="../images/${variable.smallImage}" style="width: 100%; max-width: 100%; min-height: 450px; max-height: 100%; border: 0px solid green;"/>
 						</div>
-						<p style="height: 32px; overflow: hidden;"><a href="#">${variable.name}</a> ${variable.price}  ${variable.stock}</p>
+						<p style="height: 32px; overflow: hidden;">
+							<a href="#">${variable.name}</a> ${variable.price}  ${variable.stock}
+						</p>
 					</li>
 		</c:when>
 		
@@ -31,7 +33,9 @@
 						<div style="width: 100%;">
 							<img alt="" src="../images/${variable.smallImage}" style="width: 100%; max-width: 100%; min-height: 450px; max-height: 100%; border: 0px solid green;"/>
 						</div>
-						<p style="height: 32px; overflow: hidden;"><a href="#">${variable.name}</a> ${variable.price}  ${variable.stock}</p>
+						<p style="height: 32px; overflow: hidden;">
+							<a href="#">${variable.name}</a> ${variable.price}  ${variable.stock}
+						</p>
 					</li>
 				</ul>
 			</div>
@@ -41,30 +45,11 @@
 						<div style="width: 100%;">
 							<img alt="" src="../images/${variable.smallImage}" style="width: 100%; max-width: 100%; max-height: 100%; border: 0px solid green;"/>
 						</div>
-						<p style="height: 32px; overflow: hidden;"><a href="#">${variable.name}</a> ${variable.price}  ${variable.stock}</p>
+						<p style="height: 32px; overflow: hidden;">
+							<a href="#">${variable.name}</a> ${variable.price}  ${variable.stock}
+						</p>
 					</li>
 		</c:otherwise>
 	</c:choose>
 	<c:set value="${i+1}" var="i" />
 </c:forEach>
-
-<!-- 
-<c:forEach items="${products}" var="variable">
-<div class="list-item" style="border: 0px;">
-	<ul class="list-item-t">
-		<li class="list-item-t-item" style="width: 50%; border-bottom-style: solid !important; border-bottom-color: silver !important; border-bottom-width: 1px !important;">
-			<p><a href="#">${variable.name}</a></p>
-		</li>
-		<li class="list-item-t-item" style="width: 50%; border-bottom-style: solid !important; border-bottom-color: silver !important; border-bottom-width: 1px !important;">
-			<p><a href="#">${variable.name}</a></p>
-		</li>
-	</ul>
-	<div style="width: 100%;">
-		<img alt="" src="../images/${variable.smallImage}" style="width: 100%; max-width: 100%; min-height: 450px; max-height: 100%; border: 0px solid green;"/>
-	</div>
-	<div style="width: 100%;">
-		${variable.name} ${variable.price}  ${variable.stock}
-	</div>
-</div>
-</c:forEach>
- -->

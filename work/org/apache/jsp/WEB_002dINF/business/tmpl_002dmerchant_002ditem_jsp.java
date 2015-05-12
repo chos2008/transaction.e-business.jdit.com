@@ -83,13 +83,8 @@ public final class tmpl_002dmerchant_002ditem_jsp extends org.apache.jasper.runt
       out.write('\n');
       if (_jspx_meth_c_005fforEach_005f1(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("<!-- \r\n");
-      if (_jspx_meth_c_005fforEach_005f2(_jspx_page_context))
-        return;
-      out.write("\r\n");
-      out.write(" -->\r\n");
+      out.write('\r');
+      out.write('\n');
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -281,14 +276,16 @@ public final class tmpl_002dmerchant_002ditem_jsp extends org.apache.jasper.runt
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.smallImage}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
         out.write("\" style=\"width: 100%; max-width: 100%; min-height: 450px; max-height: 100%; border: 0px solid green;\"/>\r\n");
         out.write("\t\t\t\t\t\t</div>\r\n");
-        out.write("\t\t\t\t\t\t<p style=\"height: 32px; overflow: hidden;\"><a href=\"#\">");
+        out.write("\t\t\t\t\t\t<p style=\"height: 32px; overflow: hidden;\">\r\n");
+        out.write("\t\t\t\t\t\t\t<a href=\"#\">");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.name}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
         out.write("</a> ");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.price}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
         out.write(' ');
         out.write(' ');
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.stock}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-        out.write("</p>\r\n");
+        out.write("\r\n");
+        out.write("\t\t\t\t\t\t</p>\r\n");
         out.write("\t\t\t\t\t</li>\r\n");
         out.write("\t\t");
         int evalDoAfterBody = _jspx_th_c_005fwhen_005f0.doAfterBody();
@@ -312,7 +309,7 @@ public final class tmpl_002dmerchant_002ditem_jsp extends org.apache.jasper.runt
     org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_005fwhen_005f1 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _005fjspx_005ftagPool_005fc_005fwhen_0026_005ftest.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
     _jspx_th_c_005fwhen_005f1.setPageContext(_jspx_page_context);
     _jspx_th_c_005fwhen_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_005fchoose_005f0);
-    // /WEB-INF/business/tmpl-merchant-item.jsp(29,2) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/business/tmpl-merchant-item.jsp(31,2) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fwhen_005f1.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${i % 2 == 1}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null, false)).booleanValue());
     int _jspx_eval_c_005fwhen_005f1 = _jspx_th_c_005fwhen_005f1.doStartTag();
     if (_jspx_eval_c_005fwhen_005f1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -324,14 +321,16 @@ public final class tmpl_002dmerchant_002ditem_jsp extends org.apache.jasper.runt
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.smallImage}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
         out.write("\" style=\"width: 100%; max-width: 100%; min-height: 450px; max-height: 100%; border: 0px solid green;\"/>\r\n");
         out.write("\t\t\t\t\t\t</div>\r\n");
-        out.write("\t\t\t\t\t\t<p style=\"height: 32px; overflow: hidden;\"><a href=\"#\">");
+        out.write("\t\t\t\t\t\t<p style=\"height: 32px; overflow: hidden;\">\r\n");
+        out.write("\t\t\t\t\t\t\t<a href=\"#\">");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.name}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
         out.write("</a> ");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.price}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
         out.write(' ');
         out.write(' ');
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.stock}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-        out.write("</p>\r\n");
+        out.write("\r\n");
+        out.write("\t\t\t\t\t\t</p>\r\n");
         out.write("\t\t\t\t\t</li>\r\n");
         out.write("\t\t\t\t</ul>\r\n");
         out.write("\t\t\t</div>\r\n");
@@ -367,14 +366,16 @@ public final class tmpl_002dmerchant_002ditem_jsp extends org.apache.jasper.runt
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.smallImage}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
         out.write("\" style=\"width: 100%; max-width: 100%; max-height: 100%; border: 0px solid green;\"/>\r\n");
         out.write("\t\t\t\t\t\t</div>\r\n");
-        out.write("\t\t\t\t\t\t<p style=\"height: 32px; overflow: hidden;\"><a href=\"#\">");
+        out.write("\t\t\t\t\t\t<p style=\"height: 32px; overflow: hidden;\">\r\n");
+        out.write("\t\t\t\t\t\t\t<a href=\"#\">");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.name}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
         out.write("</a> ");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.price}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
         out.write(' ');
         out.write(' ');
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.stock}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-        out.write("</p>\r\n");
+        out.write("\r\n");
+        out.write("\t\t\t\t\t\t</p>\r\n");
         out.write("\t\t\t\t\t</li>\r\n");
         out.write("\t\t");
         int evalDoAfterBody = _jspx_th_c_005fotherwise_005f0.doAfterBody();
@@ -398,9 +399,9 @@ public final class tmpl_002dmerchant_002ditem_jsp extends org.apache.jasper.runt
     org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_005fset_005f1 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
     _jspx_th_c_005fset_005f1.setPageContext(_jspx_page_context);
     _jspx_th_c_005fset_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_005fforEach_005f1);
-    // /WEB-INF/business/tmpl-merchant-item.jsp(48,1) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/business/tmpl-merchant-item.jsp(54,1) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fset_005f1.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${i+1}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
-    // /WEB-INF/business/tmpl-merchant-item.jsp(48,1) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/business/tmpl-merchant-item.jsp(54,1) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fset_005f1.setVar("i");
     int _jspx_eval_c_005fset_005f1 = _jspx_th_c_005fset_005f1.doStartTag();
     if (_jspx_th_c_005fset_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -408,72 +409,6 @@ public final class tmpl_002dmerchant_002ditem_jsp extends org.apache.jasper.runt
       return true;
     }
     _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.reuse(_jspx_th_c_005fset_005f1);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_005fforEach_005f2(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:forEach
-    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f2 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
-    _jspx_th_c_005fforEach_005f2.setPageContext(_jspx_page_context);
-    _jspx_th_c_005fforEach_005f2.setParent(null);
-    // /WEB-INF/business/tmpl-merchant-item.jsp(52,0) name = items type = java.lang.Object reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f2.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${products}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
-    // /WEB-INF/business/tmpl-merchant-item.jsp(52,0) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f2.setVar("variable");
-    int[] _jspx_push_body_count_c_005fforEach_005f2 = new int[] { 0 };
-    try {
-      int _jspx_eval_c_005fforEach_005f2 = _jspx_th_c_005fforEach_005f2.doStartTag();
-      if (_jspx_eval_c_005fforEach_005f2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-        do {
-          out.write("\r\n");
-          out.write("<div class=\"list-item\" style=\"border: 0px;\">\r\n");
-          out.write("\t<ul class=\"list-item-t\">\r\n");
-          out.write("\t\t<li class=\"list-item-t-item\" style=\"width: 50%; border-bottom-style: solid !important; border-bottom-color: silver !important; border-bottom-width: 1px !important;\">\r\n");
-          out.write("\t\t\t<p><a href=\"#\">");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.name}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write("</a></p>\r\n");
-          out.write("\t\t</li>\r\n");
-          out.write("\t\t<li class=\"list-item-t-item\" style=\"width: 50%; border-bottom-style: solid !important; border-bottom-color: silver !important; border-bottom-width: 1px !important;\">\r\n");
-          out.write("\t\t\t<p><a href=\"#\">");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.name}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write("</a></p>\r\n");
-          out.write("\t\t</li>\r\n");
-          out.write("\t</ul>\r\n");
-          out.write("\t<div style=\"width: 100%;\">\r\n");
-          out.write("\t\t<img alt=\"\" src=\"../images/");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.smallImage}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write("\" style=\"width: 100%; max-width: 100%; min-height: 450px; max-height: 100%; border: 0px solid green;\"/>\r\n");
-          out.write("\t</div>\r\n");
-          out.write("\t<div style=\"width: 100%;\">\r\n");
-          out.write("\t\t");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.name}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write(' ');
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.price}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write(' ');
-          out.write(' ');
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.stock}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write("\r\n");
-          out.write("\t</div>\r\n");
-          out.write("</div>\r\n");
-          int evalDoAfterBody = _jspx_th_c_005fforEach_005f2.doAfterBody();
-          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-            break;
-        } while (true);
-      }
-      if (_jspx_th_c_005fforEach_005f2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-        return true;
-      }
-    } catch (Throwable _jspx_exception) {
-      while (_jspx_push_body_count_c_005fforEach_005f2[0]-- > 0)
-        out = _jspx_page_context.popBody();
-      _jspx_th_c_005fforEach_005f2.doCatch(_jspx_exception);
-    } finally {
-      _jspx_th_c_005fforEach_005f2.doFinally();
-      _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.reuse(_jspx_th_c_005fforEach_005f2);
-    }
     return false;
   }
 }

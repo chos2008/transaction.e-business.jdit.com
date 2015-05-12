@@ -174,7 +174,9 @@ a:HOVER {
 	padding: 0px 0px;
 	font-size: 15px; 
 	font-family: Arial, 'Microsoft YaHei';
+	/*
 	display: inline-block;
+	*/
 }
 
 .list-item-t-item {

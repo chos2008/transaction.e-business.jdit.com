@@ -442,12 +442,44 @@ public class ItemController {
 			json.put("code", SessionErrorCode.INVALID_SESSION);
 			return json;
 		}
-		String itemId = request.getParameter("itemId");
-		if (StringUtils.isBlank(itemId)) {
-			json.put("code", ErrorCode.PARAM_ERROR);
+		List<OrderSheet> orders = orderSheetService.orderSheet(session.getToken());
+		for (OrderSheet orderSheet : orders) {
+			Item item = requirementService.getItem(orderSheet.getMerchandiseId());
+			if (item != null) {
+				Order order = new Order();
+				String no = UUID.randomUUID().toString();
+				no = no.replaceAll("-", "");
+				order.setNo(no);
+				order.setUserId(session.getUserId());
+				order.setAmount(item.getAmount());
+				order.setMerchandiseId(item.getId());
+				order.setMerchandiseType(0);
+				order.setQuantity(1);
+				order.setState(0);
+				order.setCreation(new Date());
+				orderService.order(order);
+				orderSheetService.deleteOrderSheet(orderSheet.getId());
+			}
+		}
+		json.put("code", 0);
+		return json;
+	}
+	
+	@RequestMapping(value = "item/{itemId}/order")
+	@ResponseBody
+	public Object order(@PathVariable long itemId, HttpServletRequest request, HttpServletResponse response) {
+		Session session = httpContextSessionManager.getSession(request);
+		Map<String, Object> json = new HashMap<String, Object>();
+		if (session == null) {
+			json.put("code", SessionErrorCode.INVALID_SESSION);
 			return json;
 		}
-		Item item = requirementService.getItem(Integer.parseInt(itemId));
+//		String itemId = request.getParameter("itemId");
+//		if (StringUtils.isBlank(itemId)) {
+//			json.put("code", ErrorCode.PARAM_ERROR);
+//			return json;
+//		}
+		Item item = requirementService.getItem(itemId);
 		if (item == null) {
 			json.put("code", ItemErrorCode.ITEM_NOT_EXISTS);
 			return json;

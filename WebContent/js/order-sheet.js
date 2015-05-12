@@ -91,6 +91,30 @@ function grayscale(src){
 			onselect(_this);
 		});
 		
+		
+		$('.go-trade').on('click', function() {
+			$.ajax({
+				type:"post",
+				url: "/item/order.shtml",
+				data: {
+					
+				}, 
+				error: function() {
+					var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
+					tips.show();
+					return;
+				}, 
+				success: function(response) {
+					if(response) {
+					    if(response.code == 0) {
+					    	location.href = "/user/index.jsp";
+							return;
+					    }
+						return;
+					}
+				}
+			});
+		});
 	};
 	
 })();
