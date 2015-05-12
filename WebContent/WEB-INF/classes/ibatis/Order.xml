@@ -79,7 +79,7 @@
 			,#{merchandiseType}
 			,#{quantity}
 			,#{state}
-			<if test="endTime != null">
+			<if test="description != null">
 				,#{description}
 			</if>
 			,#{creation}

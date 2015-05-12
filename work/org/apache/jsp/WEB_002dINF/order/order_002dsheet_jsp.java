@@ -210,7 +210,7 @@ static {
         out.write("\t\r\n");
         out.write("\t<ul class=\"list-item\" style=\"height: 60px;\">\r\n");
         out.write("\t\t<li class=\"list-item-t-item-normal-right\" style=\"font-family: Arial;\">\r\n");
-        out.write("\t\t\t<a href=\"javascript: void(0);\" style=\"width: 60px; margin: 0px auto; height: 24px; line-height: 24px; display: block; color: #fff; background-color: #ff3c3c; border: 1px solid #BE4646; border-radius: 3px; -webkit-border-radius: 3px; text-align: center; font-size: 0.5rem;\">确认交易</a>\r\n");
+        out.write("\t\t\t<a class=\"go-trade\" href=\"javascript: void(0);\" style=\"width: 60px; margin: 0px auto; height: 24px; line-height: 24px; display: block; color: #fff; background-color: #ff3c3c; border: 1px solid #BE4646; border-radius: 3px; -webkit-border-radius: 3px; text-align: center; font-size: 0.5rem;\">确认交易</a>\r\n");
         out.write("\t\t</li>\r\n");
         out.write("\t\r\n");
         out.write("\t\t<li class=\"list-item-t-item-normal-right\" style=\"font-family: Arial;\">\r\n");
