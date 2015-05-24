@@ -280,7 +280,7 @@ static {
           out.write("\r\n");
           out.write("\t\t<li class=\"list-item-t-item-default order-sheet-item\">\r\n");
           out.write("\t\t\t<div class=\"order-sheet-touch\" bind-data-id=");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.merchandiseId}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.itemId}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write(" style=\"margin: 5px 0px; background-color: white;\">\r\n");
           out.write("\t\t\t\t<ul class=\"list-item\">\r\n");
           out.write("\t\t\t\t\t<li class=\"list-item-t-item\" style=\"font-family: Arial;\">\r\n");
@@ -300,7 +300,7 @@ static {
           out.write("\t\t\t\t\t<li class=\"list-item-t-item-normal order-item\" style=\"line-height: 24px;\">\r\n");
           out.write("\t\t\t\t\t\t<p>\r\n");
           out.write("\t\t\t\t\t\t\t<a href=\"../item/");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.merchandiseId}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.itemId}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write(".shtml\">\r\n");
           out.write("\t\t\t");
           if (_jspx_meth_c_005fset_005f3(_jspx_th_c_005fforEach_005f0, _jspx_page_context, _jspx_push_body_count_c_005fforEach_005f0))
@@ -316,7 +316,7 @@ static {
           out.write("\t\t\t\t\t<li class=\"list-item-t-item-normal order-item\" style=\"line-height: 24px; width: 50%;\">\r\n");
           out.write("\t\t\t\t\t\t<p>\r\n");
           out.write("\t\t\t\t\t\t\t<a href=\"../item/");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.merchandiseId}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.itemId}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write(".shtml\">\r\n");
           out.write("\t\t\t");
           if (_jspx_meth_c_005fset_005f4(_jspx_th_c_005fforEach_005f0, _jspx_page_context, _jspx_push_body_count_c_005fforEach_005f0))
@@ -407,7 +407,7 @@ static {
     _jspx_th_c_005fset_005f2.setPageContext(_jspx_page_context);
     _jspx_th_c_005fset_005f2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_005fforEach_005f0);
     // /WEB-INF/order/order-sheet.jsp(39,3) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005fset_005f2.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${userMap[variable.merchandiseId]}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
+    _jspx_th_c_005fset_005f2.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${userMap[variable.itemId]}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
     // /WEB-INF/order/order-sheet.jsp(39,3) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fset_005f2.setVar("user");
     int _jspx_eval_c_005fset_005f2 = _jspx_th_c_005fset_005f2.doStartTag();
@@ -468,7 +468,7 @@ static {
       do {
         out.write("\r\n");
         out.write("\t\t\t\t\t\t\t");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.merchandiseId}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.itemId}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
         out.write("\r\n");
         out.write("\t\t\t\t");
         int evalDoAfterBody = _jspx_th_c_005fwhen_005f1.doAfterBody();
@@ -522,7 +522,7 @@ static {
     _jspx_th_c_005fset_005f3.setPageContext(_jspx_page_context);
     _jspx_th_c_005fset_005f3.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_005fforEach_005f0);
     // /WEB-INF/order/order-sheet.jsp(55,3) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005fset_005f3.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${itemMap[variable.merchandiseId]}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
+    _jspx_th_c_005fset_005f3.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${itemMap[variable.itemId]}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
     // /WEB-INF/order/order-sheet.jsp(55,3) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fset_005f3.setVar("item");
     int _jspx_eval_c_005fset_005f3 = _jspx_th_c_005fset_005f3.doStartTag();
@@ -730,7 +730,7 @@ static {
     _jspx_th_c_005fset_005f4.setPageContext(_jspx_page_context);
     _jspx_th_c_005fset_005f4.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_005fforEach_005f0);
     // /WEB-INF/order/order-sheet.jsp(77,3) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005fset_005f4.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${itemMap[variable.merchandiseId]}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
+    _jspx_th_c_005fset_005f4.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${itemMap[variable.itemId]}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
     // /WEB-INF/order/order-sheet.jsp(77,3) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fset_005f4.setVar("item");
     int _jspx_eval_c_005fset_005f4 = _jspx_th_c_005fset_005f4.doStartTag();

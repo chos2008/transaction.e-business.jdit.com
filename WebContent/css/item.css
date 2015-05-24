@@ -17,3 +17,9 @@
 	text-decoration: none;
   	color: black;
 }
+
+.m-item {
+	height: 232px;
+	min-height: 232px;
+  	max-height: 100%;
+}

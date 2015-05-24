@@ -63,8 +63,8 @@ public class MerchantManagerController {
 	@Autowired
 	private ItemService itemService;
 	
-	@RequestMapping(value = "/merchant/{id}")
-	public String merchant(@PathVariable int id, HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
+	@RequestMapping(value = "/merchant")
+	public String merchant(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
 		Session session = httpContextSessionManager.getSession(request);
 		if (session == null) {
 			response.sendRedirect("login.shtml");
@@ -113,22 +113,17 @@ public class MerchantManagerController {
 		return "business/tmpl-merchant-item";
 	}
 	
-	@RequestMapping(value = "/merchant0/{id}")
-	public String merchant0(@PathVariable int id, HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
-		Session session = httpContextSessionManager.getSession(request);
-		if (session == null) {
-			response.sendRedirect("login.shtml");
-		}
-		Merchant merchant = userService.getMerchantByUserId(session.getUserId());
-		if (merchant == null) {
-			response.sendRedirect("/continue.shtml");
+	@RequestMapping(value = "/merchant/{id}")
+	public String merchant0(@PathVariable long id, HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
+		Merchant merchant = userService.getMerchantByUserId(id);
+		if (merchant != null) {
+			List<DocumentPart> document = documentService.getDocument(merchant.getId(), 3);
+			List<Category> categories = itemService.getCategories(id);
+			model.addAttribute("merchant", merchant);
+			model.addAttribute("categories", categories);
+			model.addAttribute("document", document);
 		}
 		
-		List<DocumentPart> document = documentService.getDocument(merchant.getId(), 3);
-		List<Category> categories = itemService.getCategories(session.getUserId());
-		model.addAttribute("merchant", merchant);
-		model.addAttribute("categories", categories);
-		model.addAttribute("document", document);
 		return "business/merchant";
 	}
 	

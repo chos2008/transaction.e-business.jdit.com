@@ -76,6 +76,8 @@
 		</div>
 		
 		<div>
+			<div style="height: 200px; width: 100%; background-image: url('images/merchant_invite.jpg'); background-repeat: no-repeat; background-size: 100% 100%;">
+			</div>
 			<div class="menu-box">
 				<!--  -moz-box-flex:3; -webkit-box-flex:3; box-flex:3; -->
 				<div style="width: 70px; text-align: center;">

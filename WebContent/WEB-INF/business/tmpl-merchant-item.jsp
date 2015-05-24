@@ -18,36 +18,60 @@
 		<c:when test="${i % 2 == 0}">
 			<div class="list-item" style="border: 0px;">
 				<ul class="list-item-t-default">
-					<li class="list-item-t-item-default" style="width: 250px; border-bottom-style: solid !important; border-bottom-color: silver !important; border-bottom-width: 1px !important;">
+					<li class="list-item-t-item m-item" style="width: 50%; border-bottom-style: solid !important; border-bottom-color: silver !important; border-bottom-width: 1px !important;">
 						<div style="width: 100%;">
-							<img alt="" src="../images/${variable.smallImage}" style="width: 100%; max-width: 100%; min-height: 450px; max-height: 100%; border: 0px solid green;"/>
+							<c:choose>
+								<c:when test="${empty variable.smallImage}">
+								<img alt="" src="/images/blank.png" style="width: 100%; max-width: 100%; min-height: 200px; max-height: 100%; border: 0px solid green; background-image: url('/images/loading-1.gif'); background-repeat: no-repeat; background-position: center center;"/>
+								</c:when>
+								
+								<c:otherwise>
+								<img alt="" src="/images/${variable.smallImage}" style="width: 100%; max-width: 100%; min-height: 200px; max-height: 100%; border: 0px solid green;"/>
+								</c:otherwise>
+							</c:choose>
+							<p style="height: 32px; overflow: hidden;">
+								<a href="#">${variable.name}</a> ${variable.price}  ${variable.stock}
+							</p>
 						</div>
-						<p style="height: 32px; overflow: hidden;">
-							<a href="#">${variable.name}</a> ${variable.price}  ${variable.stock}
-						</p>
 					</li>
 		</c:when>
 		
 		<c:when test="${i % 2 == 1}">
-					<li class="list-item-t-item-default" style="width: 250px; border-bottom-style: solid !important; border-bottom-color: silver !important; border-bottom-width: 1px !important;">
+					<li class="list-item-t-item m-item" style="width: 50%; border-bottom-style: solid !important; border-bottom-color: silver !important; border-bottom-width: 1px !important;">
 						<div style="width: 100%;">
-							<img alt="" src="../images/${variable.smallImage}" style="width: 100%; max-width: 100%; min-height: 450px; max-height: 100%; border: 0px solid green;"/>
+							<c:choose>
+								<c:when test="${empty variable.smallImage}">
+								<img alt="" src="/images/blank.png" style="width: 100%; max-width: 100%; min-height: 200px; max-height: 100%; border: 0px solid green; background-image: url('/images/loading-1.gif'); background-repeat: no-repeat; background-position: center center;"/>
+								</c:when>
+								
+								<c:otherwise>
+								<img alt="" src="/images/${variable.smallImage}" style="width: 100%; max-width: 100%; min-height: 200px; max-height: 100%; border: 0px solid green;"/>
+								</c:otherwise>
+							</c:choose>
+							<p style="height: 32px; overflow: hidden;">
+								<a href="#">${variable.name}</a> ${variable.price}  ${variable.stock}
+							</p>
 						</div>
-						<p style="height: 32px; overflow: hidden;">
-							<a href="#">${variable.name}</a> ${variable.price}  ${variable.stock}
-						</p>
 					</li>
 				</ul>
 			</div>
 		</c:when>
 		<c:otherwise>
-					<li class="list-item-t-item-default" style="width: 250px; border-bottom-style: solid !important; border-bottom-color: silver !important; border-bottom-width: 1px !important;">
+					<li class="list-item-t-item m-item" style="width: 50%; border-bottom-style: solid !important; border-bottom-color: silver !important; border-bottom-width: 1px !important;">
 						<div style="width: 100%;">
-							<img alt="" src="../images/${variable.smallImage}" style="width: 100%; max-width: 100%; max-height: 100%; border: 0px solid green;"/>
+							<c:choose>
+								<c:when test="${empty variable.smallImage}">
+								<img alt="" src="/images/blank.png" style="width: 100%; max-width: 100%; min-height: 200px; max-height: 100%; border: 0px solid green; background-image: url('/images/loading-1.gif'); background-repeat: no-repeat; background-position: center center;"/>
+								</c:when>
+								
+								<c:otherwise>
+								<img alt="" src="/images/${variable.smallImage}" style="width: 100%; max-width: 100%; min-height: 200px; max-height: 100%; border: 0px solid green;"/>
+								</c:otherwise>
+							</c:choose>
+							<p style="height: 32px; overflow: hidden;">
+								<a href="#">${variable.name}</a> ${variable.price}  ${variable.stock}
+							</p>
 						</div>
-						<p style="height: 32px; overflow: hidden;">
-							<a href="#">${variable.name}</a> ${variable.price}  ${variable.stock}
-						</p>
 					</li>
 		</c:otherwise>
 	</c:choose>

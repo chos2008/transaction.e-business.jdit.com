@@ -182,13 +182,12 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
     if (_jspx_eval_c_005fotherwise_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\r\n");
-        out.write("\t<ul class=\"list-item\" style=\"background-color: silver;\">\r\n");
         out.write("\t\t");
         if (_jspx_meth_c_005fimport_005f0(_jspx_th_c_005fotherwise_005f0, _jspx_page_context))
           return true;
-        out.write("\r\n");
-        out.write("\t</ul>\r\n");
-        out.write("\t");
+        out.write('\r');
+        out.write('\n');
+        out.write('	');
         int evalDoAfterBody = _jspx_th_c_005fotherwise_005f0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -210,7 +209,7 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.ImportTag _jspx_th_c_005fimport_005f0 = (org.apache.taglibs.standard.tag.rt.core.ImportTag) _005fjspx_005ftagPool_005fc_005fimport_0026_005furl_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.ImportTag.class);
     _jspx_th_c_005fimport_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fimport_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_005fotherwise_005f0);
-    // /WEB-INF/order/list.jsp(27,2) name = url type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/order/list.jsp(26,2) name = url type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fimport_005f0.setUrl("tmpl-order-list-item.jsp");
     int[] _jspx_push_body_count_c_005fimport_005f0 = new int[] { 0 };
     try {

@@ -32,7 +32,7 @@
 		<c:forEach items="${orders}" var="variable">
 		<c:set value="${amount + variable.amount}" var="amount" />
 		<li class="list-item-t-item-default order-sheet-item">
-			<div class="order-sheet-touch" bind-data-id=${variable.merchandiseId} style="margin: 5px 0px; background-color: white;">
+			<div class="order-sheet-touch" bind-data-id=${variable.itemId} style="margin: 5px 0px; background-color: white;">
 				<ul class="list-item">
 					<li class="list-item-t-item" style="font-family: Arial;">
 						<p>

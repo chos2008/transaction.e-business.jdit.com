@@ -10,6 +10,7 @@
 <title>
 <c:choose>
 	<c:when test="${empty merchant}">
+		你要寻找的商家不存在
 	</c:when>
 	
 	<c:otherwise>
@@ -18,6 +19,7 @@
 </c:choose>
 </title>
 <link rel="stylesheet" type="text/css" href="../css/common-style.css"/>
+<link rel="stylesheet" type="text/css" href="../css/item.css"/>
 
 <script type="text/javascript" src="../js/zepto/zepto.min.js"></script>
 <script type="text/javascript" src="../js/merchant.js"></script>
@@ -28,6 +30,14 @@
 		
 	</div>
 	
+	<c:choose>
+	<c:when test="${empty merchant}">
+	
+	<div style="height: 640px; width: 100%; position: absolute; top: 0px; bottom: 0px; background-image: url('../images/merchant_invite.jpg'); background-repeat: no-repeat; background-size: 100% 100%;">
+	</div>
+	</c:when>
+	
+	<c:otherwise>
 	<div style="width: 100%; position: absolute; top: 70px; bottom: 0px;">
 		<div>
 			<div>
@@ -36,25 +46,18 @@
 			<div style="position: relative;">
 				<i id="icon-location" class="icon-location" style="width: 13px; height: 20px; margin: 2px 3px; display: block; background: url('../images/fah.png'); float: left;"></i>
 				<div style="position: relative; margin: 2px 5px 3px 20px; border: 0px solid silver; font-size: 14px; font-family: Arial, 'Microsoft YaHei';">
-					<c:choose>
-						<c:when test="${empty merchant}">
-						</c:when>
-						
-						<c:otherwise>
-						${merchant.name} 
-						</c:otherwise>
-					</c:choose>
+					${merchant.name} 
 					<span class="details" style="margin: 0px 0px 0px 20px; padding: 0px 0px 0px 5px; border-left: 3px solid orange; cursor: pointer;">商家信息</span>
 				</div>
 			</div>
 		</div>
 	
 		<div class="merchant-ab-item" style="display: block; margin-bottom: 5px;">
-			<c:import url="tmpl-merchant-item.jsp">
-				
-			</c:import>
+			<c:import url="tmpl-merchant-item.jsp"></c:import>
 		</div>
 	</div>
+	</c:otherwise>
+	</c:choose>
 </div>
 </body>
 </html>

@@ -23,9 +23,7 @@
 		</div>
 	</c:when>
 	<c:otherwise>
-	<ul class="list-item" style="background-color: silver;">
 		<c:import url="tmpl-order-list-item.jsp"></c:import>
-	</ul>
 	</c:otherwise>
 </c:choose>
 </body>

@@ -83,7 +83,7 @@ public final class account_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<script type=\"text/javascript\" src=\"../js/account.js\"></script>\r\n");
       out.write("</head>\r\n");
       out.write("<body style=\"margin: 0px 0px;\">\r\n");
-      out.write("<div style=\"width: 100%;\" onclick=\"location.href='/merchant/1234.shtml';\">\r\n");
+      out.write("<div style=\"width: 100%;\" onclick=\"location.href='/merchant.shtml';\">\r\n");
       out.write("\t<div style=\"\">\r\n");
       out.write("\t");
       if (_jspx_meth_c_005fchoose_005f0(_jspx_page_context))

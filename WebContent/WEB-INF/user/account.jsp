@@ -17,7 +17,7 @@
 <script type="text/javascript" src="../js/account.js"></script>
 </head>
 <body style="margin: 0px 0px;">
-<div style="width: 100%;" onclick="location.href='/merchant/1234.shtml';">
+<div style="width: 100%;" onclick="location.href='/merchant.shtml';">
 	<div style="">
 	<c:choose>
 		<c:when test="${empty user}">

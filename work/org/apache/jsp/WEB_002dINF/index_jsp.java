@@ -137,6 +137,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t</div>\r\n");
       out.write("\t\t\r\n");
       out.write("\t\t<div>\r\n");
+      out.write("\t\t\t<div style=\"height: 200px; width: 100%; background-image: url('images/merchant_invite.jpg'); background-repeat: no-repeat; background-size: 100% 100%;\">\r\n");
+      out.write("\t\t\t</div>\r\n");
       out.write("\t\t\t<div class=\"menu-box\">\r\n");
       out.write("\t\t\t\t<!--  -moz-box-flex:3; -webkit-box-flex:3; box-flex:3; -->\r\n");
       out.write("\t\t\t\t<div style=\"width: 70px; text-align: center;\">\r\n");
@@ -207,7 +209,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.ImportTag _jspx_th_c_005fimport_005f0 = (org.apache.taglibs.standard.tag.rt.core.ImportTag) _005fjspx_005ftagPool_005fc_005fimport_0026_005furl.get(org.apache.taglibs.standard.tag.rt.core.ImportTag.class);
     _jspx_th_c_005fimport_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fimport_005f0.setParent(null);
-    // /WEB-INF/index.jsp(109,3) name = url type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/index.jsp(111,3) name = url type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fimport_005f0.setUrl("tmpl-index-list-item.jsp");
     int[] _jspx_push_body_count_c_005fimport_005f0 = new int[] { 0 };
     try {

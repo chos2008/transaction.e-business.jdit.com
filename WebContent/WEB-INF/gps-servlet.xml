@@ -126,6 +126,7 @@
 						<value>/qq</value>
 						<value>/wechat</value>
 						
+						<value>/merchant/</value>
 						<value>/item_as_json</value>
 						<value>/captcha</value>
 						
