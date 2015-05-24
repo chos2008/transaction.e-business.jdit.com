@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+*{ padding:0; margin:0;}
+html{ font:12px/22px "Microsoft Yahei"; background-color:#FFF;}
+body{ width:100%; margin:0 auto;word-break: break-all;}
+ul,li{ list-style:none;}
+a{ font:12px/22px "Microsoft Yahei"; text-decoration:none;}
+a:hover{color:#ff7d13; text-decoration:none;}
+img{ border:none;}
+.left{ float:left;}
+.right{ float:right;}
+.line{ clear:both; float:left; overflow:hidden; width:100%; height:1px; border-top:1px dashed #e3e3e3;}
+table{ border-collapse:collapse;}
+*:focus{ outline:none;}
+.dao_new {position: relative;clear: both;overflow: hidden;width: 1000px;margin: 0 auto 0 auto;z-index: 10;padding-top: 15px;}
+

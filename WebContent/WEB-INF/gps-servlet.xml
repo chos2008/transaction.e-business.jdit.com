@@ -106,7 +106,7 @@
 			<mvc:mapping path="/login.shtml"/>
 			<bean class="org.chos.transaction.passport.LoginInterceptor">
 				<property name="url" value="/login.shtml"></property>
-				<property name="redirectUrl" value="/user/index.jsp"></property>
+				<property name="redirectUrl" value="mindex.htm"></property>
 				<property name="httpContextSessionManager" ref="httpContextSessionManager"></property>
 			</bean>
 		</mvc:interceptor>
@@ -124,6 +124,7 @@
 						<value>/register</value>
 						<value>/weibo</value>
 						<value>/qq</value>
+						<value>/wechat</value>
 						
 						<value>/item_as_json</value>
 						<value>/captcha</value>

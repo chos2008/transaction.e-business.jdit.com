@@ -1,0 +1,1 @@
+var toprefer="fm_ZJSTAT";var parentlocation="";var parentrefer="fm_ZJSTAT";var selflocation=window.location;var selfrefer=document.referrer;var realrefer="";var reallocation="";var hourvisitnum=1;var realvisitnum=1;var nowdate=new Date();var clientcolor="";

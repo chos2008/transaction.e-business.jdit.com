@@ -78,7 +78,7 @@ public final class item_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\r\n");
       out.write("<meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black\">\r\n");
       out.write("<title>");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${item.title}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${item.projectName}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
       out.write("</title>\r\n");
       out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/common-style.css\"/>\r\n");
       out.write("<script type=\"text/javascript\" src=\"../js/zepto/zepto.min.js\"></script>\r\n");

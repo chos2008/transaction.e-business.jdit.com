@@ -107,7 +107,7 @@ function grayscale(src){
 				success: function(response) {
 					if(response) {
 					    if(response.code == 0) {
-					    	location.href = "/user/index.jsp";
+					    	location.href = "/mindex.htm";
 							return;
 					    }
 						return;

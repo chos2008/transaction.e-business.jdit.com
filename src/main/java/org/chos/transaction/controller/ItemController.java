@@ -13,6 +13,9 @@
  */
 package org.chos.transaction.controller;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -60,7 +63,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ItemController {
 
 	@Autowired
-	private ItemService requirementService;
+	private ItemService itemService;
 	
 	@Autowired
 	private DocumentService documentService;
@@ -112,7 +115,7 @@ public class ItemController {
 			if (localsession.getCurrentPage() > 0) {
 				long firstResult = (localsession.getCurrentPage() - 1) * localsession.getPageSize();
 				int maxResultSize = localsession.getPageSize();
-				results = requirementService.list(firstResult, maxResultSize);
+				results = itemService.list(firstResult, maxResultSize);
 			} else {
 				results = new ArrayList<Item>(0);
 			}
@@ -124,7 +127,7 @@ public class ItemController {
 			if (localsession.getCurrentPage() > 0) {
 				long firstResult = (localsession.getCurrentPage() - 1) * localsession.getPageSize();
 				int maxResultSize = localsession.getPageSize();
-				results = requirementService.list(firstResult, maxResultSize);
+				results = itemService.list(firstResult, maxResultSize);
 			} else {
 				results = new ArrayList<Item>(0);
 			}
@@ -164,7 +167,7 @@ public class ItemController {
 			if (localsession.getCurrentPage() > 0) {
 				long firstResult = (localsession.getCurrentPage() - 1) * localsession.getPageSize();
 				int maxResultSize = localsession.getPageSize();
-				results = requirementService.list(session.getUserId(), firstResult, maxResultSize);
+				results = itemService.list(session.getUserId(), firstResult, maxResultSize);
 			} else {
 				results = new ArrayList<Item>(0);
 			}
@@ -176,7 +179,7 @@ public class ItemController {
 			if (localsession.getCurrentPage() > 0) {
 				long firstResult = (localsession.getCurrentPage() - 1) * localsession.getPageSize();
 				int maxResultSize = localsession.getPageSize();
-				results = requirementService.list(session.getUserId(), firstResult, maxResultSize);
+				results = itemService.list(session.getUserId(), firstResult, maxResultSize);
 			} else {
 				results = new ArrayList<Item>(0);
 			}
@@ -208,20 +211,20 @@ public class ItemController {
 			if (localsession.getCurrentPage() > 0) {
 				long firstResult = (localsession.getCurrentPage() - 1) * localsession.getPageSize();
 				int maxResultSize = localsession.getPageSize();
-				results = requirementService.list(session.getUserId(), firstResult, maxResultSize);
+				results = itemService.list(session.getUserId(), firstResult, maxResultSize);
 			} else {
 				results = new ArrayList<Item>(0);
 			}
 		} else {
 			if (request.getParameter("top") != null) {
-				results = requirementService.list(session.getUserId(), 0, 6);
+				results = itemService.list(session.getUserId(), 0, 6);
 			} else {
 				localsession = sessionManager.getLocalSession(session.getUserId(), 0, 0);
 				
 				if (localsession.getCurrentPage() > 0) {
 					long firstResult = (localsession.getCurrentPage() - 1) * localsession.getPageSize();
 					int maxResultSize = localsession.getPageSize();
-					results = requirementService.list(session.getUserId(), firstResult, maxResultSize);
+					results = itemService.list(session.getUserId(), firstResult, maxResultSize);
 				} else {
 					results = new ArrayList<Item>(0);
 				}
@@ -253,7 +256,7 @@ public class ItemController {
 			model.addAttribute("details", document);
 			return "item-0";
 		} else {
-			Item item = requirementService.getItem(id);
+			Item item = itemService.getItem(id);
 			model.addAttribute("item", item);
 			
 			List<DocumentPart> document = documentService.getDocumentById(item.getId());
@@ -261,6 +264,34 @@ public class ItemController {
 			model.addAttribute("details", document);
 			return "item";
 		}
+	}
+	
+	@RequestMapping(value = "item/share")
+	public void share(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
+		String itemId = request.getParameter("item_id");
+		if (StringUtils.isBlank(itemId)) {
+			return;
+		}
+		Item item = itemService.getItem(Long.parseLong(itemId));
+		if (item == null) {
+			return;
+		}
+		
+		String url = "http://chos2009.eicp.net/item/8929093.shtml";
+		String title = item.getTitle();
+		try {
+			url = URLEncoder.encode(url, "utf-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			title = URLEncoder.encode(title, "utf-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		String content = title + "@" + url;
+		response.sendRedirect("http://weibo.cn/ext/share?ru=" + url + "&rt=" + title + "&ntitle=" + content + "&st=" + System.currentTimeMillis()+ "&appkey=1824142258");
 	}
 	
 	@RequestMapping(value = "item/issue")
@@ -301,7 +332,7 @@ public class ItemController {
 		item.setContent(description);
 		item.setStartTime(new Date());
 		item.setCreation(new Date());
-		requirementService.issue(item);
+		itemService.issue(item);
 		
 		DocumentPart part = new DocumentPart();
 		part.setDocumentId(item.getId());
@@ -325,7 +356,7 @@ public class ItemController {
 			return json;
 		}
 		
-		Bid bid = requirementService.toBid(Long.parseLong(itemId));
+		Bid bid = itemService.toBid(Long.parseLong(itemId));
 		if (bid == null) {
 			json.put("code", ItemErrorCode.ITEM_NOT_EXISTS);
 			return json;
@@ -340,7 +371,7 @@ public class ItemController {
 		if (StringUtils.isBlank(itemId)) {
 			return "item/error";
 		}
-		Item item = requirementService.getItem(Long.parseLong(itemId));
+		Item item = itemService.getItem(Long.parseLong(itemId));
 		if (item == null) {
 			return "item/error";
 		}
@@ -394,7 +425,7 @@ public class ItemController {
 		
 		product.setDescription(description);
 		product.setCreation(new Date());
-		requirementService.addProduct(product);
+		itemService.addProduct(product);
 		json.put("code", 0);
 		return json;
 	}
@@ -413,7 +444,7 @@ public class ItemController {
 			json.put("code", ErrorCode.PARAM_ERROR);
 			return json;
 		}
-		Item item = requirementService.getItem(Integer.parseInt(itemId));
+		Item item = itemService.getItem(Integer.parseInt(itemId));
 		if (item == null) {
 			json.put("code", ItemErrorCode.ITEM_NOT_EXISTS);
 			return json;
@@ -423,8 +454,8 @@ public class ItemController {
 		no = no.replaceAll("-", "");
 		order.setAmount(item.getAmount());
 		order.setUt(session.getToken());
-		order.setMerchandiseId(item.getId());
-		order.setMerchandiseType(0);
+		order.setItemId(item.getId());
+		order.setItemType(0);
 		order.setQuantity(1);
 		order.setCreation(new Date());
 		
@@ -444,7 +475,7 @@ public class ItemController {
 		}
 		List<OrderSheet> orders = orderSheetService.orderSheet(session.getToken());
 		for (OrderSheet orderSheet : orders) {
-			Item item = requirementService.getItem(orderSheet.getMerchandiseId());
+			Item item = itemService.getItem(orderSheet.getItemId());
 			if (item != null) {
 				Order order = new Order();
 				String no = UUID.randomUUID().toString();
@@ -452,9 +483,9 @@ public class ItemController {
 				order.setNo(no);
 				order.setUserId(session.getUserId());
 				order.setAmount(item.getAmount());
-				order.setMerchandiseId(item.getId());
-				order.setMerchandiseType(0);
-				order.setQuantity(1);
+//				order.setMerchandiseId(item.getId());
+//				order.setMerchandiseType(0);
+//				order.setQuantity(1);
 				order.setState(0);
 				order.setCreation(new Date());
 				orderService.order(order);
@@ -479,7 +510,7 @@ public class ItemController {
 //			json.put("code", ErrorCode.PARAM_ERROR);
 //			return json;
 //		}
-		Item item = requirementService.getItem(itemId);
+		Item item = itemService.getItem(itemId);
 		if (item == null) {
 			json.put("code", ItemErrorCode.ITEM_NOT_EXISTS);
 			return json;
@@ -490,9 +521,9 @@ public class ItemController {
 		order.setNo(no);
 		order.setUserId(session.getUserId());
 		order.setAmount(item.getAmount());
-		order.setMerchandiseId(item.getId());
-		order.setMerchandiseType(0);
-		order.setQuantity(1);
+//		order.setMerchandiseId(item.getId());
+//		order.setMerchandiseType(0);
+//		order.setQuantity(1);
 		order.setState(0);
 		order.setCreation(new Date());
 		

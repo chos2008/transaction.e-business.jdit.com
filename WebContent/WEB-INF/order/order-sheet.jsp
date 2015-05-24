@@ -36,10 +36,10 @@
 				<ul class="list-item">
 					<li class="list-item-t-item" style="font-family: Arial;">
 						<p>
-			<c:set value="${userMap[variable.merchandiseId]}" var="user" />
+			<c:set value="${userMap[variable.itemId]}" var="user" />
 			<c:choose>
 				<c:when test="${empty user}">
-							${variable.merchandiseId}
+							${variable.itemId}
 				</c:when>
 				<c:otherwise>
 							${user.username}
@@ -51,8 +51,8 @@
 				<ul class="list-item">
 					<li class="list-item-t-item-normal order-item" style="line-height: 24px;">
 						<p>
-							<a href="../item/${variable.merchandiseId}.shtml">
-			<c:set value="${itemMap[variable.merchandiseId]}" var="item" />
+							<a href="../item/${variable.itemId}.shtml">
+			<c:set value="${itemMap[variable.itemId]}" var="item" />
 			<c:choose>
 				<c:when test="${empty item}">
 							<img class="order-item-small-image" src="images/logo-caibei-t_64x64.png" orgin-src="images/logo-caibei-t_64x64.png"/>
@@ -73,8 +73,8 @@
 					</li>
 					<li class="list-item-t-item-normal order-item" style="line-height: 24px; width: 50%;">
 						<p>
-							<a href="../item/${variable.merchandiseId}.shtml">
-			<c:set value="${itemMap[variable.merchandiseId]}" var="item" />
+							<a href="../item/${variable.itemId}.shtml">
+			<c:set value="${itemMap[variable.itemId]}" var="item" />
 			<c:choose>
 				<c:when test="${empty item}">
 								${variable.amount}

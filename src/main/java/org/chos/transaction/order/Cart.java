@@ -31,9 +31,9 @@ public class Cart {
 	
 	private String ut;
 	
-	private long merchandiseId;
+	private long itemId;
 	
-	private int merchandiseType;
+	private int itemType;
 	
 	private int quantity;
 	
@@ -85,31 +85,31 @@ public class Cart {
 	}
 
 	/**
-	 * @return the merchandiseId
+	 * @return the itemId
 	 */
-	public long getMerchandiseId() {
-		return merchandiseId;
+	public long getItemId() {
+		return itemId;
 	}
 
 	/**
-	 * @param merchandiseId the merchandiseId to set
+	 * @param itemId the itemId to set
 	 */
-	public void setMerchandiseId(long merchandiseId) {
-		this.merchandiseId = merchandiseId;
+	public void setItemId(long itemId) {
+		this.itemId = itemId;
 	}
 
 	/**
-	 * @return the merchandiseType
+	 * @return the itemType
 	 */
-	public int getMerchandiseType() {
-		return merchandiseType;
+	public int getItemType() {
+		return itemType;
 	}
 
 	/**
-	 * @param merchandiseType the merchandiseType to set
+	 * @param itemType the itemType to set
 	 */
-	public void setMerchandiseType(int merchandiseType) {
-		this.merchandiseType = merchandiseType;
+	public void setItemType(int itemType) {
+		this.itemType = itemType;
 	}
 
 	/**

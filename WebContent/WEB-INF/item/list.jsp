@@ -361,7 +361,7 @@ body {
 
 <a href="investment.jsp">发布需求</a>
 <div style="height: 45px; position: absolute; right: 0px; top: 0px;">
-<a href="../user/index.jsp" style="right: 5px; position: relative; border-radius: 3px; moz-border-radius: 4px; webkit-border-radius: 4px; border: 1px solid #ddd; background-color: #f5f5f5; color: #333;">我的帐号</a>
+<a href="../mindex.htm" style="right: 5px; position: relative; border-radius: 3px; moz-border-radius: 4px; webkit-border-radius: 4px; border: 1px solid #ddd; background-color: #f5f5f5; color: #333;">我的帐号</a>
 </div>
 </div>
 <div id="wrapper">

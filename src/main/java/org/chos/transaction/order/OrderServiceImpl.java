@@ -43,6 +43,10 @@ public class OrderServiceImpl implements OrderService {
 		return template.selectList("order-list-by-userid", userId);
 	}
 	
+	public List<OrderItem> getOrderItems(String orderNo) {
+		return template.selectList("order-item-list-by-order-no", orderNo);
+	}
+	
 	public Order order(Order order) {
 		template.insert("order-order", order);
 		return order;

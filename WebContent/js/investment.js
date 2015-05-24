@@ -61,7 +61,7 @@ Tips = function(context, title) {
 				success:function(resnponse) {
 					if(resnponse){
 					    if(resnponse.code == 0) {
-							location.href="user/index.jsp";
+							location.href="mindex.htm";
 							return;
 					    }
 					    var tips = new Tips('tmpl-tips', "用户名或密码不正确");

@@ -7,10 +7,8 @@
 		<id column="id" property="id"/>
 		<result column="no" property="no"/>
 		<result column="amount" property="amount"/>
+		<result column="order_type" property="type"/>
 		<result column="user_id" property="userId"/>
-		<result column="merch_id" property="merchandiseId"/>
-		<result column="merch_type" property="merchandiseType"/>
-		<result column="quantity" property="quantity"/>
 		<result column="state" property="state"/>
 		<result column="description" property="description"/>
 		<result column="creation" property="creation"/>
@@ -24,7 +22,7 @@
 	<select id="orders-top-groupbystate" resultMap="Order" parameterType="map">
 		<![CDATA[
 		SELECT * FROM `order` a WHERE user_id = #{userId} 
-			AND merch_type < 2 
+			AND order_type < 2 
 		]]>
 		<if test="state != null">
 			AND state = #{state} 
@@ -38,7 +36,7 @@
 	<select id="normal-orders-top-groupbystate" resultMap="Order" parameterType="map">
 		<![CDATA[
 		SELECT * FROM `order` a WHERE user_id = #{userId} 
-			AND merch_type >= 2 
+			AND order_type >= 2 
 		]]>
 		<if test="state != null">
 			AND state = #{state} 
@@ -57,11 +55,9 @@
 		insert into `order`(
 			id
 			,no
+			,order_type
 			,amount
 			,user_id
-			,merch_id
-			,merch_type
-			,quantity
 			,state
 			<if test="description != null">
 				,description
@@ -73,11 +69,9 @@
 		) values(
 			#{id}
 			,#{no}
+			,#{type}
 			,#{amount}
 			,#{userId}
-			,#{merchandiseId}
-			,#{merchandiseType}
-			,#{quantity}
 			,#{state}
 			<if test="description != null">
 				,#{description}

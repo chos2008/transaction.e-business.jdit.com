@@ -58,11 +58,16 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0\" />\r\n");
       out.write("<meta name=\"apple-mobile-web-app-capable\" content=\"yes\" />\r\n");
       out.write("<meta property=\"wb:webmaster\" content=\"36343efaedf263e8\" />\r\n");
+      out.write("<meta property=\"wb:webmaster\" content=\"be826800965491db\" />\r\n");
       out.write("<meta property=\"qc:admins\" content=\"2540734107320016513066547\" />\r\n");
       out.write("<title>this is index page</title>\r\n");
       out.write("</head>\r\n");
-      out.write("<body style=\"margin: 0px 0px;\">\r\n");
+      out.write("<body style=\"margin: 0px 0px; height: 100%; min-height: 755px; background: #4e5359 url(images/bg_universal17ced3.png) repeat 0 0; color: #666; font: 14px/1.5 Helvetica, \"微软雅黑\", \"黑体\", Arial, Tahoma; text-align: center; overflow-y: auto;\">\r\n");
       out.write("\r\n");
+      out.write("<div onclick=\"location.href='http://chos2009.eicp.net/wechat.shtml?clientType=web'\" style=\"width: 144px; height: 144px; margin: 0px auto; text-align: center; margin-top: 70px; background-image: url('images/wechat-icon.png'); background-repeat: no-repeat; background-position: center;\">\r\n");
+      out.write("\r\n");
+      out.write("\t\r\n");
+      out.write("</div>\r\n");
       out.write("</body>\r\n");
       out.write("</html>");
     } catch (Throwable t) {

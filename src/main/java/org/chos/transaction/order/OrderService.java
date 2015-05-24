@@ -31,6 +31,8 @@ public interface OrderService {
 	 */
 	public List<Order> getOrders(long userId);
 	
+	public List<OrderItem> getOrderItems(String orderNo);
+	
 	/**
 	 * @param order
 	 * @return

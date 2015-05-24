@@ -1,0 +1,1 @@
+document.write('|<a href="http://www.siilu.com/companyuser/login?url='+document.location.href+' ">µÇÂ¼</a><a href="http://www.siilu.com/companyuser/register" title="Ãâ·Ñ×¢²á" target="_blank">Ãâ·Ñ×¢²á</a>');

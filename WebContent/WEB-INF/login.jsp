@@ -55,7 +55,7 @@
 	<div class="nav-bar-box" style="">
 		<div class="nav-bar-box-default-item nav-bar-box-center-item" style="width: 70px; font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
 			<p style="width: 70px; margin: 0px 0px; text-align: center;">
-				<a href="../qq.shtml" style="border-radius: 6px; font-size: 14px; display: block; height: 1.5rem; line-height: 1.5rem; color: #c3c6ca; border: 2px solid #42454d; background-color: #555965; padding: 0 .75rem; text-decoration: none;">QQ</a>
+				<a href="../wechat.shtml" style="border-radius: 6px; font-size: 14px; display: block; height: 1.5rem; line-height: 1.5rem; color: #c3c6ca; border: 2px solid #42454d; background-color: #555965; padding: 0 .75rem; text-decoration: none;">微信</a>
 			</p>
 		</div>
 		<div class="nav-bar-box-default-item nav-bar-box-center-item" style="width: 70px; font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
@@ -65,7 +65,7 @@
 		</div>
 		<div class="nav-bar-box-default-item nav-bar-box-center-item" style="width: 70px; font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
 			<p style="width: 70px; margin: 0px 0px; text-align: center;">
-				<a href="../qq.shtml" style="border-radius: 6px; font-size: 14px; display: block; height: 1.5rem; line-height: 1.5rem; color: #c3c6ca; border: 2px solid #42454d; background-color: #555965; padding: 0 .75rem; text-decoration: none;">微信</a>
+				<a href="../qq.shtml" style="border-radius: 6px; font-size: 14px; display: block; height: 1.5rem; line-height: 1.5rem; color: #c3c6ca; border: 2px solid #42454d; background-color: #555965; padding: 0 .75rem; text-decoration: none;">QQ</a>
 			</p>
 		</div>
 		<div class="nav-bar-box-default-item nav-bar-box-center-item" style="width: 70px; font-size: 12px; font-family: Arial, 'Microsoft YaHei';">

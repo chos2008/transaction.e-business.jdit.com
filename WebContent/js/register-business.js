@@ -122,7 +122,7 @@
 					    if(response.code == 0) {
 					    	var tips = new Tips('tmpl-tips', "注册成功");
 							tips.show();
-							location.href="../user/index.jsp";
+							location.href="../mindex.htm";
 					    } else if (response.code == 1000) {
 					    	var tips = new Tips('tmpl-tips', "请填写商家名称");
 							tips.show();

@@ -14,6 +14,7 @@
 package org.chos.transaction.order.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -33,6 +34,7 @@ import org.chos.transaction.controller.ErrorCode;
 import org.chos.transaction.controller.ItemErrorCode;
 import org.chos.transaction.controller.SessionErrorCode;
 import org.chos.transaction.order.Order;
+import org.chos.transaction.order.OrderItem;
 import org.chos.transaction.order.OrderService;
 import org.chos.transaction.order.OrderSheet;
 import org.chos.transaction.order.OrderSheetService;
@@ -64,7 +66,7 @@ public class OrderController {
 	private OrderSheetService orderSheetService;
 	
 	@Autowired
-	private ItemService requirementService;
+	private ItemService itemService;
 	
 	@Autowired
 	private UserService userService;
@@ -79,21 +81,39 @@ public class OrderController {
 			return "order/error";
 		}
 		List<Order> orders = orderService.getOrders(session.getUserId());
-		Map<Long, Item> itemMap = new HashMap<Long, Item>();
-		Map<Long, User> userMap = new HashMap<Long, User>();
+		Map<String, List<Item>> itemMap = new HashMap<String, List<Item>>();
+		Map<Long, OrderItem> orderItemMap = new HashMap<Long, OrderItem>();
+		Map<Long, List<User>> userMap = new HashMap<Long, List<User>>();
 		for (Order order : orders) {
-			long merchandiseId = order.getMerchandiseId();
-			Item item = requirementService.getItem(merchandiseId);
-			itemMap.put(merchandiseId, item);
-			if (item != null) {
-				User user = userService.getUser(item.getUserId());
-				userMap.put(merchandiseId, user);
-			} else {
-				userMap.put(merchandiseId, null);
+//			long merchandiseId = order.getMerchandiseId();
+			List<OrderItem> orderItems = orderService.getOrderItems(order.getNo());
+			for (OrderItem orderItem : orderItems) {
+				Item item = itemService.getItem(orderItem.getItemId());
+				if (item != null) {
+					User user = userService.getUser(item.getUserId());
+					if (user != null) {
+						List<User> merchants = userMap.get(order.getId());
+						if (merchants == null) {
+							merchants = new ArrayList<User>();
+						}
+						merchants.add(user);
+						userMap.put(order.getId(), merchants);
+						
+						List<Item> items = itemMap.get(user.getId());
+						if (items == null) {
+							items = new ArrayList<Item>();
+						}
+						items.add(item);
+						itemMap.put(order.getId() + "_" + user.getId(), items);
+						
+						orderItemMap.put(orderItem.getItemId(), orderItem);
+					}
+				}
 			}
 		}
 		model.addAttribute("orders", orders);
 		model.addAttribute("itemMap", itemMap);
+		model.addAttribute("orderItemMap", orderItemMap);
 		model.addAttribute("userMap", userMap);
 		return "order/list";
 	}
@@ -106,21 +126,39 @@ public class OrderController {
 		}
 		OrderState state = OrderState.state(request.getParameter("state"));
 		List<Order> orders = orderService.getTopNormalOrdersGroupByState(session.getUserId(), 6, state);
-		Map<Long, Item> itemMap = new HashMap<Long, Item>();
-		Map<Long, User> userMap = new HashMap<Long, User>();
+		Map<Long, List<Item>> itemMap = new HashMap<Long, List<Item>>();
+		Map<Long, OrderItem> orderItemMap = new HashMap<Long, OrderItem>();
+		Map<Long, List<User>> userMap = new HashMap<Long, List<User>>();
 		for (Order order : orders) {
-			long merchandiseId = order.getMerchandiseId();
-			Item item = requirementService.getItem(merchandiseId);
-			itemMap.put(merchandiseId, item);
-			if (item != null) {
-				User user = userService.getUser(item.getUserId());
-				userMap.put(merchandiseId, user);
-			} else {
-				userMap.put(merchandiseId, null);
+//			long merchandiseId = order.getMerchandiseId();
+			List<OrderItem> orderItems = orderService.getOrderItems(order.getNo());
+			for (OrderItem orderItem : orderItems) {
+				Item item = itemService.getItem(orderItem.getItemId());
+				if (item != null) {
+					User user = userService.getUser(item.getUserId());
+					if (user != null) {
+						List<User> merchants = userMap.get(order.getId());
+						if (merchants == null) {
+							merchants = new ArrayList<User>();
+						}
+						merchants.add(user);
+						userMap.put(order.getId(), merchants);
+						
+						List<Item> items = itemMap.get(user.getId());
+						if (items == null) {
+							items = new ArrayList<Item>();
+						}
+						items.add(item);
+						itemMap.put(user.getId(), items);
+						
+						orderItemMap.put(orderItem.getItemId(), orderItem);
+					}
+				}
 			}
 		}
 		model.addAttribute("orders", orders);
 		model.addAttribute("itemMap", itemMap);
+		model.addAttribute("orderItems", orderItemMap);
 		model.addAttribute("userMap", userMap);
 		return "order/tmpl-order-list-item";
 	}
@@ -133,21 +171,39 @@ public class OrderController {
 		}
 		OrderState state = OrderState.state(request.getParameter("state"));
 		List<Order> orders = orderService.getTopOrdersGroupByState(session.getUserId(), 6, state);
-		Map<Long, Item> itemMap = new HashMap<Long, Item>();
-		Map<Long, User> userMap = new HashMap<Long, User>();
+		Map<Long, List<Item>> itemMap = new HashMap<Long, List<Item>>();
+		Map<Long, OrderItem> orderItemMap = new HashMap<Long, OrderItem>();
+		Map<Long, List<User>> userMap = new HashMap<Long, List<User>>();
 		for (Order order : orders) {
-			long merchandiseId = order.getMerchandiseId();
-			Item item = requirementService.getItem(merchandiseId);
-			itemMap.put(merchandiseId, item);
-			if (item != null) {
-				User user = userService.getUser(item.getUserId());
-				userMap.put(merchandiseId, user);
-			} else {
-				userMap.put(merchandiseId, null);
+//			long merchandiseId = order.getMerchandiseId();
+			List<OrderItem> orderItems = orderService.getOrderItems(order.getNo());
+			for (OrderItem orderItem : orderItems) {
+				Item item = itemService.getItem(orderItem.getItemId());
+				if (item != null) {
+					User user = userService.getUser(item.getUserId());
+					if (user != null) {
+						List<User> merchants = userMap.get(order.getId());
+						if (merchants == null) {
+							merchants = new ArrayList<User>();
+						}
+						merchants.add(user);
+						userMap.put(order.getId(), merchants);
+						
+						List<Item> items = itemMap.get(user.getId());
+						if (items == null) {
+							items = new ArrayList<Item>();
+						}
+						items.add(item);
+						itemMap.put(user.getId(), items);
+						
+						orderItemMap.put(orderItem.getItemId(), orderItem);
+					}
+				}
 			}
 		}
 		model.addAttribute("orders", orders);
 		model.addAttribute("itemMap", itemMap);
+		model.addAttribute("orderItems", orderItemMap);
 		model.addAttribute("userMap", userMap);
 		return "order/tmpl-order-list-item";
 	}
@@ -162,7 +218,7 @@ public class OrderController {
 		if (StringUtils.isBlank(itemId)) {
 			response.sendRedirect("item/error.shtml");
 		}
-		Item item = requirementService.getItem(Integer.parseInt(itemId));
+		Item item = itemService.getItem(Integer.parseInt(itemId));
 		if (item == null) {
 			response.sendRedirect("item/error.shtml");
 		}
@@ -171,8 +227,8 @@ public class OrderController {
 		no = no.replaceAll("-", "");
 		order.setAmount(item.getAmount());
 		order.setUt(session.getToken());
-		order.setMerchandiseId(item.getId());
-		order.setMerchandiseType(0);
+		order.setItemId(item.getId());
+		order.setItemType(0);
 		order.setQuantity(1);
 		order.setCreation(new Date());
 		
@@ -191,8 +247,8 @@ public class OrderController {
 		Map<Long, Item> itemMap = new HashMap<Long, Item>();
 		Map<Long, User> userMap = new HashMap<Long, User>();
 		for (OrderSheet order : orders) {
-			long merchandiseId = order.getMerchandiseId();
-			Item item = requirementService.getItem(merchandiseId);
+			long merchandiseId = order.getItemId();
+			Item item = itemService.getItem(merchandiseId);
 			itemMap.put(merchandiseId, item);
 			if (item != null) {
 				User user = userService.getUser(item.getUserId());

@@ -1,0 +1,28 @@
+/*+++++++++++++++++++++++++头部导航++++++++++++++++++++++*/
+#nav{ width:100%; height:31px; background:url(../../images/ecseek/siilu_navbg.jpg) repeat-x left top;}
+#nav ul{ display:block; width:1000px; height:30px; margin:0 auto;}
+#nav ul li{ display:block; float:right; overflow:hidden; width:850px; height:30px; font:12px/30px "Microsoft Yahei"; color:#403d3d; text-align:right;}
+#nav ul li a{ padding:0 8px;font:12px/30px "Microsoft Yahei"; color:#403d3d;}
+#nav ul li a:hover{ color:#ff7d13;}
+#nav ul .backLi{ float:left; width:150px; text-align:left;}
+#nav ul .backLi a{ padding:0; color:#ff7d13;}
+#nav ul .backLi a:hover{ text-decoration:underline;}
+/*+++++++++++++++++++++++++头部banner select menu++++++++++++++++++++++*/
+.head{ overflow:hidden; width:100%; height:136px;}
+.head dl,.head ul{display:block; overflow:hidden; width:100%;}
+.head dl{ height:95px;}
+.head dl dt,.head dl dd{ display:block; float:left; width:50%; height:95px; padding-top:25px;}
+.head dl dd input{ float:left;}
+.head dl dd .textinput{ width:228px; height:14px; padding:7px 5px; margin-left:220px; border:1px solid #dcdcdc; border-right:none; font:14px/14px SimSun; color:#adadad;}
+.head dl dd .textbuttn{ width:40px; height:30px; border:none; background:url(../../images/ecseek/cons_select.jpg) no-repeat left top; cursor:pointer;}
+.head ul{ height:40px; border-bottom:1px solid #dadada;}
+.head ul li{ display:block; width:100%; height:40px; font:16px/40px "Microsoft Yahei"; color:#757474;}
+.head ul li a{ padding:0 30px 7px; font: bold 16px/40px "Microsoft Yahei"; color:#757474; }
+.head ul li a:hover{ color:#ff7d13; border-bottom:2px solid #ff7d13;}
+/*+++++++++++++++页底++++++++++++++++++++*/
+#footer{ clear:both; float:left; width:100%; height:135px; margin-top:30px; background-color:#ebeff2}
+#footer ul{ display:block; width:1000px; margin:0 auto; height:115px; padding-top:20px;}
+#footer ul li{ display:block; float:left; width:1000px; text-align:center; font:12px/24px "Microsoft Yahei"; color:#444444;}
+#footer ul li a{ margin:0 8px; font:12px/24px "Microsoft Yahei"; color:#444444;}
+#footer ul li a:hover{ color:#ff7d13;}
+#footer ul .copyli{ color:#7d7d7d;}

@@ -113,7 +113,7 @@
 				success:function(response) {
 					if(response){
 					    if(response.code == 0) {
-					    	location.href = "/user/index.jsp";
+					    	location.href = "/mindex.htm";
 							return;
 					    }
 					    var tips = new Tips('tmpl-tips', "商品添加失败");

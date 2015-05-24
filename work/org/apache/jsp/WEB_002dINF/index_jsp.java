@@ -86,9 +86,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t<div id=\"nav\" class=\"nav-bar\">\r\n");
       out.write("\t\t<div class=\"nav-bar-box\">\r\n");
       out.write("\t\t\t<div class=\"nav-bar-box-item\" style=\"width: 300px;\">\r\n");
-      out.write("\t\t\t\t<p id=\"nav-back\" style=\"width: 70px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;\">\r\n");
+      out.write("\t\t\t\t<p id=\"nav-back\" style=\"width: 90px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;\">\r\n");
       out.write("\t\t\t\t\t<label title=\"paypal\" class=\"icon-paypal\" style=\"width: 100%; display: block;\"></label>\r\n");
-      out.write("\t\t\t\t\t<label style=\"width: 100%; display: block;\"><a href=\"/user/index.jsp\" style=\" color: #ffffff;\">返回</a></label>\r\n");
+      out.write("\t\t\t\t\t<label style=\"width: 100%; display: block;\"><a href=\"/mindex.htm\" style=\" color: #ffffff;\">我的帐户</a></label>\r\n");
       out.write("\t\t\t\t</p>\r\n");
       out.write("\t\t\t</div>\r\n");
       out.write("\t\t\t<div class=\"nav-bar-box-item nav-bar-box-center-item\" style=\"\">\r\n");
@@ -135,13 +135,45 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t<div id=\"pullDown\">\r\n");
       out.write("\t\t\t<span class=\"pullDownIcon\"></span><span class=\"pullDownLabel\">向下拖动刷新...</span>\r\n");
       out.write("\t\t</div>\r\n");
-      out.write("\r\n");
-      out.write("\t\t<ul id=\"thelist\">\r\n");
-      out.write("\t\t");
+      out.write("\t\t\r\n");
+      out.write("\t\t<div>\r\n");
+      out.write("\t\t\t<div class=\"menu-box\">\r\n");
+      out.write("\t\t\t\t<!--  -moz-box-flex:3; -webkit-box-flex:3; box-flex:3; -->\r\n");
+      out.write("\t\t\t\t<div style=\"width: 70px; text-align: center;\">\r\n");
+      out.write("\t\t\t\t\t<div style=\"height: 70px; border: 0px solid silver;\">\r\n");
+      out.write("\t\t\t\t\t\t<div title=\"google wallet\" class=\"icon-google-wallet\" style=\"width: 100%; display: block;\">\r\n");
+      out.write("\t\t\t\t\t\t\t<div style=\"height: 47px; width: 47px; line-height: 70px; margin: 1.5px auto; border-radius: 3px 3px; display: block; background: url('../images/a_108x108.png'); background-size: 48px 48px; background-position: center; background-repeat: no-repeat;\"></div>\r\n");
+      out.write("\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t\t<label style=\"width: 100%; display: block;\"><a href=\"../investment.jsp\">发布需求</a></label>\r\n");
+      out.write("\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t<div style=\"width: 70px; text-align: center;\">\r\n");
+      out.write("\t\t\t\t\t<div style=\"height: 70px; border: 0px solid silver;\">\r\n");
+      out.write("\t\t\t\t\t\t<label title=\"stripe\" class=\"icon-cc-stripe\" style=\"height: 50px; width: 100%; line-height: 70px; display: block; background: url('../images/aa1_60x60.png'); background-size: 45px 45px; background-position: center; background-repeat: no-repeat;\"></label>\r\n");
+      out.write("\t\t\t\t\t\t<label style=\"width: 100%; display: block;\"><a href=\"../investment/splash.jsp\">寻找投资</a></label>\r\n");
+      out.write("\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t<div style=\"width: 70px; text-align: center;\">\r\n");
+      out.write("\t\t\t\t\t<div style=\"height: 70px; border: 0px solid silver;\">\r\n");
+      out.write("\t\t\t\t\t\t<label title=\"stripe\" class=\"icon-cc-stripe\" style=\"height: 50px; width: 100%; line-height: 70px; display: block; background: url('../images/aa1_60x60.png'); background-size: 45px 45px; background-position: center; background-repeat: no-repeat;\"></label>\r\n");
+      out.write("\t\t\t\t\t\t<label style=\"width: 100%; display: block;\"><a href=\"../investment/splash.jsp\">天使入驻</a></label>\r\n");
+      out.write("\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t<div style=\"width: 70px; text-align: center;\">\r\n");
+      out.write("\t\t\t\t\t<div style=\"height: 70px; border: 0px solid silver;\">\r\n");
+      out.write("\t\t\t\t\t\t<label title=\"paypal\" class=\"icon-paypal\" style=\"height: 50px; width: 100%; line-height: 70px; display: block; background: url('../images/i_96x96.png'); background-size: 62px 62px; background-position: center; background-repeat: no-repeat;\"></label>\r\n");
+      out.write("\t\t\t\t\t\t<label style=\"width: 100%; display: block;\"><a href=\"../bid/list.shtml\">附近</a></label>\r\n");
+      out.write("\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t</div>\r\n");
+      out.write("\t\t\t</div>\r\n");
+      out.write("\t\t\t<ul id=\"thelist\">\r\n");
+      out.write("\t\t\t");
       if (_jspx_meth_c_005fimport_005f0(_jspx_page_context))
         return;
       out.write("\r\n");
-      out.write("\t\t</ul>\r\n");
+      out.write("\t\t\t</ul>\r\n");
+      out.write("\t\t</div>\r\n");
+      out.write("\t\t\r\n");
       out.write("\t\t<div id=\"pullUp\">\r\n");
       out.write("\t\t\t<span class=\"pullUpIcon\"></span><span class=\"pullUpLabel\">向上拉动刷新...</span>\r\n");
       out.write("\t\t</div>\r\n");
@@ -175,7 +207,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.ImportTag _jspx_th_c_005fimport_005f0 = (org.apache.taglibs.standard.tag.rt.core.ImportTag) _005fjspx_005ftagPool_005fc_005fimport_0026_005furl.get(org.apache.taglibs.standard.tag.rt.core.ImportTag.class);
     _jspx_th_c_005fimport_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fimport_005f0.setParent(null);
-    // /WEB-INF/index.jsp(79,2) name = url type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/index.jsp(109,3) name = url type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fimport_005f0.setUrl("tmpl-index-list-item.jsp");
     int[] _jspx_push_body_count_c_005fimport_005f0 = new int[] { 0 };
     try {
@@ -189,8 +221,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
         }
         do {
           out.write("\r\n");
-          out.write("\t\t\t\t\r\n");
-          out.write("\t\t");
+          out.write("\t\t\t\t\t\r\n");
+          out.write("\t\t\t");
           int evalDoAfterBody = _jspx_th_c_005fimport_005f0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
             break;

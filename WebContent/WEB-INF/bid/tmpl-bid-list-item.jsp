@@ -13,7 +13,7 @@
 				<li class="list-item-t-item-right" style="border-bottom: 0px solid #ccc; padding: 0px 0px; font-family: Arial;">标&nbsp;${variable.no}</li>
 			</ul>
 		</div>
-		<span style="width: 100%; display: inline-block;">招标项目金额：${variable.amount}元</span>
+		<span style="width: 100%; display: inline-block;">招标金额：${variable.amount}元</span>
 		<div style="width: 100%; line-height: 24px; font-size: 10px">
 			${variable.projectBidContent}
 		</div>
@@ -24,6 +24,7 @@
 	
 	<c:import url="../tmpl-item-toolbox.jsp">
 		<c:param name="category" value="${category}" />
+		<c:param name="itemId" value="${variable.id}" />
 	</c:import>
 </li>
 </c:forEach>

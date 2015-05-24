@@ -74,7 +74,7 @@ public class WeiboPassportController {
 		sessionService.createSession(session);
 		
 		Map<String, String> params = new HashMap<String, String>();
-		params.put("client_id", "745794700");
+		params.put("client_id", "1824142258");
 		params.put("redirect_uri", "http://chos2009.eicp.net/weibo/login.shtml");
 		params.put("scope", "all");
 		params.put("state", session.getState());
@@ -101,8 +101,8 @@ public class WeiboPassportController {
 			response.sendRedirect("http://chos2009.eicp.net/login.shtml");
 		}
 		Map<String, String> param = new HashMap<String, String>();
-		param.put("client_id", "745794700");
-		param.put("client_secret", "faf14e92171d99265795121303dc9aba");
+		param.put("client_id", "1824142258");
+		param.put("client_secret", "34b3cd48fa1a9577c21b37dfccffd6f9");
 		param.put("grant_type", "authorization_code");
 		param.put("code", code);
 		param.put("redirect_uri", "http://chos2009.eicp.net");
@@ -126,6 +126,6 @@ public class WeiboPassportController {
 		String userId = json.getString("uid");
 		
 		User user = userService.create(userId + "@weibo", null, "13120984792", "13120984792@weibo.com", true, request, response);
-		response.sendRedirect("http://chos2009.eicp.net/user/index.jsp");
+		response.sendRedirect("http://chos2009.eicp.net/mindex.htm");
 	}
 }

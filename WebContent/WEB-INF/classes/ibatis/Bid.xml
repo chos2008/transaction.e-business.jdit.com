@@ -16,7 +16,10 @@
 		<result column="updation" property="updation"/>
 	</resultMap>
 	
-	<!-- 查询第三方接入服务信息 -->
+	<select id="get-bid" resultMap="Bid" parameterType="int">
+		select * from bid where id = #{id} 
+	</select>
+	
 	<select id="bid-list" resultMap="Bid">
 		select * from bid 
 		<if test="userId != null">

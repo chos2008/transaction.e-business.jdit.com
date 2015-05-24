@@ -155,6 +155,6 @@ public class TencentPassportController {
 		String nickname = json.getString("nickname");
 		
 		User user = userService.create(openId + "@qq", null, "13120984792", "13120984792@qq.com", true, request, response);
-		response.sendRedirect("http://chos2009.eicp.net/user/index.jsp");
+		response.sendRedirect("http://chos2009.eicp.net/mindex.htm");
 	}
 }

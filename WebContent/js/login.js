@@ -48,7 +48,7 @@
 					    if(response.code == 0) {
 					    	var returnUrl = $('.ipt-return').val();
 					    	if (returnUrl == "") {
-					    		location.href = "/user/index.jsp";
+					    		location.href = "/mindex.htm";
 					    	} else {
 					    		location.href = returnUrl;
 					    	}
@@ -105,7 +105,7 @@
 					    if(response.code == 0) {
 					    	var returnUrl = $('.ipt-return').val();
 					    	if (returnUrl == "") {
-					    		location.href = "user/index.jsp";
+					    		location.href = "mindex.htm";
 					    	} else {
 					    		location.href = returnUrl;
 					    	}

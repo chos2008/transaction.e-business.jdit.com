@@ -42,7 +42,7 @@
 				</c:when>
 				<c:otherwise>
 				<div style="margin: 0px auto; margin-top: 2px; margin-bottom: 5px; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex;">
-					<a href="user/index.jsp" style="width: 100%; height: 36px; line-height: 36px; display: block; color: #fff; background-color: #ff3c3c; border-radius: 5px; -webkit-border-radius: 5px;text-align: center; font-size: 1.4rem;">完成</a>
+					<a href="mindex.htm" style="width: 100%; height: 36px; line-height: 36px; display: block; color: #fff; background-color: #ff3c3c; border-radius: 5px; -webkit-border-radius: 5px;text-align: center; font-size: 1.4rem;">完成</a>
 				</div>
 				</c:otherwise>
 			</c:choose>

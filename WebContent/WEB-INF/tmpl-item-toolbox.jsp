@@ -18,6 +18,7 @@
 				</c:when>
 				<c:when test="${param.category == 2}">
 					<a href="javascript: void(0);" onclick="javascript: cart(${param.itemId})">接单</a>
+					<a href="/item/share.shtml?item_id=${param.itemId}">分享</a>
 				</c:when>
 				<c:when test="${param.category == 3}">
 					<a href="javascript: void(0);" onclick="javascript: cart(${param.itemId})">竞标</a>

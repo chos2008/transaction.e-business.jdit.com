@@ -4,18 +4,13 @@
 <c:forEach items="${orders}" var="variable">
 <li class="list-item-t-item-default">
 	<div style="margin: 5px 0px; background-color: white;">
+		<c:set value="${userMap[variable.id]}" var="merchants" />
+		<c:set value="0" var="orderMerchandiseQuantity" />
+		<c:forEach items="${merchants}" var="merchant">
 		<ul class="list-item">
 			<li class="list-item-t-item" style="font-family: Arial;">
 				<p>
-	<c:set value="${userMap[variable.merchandiseId]}" var="user" />
-	<c:choose>
-		<c:when test="${empty user}">
-					${variable.merchandiseId}
-		</c:when>
-		<c:otherwise>
-					${user.username}
-		</c:otherwise>
-	</c:choose>
+					${merchant.username}
 				</p>
 			</li>
 			<li class="list-item-t-item-right" style="font-family: Arial;">
@@ -46,48 +41,43 @@
 				</p>
 			</li>
 		</ul>
+		
+		<c:set value="${variable.id}_${merchant.id}" var="itemMapKey" />
+		<c:set value="${itemMap[itemMapKey]}" var="items" />
+		
+		<c:forEach items="${items}" var="item">
+		<c:set value="${orderItemMap[item.id]}" var="orderItem" />
+		<c:set value="${orderMerchandiseQuantity + orderItem.quantity}" var="orderMerchandiseQuantity" />
 		<ul class="list-item">
 			<li class="list-item-t-item-normal order-item" style="line-height: 24px;">
 				<p>
-					<a href="../item/${variable.merchandiseId}.shtml">
-	<c:set value="${itemMap[variable.merchandiseId]}" var="item" />
-	<c:choose>
-		<c:when test="${empty item}">
-					<img src="../images/logo-caibei-t_64x64.png"/>
-		</c:when>
-		<c:otherwise>
-			<c:choose>
-				<c:when test="${empty item.smallImage}">
-					<img src="../images/logo-caibei-t_64x64.png"/>
-				</c:when>
-				<c:otherwise>
-					<img src="../${item.smallImage}"/>
-				</c:otherwise>
-			</c:choose>
-		</c:otherwise>
-	</c:choose>
+					<a href="../item/${item.id}.shtml">
+						<c:choose>
+							<c:when test="${empty item.smallImage}">
+								<img src="../images/logo-caibei-t_64x64.png"/>
+							</c:when>
+							<c:otherwise>
+								<img src="../${item.smallImage}"/>
+							</c:otherwise>
+						</c:choose>
 					</a>
 				</p>
 			</li>
 			<li class="list-item-t-item-normal order-item" style="line-height: 24px; width: 50%;">
 				<p>
-					<a href="../item/${variable.merchandiseId}.shtml">
-	<c:set value="${itemMap[variable.merchandiseId]}" var="item" />
-	<c:choose>
-		<c:when test="${empty item}">
-						${variable.no}
-		</c:when>
-		<c:otherwise>
+					<a href="../item/${item.id}.shtml">
 						${item.title}
-		</c:otherwise>
-	</c:choose>
 					</a>
 				</p>
 			</li>
-			<li class="list-item-t-item-normal order-item" style="line-height: 24px;"><p>${variable.amount}</p></li>
+			<li class="list-item-t-item-normal order-item" style="line-height: 24px;">
+				<p>${item.amount}<br/>x${orderItem.quantity}</p>
+			</li>
 		</ul>
+		</c:forEach>
+		</c:forEach>
 		<ul class="list-item">
-			<li class="list-item-t-item-right" style="font-family: Arial;"><p>共${variable.quantity}件商品 实付：&yen;${variable.amount}</p></li>
+			<li class="list-item-t-item-right" style="font-family: Arial;"><p>共${orderMerchandiseQuantity}件商品 实付：&yen;${variable.amount}</p></li>
 		</ul>
 		<ul class="list-item">
 			<li class="list-item-t-item-right" style="font-family: Arial;">

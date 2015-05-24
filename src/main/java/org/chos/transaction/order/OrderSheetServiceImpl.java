@@ -40,10 +40,10 @@ public class OrderSheetServiceImpl implements OrderSheetService {
 	
 	public OrderSheet cart(OrderSheet orderSheet) {
 		String ut = orderSheet.getUt();
-		long merchandiseId = orderSheet.getMerchandiseId();
+		long itemId = orderSheet.getItemId();
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("ut", ut);
-		param.put("merchandiseId", merchandiseId);
+		param.put("itemId", itemId);
 		List<OrderSheet> list = template.selectList("order-sheet-list-by-ut-merch-id", param);
 		if (list.isEmpty()) {
 			template.insert("order-sheet-order", orderSheet);

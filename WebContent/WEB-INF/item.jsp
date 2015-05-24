@@ -14,6 +14,7 @@
 <meta name="keywords" content="" />
 <title>${item.title}</title>
 <link rel="stylesheet" type="text/css" href="../css/common-style.css"/>
+
 <script type="text/javascript" src="../js/zepto/zepto.min.js"></script>
 <script type="text/javascript" src="../js/index.js"></script>
 <script type="text/javascript" src="../js/item.js"></script>
@@ -48,7 +49,6 @@
 	</div>
 
 	<div style="font-size: 14px; font-family: Arial, 'Microsoft YaHei';">
-	
 	<c:forEach items="${details}" var="variable">
 		<p>
 			<c:choose>
@@ -76,9 +76,15 @@
 		</div>
 		<div class="nav-bar-box-item nav-bar-box-end-item" style="font-size: 12px; font-family: Arial, 'Microsoft YaHei';">
 			<p style="height: 36px; line-height: 36px; margin: 0px 0px; text-align: right;">
-				<label title="google wallet" class="icon-google-wallet" style="width: 100%; display: block;"></label>
-				<label style="display: inline-block;"><a href="javascript: void(0);" onclick="cart(${item.id})" style="color: white;">(<i id="order-sheet-stats">0</i>)立即接单</a></label>
-				<label style="display: inline-block;"><a href="../cart.shtml?item=${item.id}" style="color: white;">直接交易</a></label>
+				<label style="  position: relative; top: 8px; display: inline-block;">
+				<a href="/item/share.shtml?item_id=${item.id}" style="width: 20px; height: 20px; display: block; background-repeat: no-repeat; background-image: url('../images/share_icon_mini.png');"></a>
+				</label>
+				<label style="display: inline-block;">
+					<a href="javascript: void(0);" onclick="cart(${item.id})" style="color: white;">(<i id="order-sheet-stats">0</i>)立即接单</a>
+				</label>
+				<label style="display: inline-block;">
+					<a href="../cart.shtml?item=${item.id}" style="color: white;">直接交易</a>
+				</label>
 			</p>
 		</div>
 	</div>

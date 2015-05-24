@@ -7,8 +7,8 @@
 		<id column="id" property="id"/>
 		<result column="amount" property="amount"/>
 		<result column="ut" property="ut"/>
-		<result column="merch_id" property="merchandiseId"/>
-		<result column="merch_type" property="merchandiseType"/>
+		<result column="item_id" property="itemId"/>
+		<result column="item_type" property="itemType"/>
 		<result column="quantity" property="quantity"/>
 		<result column="creation" property="creation"/>
 		<result column="updation" property="updation"/>
@@ -23,7 +23,7 @@
 	</select>
 	
 	<select id="order-sheet-list-by-ut-merch-id" resultMap="ordersheet" parameterType="map">
-		select * from order_sheet where ut = #{ut} and merch_id = #{merchandiseId}
+		select * from order_sheet where ut = #{ut} and item_id = #{itemId}
 	</select>
 	
 	<update id="update-order-sheet-by-id" parameterType="OrderSheet">
@@ -41,8 +41,8 @@
 			id
 			,amount
 			,ut
-			,merch_id
-			,merch_type
+			,item_id
+			,item_type
 			,quantity
 			,creation
 			<if test="updation != null">
@@ -52,8 +52,8 @@
 			#{id}
 			,#{amount}
 			,#{ut}
-			,#{merchandiseId}
-			,#{merchandiseType}
+			,#{itemId}
+			,#{itemType}
 			,#{quantity}
 			,#{creation}
 			<if test="updation != null">

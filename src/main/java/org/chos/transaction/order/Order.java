@@ -29,15 +29,12 @@ public class Order {
 	
 	private String no;
 	
+	private int type;
+	
 	private double amount;
 	
+	
 	private long userId;
-	
-	private long merchandiseId;
-	
-	private int merchandiseType;
-	
-	private int quantity;
 	
 	private int state;
 	
@@ -74,6 +71,20 @@ public class Order {
 	public void setNo(String no) {
 		this.no = no;
 	}
+	
+	/**
+	 * @return the type
+	 */
+	public int getType() {
+		return type;
+	}
+
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(int type) {
+		this.type = type;
+	}
 
 	/**
 	 * @return the amount
@@ -101,48 +112,6 @@ public class Order {
 	 */
 	public void setUserId(long userId) {
 		this.userId = userId;
-	}
-
-	/**
-	 * @return the merchandiseId
-	 */
-	public long getMerchandiseId() {
-		return merchandiseId;
-	}
-
-	/**
-	 * @param merchandiseId the merchandiseId to set
-	 */
-	public void setMerchandiseId(long merchandiseId) {
-		this.merchandiseId = merchandiseId;
-	}
-
-	/**
-	 * @return the merchandiseType
-	 */
-	public int getMerchandiseType() {
-		return merchandiseType;
-	}
-
-	/**
-	 * @param merchandiseType the merchandiseType to set
-	 */
-	public void setMerchandiseType(int merchandiseType) {
-		this.merchandiseType = merchandiseType;
-	}
-
-	/**
-	 * @return the quantity
-	 */
-	public int getQuantity() {
-		return quantity;
-	}
-
-	/**
-	 * @param quantity the quantity to set
-	 */
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
 	}
 
 	/**
