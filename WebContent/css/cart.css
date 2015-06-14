@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+.list-item-t-item-preview-cart-img-back {
+	display: block;
+	width: 20px; 
+	height: 90px;
+	background-image: url("../images/kgp.png");
+  	background-repeat: no-repeat;
+  	background-position: center center;
+}
+	
+.list-item-t-item-preview-cart-img-close {
+	display: block;
+	width: 40px; 
+	height: 90px;
+	background-image: url("../images/kiw.png");
+  	background-repeat: no-repeat;
+  	background-position: center center;
+}

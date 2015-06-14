@@ -73,10 +73,10 @@ public class WechatPassportController {
 		sessionService.createSession(session);
 		
 		Map<String, String> params = new HashMap<String, String>();
-		params.put("appid", "wxd5c717bf0a6db8a5");
+		params.put("appid", "wxd5c717bf0a6db8a5");//
 		params.put("redirect_uri", URLEncoder.encode("http://chos2009.eicp.net/wechat/login.shtml", "utf-8"));
 		params.put("response_type", "code");
-		params.put("scope", "snsapi_userinfo");
+		params.put("scope", "snsapi_userinfo");//snsapi_userinfo
 		params.put("state", session.getState());
 		//params.put("language", "en");
 		//response.sendRedirect("https://api.weibo.com/oauth2/authorize");

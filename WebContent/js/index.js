@@ -1,28 +1,3 @@
-function cart(id) {
-	$.ajax({
-		type: "post",
-		url: "/item/cart.shtml",
-		data: {
-			"itemId": id
-		}, 
-		error: function() {
-			var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
-			tips.show();
-			return;
-		}, 
-		success: function(response) {
-			if(response) {
-				if(response.code == 0) {
-					var stat = $(".order-sheet-stats").text();
-					stat++;
-					$(".order-sheet-stats").text(stat);
-					return;
-			    }
-			}
-		}
-	});
-}
-
 function items(type, position, fn) {
 	var url = "/index.shtml?" + type + "&" + position;
 	$.ajax({
@@ -264,6 +239,75 @@ $(document).ready(function(){
 			    }
 			}
 		}
+	});
+	
+	$(".d_cart").live('click', function () {
+		$('#wrapper').hide();
+		var _this = $(this);
+		var itemId = _this.attr("bind-data");
+		//alert(_this.attr("bind-data"));
+		var url = "item/cart/preview.shtml?itemId=" + itemId;
+		$.ajax({
+			type: "get",
+			url: url,
+			data: {
+				
+			}, 
+			error: function() {
+				var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
+				tips.show();
+				return;
+			}, 
+			success: function(response) {
+				if(response) {
+					var html = $(response);
+					$(".quicktocart").html(html);
+				}
+			}
+		});
+	    $('.quicktocart').slideDown(2000);
+	    $('.quicktocart').css("backgroundColor", "white");
+	});
+	
+	$(".list-item-t-item-preview-cart-img-back").live("click", function() {
+		$('.quicktocart').hide();
+		$('.quicktocart').html("");
+		$('#wrapper').show();
+	});
+	
+	$(".dd_cart").live('click', function () {
+		var _this = $(this);
+		var itemId = _this.attr("bind-data");
+		var quantity = $('.quantity').val();
+		$.ajax({
+			type: "post",
+			url: "/item/cart.shtml",
+			data: {
+				"itemId": itemId, 
+				"quantity": quantity
+			}, 
+			error: function() {
+				var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
+				tips.show();
+				return;
+			}, 
+			success: function(response) {
+				if(response) {
+					if(response.code == 0) {
+						var stat = $(".order-sheet-stats").text();
+						stat++;
+						$(".order-sheet-stats").text(stat);
+						var tips = new Tips('tmpl-tips', "添加成功");
+						tips.show();
+						
+						$('.quicktocart').hide();
+						$('.quicktocart').html("");
+						$('#wrapper').show();
+						return;
+				    }
+				}
+			}
+		});
 	});
 });
 

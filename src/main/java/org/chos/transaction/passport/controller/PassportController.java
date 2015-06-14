@@ -16,6 +16,7 @@ package org.chos.transaction.passport.controller;
 import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
@@ -24,6 +25,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 import org.chos.servlet.http.ChosHttpServletResponse;
+import org.chos.transaction.Category;
+import org.chos.transaction.SimpleCategory;
 import org.chos.transaction.User;
 import org.chos.transaction.UserAlreadyExistException;
 import org.chos.transaction.UserService;
@@ -61,6 +64,14 @@ public class PassportController {
 	@RequestMapping(value = "/register{id}")
 	public String input(@PathVariable String id, HttpServletRequest request, HttpServletResponse response, Model model) {
 		return "register" + id;
+	}
+	
+	@RequestMapping(value = "/tag/{id}")
+	public String tag(@PathVariable String id, HttpServletRequest request, HttpServletResponse response, Model model) {
+		int tagId = Integer.parseInt(id);
+		SimpleCategory category = userService.getProximityCategory(tagId);
+		model.addAttribute("category", category);
+		return "user/tag";
 	}
 	
 	@RequestMapping(value = "/user/register")

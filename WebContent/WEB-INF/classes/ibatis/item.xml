@@ -8,18 +8,18 @@
 		<result column="user_id" property="userId"/>
 		<result column="title" property="title"/>
 		<result column="amount" property="amount"/>
-		<result column="content" property="content"/>
-		<result column="start_time" property="startTime"/>
-		<result column="end_time" property="endTime"/>
+		<result column="stock" property="stock"/>
 		<result column="image" property="image"/>
 		<result column="small_image" property="smallImage"/>
 		<result column="large_image" property="largeImage"/>
+		<result column="content" property="content"/>
+		<result column="state" property="state"/>
 		<result column="creation" property="creation"/>
 		<result column="updation" property="updation"/>
 	</resultMap>
 	
 	<select id="item-list-r" resultMap="item">
-		select * from item 
+		select * from item_new 
 		<if test="userId != null">
 			where user_id = #{userId} 
 		</if>
@@ -29,31 +29,36 @@
 	
 	
 	<select id="get-item" resultMap="item" parameterType="long">
-		select * from item where id = #{id}
+		select * from item_new where id = #{id}
 	</select>
 	
 	<delete id="delete-item" parameterType="long">
-		delete from item where id = #{id}
+		delete from item_new where id = #{id}
 	</delete>
 	
 	<insert id="issue" parameterType="Item">
 		<selectKey keyProperty="id" resultType="long">
 			select @@identity as id 
 		</selectKey>
-		insert into item(
+		insert into item_new(
 			id
 			,user_id
 			,title
 			,amount
+			,stock
+			<if test="image != null">
+				,image
+			</if>
+			<if test="smallImage != null">
+				,small_image
+			</if>
+			<if test="largeImage != null">
+				,large_image
+			</if>
 			<if test="content != null">
 				,content
 			</if>
-			<if test="startTime != null">
-				,start_time
-			</if>
-			<if test="endTime != null">
-				,end_time
-			</if>
+			,state
 			,creation
 			<if test="updation != null">
 				,updation
@@ -63,15 +68,20 @@
 			,#{userId}
 			,#{title}
 			,#{amount}
+			,#{stock}
+			<if test="image != null">
+				,#{image}
+			</if>
+			<if test="smallImage != null">
+				,#{smallImage}
+			</if>
+			<if test="largeImage != null">
+				,#{largeImage}
+			</if>
 			<if test="content != null">
 				,#{content}
 			</if>
-			<if test="startTime != null">
-				,#{startTime}
-			</if>
-			<if test="endTime != null">
-				,#{endTime}
-			</if>
+			,#{state}
 			,#{creation}
 			<if test="updation != null">
 				,#{updation}

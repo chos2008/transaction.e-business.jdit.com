@@ -39,6 +39,7 @@ import org.chos.transaction.order.Order;
 import org.chos.transaction.order.OrderService;
 import org.chos.transaction.order.OrderSheet;
 import org.chos.transaction.order.OrderSheetService;
+import org.chos.transaction.order.OrderType;
 import org.chos.transaction.passport.HttpContextSessionManager;
 import org.chos.transaction.passport.LocalSession;
 import org.chos.transaction.passport.Session;
@@ -48,6 +49,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
@@ -330,7 +332,6 @@ public class ItemController {
 		item.setTitle(title);
 		item.setAmount(StringUtils.isBlank(amount) ? 0 : Double.parseDouble(amount));
 		item.setContent(description);
-		item.setStartTime(new Date());
 		item.setCreation(new Date());
 		itemService.issue(item);
 		
@@ -430,6 +431,13 @@ public class ItemController {
 		return json;
 	}
 	
+	@RequestMapping(value = "item/cart/preview")
+	public String previewCart(@RequestParam("itemId") long itemId, HttpServletRequest request, HttpServletResponse response, Model model) {
+		Item item = itemService.getItem(itemId);
+		model.addAttribute("item", item);
+		return "cart/preview";
+	}
+	
 	@RequestMapping(value = "item/cart")
 	@ResponseBody
 	public Object cart(HttpServletRequest request, HttpServletResponse response) {
@@ -440,7 +448,17 @@ public class ItemController {
 			return json;
 		}
 		String itemId = request.getParameter("itemId");
+		String quantity = request.getParameter("quantity");
 		if (StringUtils.isBlank(itemId)) {
+			json.put("code", ErrorCode.PARAM_ERROR);
+			return json;
+		}
+		if (StringUtils.isBlank(quantity)) {
+			json.put("code", ErrorCode.PARAM_ERROR);
+			return json;
+		}
+		int _quantity = Integer.parseInt(quantity);
+		if (_quantity < 1) {
 			json.put("code", ErrorCode.PARAM_ERROR);
 			return json;
 		}
@@ -456,7 +474,7 @@ public class ItemController {
 		order.setUt(session.getToken());
 		order.setItemId(item.getId());
 		order.setItemType(0);
-		order.setQuantity(1);
+		order.setQuantity(_quantity);
 		order.setCreation(new Date());
 		
 		orderSheetService.cart(order);
@@ -481,8 +499,10 @@ public class ItemController {
 				String no = UUID.randomUUID().toString();
 				no = no.replaceAll("-", "");
 				order.setNo(no);
-				order.setUserId(session.getUserId());
+				order.setType(OrderType.BUSINESS_ORDER.value());
 				order.setAmount(item.getAmount());
+				order.setUserId(session.getUserId());
+				order.setMerchId(item.getUserId());
 //				order.setMerchandiseId(item.getId());
 //				order.setMerchandiseType(0);
 //				order.setQuantity(1);
@@ -519,8 +539,10 @@ public class ItemController {
 		String no = UUID.randomUUID().toString();
 		no = no.replaceAll("-", "");
 		order.setNo(no);
-		order.setUserId(session.getUserId());
+		order.setType(OrderType.BUSINESS_ORDER.value());
 		order.setAmount(item.getAmount());
+		order.setUserId(session.getUserId());
+		order.setMerchId(item.getUserId());
 //		order.setMerchandiseId(item.getId());
 //		order.setMerchandiseType(0);
 //		order.setQuantity(1);

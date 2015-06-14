@@ -12,8 +12,12 @@
 <title>谁是谁的菜</title>
 <link rel="stylesheet" type="text/css" href="css/common-style.css"/>
 <link rel="stylesheet" type="text/css" href="css/index.css"/>
+<link rel="stylesheet" type="text/css" href="css/cart.css"/>
 
 <script type="text/javascript" src="js/zepto/zepto.min.js"></script>
+<script type="text/javascript" src="js/zepto/event.js"></script>
+<script type="text/javascript" src="js/zepto/fx.js"></script>
+<script type="text/javascript" src="js/zepto-extends.js"></script>
 <script type="text/javascript" src="js/iscroll/iscroll-4.2.5.js"></script>
 <script type="text/javascript" src="js/tips.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
@@ -25,9 +29,12 @@
 	<div id="nav" class="nav-bar">
 		<div class="nav-bar-box">
 			<div class="nav-bar-box-item" style="width: 300px;">
-				<p id="nav-back" style="width: 90px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
+				<p id="nav-back" style="width: 90px; height: 36px; line-height: 36px; margin: 0px 0px; text-align: left;">
+					<!-- 
 					<label title="paypal" class="icon-paypal" style="width: 100%; display: block;"></label>
 					<label style="width: 100%; display: block;"><a href="/mindex.htm" style=" color: #ffffff;">我的帐户</a></label>
+					 -->
+					<a href="/mindex.htm" style="width: 30px; height: 30px; margin: 0px 0px 0px 4px; position: relative; top: 5px; display: inline-block; border-radius: 15px 15px 15px 15px; background: url('images/m_logo_j_40x40.jpg'); background-position: center center; background-repeat: no-repeat; background-size: 100% 100%;"></a>
 				</p>
 			</div>
 			<div class="nav-bar-box-item nav-bar-box-center-item" style="">
@@ -46,9 +53,12 @@
 				</div>
 			</div>
 			<div class="nav-bar-box-item nav-bar-box-end-item" style="width: 300px;">
-				<p style="height: 36px; line-height: 36px; margin: 0px 0px; text-align: center;">
+				<p style="height: 36px; line-height: 36px; margin: 0px 0px; text-align: right;">
+					<!-- 
 					<label title="google wallet" class="icon-google-wallet" style="width: 100%; display: block;"></label>
 					<label style="width: 100%; display: block;"><a id="order-sheet" style="color: #ffffff;">接单</a></label>
+					 -->
+					<a id="order-sheet" style="width: 30px; height: 30px; margin: 0px 4px 0px 0px; position: relative; top: 5px; color: #ffffff; display: inline-block; border-radius: 2px 2px 2px 2px; background: url('images/ied.png'); background-position: center center; background-repeat: no-repeat; background-size: 100% 100%;"></a>
 				</p>
 			</div>
 		</div>
@@ -61,7 +71,7 @@
 							<a href="javascript: void(0);">购物车</a>
 						</li>
 						<li class="list-item-t-item-normal" style="width: 120px;font-size: 12px; padding: 0px 3px; background: url('images/guide_discover_on.png'); background-position: center center; background-repeat: no-repeat;">
-							<a href="/order-sheet.shtml">业务<i class="order-sheet-stats">0</i></a>
+							<a href="/order-sheet.shtml">单子<i class="order-sheet-stats">0</i></a>
 						</li>
 					</ul>
 				</div>
@@ -97,7 +107,13 @@
 				<div style="width: 70px; text-align: center;">
 					<div style="height: 70px; border: 0px solid silver;">
 						<label title="stripe" class="icon-cc-stripe" style="height: 50px; width: 100%; line-height: 70px; display: block; background: url('../images/aa1_60x60.png'); background-size: 45px 45px; background-position: center; background-repeat: no-repeat;"></label>
-						<label style="width: 100%; display: block;"><a href="../investment/splash.jsp">天使入驻</a></label>
+						<label style="width: 100%; display: block;"><a href="../tag/123456789.shtml">天使入驻</a></label>
+					</div>
+				</div>
+				<div style="width: 70px; text-align: center;">
+					<div style="height: 70px; border: 0px solid silver;">
+						<label title="stripe" class="icon-cc-stripe" style="height: 50px; width: 100%; line-height: 70px; display: block; background: url('../images/aa1_60x60.png'); background-size: 45px 45px; background-position: center; background-repeat: no-repeat;"></label>
+						<label style="width: 100%; display: block;"><a href="../investment/splash.jsp">商家品牌</a></label>
 					</div>
 				</div>
 				<div style="width: 70px; text-align: center;">
@@ -107,7 +123,7 @@
 					</div>
 				</div>
 			</div>
-			<ul id="thelist">
+			<ul id="thelist" style="display: block;">
 			<c:import url="tmpl-index-list-item.jsp">
 					
 			</c:import>
@@ -118,6 +134,9 @@
 			<span class="pullUpIcon"></span><span class="pullUpLabel">向上拉动刷新...</span>
 		</div>
 	</div>
+</div>
+<div class="quicktocart">
+				
 </div>
 <!-- 
 <div id="footer"></div>

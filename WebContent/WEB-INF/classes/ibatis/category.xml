@@ -5,16 +5,29 @@
 <mapper namespace="category">
 	<resultMap type="Category" id="category">
 		<id column="id" property="id"/>
+		<id column="category_id" property="categoryId"/>
 		<result column="name" property="name"/>
+		<result column="proximity" property="proximity"/>
 		<result column="user_id" property="userId"/>
 		<result column="parent_id" property="parentId"/>
 		<result column="open" property="open"/>
+		<result column="description" property="description"/>
 		<result column="creation" property="creation"/>
 		<result column="updation" property="updation"/>
 	</resultMap>
 	
 	<select id="category-getByUserId" resultMap="category" parameterType="long">
 		select * from item_category where user_id = #{userId}
+	</select>
+	
+	<select id="category-getByCategoryId" resultMap="category" parameterType="int">
+		select * from item_category where category_id = #{categoryId}
+	</select>
+	
+	<select id="category-getByProximity" resultMap="category" parameterType="int">
+		<![CDATA[
+		select * from item_category where proximity >= #{proximity} - 10 and proximity <= #{proximity} + 10
+		]]>
 	</select>
 	<!-- 
 	<insert id="alapay-insert" parameterType="alapay">

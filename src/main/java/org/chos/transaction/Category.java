@@ -27,13 +27,19 @@ public class Category {
 
 	private int id;
 	
+	private int categoryId;
+	
 	private String name;
+	
+	private int proximity;
 	
 	private long userId;
 	
 	private int parentId;
 	
 	private int open;
+	
+	private String description;
 	
 	private Date creation;
 	
@@ -54,6 +60,20 @@ public class Category {
 	}
 
 	/**
+	 * @return the categoryId
+	 */
+	public int getCategoryId() {
+		return categoryId;
+	}
+
+	/**
+	 * @param categoryId the categoryId to set
+	 */
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	/**
 	 * @return the name
 	 */
 	public String getName() {
@@ -65,6 +85,20 @@ public class Category {
 	 */
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	/**
+	 * @return the proximity
+	 */
+	public int getProximity() {
+		return proximity;
+	}
+
+	/**
+	 * @param proximity the proximity to set
+	 */
+	public void setProximity(int proximity) {
+		this.proximity = proximity;
 	}
 
 	/**
@@ -107,6 +141,20 @@ public class Category {
 	 */
 	public void setOpen(int open) {
 		this.open = open;
+	}
+
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	/**

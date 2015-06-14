@@ -33,17 +33,17 @@ public class Item {
 	
 	private double amount;
 	
+	private int stock;
+	
 	private String content;
-	
-	private Date startTime;
-	
-	private Date endTime;
 	
 	private String image;
 	
 	private String smallImage;
 	
 	private String largeImage;
+	
+	private int state;
 	
 	private Date creation;
 	
@@ -106,6 +106,20 @@ public class Item {
 	}
 
 	/**
+	 * @return the stock
+	 */
+	public int getStock() {
+		return stock;
+	}
+
+	/**
+	 * @param stock the stock to set
+	 */
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+
+	/**
 	 * @return the content
 	 */
 	public String getContent() {
@@ -117,34 +131,6 @@ public class Item {
 	 */
 	public void setContent(String content) {
 		this.content = content;
-	}
-
-	/**
-	 * @return the startTime
-	 */
-	public Date getStartTime() {
-		return startTime;
-	}
-
-	/**
-	 * @param startTime the startTime to set
-	 */
-	public void setStartTime(Date startTime) {
-		this.startTime = startTime;
-	}
-
-	/**
-	 * @return the endTime
-	 */
-	public Date getEndTime() {
-		return endTime;
-	}
-
-	/**
-	 * @param endTime the endTime to set
-	 */
-	public void setEndTime(Date endTime) {
-		this.endTime = endTime;
 	}
 
 	/**
@@ -187,6 +173,20 @@ public class Item {
 	 */
 	public void setLargeImage(String largeImage) {
 		this.largeImage = largeImage;
+	}
+
+	/**
+	 * @return the state
+	 */
+	public int getState() {
+		return state;
+	}
+
+	/**
+	 * @param state the state to set
+	 */
+	public void setState(int state) {
+		this.state = state;
 	}
 
 	/**

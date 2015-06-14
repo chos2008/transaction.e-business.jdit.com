@@ -13,6 +13,8 @@
  */
 package org.chos.transaction;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -29,6 +31,8 @@ public interface UserService {
 	public User create(String username, String password, String mobile, String email, 
 			boolean autoSession, HttpServletRequest request, HttpServletResponse response);
 
+	public SimpleCategory getProximityCategory(int categoryId);
+	
 	public User create(String username, String password, String mobile, String email) throws UserAlreadyExistException;
 	
 	public void create(User user);

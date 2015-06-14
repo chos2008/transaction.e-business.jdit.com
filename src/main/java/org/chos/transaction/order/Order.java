@@ -36,6 +36,8 @@ public class Order {
 	
 	private long userId;
 	
+	private long merchId;
+	
 	private int state;
 	
 	private String description;
@@ -112,6 +114,20 @@ public class Order {
 	 */
 	public void setUserId(long userId) {
 		this.userId = userId;
+	}
+
+	/**
+	 * @return the merchId
+	 */
+	public long getMerchId() {
+		return merchId;
+	}
+
+	/**
+	 * @param merchId the merchId to set
+	 */
+	public void setMerchId(long merchId) {
+		this.merchId = merchId;
 	}
 
 	/**

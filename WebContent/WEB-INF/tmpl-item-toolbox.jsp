@@ -11,14 +11,15 @@
 			<c:choose>
 				<c:when test="${param.category == 0}">
 					<a href="javascript: void(0);" onclick="javascript: tobid(${param.item_id});">转标</a>&nbsp;&nbsp;
-					<a href="/item/edit/view.shtml?item_id=${param.item_id}">编辑</a>
+					<a href="/item/edit/view.shtml?item_id=${param.item_id}" target="_blank">编辑</a>
 				</c:when>
 				<c:when test="${param.category == 1}">
 					<a href="#">编辑</a>
 				</c:when>
 				<c:when test="${param.category == 2}">
-					<a href="javascript: void(0);" onclick="javascript: cart(${param.itemId})">接单</a>
-					<a href="/item/share.shtml?item_id=${param.itemId}">分享</a>
+					<a href="javascript: void(0);" class="d_cart" bind-data="${param.itemId}">接单</a>
+					<a href="javascript: void(0);" class="d_trade" bind-data="${param.itemId} onclick="javascript: cart(${param.itemId})">直接交易</a>
+					<a href="/item/share.shtml?item_id=${param.itemId}" target="_blank">分享</a>
 				</c:when>
 				<c:when test="${param.category == 3}">
 					<a href="javascript: void(0);" onclick="javascript: cart(${param.itemId})">竞标</a>

@@ -13,6 +13,7 @@
  */
 package org.chos.transaction;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -68,6 +69,22 @@ public class UserServiceImpl implements UserService {
 			httpContextSessionManager.getSession(user, request, new ChosHttpServletResponse(response));
 		}
 		return user;
+	}
+	
+	/**
+	 * category-getByProximity
+	 * (Javadoc)
+	 *
+	 * @see org.chos.transaction.UserService#create(java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+	 */
+	public SimpleCategory getProximityCategory(int categoryId) {
+		List<Category> list = template.selectList("category-getByCategoryId", categoryId);
+		if (list.isEmpty()) {
+			return new SimpleCategory(null, new ArrayList<Category>());
+		}
+		Category category = list.get(0);
+		List<Category> categories = template.selectList("category-getByProximity", category.getProximity());
+		return new SimpleCategory(category.getName(), categories);
 	}
 	
 	public User create(String username, String password, String mobile, String email) throws UserAlreadyExistException {

@@ -9,6 +9,7 @@
 		<result column="amount" property="amount"/>
 		<result column="order_type" property="type"/>
 		<result column="user_id" property="userId"/>
+		<result column="merch_id" property="merchId"/>
 		<result column="state" property="state"/>
 		<result column="description" property="description"/>
 		<result column="creation" property="creation"/>

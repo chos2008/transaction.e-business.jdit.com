@@ -14,6 +14,7 @@
 <meta name="keywords" content="" />
 <title>${item.title}</title>
 <link rel="stylesheet" type="text/css" href="../css/common-style.css"/>
+<link rel="stylesheet" type="text/css" href="../css/s-item.css"/>
 
 <script type="text/javascript" src="../js/zepto/zepto.min.js"></script>
 <script type="text/javascript" src="../js/index.js"></script>
@@ -44,9 +45,32 @@
 		</c:otherwise>
 	</c:choose>
 	
-	<div style="width: 100%; border-bottom-color: silver; border-bottom-style: solid; border-bottom-width: 1px;">
+	<div style="width: 100%; border-top-color: silver; border-top-style: solid; border-top-width: 1px;">
 		
 	</div>
+	
+	<section id="s-price">
+		<div class="item price-bar">
+			<b class="ui-yen">￥${item.amount}</b>
+		</div>
+		<!-- 
+		<div class="item">
+			<em class="tag ">最后一天</em>
+		</div>
+		<div class="item">
+			<del class="ui-label">一口价</del>
+			<del class="price-origin">￥159.00</del>
+		</div>
+		 -->
+	</section>
+	
+	<section id="s-title">
+	    <div class="main">
+	        <h1>${item.title}</h1>
+	        <a class="fav j-mdv" href="#">收藏</a>
+	    </div>
+	    <div class="product-sellpoint"></div>
+	</section>
 
 	<div style="font-size: 14px; font-family: Arial, 'Microsoft YaHei';">
 	<c:forEach items="${details}" var="variable">
