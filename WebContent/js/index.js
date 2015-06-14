@@ -242,7 +242,7 @@ $(document).ready(function(){
 	});
 	
 	$(".d_cart").live('click', function () {
-		$('#wrapper').hide();
+		
 		var _this = $(this);
 		var itemId = _this.attr("bind-data");
 		//alert(_this.attr("bind-data"));
@@ -260,13 +260,13 @@ $(document).ready(function(){
 			}, 
 			success: function(response) {
 				if(response) {
+					$('#wrapper').hide();
 					var html = $(response);
 					$(".quicktocart").html(html);
+					$('.quicktocart').slideDown(2000);
 				}
 			}
 		});
-	    $('.quicktocart').slideDown(2000);
-	    $('.quicktocart').css("backgroundColor", "white");
 	});
 	
 	$(".list-item-t-item-preview-cart-img-back").live("click", function() {

@@ -15,11 +15,9 @@
 <link rel="stylesheet" type="text/css" href="css/cart.css"/>
 
 <script type="text/javascript" src="js/zepto/zepto.min.js"></script>
-<script type="text/javascript" src="js/zepto/event.js"></script>
-<script type="text/javascript" src="js/zepto/fx.js"></script>
-<script type="text/javascript" src="js/zepto-extends.js"></script>
-<script type="text/javascript" src="js/iscroll/iscroll-4.2.5.js"></script>
 <script type="text/javascript" src="js/tips.js"></script>
+
+<script type="text/javascript" src="js/iscroll/iscroll-4.2.5.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/list-item.js"></script>
 </head>
@@ -143,5 +141,8 @@
  -->
 
 <script type="text/javascript" src="js/chos/template-engine/TEngine.js" ></script>
+<script type="text/javascript" src="js/zepto/event.js"></script>
+<script type="text/javascript" src="js/zepto/fx.js"></script>
+<script type="text/javascript" src="js/zepto-extends.js"></script>
 </body>
 </html>

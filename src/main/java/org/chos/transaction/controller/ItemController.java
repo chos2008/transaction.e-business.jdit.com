@@ -434,6 +434,9 @@ public class ItemController {
 	@RequestMapping(value = "item/cart/preview")
 	public String previewCart(@RequestParam("itemId") long itemId, HttpServletRequest request, HttpServletResponse response, Model model) {
 		Item item = itemService.getItem(itemId);
+		if (item == null) {
+			
+		}
 		model.addAttribute("item", item);
 		return "cart/preview";
 	}
