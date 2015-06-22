@@ -7,16 +7,23 @@
 		<id column="id" property="id"/>
 		<result column="name" property="name"/>
 		<result column="user_id" property="userId"/>
+		<result column="store_id" property="storeId"/>
+		<result column="source" property="source"/>
 		<result column="price" property="price"/>
 		<result column="stock" property="stock"/>
 		<result column="category" property="category"/>
 		<result column="image" property="image"/>
 		<result column="small_image" property="smallImage"/>
 		<result column="large_image" property="largeImage"/>
+		<result column="state" property="state"/>
 		<result column="description" property="description"/>
 		<result column="creation" property="creation"/>
 		<result column="updation" property="updation"/>
 	</resultMap>
+	
+	<select id="get-byId" resultMap="product" parameterType="long">
+		select * from product where id = #{itemId}
+	</select>
 	
 	<select id="get-byuserId" resultMap="product" parameterType="long">
 		select * from product where user_id = #{userId}
@@ -30,6 +37,8 @@
 			id
 			,name
 			,user_id
+			,store_id
+			,source
 			,price
 			,stock
 			,category
@@ -42,6 +51,7 @@
 			<if test="largeImage != null">
 				,large_image
 			</if>
+			,state
 			<if test="description != null">
 				,description
 			</if>
@@ -53,6 +63,8 @@
 			#{id}
 			,#{name}
 			,#{userId}
+			,#{storeId}
+			,#{source}
 			,#{price}
 			,#{stock}
 			,#{category}
@@ -65,6 +77,7 @@
 			<if test="largeImage != null">
 				,#{largeImage}
 			</if>
+			,#{state}
 			<if test="description != null">
 				,#{description}
 			</if>

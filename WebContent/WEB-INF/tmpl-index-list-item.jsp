@@ -5,7 +5,7 @@
 <c:forEach items="${requirements}" var="variable">
 <li style="position: relative;" class="list-item-li" bind-data-id=${variable.id}>
 	<div style="margin: 2px 3px 5px 3px; border-top: 0px solid silver; border-bottom: 0px solid silver;">
-		<span style="width: 100%; display: inline-block;"><a href="item/${variable.id}.shtml">${variable.title}</a></span>
+		<span style="width: 100%; display: inline-block;"><span style="width: 16px; height: 16px; margin: 12px 0px; float: left; display: block; background: url('images/logo-caibei-t_16x16.png'); background-size: 16px 16px; background-position: center; background-repeat: no-repeat;"></span><a href="item/${variable.id}.shtml">${variable.title}</a></span>
 		<span style="width: 100%; display: inline-block;">金额：&yen;${variable.amount}</span>
 		<div style="width: 100%; line-height: 20px; text-align: left; font-size: 10px">
 			${variable.content}

@@ -14,6 +14,8 @@
 				<value>classpath:datasource.properties</value>
 				<value>classpath:datasource-order.properties</value>
 				<value>classpath:datasource-alapay.properties</value>
+				
+				<value>classpath:fs.properties</value>
 			</list>
 		</property>
 	</bean>

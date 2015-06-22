@@ -18,6 +18,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.chos.transaction.user.UserAddress;
+
 /**
  * 
  * 
@@ -40,6 +42,23 @@ public interface UserService {
 	public User getUser(String username);
 	
 	public User getUser(long userId);
+	
+	/**
+	 * @param userId
+	 * @return
+	 */
+	public List<UserAddress> getUserAddress(long userId);
+	
+	/**
+	 * @param userId
+	 * @return
+	 */
+	public UserAddress getUserDefaultAddress(long userId);
+	
+	/**
+	 * @param address
+	 */
+	public void addUserAddress(UserAddress address);
 	
 	public User updateUserInfo(User user);
 	

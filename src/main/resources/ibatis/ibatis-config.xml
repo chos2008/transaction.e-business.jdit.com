@@ -12,6 +12,7 @@
 		<typeAlias type="org.chos.transaction.Item" alias="Item"/>
 		<typeAlias type="org.chos.transaction.Merchant" alias="Merchant"/>
 		<typeAlias type="org.chos.transaction.User" alias="User"/>
+		<typeAlias type="org.chos.transaction.user.UserAddress" alias="UserAddress"/>
 		<typeAlias type="org.chos.transaction.passport.Session" alias="Session"/>
 		<typeAlias type="org.chos.transaction.passport.LocalSession" alias="LocalSession"/>
 		<typeAlias type="org.chos.transaction.passport.OAuthSession" alias="OAuthSession"/>
@@ -21,6 +22,7 @@
 	<mappers>
 		<mapper resource="ibatis/document.xml" />
 		<mapper resource="ibatis/User.xml" />
+		<mapper resource="ibatis/UserAddress.xml" />
 		<mapper resource="ibatis/merchant.xml" />
 		<mapper resource="ibatis/category.xml" />
 		<mapper resource="ibatis/product.xml" />

@@ -35,6 +35,11 @@ public class ProductServiceImpl implements ProductService {
 	@Qualifier(value = "sqlSessionTemplate")
 	private SqlSessionTemplate template;
 	
+	public Product getById(long itemId) {
+		List<Product> list = template.selectList("get-byId", itemId);
+		return list.isEmpty() ? null : list.get(0);
+	}
+	
 	public List<Product> getByUserId(long userId) {
 		return template.selectList("get-byuserId", userId);
 	}

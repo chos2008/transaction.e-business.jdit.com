@@ -112,7 +112,7 @@ public final class tmpl_002dindex_002dlist_002ditem_jsp extends org.apache.jaspe
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.id}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write(">\r\n");
           out.write("\t<div style=\"margin: 2px 3px 5px 3px; border-top: 0px solid silver; border-bottom: 0px solid silver;\">\r\n");
-          out.write("\t\t<span style=\"width: 100%; display: inline-block;\"><a href=\"item/");
+          out.write("\t\t<span style=\"width: 100%; display: inline-block;\"><span style=\"width: 16px; height: 16px; margin: 12px 0px; float: left; display: block; background: url('images/logo-caibei-t_16x16.png'); background-size: 16px 16px; background-position: center; background-repeat: no-repeat;\"></span><a href=\"item/");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.id}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write(".shtml\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${variable.title}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));

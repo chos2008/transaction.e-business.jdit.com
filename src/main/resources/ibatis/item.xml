@@ -8,7 +8,6 @@
 		<result column="user_id" property="userId"/>
 		<result column="title" property="title"/>
 		<result column="amount" property="amount"/>
-		<result column="stock" property="stock"/>
 		<result column="image" property="image"/>
 		<result column="small_image" property="smallImage"/>
 		<result column="large_image" property="largeImage"/>
@@ -19,7 +18,7 @@
 	</resultMap>
 	
 	<select id="item-list-r" resultMap="item">
-		select * from item_new 
+		select * from item 
 		<if test="userId != null">
 			where user_id = #{userId} 
 		</if>
@@ -29,23 +28,22 @@
 	
 	
 	<select id="get-item" resultMap="item" parameterType="long">
-		select * from item_new where id = #{id}
+		select * from item where id = #{id}
 	</select>
 	
 	<delete id="delete-item" parameterType="long">
-		delete from item_new where id = #{id}
+		delete from item where id = #{id}
 	</delete>
 	
 	<insert id="issue" parameterType="Item">
 		<selectKey keyProperty="id" resultType="long">
 			select @@identity as id 
 		</selectKey>
-		insert into item_new(
+		insert into item(
 			id
 			,user_id
 			,title
 			,amount
-			,stock
 			<if test="image != null">
 				,image
 			</if>
@@ -68,7 +66,6 @@
 			,#{userId}
 			,#{title}
 			,#{amount}
-			,#{stock}
 			<if test="image != null">
 				,#{image}
 			</if>

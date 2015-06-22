@@ -3,11 +3,11 @@
 <%@ taglib prefix="c" uri="/WEB-INF/c.tld"%>
 <%@ taglib prefix="fmt" uri="/WEB-INF/fmt.tld"%>
 <div class="preview" style="background-color: white; height: 350px;">
-	<ul class="list-item list-item-t" style="height: 90px; line-height: 90px; position: relative; border: 0px solid silver;">
-		<li class="list-item-t-item" style="height: 90px; line-height: 90px;">
-			<span class="list-item-t-item-preview-cart-img-back" style="cursor: pointer;"></span>
+	<ul class="list-item list-item-t" style="height: 70px; line-height: 70px; position: relative; border: 0px solid silver;">
+		<li class="list-item-t-item" style="height: 70px; line-height: 70px;">
+			<span class="list-item-t-item-preview-cart-img-back" style="height: 70px; cursor: pointer;"></span>
 		</li>
-		<li class="list-item-t-item-right" style="height: 90px; line-height: 24px; margin: 0px 0px; padding: 33px 4px 0px 0px;">
+		<li class="list-item-t-item-right" style="height: 70px; line-height: 24px; margin: 0px 0px; padding: 23px 4px 0px 0px;">
 			<!-- 
 			<span class="list-item-t-item-preview-cart-img-close"></span>
 			 -->
@@ -17,13 +17,14 @@
 	<ul class="list-item list-item-t" style="height: 90px; line-height: 90px; position: relative; border: 0px solid silver;">
 		<li class="list-item-t-item" style="height: 90px; line-height: 90px;">
 			<span style="display: block; line-height: 24px;">&yen;${item.amount}</span>
-			<span style="display: block; line-height: 24px;">库存${item.stock}</span>
 			<span style="display: block; line-height: 24px;"><a>${item.title}</a></span>
 		</li>
 	</ul>
 	<ul style="list-style: none;">
 		<li style="border: 0px solid silver;">
-		<div>数量： <input class="quantity" type="number" value="1" maxlength="32" name="title" placeholder="" style="width: 100%; height: 35px; line-height: 35px; border: 0px solid red; background: transparent; font-size: 14px; font-family: Arial, 'Microsoft YaHei'; outline: none; -webkit-tap-highlight-color:rgba(0,0,0,0); -webkit-user-modify:read-write-plaintext-only; margin: 0; -moz-appearance: textfield;"/></div>
+		<!-- -webkit-user-modify:read-write-plaintext-only;  -moz-appearance: textfield;
+		<div>数量： <input class="quantity" type="number" value="1" maxlength="32" name="title" placeholder="" style="width: 100%; height: 35px; line-height: 35px; border: 0px solid red; background: transparent; font-size: 14px; font-family: Arial, 'Microsoft YaHei'; outline: none; -webkit-tap-highlight-color:rgba(0,0,0,0); margin: 0; -webkit-appearance: none;"/></div>
+		 -->
 		</li>
 	</ul>
 </div>

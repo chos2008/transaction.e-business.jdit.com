@@ -11,3 +11,13 @@
   	background-repeat: no-repeat;
   	background-position: center center;
 }
+
+.list-item-t-item-preview-cart-img-go {
+	display: block;
+	height: 32px;
+  	line-height: 32px;
+  	width: 32px;
+	background-image: url("../images/iau.png");
+  	background-repeat: no-repeat;
+  	background-position: center center;
+}

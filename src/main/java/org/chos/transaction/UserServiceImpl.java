@@ -24,6 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang.StringUtils;
 import org.chos.servlet.http.ChosHttpServletResponse;
 import org.chos.transaction.passport.HttpContextSessionManager;
+import org.chos.transaction.user.UserAddress;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -108,6 +109,19 @@ public class UserServiceImpl implements UserService {
 	
 	public User getUser(long userId) {
 		return template.selectOne("user-getByUserId", userId);
+	}
+	
+	public List<UserAddress> getUserAddress(long userId) {
+		return template.selectList("getUserAddress", userId);
+	}
+	
+	public UserAddress getUserDefaultAddress(long userId) {
+		List<UserAddress> list = template.selectList("getUserDefaultAddress", userId);
+		return list.isEmpty() ? null : list.get(0);
+	}
+	
+	public void addUserAddress(UserAddress address) {
+		template.insert("address-insert", address);
 	}
 	
 	public User getUser(String username) {

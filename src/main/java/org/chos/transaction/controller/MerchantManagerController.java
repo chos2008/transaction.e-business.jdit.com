@@ -68,10 +68,12 @@ public class MerchantManagerController {
 		Session session = httpContextSessionManager.getSession(request);
 		if (session == null) {
 			response.sendRedirect("login.shtml");
+			return null;
 		}
 		Merchant merchant = userService.getMerchantByUserId(session.getUserId());
 		if (merchant == null) {
 			response.sendRedirect("/continue.shtml");
+			return null;
 		}
 		
 		List<DocumentPart> document = documentService.getDocument(merchant.getId(), 3);

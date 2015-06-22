@@ -41,6 +41,7 @@ import org.chos.transaction.order.OrderSheetService;
 import org.chos.transaction.order.OrderState;
 import org.chos.transaction.passport.HttpContextSessionManager;
 import org.chos.transaction.passport.Session;
+import org.chos.transaction.user.UserAddress;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -73,6 +74,45 @@ public class OrderController {
 	
 	@Autowired
 	private HttpContextSessionManager httpContextSessionManager;
+	
+	@RequestMapping(value = "order/commit")
+	public String commit(HttpServletRequest request, HttpServletResponse response, Model model) {
+		Session session = httpContextSessionManager.getSession(request);
+		if (session == null) {
+			return "order/error";
+		}
+		List<OrderSheet> orders = orderSheetService.orderSheet(session.getToken());
+		Map<Long, List<OrderSheet>> orderMap = new HashMap<Long, List<OrderSheet>>();
+		Map<Long, Item> itemMap = new HashMap<Long, Item>();
+		Map<Long, User> userMap = new HashMap<Long, User>();
+		for (OrderSheet order : orders) {
+			long merchandiseId = order.getItemId();
+			Item item = itemService.getItem(merchandiseId);
+			itemMap.put(merchandiseId, item);
+			if (item != null) {
+				User user = userService.getUser(item.getUserId());
+				if (user != null) {
+					List<OrderSheet> list = orderMap.get(user.getId());
+					if (list == null) {
+						list = new LinkedList<OrderSheet>();
+					}
+					list.add(order);
+					orderMap.put(user.getId(), list);
+					userMap.put(merchandiseId, user);
+				}
+			} else {
+				userMap.put(merchandiseId, null);
+			}
+		}
+		
+		UserAddress userAddress = userService.getUserDefaultAddress(session.getUserId());
+		model.addAttribute("orders", orders);
+		model.addAttribute("orderMap", orderMap);
+		model.addAttribute("itemMap", itemMap);
+		model.addAttribute("userMap", userMap);
+		model.addAttribute("userAddress", userAddress);
+		return "order/sheet-order";
+	}
 	
 	@RequestMapping(value = "order")
 	public String list(HttpServletRequest request, HttpServletResponse response, Model model) {

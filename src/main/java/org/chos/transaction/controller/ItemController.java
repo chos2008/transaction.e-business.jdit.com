@@ -27,6 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
+import org.chos.fs.FileStorage;
 import org.chos.transaction.Bid;
 import org.chos.transaction.DocumentPart;
 import org.chos.transaction.DocumentService;
@@ -51,6 +52,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 
 /**
@@ -61,8 +64,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @version 1.0  2015-3-8 ����08:45:11
  * @since 1.0
  */
-@Controller(value = "RequirementController")
-public class ItemController {
+@Controller
+public class ItemController extends AbstractItemController {
 
 	@Autowired
 	private ItemService itemService;
@@ -84,6 +87,9 @@ public class ItemController {
 	
 	@Autowired
 	private OrderService orderService;
+	
+	@Autowired
+	private FileStorage fs;
 	
 	/**
 	 * http://domain.com/index.shtml
@@ -366,6 +372,7 @@ public class ItemController {
 		return json;
 	}
 	
+	
 	@RequestMapping(value = "item/edit/view")
 	public String toEdit(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String itemId = request.getParameter("item_id");
@@ -383,36 +390,81 @@ public class ItemController {
 		return "item/edit";
 	}
 	
-	
-	@RequestMapping(value = "item/add/view")
-	public String addItemView(HttpServletRequest request, HttpServletResponse response) {
-		return "business/item-add";
+	@RequestMapping(value = "item/item/add/view")
+	public String addItem(HttpServletRequest request, HttpServletResponse response, Model model) {
+		String itemId = request.getParameter("item_id");
+		if (StringUtils.isBlank(itemId)) {
+			return "item/error";
+		}
+		Item item = itemService.getItem(Long.parseLong(itemId));
+		if (item == null) {
+			return "item/error";
+		}
+		
+		
+		String type = request.getParameter("type");
+		if ("1".equals(type)) {
+			model.addAttribute("item", item);
+			
+			List<DocumentPart> document = new ArrayList<DocumentPart>();
+			
+			model.addAttribute("details", document);
+			return "item-product";
+		} else if ("2".equals(type)) {
+			model.addAttribute("item", item);
+			
+			List<DocumentPart> document = new ArrayList<DocumentPart>();
+			
+			model.addAttribute("details", document);
+			return "item-0";
+		} else {
+			model.addAttribute("item", item);
+			
+			List<DocumentPart> document = documentService.getDocumentById(item.getId());
+			
+			model.addAttribute("details", document);
+			return "item/item-add-item";
+		}
 	}
 	
-	@RequestMapping(value = "item/add")
-	@ResponseBody
-	public Object add(HttpServletRequest request, HttpServletResponse response) {
+	@RequestMapping(value = "item/item/add")
+	public String add(HttpServletRequest request, HttpServletResponse response, Model model) {
+		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+		
 		Map<String, Object> json = new HashMap<String, Object>();
 		
-		String name = request.getParameter("name");
+		MultipartFile image  =  multipartRequest.getFile("item_image");
+//		String fileName = image.getOriginalFilename();
+		String fileName = UUID.randomUUID().toString() + ".png";
+		fileName = fs.dwrite(image, fileName);
+		if (StringUtils.isBlank(fileName)) {
+			model.addAttribute("code", 1000);
+			return "callback/callback";
+		}
+		String storeId = multipartRequest.getParameter("store_id");
+		if (StringUtils.isBlank(storeId)) {
+			model.addAttribute("code", 1000);
+			return "callback/callback";
+		}
+		String name = multipartRequest.getParameter("name");
 		if (StringUtils.isBlank(name)) {
-			json.put("code", 1000);
-			return json;
+			model.addAttribute("code", 1000);
+			return "callback/callback";
 		}
-		String price = request.getParameter("price");
+		String price = multipartRequest.getParameter("price");
 		if (StringUtils.isBlank(price)) {
-			json.put("code", 1000);
-			return json;
+			model.addAttribute("code", 1000);
+			return "callback/callback";
 		}
-		String stock = request.getParameter("stock");
+		String stock = multipartRequest.getParameter("stock");
 		if (StringUtils.isBlank(stock)) {
-			json.put("code", 1000);
-			return json;
+			model.addAttribute("code", 1000);
+			return "callback/callback";
 		}
-		String description = request.getParameter("content");
+		String description = multipartRequest.getParameter("content");
 		if (StringUtils.isBlank(description)) {
-			json.put("code", 1000);
-			return json;
+			model.addAttribute("code", 1000);
+			return "callback/callback";
 		}
 		
 		Session session = httpContextSessionManager.getSession(request);
@@ -420,15 +472,21 @@ public class ItemController {
 		Product product = new Product();
 		product.setName(name);
 		product.setUserId(session.getUserId());
+		product.setStoreId(Long.parseLong(storeId));
+		product.setSource(0);
 		product.setPrice(StringUtils.isBlank(price) ? 0 : Float.parseFloat(price));
 		product.setStock(Integer.parseInt(stock));
 		product.setCategory(6);
-		
+		product.setSmallImage(fileName);
+		product.setImage(fileName);
+		product.setLargeImage(fileName);
+		product.setState(0);
 		product.setDescription(description);
 		product.setCreation(new Date());
 		itemService.addProduct(product);
-		json.put("code", 0);
-		return json;
+		model.addAttribute("code", 0);
+		model.addAttribute("productId", product.getId());
+		return "callback/callback";
 	}
 	
 	@RequestMapping(value = "item/cart/preview")
@@ -456,11 +514,7 @@ public class ItemController {
 			json.put("code", ErrorCode.PARAM_ERROR);
 			return json;
 		}
-		if (StringUtils.isBlank(quantity)) {
-			json.put("code", ErrorCode.PARAM_ERROR);
-			return json;
-		}
-		int _quantity = Integer.parseInt(quantity);
+		int _quantity = StringUtils.isEmpty(quantity) ? 1 : Integer.parseInt(quantity);
 		if (_quantity < 1) {
 			json.put("code", ErrorCode.PARAM_ERROR);
 			return json;

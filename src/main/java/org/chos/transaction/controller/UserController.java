@@ -15,6 +15,7 @@ package org.chos.transaction.controller;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,6 +29,7 @@ import org.chos.transaction.alapay.AlapayAccount;
 import org.chos.transaction.alapay.AlapayAccountService;
 import org.chos.transaction.passport.HttpContextSessionManager;
 import org.chos.transaction.passport.Session;
+import org.chos.transaction.user.UserAddress;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -64,6 +66,61 @@ public class UserController {
 		Merchant merchant = userService.getMerchantByUserId(session.getUserId());
 		model.addAttribute("merchant", merchant);
 		return "user/account";
+	}
+	
+	@RequestMapping(value = "/user/{id}/address")
+	public String getUserAddress(@PathVariable String id, HttpServletRequest request, HttpServletResponse response, Model model) {
+		Session session = httpContextSessionManager.getSession(request);
+		List<UserAddress> addresses = userService.getUserAddress(session.getUserId());
+		model.addAttribute("addresses", addresses);
+		return "user/user-address-mgr";
+	}
+	
+	@RequestMapping(value = "/address/add/view")
+	public String addUserAddress0(HttpServletRequest request, HttpServletResponse response, Model model) {
+		Session session = httpContextSessionManager.getSession(request);
+		User user = userService.getUser(session.getUserId());
+		model.addAttribute("user", user);
+		return "user/user-address";
+	}
+	
+	@RequestMapping(value = "/address/add")
+	@ResponseBody
+	public Object addUserAddress(HttpServletRequest request, HttpServletResponse response, Model model) {
+		Map<String, Object> resp = new HashMap<String, Object>();
+		String username = request.getParameter("username");
+		if (StringUtils.isBlank(username)) {
+			resp.put("code", ErrorCode.PARAM_ERROR);
+			return resp;
+		}
+		String contact = request.getParameter("contact");
+		if (StringUtils.isBlank(contact)) {
+			resp.put("code", ErrorCode.PARAM_ERROR);
+			return resp;
+		}
+		String region = request.getParameter("region");
+		if (StringUtils.isBlank(contact)) {
+			resp.put("code", ErrorCode.PARAM_ERROR);
+			return resp;
+		}
+		String address = request.getParameter("address");
+		if (StringUtils.isBlank(contact)) {
+			resp.put("code", ErrorCode.PARAM_ERROR);
+			return resp;
+		}
+		String postcode = request.getParameter("postcode");
+		Session session = httpContextSessionManager.getSession(request);
+		UserAddress userAddress = new UserAddress();
+		userAddress.setUserId(session.getUserId());
+		userAddress.setUsername(username);
+		userAddress.setContact(contact);
+		userAddress.setPostCode(postcode);
+		userAddress.setAddress(region + " " + address);
+		userAddress.setCreation(new Date());
+		
+		userService.addUserAddress(userAddress);
+		resp.put("code", 0);
+		return resp;
 	}
 	
 	@RequestMapping(value = "/user/bindAlaPayAccount")

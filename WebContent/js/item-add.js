@@ -76,6 +76,19 @@
 	$(document).on("touchmove", _ontouchmove);
 	
 	window.onload = function() {
+		$("#item_image").on("change", function() {
+			if (typeof FileReader === 'undefined') {
+		        alert('本地图片预览功能不支持...');
+		        return;
+		    }
+		    var reader = new FileReader();
+		    reader.onload = function(e) {
+		        //$(".add-item-img").attr("src", this.result);
+		    	$(".add-item-img").css("backgroundImage", "url(" + this.result + ");");
+		    };
+		    reader.readAsDataURL(document.getElementById("item_image").files[0]);
+		});
+		
 		$('.item-add').on('click', function() {
 			var name = $("#name").val();
 			if (name == "") {

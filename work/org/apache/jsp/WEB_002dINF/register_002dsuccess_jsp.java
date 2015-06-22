@@ -382,7 +382,7 @@ public final class register_002dsuccess_jsp extends org.apache.jasper.runtime.Ht
       do {
         out.write("\r\n");
         out.write("\t\t\t\t<div style=\"margin: 0px auto; margin-top: 2px; margin-bottom: 5px; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex;\">\r\n");
-        out.write("\t\t\t\t\t<a href=\"user/index.jsp\" style=\"width: 100%; height: 36px; line-height: 36px; display: block; color: #fff; background-color: #ff3c3c; border-radius: 5px; -webkit-border-radius: 5px;text-align: center; font-size: 1.4rem;\">完成</a>\r\n");
+        out.write("\t\t\t\t\t<a href=\"mindex.htm\" style=\"width: 100%; height: 36px; line-height: 36px; display: block; color: #fff; background-color: #ff3c3c; border-radius: 5px; -webkit-border-radius: 5px;text-align: center; font-size: 1.4rem;\">完成</a>\r\n");
         out.write("\t\t\t\t</div>\r\n");
         out.write("\t\t\t\t");
         int evalDoAfterBody = _jspx_th_c_005fotherwise_005f2.doAfterBody();

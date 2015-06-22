@@ -422,7 +422,7 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("<a href=\"investment.jsp\">发布需求</a>\r\n");
       out.write("<div style=\"height: 45px; position: absolute; right: 0px; top: 0px;\">\r\n");
-      out.write("<a href=\"../user/index.jsp\" style=\"right: 5px; position: relative; border-radius: 3px; moz-border-radius: 4px; webkit-border-radius: 4px; border: 1px solid #ddd; background-color: #f5f5f5; color: #333;\">我的帐号</a>\r\n");
+      out.write("<a href=\"../mindex.htm\" style=\"right: 5px; position: relative; border-radius: 3px; moz-border-radius: 4px; webkit-border-radius: 4px; border: 1px solid #ddd; background-color: #f5f5f5; color: #333;\">我的帐号</a>\r\n");
       out.write("</div>\r\n");
       out.write("</div>\r\n");
       out.write("<div id=\"wrapper\">\r\n");

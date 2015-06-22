@@ -122,7 +122,7 @@
 			 -->
 		</li>
 		<li class="list-item-t-item-normal-right" style="padding: 30px 8px; font-family: Arial;">
-			<a class="go-trade" href="javascript: void(0);" style="width: 70px; margin: 0px auto; height: 32px; line-height: 32px; display: block; color: #fff; background-color: #ff3c3c; border: 1px solid #BE4646; border-radius: 3px; -webkit-border-radius: 3px; text-align: center; font-size: 0.5rem;">付款</a>
+			<a class="go-trade" href="order/commit.shtml" style="width: 70px; margin: 0px auto; height: 32px; line-height: 32px; display: block; color: #fff; background-color: #ff3c3c; border: 1px solid #BE4646; border-radius: 3px; -webkit-border-radius: 3px; text-align: center; font-size: 0.5rem;">提交订单</a>
 		</li>
 	
 		<li class="list-item-t-item-normal-right" style="padding: 30px 0px; font-family: Arial;">

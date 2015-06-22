@@ -186,6 +186,8 @@ function onBoxItemSelected(selectedItem) {
 }
 
 $(document).ready(function(){
+	
+    var init_body_height = null;
 	$('#order-sheet').on("click", function() {
 		var box = $('.nav-bar-box-cart-and-ordersheet');
 		box.toggle();
@@ -264,6 +266,15 @@ $(document).ready(function(){
 					var html = $(response);
 					$(".quicktocart").html(html);
 					$('.quicktocart').slideDown(2000);
+					
+					if(document.documentElement.scrollHeight <= document.documentElement.clientHeight) {  
+				        bodyTag = document.getElementsByTagName('body')[0];
+				        init_body_height = bodyTag.style.height;
+				        bodyTag.style.height = document.documentElement.clientWidth / screen.width * screen.height + 'px';  
+				    }  
+				    setTimeout(function() {  
+				        window.scrollTo(0, 1);
+				    }, 1000);
 				}
 			}
 		});
@@ -272,41 +283,33 @@ $(document).ready(function(){
 	$(".list-item-t-item-preview-cart-img-back").live("click", function() {
 		$('.quicktocart').hide();
 		$('.quicktocart').html("");
+		bodyTag = document.getElementsByTagName('body')[0];
+		//bodyTag.style.height = "auto";
+		//$(bodyTag).css('display', 'initial');
+		$(bodyTag).css('display', init_body_height);
 		$('#wrapper').show();
 	});
 	
 	$(".dd_cart").live('click', function () {
 		var _this = $(this);
 		var itemId = _this.attr("bind-data");
-		var quantity = $('.quantity').val();
-		$.ajax({
-			type: "post",
-			url: "/item/cart.shtml",
-			data: {
-				"itemId": itemId, 
-				"quantity": quantity
-			}, 
-			error: function() {
-				var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
-				tips.show();
-				return;
-			}, 
-			success: function(response) {
-				if(response) {
-					if(response.code == 0) {
-						var stat = $(".order-sheet-stats").text();
-						stat++;
-						$(".order-sheet-stats").text(stat);
-						var tips = new Tips('tmpl-tips', "添加成功");
-						tips.show();
-						
-						$('.quicktocart').hide();
-						$('.quicktocart').html("");
-						$('#wrapper').show();
-						return;
-				    }
-				}
+		item_d_cart(itemId, null, function(response) {
+			if(response) {
+				if(response.code == 0) {
+					refresh_sheet();
+					var tips = new Tips('tmpl-tips', "添加成功");
+					tips.show();
+					
+					$('.quicktocart').hide();
+					$('.quicktocart').html("");
+					$('#wrapper').show();
+					return;
+			    }
 			}
+		}, function() {
+			var tips = new Tips('tmpl-tips', "与服务器通信失败，请检查网络是否稳定");
+			tips.show();
+			return;
 		});
 	});
 });

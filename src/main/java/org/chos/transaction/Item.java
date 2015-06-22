@@ -33,8 +33,6 @@ public class Item {
 	
 	private double amount;
 	
-	private int stock;
-	
 	private String content;
 	
 	private String image;
@@ -103,20 +101,6 @@ public class Item {
 	 */
 	public void setAmount(double amount) {
 		this.amount = amount;
-	}
-
-	/**
-	 * @return the stock
-	 */
-	public int getStock() {
-		return stock;
-	}
-
-	/**
-	 * @param stock the stock to set
-	 */
-	public void setStock(int stock) {
-		this.stock = stock;
 	}
 
 	/**

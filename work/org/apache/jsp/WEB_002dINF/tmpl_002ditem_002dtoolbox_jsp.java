@@ -69,7 +69,7 @@ public final class tmpl_002ditem_002dtoolbox_jsp extends org.apache.jasper.runti
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
-      out.write("<div class=\"item-toolbox\" style=\"width: 120px; margin: 0px 0px; padding: 0px 0px; position: absolute; right: 0px; top: -1px; bottom: 0px; vertical-align: middle; color: blue; background-color: #ccc; display: none;\">\r\n");
+      out.write("<div class=\"item-toolbox\" style=\"width: 160px; margin: 0px 0px; padding: 0px 0px; position: absolute; right: 0px; top: -1px; bottom: 0px; vertical-align: middle; color: blue; background-color: #ccc; display: none;\">\r\n");
       out.write("\t<div style=\"position: relative; text-align: center; height: 100%; display: -moz-box; display: -webkit-box; display: box; box-orient: vertical; -moz-box-orient: vertical; -webkit-box-orient: vertical;\">\r\n");
       out.write("\t\t<div style=\"box-flex: 1; -moz-box-flex: 1; -webkit-box-flex: 1; box-pack: center; -moz-box-pack: center; -webkit-box-pack: center; -o-box-pack: center;\">\r\n");
       out.write("\t\t\r\n");
@@ -158,12 +158,15 @@ public final class tmpl_002ditem_002dtoolbox_jsp extends org.apache.jasper.runti
     if (_jspx_eval_c_005fwhen_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\r\n");
-        out.write("\t\t\t\t\t<a href=\"javascript: void(0);\" onclick=\"javascript: tobid(");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${param.item_id}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-        out.write(");\">转标</a>&nbsp;&nbsp;\r\n");
         out.write("\t\t\t\t\t<a href=\"/item/edit/view.shtml?item_id=");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${param.item_id}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
         out.write("\" target=\"_blank\">编辑</a>\r\n");
+        out.write("\t\t\t\t\t<a href=\"/item/item/add/view.shtml?item_id=");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${param.item_id}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+        out.write("\" target=\"_blank\">添加商品</a>\r\n");
+        out.write("\t\t\t\t\t<a href=\"javascript: void(0);\" onclick=\"javascript: tobid(");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${param.item_id}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+        out.write(");\">转标</a>&nbsp;&nbsp;\r\n");
         out.write("\t\t\t\t");
         int evalDoAfterBody = _jspx_th_c_005fwhen_005f0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -186,7 +189,7 @@ public final class tmpl_002ditem_002dtoolbox_jsp extends org.apache.jasper.runti
     org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_005fwhen_005f1 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _005fjspx_005ftagPool_005fc_005fwhen_0026_005ftest.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
     _jspx_th_c_005fwhen_005f1.setPageContext(_jspx_page_context);
     _jspx_th_c_005fwhen_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_005fchoose_005f0);
-    // /WEB-INF/tmpl-item-toolbox.jsp(16,4) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/tmpl-item-toolbox.jsp(17,4) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fwhen_005f1.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${param.category == 1}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null, false)).booleanValue());
     int _jspx_eval_c_005fwhen_005f1 = _jspx_th_c_005fwhen_005f1.doStartTag();
     if (_jspx_eval_c_005fwhen_005f1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -215,7 +218,7 @@ public final class tmpl_002ditem_002dtoolbox_jsp extends org.apache.jasper.runti
     org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_005fwhen_005f2 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _005fjspx_005ftagPool_005fc_005fwhen_0026_005ftest.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
     _jspx_th_c_005fwhen_005f2.setPageContext(_jspx_page_context);
     _jspx_th_c_005fwhen_005f2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_005fchoose_005f0);
-    // /WEB-INF/tmpl-item-toolbox.jsp(19,4) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/tmpl-item-toolbox.jsp(20,4) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fwhen_005f2.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${param.category == 2}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null, false)).booleanValue());
     int _jspx_eval_c_005fwhen_005f2 = _jspx_th_c_005fwhen_005f2.doStartTag();
     if (_jspx_eval_c_005fwhen_005f2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -224,11 +227,6 @@ public final class tmpl_002ditem_002dtoolbox_jsp extends org.apache.jasper.runti
         out.write("\t\t\t\t\t<a href=\"javascript: void(0);\" class=\"d_cart\" bind-data=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${param.itemId}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
         out.write("\">接单</a>\r\n");
-        out.write("\t\t\t\t\t<a href=\"javascript: void(0);\" class=\"d_trade\" bind-data=\"");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${param.itemId}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-        out.write(" onclick=\"javascript: cart(");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${param.itemId}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-        out.write(")\">直接交易</a>\r\n");
         out.write("\t\t\t\t\t<a href=\"/item/share.shtml?item_id=");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${param.itemId}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
         out.write("\" target=\"_blank\">分享</a>\r\n");

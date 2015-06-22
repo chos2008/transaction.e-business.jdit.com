@@ -25,5 +25,15 @@ import java.util.List;
  */
 public interface ProductService {
 
+	/**
+	 * @param itemId
+	 * @return
+	 */
+	public Product getById(long itemId);
+	
+	/**
+	 * @param userId
+	 * @return
+	 */
 	public List<Product> getByUserId(long userId);
 }

@@ -16,6 +16,8 @@ public final class item_002dadd_jsp extends org.apache.jasper.runtime.HttpJspBas
     _jspx_dependants.add("/WEB-INF/c.tld");
   }
 
+  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fc_005fimport_0026_005furl_005fnobody;
+
   private javax.el.ExpressionFactory _el_expressionfactory;
   private org.apache.AnnotationProcessor _jsp_annotationprocessor;
 
@@ -24,11 +26,13 @@ public final class item_002dadd_jsp extends org.apache.jasper.runtime.HttpJspBas
   }
 
   public void _jspInit() {
+    _005fjspx_005ftagPool_005fc_005fimport_0026_005furl_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _el_expressionfactory = _jspxFactory.getJspApplicationContext(getServletConfig().getServletContext()).getExpressionFactory();
     _jsp_annotationprocessor = (org.apache.AnnotationProcessor) getServletConfig().getServletContext().getAttribute(org.apache.AnnotationProcessor.class.getName());
   }
 
   public void _jspDestroy() {
+    _005fjspx_005ftagPool_005fc_005fimport_0026_005furl_005fnobody.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -65,6 +69,7 @@ public final class item_002dadd_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("<meta name=\"apple-mobile-web-app-capable\" content=\"yes\" />\r\n");
       out.write("<title>添加商品</title>\r\n");
       out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"../../css/common-style.css\"/>\r\n");
+      out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"../../css/add-item.css\"/>\r\n");
       out.write("\r\n");
       out.write("<script type=\"text/javascript\" src=\"../../js/zepto/zepto.min.js\"></script>\r\n");
       out.write("<script type=\"text/javascript\" src=\"../../js/item-add.js\"></script>\r\n");
@@ -76,27 +81,10 @@ public final class item_002dadd_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("\t</div>\r\n");
       out.write("\t\r\n");
       out.write("\t<div style=\"width: 100%; position: absolute; top: 70px; bottom: 0px;\">\r\n");
-      out.write("\t\t<div style=\"position: relative; margin: 2px 5px 3px 20px; border: 0px solid silver;\">\r\n");
-      out.write("\t\t\t<input id=\"name\" type=\"text\" maxlength=\"32\" name=\"title\" placeholder=\"请填写商品名称\" style=\"width: 100%; height: 35px; line-height: 35px; border: 0px solid red; background: transparent; font-size: 14px; font-family: Arial, 'Microsoft YaHei'; outline: none; -webkit-tap-highlight-color:rgba(0,0,0,0); -webkit-user-modify:read-write-plaintext-only;\"/>\r\n");
-      out.write("\t\t</div>\r\n");
-      out.write("\t\t\r\n");
-      out.write("\t\t<div style=\"position: relative; margin: 2px 5px 3px 20px; border: 0px solid silver;\">\r\n");
-      out.write("\t\t\t<span style=\"width: 100%; display: block; font-size: 14px; font-family: Arial, 'Microsoft YaHei'; color: initial;  -webkit-appearance: textfield;-webkit-appearance: textfield; padding: 1px; background-color: white; border: 0px inset; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; -webkit-rtl-ordering: logical; -webkit-user-select: text; cursor: auto; color: darkgrey;\">商品图片</span>\r\n");
-      out.write("\t\t\t<span style=\"width: 72px; height: 72px; display: block; background: url('../../images/rate_cross_480.png'); background-position: center center; background-repeat: no-repeat; background-size: 100% 100%;\"></span>\r\n");
-      out.write("\t\t\t\r\n");
-      out.write("\t\t</div>\r\n");
-      out.write("\t\t\r\n");
-      out.write("\t\t<div style=\"margin: 2px 5px 3px; padding: 3px 5px 3px 15px; border: 0px solid silver; background-color: white; background-image: url('images/qapp_center_loading.png'); background-position: center center; background-repeat: no-repeat; opacity: 0.6;\">\r\n");
-      out.write("\t\t\t<textarea id=\"content\" name=\"content\" rows=\"10\" spellcheck=\"true\" contenteditable=\"true\" placeholder=\"请输入商品描述\" style=\"width: 100%; border: 0px solid red; margin: 0px 0px; padding: 0px 0px; font-size: 14px; font-family: Arial, 'Microsoft YaHei'; resize: none; outline: none; opacity: 0.6; -webkit-tap-highlight-color:rgba(0,0,0,0); -webkit-user-modify:read-write-plaintext-only;\"></textarea>\r\n");
-      out.write("\t\t</div>\r\n");
-      out.write("\t\t\r\n");
-      out.write("\t\t<div style=\"position: relative; margin: 2px 5px 3px 20px; border: 0px solid silver;\">\r\n");
-      out.write("\t\t\t<input id=\"price\" type=\"number\" maxlength=\"32\" name=\"title\" placeholder=\"请输入商品价格\" style=\"width: 100%; height: 35px; line-height: 35px; border: 0px solid red; background: transparent; font-size: 14px; font-family: Arial, 'Microsoft YaHei'; outline: none; -webkit-tap-highlight-color:rgba(0,0,0,0); -webkit-user-modify:read-write-plaintext-only; margin: 0; -moz-appearance: textfield;\"/>\r\n");
-      out.write("\t\t</div>\r\n");
-      out.write("\t\t\r\n");
-      out.write("\t\t<div style=\"position: relative; margin: 2px 5px 3px 20px; border: 0px solid silver;\">\r\n");
-      out.write("\t\t\t<input id=\"stock\" type=\"number\" maxlength=\"32\" name=\"title\" placeholder=\"请输入商品库存\" style=\"width: 100%; height: 35px; line-height: 35px; border: 0px solid red; background: transparent; font-size: 14px; font-family: Arial, 'Microsoft YaHei'; outline: none; -webkit-tap-highlight-color:rgba(0,0,0,0); -webkit-user-modify:read-write-plaintext-only; margin: 0; -moz-appearance: textfield;\"/>\r\n");
-      out.write("\t\t</div>\r\n");
+      out.write("\t\t");
+      if (_jspx_meth_c_005fimport_005f0(_jspx_page_context))
+        return;
+      out.write("\r\n");
       out.write("\t</div>\r\n");
       out.write("\t\r\n");
       out.write("\t<script type=\"text/javascript\" src=\"../../js/chos/template-engine/TEngine.js\" ></script>\r\n");
@@ -113,5 +101,32 @@ public final class item_002dadd_jsp extends org.apache.jasper.runtime.HttpJspBas
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_c_005fimport_005f0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:import
+    org.apache.taglibs.standard.tag.rt.core.ImportTag _jspx_th_c_005fimport_005f0 = (org.apache.taglibs.standard.tag.rt.core.ImportTag) _005fjspx_005ftagPool_005fc_005fimport_0026_005furl_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.ImportTag.class);
+    _jspx_th_c_005fimport_005f0.setPageContext(_jspx_page_context);
+    _jspx_th_c_005fimport_005f0.setParent(null);
+    // /WEB-INF/business/item-add.jsp(24,2) name = url type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005fimport_005f0.setUrl("../business/tmpl-item-add.jsp");
+    int[] _jspx_push_body_count_c_005fimport_005f0 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_005fimport_005f0 = _jspx_th_c_005fimport_005f0.doStartTag();
+      if (_jspx_th_c_005fimport_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_005fimport_005f0[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_005fimport_005f0.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_005fimport_005f0.doFinally();
+      _005fjspx_005ftagPool_005fc_005fimport_0026_005furl_005fnobody.reuse(_jspx_th_c_005fimport_005f0);
+    }
+    return false;
   }
 }

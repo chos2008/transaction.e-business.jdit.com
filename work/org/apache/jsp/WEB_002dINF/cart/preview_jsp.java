@@ -60,11 +60,11 @@ public final class preview_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("<div class=\"preview\" style=\"background-color: white; height: 350px;\">\r\n");
-      out.write("\t<ul class=\"list-item list-item-t\" style=\"height: 90px; line-height: 90px; position: relative; border: 0px solid silver;\">\r\n");
-      out.write("\t\t<li class=\"list-item-t-item\" style=\"height: 90px; line-height: 90px;\">\r\n");
-      out.write("\t\t\t<span class=\"list-item-t-item-preview-cart-img-back\" style=\"cursor: pointer;\"></span>\r\n");
+      out.write("\t<ul class=\"list-item list-item-t\" style=\"height: 70px; line-height: 70px; position: relative; border: 0px solid silver;\">\r\n");
+      out.write("\t\t<li class=\"list-item-t-item\" style=\"height: 70px; line-height: 70px;\">\r\n");
+      out.write("\t\t\t<span class=\"list-item-t-item-preview-cart-img-back\" style=\"height: 70px; cursor: pointer;\"></span>\r\n");
       out.write("\t\t</li>\r\n");
-      out.write("\t\t<li class=\"list-item-t-item-right\" style=\"height: 90px; line-height: 24px; margin: 0px 0px; padding: 33px 4px 0px 0px;\">\r\n");
+      out.write("\t\t<li class=\"list-item-t-item-right\" style=\"height: 70px; line-height: 24px; margin: 0px 0px; padding: 23px 4px 0px 0px;\">\r\n");
       out.write("\t\t\t<!-- \r\n");
       out.write("\t\t\t<span class=\"list-item-t-item-preview-cart-img-close\"></span>\r\n");
       out.write("\t\t\t -->\r\n");
@@ -78,9 +78,6 @@ public final class preview_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t<span style=\"display: block; line-height: 24px;\">&yen;");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${item.amount}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
       out.write("</span>\r\n");
-      out.write("\t\t\t<span style=\"display: block; line-height: 24px;\">库存");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${item.stock}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-      out.write("</span>\r\n");
       out.write("\t\t\t<span style=\"display: block; line-height: 24px;\"><a>");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${item.title}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
       out.write("</a></span>\r\n");
@@ -88,7 +85,9 @@ public final class preview_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t</ul>\r\n");
       out.write("\t<ul style=\"list-style: none;\">\r\n");
       out.write("\t\t<li style=\"border: 0px solid silver;\">\r\n");
-      out.write("\t\t<div>数量： <input class=\"quantity\" type=\"number\" value=\"1\" maxlength=\"32\" name=\"title\" placeholder=\"\" style=\"width: 100%; height: 35px; line-height: 35px; border: 0px solid red; background: transparent; font-size: 14px; font-family: Arial, 'Microsoft YaHei'; outline: none; -webkit-tap-highlight-color:rgba(0,0,0,0); -webkit-user-modify:read-write-plaintext-only; margin: 0; -moz-appearance: textfield;\"/></div>\r\n");
+      out.write("\t\t<!-- -webkit-user-modify:read-write-plaintext-only;  -moz-appearance: textfield;\r\n");
+      out.write("\t\t<div>数量： <input class=\"quantity\" type=\"number\" value=\"1\" maxlength=\"32\" name=\"title\" placeholder=\"\" style=\"width: 100%; height: 35px; line-height: 35px; border: 0px solid red; background: transparent; font-size: 14px; font-family: Arial, 'Microsoft YaHei'; outline: none; -webkit-tap-highlight-color:rgba(0,0,0,0); margin: 0; -webkit-appearance: none;\"/></div>\r\n");
+      out.write("\t\t -->\r\n");
       out.write("\t\t</li>\r\n");
       out.write("\t</ul>\r\n");
       out.write("</div>");

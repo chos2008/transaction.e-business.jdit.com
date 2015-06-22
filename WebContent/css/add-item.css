@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+.list-item-t-item-img {
+	width: 32px;
+  	height: 32px;
+	background-image: url("../images/ekz.png");
+  	background-repeat: no-repeat;
+  	background-position: center center;
+}
+
+.add-item-img {
+	width: 72px; 
+	height: 72px; 
+	display: block; 
+	background: url('../images/rate_cross_480.png'); 
+	background-position: center center; 
+	background-repeat: no-repeat; 
+	background-size: 100% 100%;
+}

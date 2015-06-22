@@ -31,6 +31,10 @@ public class Product {
 	
 	private long userId;
 	
+	private long storeId;
+	
+	private int source;
+	
 	private float price;
 	
 	private int stock;
@@ -42,6 +46,8 @@ public class Product {
 	private String smallImage;
 	
 	private String largeImage;
+	
+	private int state;
 	
 	private String description;
 	
@@ -89,6 +95,34 @@ public class Product {
 	 */
 	public void setUserId(long userId) {
 		this.userId = userId;
+	}
+
+	/**
+	 * @return the storeId
+	 */
+	public long getStoreId() {
+		return storeId;
+	}
+
+	/**
+	 * @param storeId the storeId to set
+	 */
+	public void setStoreId(long storeId) {
+		this.storeId = storeId;
+	}
+
+	/**
+	 * @return the source
+	 */
+	public int getSource() {
+		return source;
+	}
+
+	/**
+	 * @param source the source to set
+	 */
+	public void setSource(int source) {
+		this.source = source;
 	}
 
 	/**
@@ -173,6 +207,20 @@ public class Product {
 	 */
 	public void setLargeImage(String largeImage) {
 		this.largeImage = largeImage;
+	}
+
+	/**
+	 * @return the state
+	 */
+	public int getState() {
+		return state;
+	}
+
+	/**
+	 * @param state the state to set
+	 */
+	public void setState(int state) {
+		this.state = state;
 	}
 
 	/**

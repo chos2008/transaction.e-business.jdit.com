@@ -17,7 +17,8 @@
 <link rel="stylesheet" type="text/css" href="../css/s-item.css"/>
 
 <script type="text/javascript" src="../js/zepto/zepto.min.js"></script>
-<script type="text/javascript" src="../js/index.js"></script>
+<script type="text/javascript" src="../js/tips.js"></script>
+<script type="text/javascript" src="../js/s-item.js"></script>
 <script type="text/javascript" src="../js/item.js"></script>
 </head>
 <body style="margin: 0px 0px; padding: 0px 0px;">
@@ -104,7 +105,7 @@
 				<a href="/item/share.shtml?item_id=${item.id}" style="width: 20px; height: 20px; display: block; background-repeat: no-repeat; background-image: url('../images/share_icon_mini.png');"></a>
 				</label>
 				<label style="display: inline-block;">
-					<a href="javascript: void(0);" onclick="cart(${item.id})" style="color: white;">(<i id="order-sheet-stats">0</i>)立即接单</a>
+					<a href="javascript: void(0);" class="d_cart" bind-data="${item.id}" style="color: white; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0,0,0,0);">(<i class="order-sheet-stats">0</i>)立即接单</a>
 				</label>
 				<label style="display: inline-block;">
 					<a href="../cart.shtml?item=${item.id}" style="color: white;">直接交易</a>
@@ -113,5 +114,6 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript" src="../js/chos/template-engine/TEngine.js" ></script>
 </body>
 </html>
